@@ -1,0 +1,292 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/03-characters/core-identity/cast-overview.schema.json",
+  "title": "Grimoire · Cast Overview",
+  "description": "Extraction schema for cast-overview.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "antagonist_strength": {
+      "type": "string",
+      "description": "Antagonist strength:",
+      "x-source-required": false
+    },
+    "supporting_cast_size": {
+      "type": "string",
+      "description": "Supporting cast size:",
+      "x-source-required": false
+    },
+    "racialethnic_diversity": {
+      "type": "string",
+      "description": "Racial/ethnic diversity:",
+      "x-source-required": false
+    },
+    "constellation_notes": {
+      "type": "string",
+      "description": "Constellation notes:",
+      "x-source-required": false
+    },
+    "act_1_beginning": {
+      "type": "string",
+      "description": "Act 1 / Beginning:",
+      "x-source-required": false
+    },
+    "act_2_middle": {
+      "type": "string",
+      "description": "Act 2 / Middle:",
+      "x-source-required": false
+    },
+    "act_3_end": {
+      "type": "string",
+      "description": "Act 3 / End:",
+      "x-source-required": false
+    },
+    "why_they_might_go": {
+      "type": "string",
+      "description": "Why they might go:",
+      "x-source-required": false
+    },
+    "what_id_lose_if_i_cut_them": {
+      "type": "string",
+      "description": "What I'd lose if I cut them:",
+      "x-source-required": false
+    },
+    "function_needed": {
+      "type": "string",
+      "description": "Function needed:",
+      "x-source-required": false
+    },
+    "risk_of_adding": {
+      "type": "string",
+      "description": "Risk of adding:",
+      "x-source-required": false
+    },
+    "character_name_rows": {
+      "type": "array",
+      "description": "Table with columns: Character Name, Role, Archetype, Circle, Membership, Alignment, Wound, Function, One-Line Description, Arc Type, Key Relationship(s)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character_name": {
+            "type": "string",
+            "description": "Character Name",
+            "x-source-required": false
+          },
+          "role": {
+            "$ref": "grimoire:base#/$defs/roleEnum"
+          },
+          "archetype": {
+            "$ref": "grimoire:base#/$defs/archetypeEnum"
+          },
+          "circle": {
+            "type": "string",
+            "description": "Circle",
+            "x-source-required": false
+          },
+          "membership": {
+            "type": "string",
+            "description": "Membership",
+            "x-source-required": false
+          },
+          "alignment": {
+            "$ref": "grimoire:base#/$defs/alignmentEnum"
+          },
+          "wound": {
+            "$ref": "grimoire:base#/$defs/woundEnum"
+          },
+          "function": {
+            "type": "string",
+            "description": "Function",
+            "x-source-required": false
+          },
+          "oneline_description": {
+            "type": "string",
+            "description": "One-Line Description",
+            "x-source-required": false
+          },
+          "arc_type": {
+            "$ref": "grimoire:base#/$defs/arcTypeEnum"
+          },
+          "key_relationships": {
+            "type": "string",
+            "description": "Key Relationship(s)",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "name_rows": {
+      "type": "array",
+      "description": "Table with columns: Name, POV Type, % of Book, Core Goal, Core Flaw, Arc Summary",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "x-source-required": false
+          },
+          "pov_type": {
+            "type": "string",
+            "description": "POV Type",
+            "x-source-required": false
+          },
+          "of_book": {
+            "type": "string",
+            "description": "% of Book",
+            "x-source-required": false
+          },
+          "core_goal": {
+            "type": "string",
+            "description": "Core Goal",
+            "x-source-required": false
+          },
+          "core_flaw": {
+            "type": "string",
+            "description": "Core Flaw",
+            "x-source-required": false
+          },
+          "arc_summary": {
+            "type": "string",
+            "description": "Arc Summary",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_3_rows": {
+      "type": "array",
+      "description": "Table with columns: Name, Antagonist Type, Goal, Why They Oppose Protagonist, Redeemable?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "x-source-required": false
+          },
+          "antagonist_type": {
+            "type": "string",
+            "description": "Antagonist Type",
+            "x-source-required": false
+          },
+          "goal": {
+            "type": "string",
+            "description": "Goal",
+            "x-source-required": false
+          },
+          "why_they_oppose_protagonist": {
+            "type": "string",
+            "description": "Why They Oppose Protagonist",
+            "x-source-required": false
+          },
+          "redeemable": {
+            "$ref": "grimoire:base#/$defs/yesNoPartial"
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_4_rows": {
+      "type": "array",
+      "description": "Table with columns: Name, Relationship to Protagonist, Purpose in Story, Page Time",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "x-source-required": false
+          },
+          "relationship_to_protagonist": {
+            "type": "string",
+            "description": "Relationship to Protagonist",
+            "x-source-required": false
+          },
+          "purpose_in_story": {
+            "type": "string",
+            "description": "Purpose in Story",
+            "x-source-required": false
+          },
+          "page_time": {
+            "type": "string",
+            "description": "Page Time",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_5_rows": {
+      "type": "array",
+      "description": "Table with columns: Name, Age, Occupation, Key Physical Trait, Secret, Wants, Fears",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "x-source-required": false
+          },
+          "age": {
+            "type": "string",
+            "description": "Age",
+            "x-source-required": false
+          },
+          "occupation": {
+            "type": "string",
+            "description": "Occupation",
+            "x-source-required": false
+          },
+          "key_physical_trait": {
+            "type": "string",
+            "description": "Key Physical Trait",
+            "x-source-required": false
+          },
+          "secret": {
+            "type": "string",
+            "description": "Secret",
+            "x-source-required": false
+          },
+          "wants": {
+            "type": "string",
+            "description": "Wants",
+            "x-source-required": false
+          },
+          "fears": {
+            "type": "string",
+            "description": "Fears",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Do marginalized characters exist only to serve the dominant character's arc?",
+          "Are diverse characters given interiority and complexity, or are they flat?",
+          "Have I researched accurately and consulted sensitivity readers if needed?",
+          "Is the diversity organic to the world, or does it feel like a checklist?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "03-characters/core-identity/cast-overview.md"
+}

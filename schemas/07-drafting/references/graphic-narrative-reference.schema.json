@@ -1,0 +1,189 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/references/graphic-narrative-reference.schema.json",
+  "title": "Grimoire · Graphic Narrative Reference",
+  "description": "Extraction schema for graphic-narrative-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "transition_rows": {
+      "type": "array",
+      "description": "Table with columns: Transition, Definition, When to use, Prose equivalent",
+      "items": {
+        "type": "object",
+        "properties": {
+          "transition": {
+            "type": "string",
+            "description": "Transition",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "when_to_use": {
+            "type": "string",
+            "description": "When to use",
+            "x-source-required": false
+          },
+          "prose_equivalent": {
+            "type": "string",
+            "description": "Prose equivalent",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "visual_indicator_rows": {
+      "type": "array",
+      "description": "Table with columns: Visual indicator, Duration implied, Prose equivalent",
+      "items": {
+        "type": "object",
+        "properties": {
+          "visual_indicator": {
+            "type": "string",
+            "description": "Visual indicator",
+            "x-source-required": false
+          },
+          "duration_implied": {
+            "type": "string",
+            "description": "Duration implied",
+            "x-source-required": false
+          },
+          "prose_equivalent": {
+            "type": "string",
+            "description": "Prose equivalent",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "position_rows": {
+      "type": "array",
+      "description": "Table with columns: Position, Visual style, Reader's cognitive mode, Prose equivalent",
+      "items": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "visual_style": {
+            "type": "string",
+            "description": "Visual style",
+            "x-source-required": false
+          },
+          "readers_cognitive_mode": {
+            "type": "string",
+            "description": "Reader's cognitive mode",
+            "x-source-required": false
+          },
+          "prose_equivalent": {
+            "type": "string",
+            "description": "Prose equivalent",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "relationship_rows": {
+      "type": "array",
+      "description": "Table with columns: Relationship, Effect, When to use",
+      "items": {
+        "type": "object",
+        "properties": {
+          "relationship": {
+            "type": "string",
+            "description": "Relationship",
+            "x-source-required": false
+          },
+          "effect": {
+            "type": "string",
+            "description": "Effect",
+            "x-source-required": false
+          },
+          "when_to_use": {
+            "type": "string",
+            "description": "When to use",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "question_rows": {
+      "type": "array",
+      "description": "Table with columns: Question, Design implication",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "Question",
+            "x-source-required": false
+          },
+          "design_implication": {
+            "type": "string",
+            "description": "Design implication",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "element_rows": {
+      "type": "array",
+      "description": "Table with columns: Element, Notes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "element": {
+            "type": "string",
+            "description": "Element",
+            "x-source-required": false
+          },
+          "notes": {
+            "type": "string",
+            "description": "Notes",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "topic_rows": {
+      "type": "array",
+      "description": "Table with columns: Topic, File",
+      "items": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "description": "Topic",
+            "x-source-required": false
+          },
+          "file": {
+            "type": "string",
+            "description": "File",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-drafting/references/graphic-narrative-reference.md"
+}

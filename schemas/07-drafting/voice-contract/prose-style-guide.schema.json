@@ -1,0 +1,392 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/voice-contract/prose-style-guide.schema.json",
+  "title": "Grimoire · Prose Style Guide",
+  "description": "Extraction schema for prose-style-guide.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "overall_voice_character": {
+      "type": "string",
+      "description": "Overall Voice Character:",
+      "x-source-required": false
+    },
+    "tonal_range": {
+      "type": "string",
+      "description": "Tonal Range:",
+      "x-source-required": false
+    },
+    "tonal_shifts": {
+      "type": "string",
+      "description": "Tonal Shifts:",
+      "x-source-required": false
+    },
+    "narrative_distance": {
+      "type": "string",
+      "description": "Narrative Distance:",
+      "x-source-required": false
+    },
+    "register": {
+      "type": "string",
+      "description": "Register:",
+      "x-source-required": false
+    },
+    "pov_details": {
+      "type": "string",
+      "description": "POV Details:",
+      "x-source-required": false
+    },
+    "psychic_distance": {
+      "type": "string",
+      "description": "Psychic Distance:",
+      "x-source-required": false
+    },
+    "tense_rules": {
+      "type": "string",
+      "description": "Tense Rules:",
+      "x-source-required": false
+    },
+    "default_sentence_length": {
+      "type": "string",
+      "description": "Default Sentence Length:",
+      "x-source-required": false
+    },
+    "rhythm_pattern": {
+      "type": "string",
+      "description": "Rhythm Pattern:",
+      "x-source-required": false
+    },
+    "paragraph_length": {
+      "type": "string",
+      "description": "Paragraph Length:",
+      "x-source-required": false
+    },
+    "sentence_openings": {
+      "type": "string",
+      "description": "Sentence Openings:",
+      "x-source-required": false
+    },
+    "vocabulary_boundaries": {
+      "type": "string",
+      "description": "Vocabulary Boundaries:",
+      "x-source-required": false
+    },
+    "specialized_vocabulary": {
+      "type": "string",
+      "description": "Specialized Vocabulary:",
+      "x-source-required": false
+    },
+    "default_construction_in_your_prose": {
+      "type": "string",
+      "description": "Default construction in your prose:",
+      "x-source-required": false
+    },
+    "construction_you_most_underuse": {
+      "type": "string",
+      "description": "Construction you most underuse:",
+      "x-source-required": false
+    },
+    "asyndeton_vs_polysyndeton_policy": {
+      "type": "string",
+      "description": "Asyndeton vs. polysyndeton policy:",
+      "x-source-required": false
+    },
+    "filter_word_policy": {
+      "type": "string",
+      "description": "Filter word policy:",
+      "x-source-required": false
+    },
+    "sentenceinitial_variation_rule": {
+      "type": "string",
+      "description": "Sentence-initial variation rule:",
+      "x-source-required": false
+    },
+    "metaphor_figurative_language": {
+      "type": "string",
+      "description": "Metaphor & Figurative Language:",
+      "x-source-required": false
+    },
+    "sensory_emphasis": {
+      "type": "string",
+      "description": "Sensory Emphasis:",
+      "x-source-required": false
+    },
+    "time_summary": {
+      "type": "string",
+      "description": "Time & Summary:",
+      "x-source-required": false
+    },
+    "specific_stylistic_choices": {
+      "type": "string",
+      "description": "Specific Stylistic Choices:",
+      "x-source-required": false
+    },
+    "signature_moves": {
+      "type": "string",
+      "description": "Signature Moves:",
+      "x-source-required": false
+    },
+    "default_mode": {
+      "type": "string",
+      "description": "Default Mode:",
+      "x-source-required": false
+    },
+    "when_you_tell": {
+      "type": "string",
+      "description": "When You Tell:",
+      "x-source-required": false
+    },
+    "when_you_show": {
+      "type": "string",
+      "description": "When You Show:",
+      "x-source-required": false
+    },
+    "thought_presentation": {
+      "type": "string",
+      "description": "Thought Presentation:",
+      "x-source-required": false
+    },
+    "perception_filtering": {
+      "type": "string",
+      "description": "Perception Filtering:",
+      "x-source-required": false
+    },
+    "emotional_labeling": {
+      "type": "string",
+      "description": "Emotional Labeling:",
+      "x-source-required": false
+    },
+    "dominant_minor_affect_ngai": {
+      "type": "string",
+      "description": "Dominant minor affect (Ngai):",
+      "x-source-required": false
+    },
+    "primary_atmospheric_quality_of_your_books_world": {
+      "type": "string",
+      "description": "Primary atmospheric quality of your book's world:",
+      "x-source-required": false
+    },
+    "atmospheric_exception_zones": {
+      "type": "string",
+      "description": "Atmospheric exception zones:",
+      "x-source-required": false
+    },
+    "sentence_abbreviated_rows": {
+      "type": "array",
+      "description": "Table with columns: Sentence (abbreviated), Final word/phrase, Is it the right word to end on?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sentence_abbreviated": {
+            "type": "string",
+            "description": "Sentence (abbreviated)",
+            "x-source-required": false
+          },
+          "final_wordphrase": {
+            "type": "string",
+            "description": "Final word/phrase",
+            "x-source-required": false
+          },
+          "is_it_the_right_word_to_end_on": {
+            "type": "string",
+            "description": "Is it the right word to end on?",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "scene_section_type_rows": {
+      "type": "array",
+      "description": "Table with columns: Scene / section type, Target affect, Primary formal technique",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scene_section_type": {
+            "type": "string",
+            "description": "Scene / section type",
+            "x-source-required": false
+          },
+          "target_affect": {
+            "type": "string",
+            "description": "Target affect",
+            "x-source-required": false
+          },
+          "primary_formal_technique": {
+            "type": "string",
+            "description": "Primary formal technique",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "First person (I/we)",
+          "Second person (you)",
+          "Third person limited",
+          "Third person omniscient",
+          "Multiple POV (specify below)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Present tense",
+          "Past tense",
+          "Mixed (specify usage)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Prefer simple sentences (SVO)",
+          "Use complex sentences with subordinate clauses",
+          "Embrace fragments for effect",
+          "Use semicolons frequently / sparingly / never",
+          "Favor coordination (and, but, or) over subordination (because, although, when)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_4": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Plain/accessible (6th-8th grade reading level)",
+          "Moderate (10th-12th grade)",
+          "Elevated/literary (requires educated vocabulary)",
+          "Specialized (technical, period-specific, or genre lexicon)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_5": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "No profanity",
+          "Mild only (damn, hell)",
+          "Moderate (some strong language)",
+          "Unrestricted (character/context appropriate)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_6": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "**Additive / paratactic** (serial elements, equal weight) — % of use: ___",
+          "**Subordinative** (nested clauses, hierarchical weight) — % of use: ___",
+          "**Periodic** (main clause withheld until end) — % of use: ___",
+          "**Cumulative** (main clause first, then free modifiers) — % of use: ___",
+          "**Appositive** (noun expanded by parallel noun phrases) — % of use: ___"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_7": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Passive voice",
+          "Filter words (saw, felt, heard, thought, realized, knew)",
+          "Clichés and idioms",
+          "Weather-as-emotion",
+          "Info dumps/exposition lectures",
+          "Overwritten description (purple prose)",
+          "Invisible prose (too plain, no personality)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_8": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Direct interior monologue (\"I can't believe she said that\")",
+          "Free indirect discourse (blend of narrator and character thoughts)",
+          "Summarized thoughts (She wondered what he meant)",
+          "Mixed/strategic (specify)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_9": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Syntactic register (expansive and slow, or compressed and quick?)",
+          "Pacing of revelation (slow approach to settings, or immediate immersion?)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_10": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "POV maintained consistently?",
+          "Tense correct?",
+          "Sentence rhythm matches guide?",
+          "Vocabulary level appropriate?",
+          "Tone fits scene and overall voice?",
+          "Show/tell balance appropriate?",
+          "Filter words eliminated?",
+          "Signature style moves present?",
+          "Nothing from \"avoid\" list present?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-drafting/voice-contract/prose-style-guide.md"
+}

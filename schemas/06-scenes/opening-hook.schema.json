@@ -1,0 +1,265 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/06-scenes/opening-hook.schema.json",
+  "title": "Grimoire · Opening Hook",
+  "description": "Extraction schema for opening-hook.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "story_title": {
+      "type": "string",
+      "description": "Story Title:",
+      "x-source-required": false
+    },
+    "genre_tone": {
+      "type": "string",
+      "description": "Genre & Tone:",
+      "x-source-required": false
+    },
+    "opening_type": {
+      "type": "string",
+      "description": "Opening Type:",
+      "x-source-required": false
+    },
+    "pov_tense": {
+      "type": "string",
+      "description": "POV & Tense:",
+      "x-source-required": false
+    },
+    "opening_location": {
+      "type": "string",
+      "description": "Opening Location:",
+      "x-source-required": false
+    },
+    "opening_time": {
+      "type": "string",
+      "description": "Opening Time:",
+      "x-source-required": false
+    },
+    "what_is_your_inciting_image": {
+      "type": "string",
+      "description": "What is your inciting image?",
+      "x-source-required": false
+    },
+    "why_this_image": {
+      "type": "string",
+      "description": "Why this image?",
+      "x-source-required": false
+    },
+    "dominant_sense": {
+      "type": "string",
+      "description": "Dominant sense:",
+      "x-source-required": false
+    },
+    "symbolicthematic_resonance": {
+      "type": "string",
+      "description": "Symbolic/thematic resonance:",
+      "x-source-required": false
+    },
+    "protagonist_name": {
+      "type": "string",
+      "description": "Protagonist name:",
+      "x-source-required": false
+    },
+    "first_impression": {
+      "type": "string",
+      "description": "First impression:",
+      "x-source-required": false
+    },
+    "characteristic_action": {
+      "type": "string",
+      "description": "Characteristic action:",
+      "x-source-required": false
+    },
+    "internal_life": {
+      "type": "string",
+      "description": "Internal life:",
+      "x-source-required": false
+    },
+    "what_makes_them_distinctive": {
+      "type": "string",
+      "description": "What makes them distinctive?",
+      "x-source-required": false
+    },
+    "initial_sympathyintrigue": {
+      "type": "string",
+      "description": "Initial sympathy/intrigue:",
+      "x-source-required": false
+    },
+    "status_quobaseline": {
+      "type": "string",
+      "description": "Status quo/baseline:",
+      "x-source-required": false
+    },
+    "whats_unique_about_your_story_world": {
+      "type": "string",
+      "description": "What's unique about your story world?",
+      "x-source-required": false
+    },
+    "world_detail_to_establish_early": {
+      "type": "string",
+      "description": "World detail to establish early:",
+      "x-source-required": false
+    },
+    "rules_or_constraints": {
+      "type": "string",
+      "description": "Rules or constraints:",
+      "x-source-required": false
+    },
+    "normalcy_vs_novelty_balance": {
+      "type": "string",
+      "description": "Normalcy vs. novelty balance:",
+      "x-source-required": false
+    },
+    "primary_story_question": {
+      "type": "string",
+      "description": "Primary story question:",
+      "x-source-required": false
+    },
+    "opening_scene_question": {
+      "type": "string",
+      "description": "Opening scene question:",
+      "x-source-required": false
+    },
+    "when_is_the_question_answered": {
+      "type": "string",
+      "description": "When is the question answered?",
+      "x-source-required": false
+    },
+    "escalation_path": {
+      "type": "string",
+      "description": "Escalation path:",
+      "x-source-required": false
+    },
+    "narrative_voice": {
+      "type": "string",
+      "description": "Narrative voice:",
+      "x-source-required": false
+    },
+    "tone": {
+      "type": "string",
+      "description": "Tone:",
+      "x-source-required": false
+    },
+    "prose_style": {
+      "type": "string",
+      "description": "Prose style:",
+      "x-source-required": false
+    },
+    "pacing": {
+      "type": "string",
+      "description": "Pacing:",
+      "x-source-required": false
+    },
+    "genre_signals": {
+      "type": "string",
+      "description": "Genre signals:",
+      "x-source-required": false
+    },
+    "consistency_check": {
+      "type": "string",
+      "description": "Consistency check:",
+      "x-source-required": false
+    },
+    "scene_goal": {
+      "type": "string",
+      "description": "Scene Goal:",
+      "x-source-required": false
+    },
+    "conflictcomplication": {
+      "type": "string",
+      "description": "Conflict/Complication:",
+      "x-source-required": false
+    },
+    "outcome": {
+      "type": "string",
+      "description": "Outcome:",
+      "x-source-required": false
+    },
+    "transition": {
+      "type": "string",
+      "description": "Transition:",
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "**In Medias Res** (middle of action—reader orients as scene unfolds)",
+          "**Inciting Image** (vivid, symbolic moment that encapsulates story's essence)",
+          "**Voice-Forward** (strong narrative voice/perspective establishes tone)",
+          "**World-Immersion** (reader plunged into distinctive setting/world)",
+          "**Framing Device** (narrator addressing reader, setting up story-to-come)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "**Embedded in action** (character interacts with world naturally)",
+          "**Filtered through POV perspective** (character notices what's unusual to them)",
+          "**Brief narratorial aside** (quick context, then back to scene)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "**Explicit mystery** (direct question posed—\"Where is the missing child?\")",
+          "**Problem to solve** (character faces dilemma readers want resolution for)",
+          "**Tension/threat** (danger hinted, readers want to see if character survives)",
+          "**Curiosity gap** (something unusual/intriguing that begs explanation)",
+          "**Emotional hook** (readers want to see if character achieves emotional goal)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_4": {
+      "type": "string",
+      "enum": [],
+      "description": "Single-select from options: ",
+      "x-todo": "verify enum is single-select"
+    },
+    "checkboxes_5": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Does the first paragraph create sensory presence (inciting image)?",
+          "Can readers identify the protagonist within the first page?",
+          "Do readers understand the basic situation (where, when, who) without confusion?",
+          "Is there a question/hook that makes readers want to continue?",
+          "Does the opening reflect the story's true tone and genre?",
+          "Have you avoided backstory info-dumps?",
+          "Does the opening hint at the deeper conflict without revealing everything?",
+          "Would you keep reading if this were someone else's book?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "06-scenes/opening-hook.md"
+}

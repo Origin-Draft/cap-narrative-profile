@@ -1,0 +1,154 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/00-start-here/author-journal.schema.json",
+  "title": "Grimoire · Author Journal",
+  "description": "Extraction schema for author-journal.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "what_i_learned_about_writing_from_this_work": {
+      "type": "string",
+      "description": "What I learned about writing from this work:",
+      "x-source-required": false
+    },
+    "craft_skill_im_better_at_than_when_i_started_this_project": {
+      "type": "string",
+      "description": "Craft skill I'm better at than when I started this project:",
+      "x-source-required": false
+    },
+    "recurring_weakness_i_noticed_in_this_period": {
+      "type": "string",
+      "description": "Recurring weakness I noticed in this period:",
+      "x-source-required": false
+    },
+    "one_craft_principle_i_plan_to_apply_differently_next_time": {
+      "type": "string",
+      "description": "One craft principle I plan to apply differently next time:",
+      "x-source-required": false
+    },
+    "books_i_read_during_this_project_that_influenced_my_prose": {
+      "type": "string",
+      "description": "Books I read during this project that influenced my prose:",
+      "x-source-required": false
+    },
+    "the_quality_im_most_drawn_to_right_now_in_fiction": {
+      "type": "string",
+      "description": "The quality I'm most drawn to right now in fiction:",
+      "x-source-required": false
+    },
+    "the_quality_i_most_want_to_develop_in_my_own_writing": {
+      "type": "string",
+      "description": "The quality I most want to develop in my own writing:",
+      "x-source-required": false
+    },
+    "the_quality_i_think_i_do_well_and_want_to_protect": {
+      "type": "string",
+      "description": "The quality I think I do well (and want to protect):",
+      "x-source-required": false
+    },
+    "how_my_taste_has_changed_over_the_course_of_writing_this_pro": {
+      "type": "string",
+      "description": "How my taste has changed over the course of writing this project:",
+      "x-source-required": false
+    },
+    "what_i_attempted": {
+      "type": "string",
+      "description": "What I attempted:",
+      "x-source-required": false
+    },
+    "what_happened_instead": {
+      "type": "string",
+      "description": "What happened instead:",
+      "x-source-required": false
+    },
+    "what_i_learned": {
+      "type": "string",
+      "description": "What I learned:",
+      "x-source-required": false
+    },
+    "would_i_try_this_technique_again": {
+      "type": "string",
+      "description": "Would I try this technique again?",
+      "x-source-required": false
+    },
+    "stories_i_believe_i_have_standing_to_tell": {
+      "type": "string",
+      "description": "Stories I believe I have standing to tell:",
+      "x-source-required": false
+    },
+    "stories_i_feel_uncertain_about_telling": {
+      "type": "string",
+      "description": "Stories I feel uncertain about telling:",
+      "x-source-required": false
+    },
+    "moments_in_this_project_where_imposter_syndrome_interfered_w": {
+      "type": "string",
+      "description": "Moments in this project where imposter syndrome interfered with craft decisions:",
+      "x-source-required": false
+    },
+    "the_most_authentic_thing_i_wrote_in_this_project": {
+      "type": "string",
+      "description": "The most authentic thing I wrote in this project:",
+      "x-source-required": false
+    },
+    "what_that_authentic_moment_tells_you_about_your_voice": {
+      "type": "string",
+      "description": "What that authentic moment tells you about your voice:",
+      "x-source-required": false
+    },
+    "recurring_themes_across_my_work": {
+      "type": "string",
+      "description": "Recurring themes across my work:",
+      "x-source-required": false
+    },
+    "recurring_structural_tendencies": {
+      "type": "string",
+      "description": "Recurring structural tendencies:",
+      "x-source-required": false
+    },
+    "recurring_character_types_i_gravitate_toward": {
+      "type": "string",
+      "description": "Recurring character types I gravitate toward:",
+      "x-source-required": false
+    },
+    "recurring_weakness_across_multiple_projects": {
+      "type": "string",
+      "description": "Recurring weakness across multiple projects:",
+      "x-source-required": false
+    },
+    "evidence_of_genuine_development_from_previous_projects": {
+      "type": "string",
+      "description": "Evidence of genuine development from previous projects:",
+      "x-source-required": false
+    },
+    "how_my_relationship_with_ai_assistance_changed_during_this_p": {
+      "type": "string",
+      "description": "How my relationship with AI assistance changed during this project:",
+      "x-source-required": false
+    },
+    "where_ai_added_most_value_in_this_project": {
+      "type": "string",
+      "description": "Where AI added most value in this project:",
+      "x-source-required": false
+    },
+    "where_ai_degraded_the_work": {
+      "type": "string",
+      "description": "Where AI degraded the work:",
+      "x-source-required": false
+    },
+    "decision_about_ai_assistance_im_carrying_into_the_next_proje": {
+      "type": "string",
+      "description": "Decision about AI assistance I'm carrying into the next project:",
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "00-start-here/author-journal.md"
+}

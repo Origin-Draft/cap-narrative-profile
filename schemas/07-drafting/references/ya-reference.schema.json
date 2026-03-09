@@ -1,0 +1,204 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/references/ya-reference.schema.json",
+  "title": "Grimoire · Ya Reference",
+  "description": "Extraction schema for ya-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "level_rows": {
+      "type": "array",
+      "description": "Table with columns: Level, Description, Indicators in text",
+      "items": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "string",
+            "description": "Level",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          },
+          "indicators_in_text": {
+            "type": "string",
+            "description": "Indicators in text",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "voice_type_rows": {
+      "type": "array",
+      "description": "Table with columns: Voice type, Definition, Power dynamics, Risk",
+      "items": {
+        "type": "object",
+        "properties": {
+          "voice_type": {
+            "type": "string",
+            "description": "Voice type",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "power_dynamics": {
+            "type": "string",
+            "description": "Power dynamics",
+            "x-source-required": false
+          },
+          "risk": {
+            "type": "string",
+            "description": "Risk",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "indicator_rows": {
+      "type": "array",
+      "description": "Table with columns: Indicator, Question to ask",
+      "items": {
+        "type": "object",
+        "properties": {
+          "indicator": {
+            "type": "string",
+            "description": "Indicator",
+            "x-source-required": false
+          },
+          "question_to_ask": {
+            "type": "string",
+            "description": "Question to ask",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "strategy_rows": {
+      "type": "array",
+      "description": "Table with columns: Strategy, How it works, Caution",
+      "items": {
+        "type": "object",
+        "properties": {
+          "strategy": {
+            "type": "string",
+            "description": "Strategy",
+            "x-source-required": false
+          },
+          "how_it_works": {
+            "type": "string",
+            "description": "How it works",
+            "x-source-required": false
+          },
+          "caution": {
+            "type": "string",
+            "description": "Caution",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "ya_power_axis_rows": {
+      "type": "array",
+      "description": "Table with columns: YA power axis, Manifestation, Effect on protagonist",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ya_power_axis": {
+            "type": "string",
+            "description": "YA power axis",
+            "x-source-required": false
+          },
+          "manifestation": {
+            "type": "string",
+            "description": "Manifestation",
+            "x-source-required": false
+          },
+          "effect_on_protagonist": {
+            "type": "string",
+            "description": "Effect on protagonist",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "question_rows": {
+      "type": "array",
+      "description": "Table with columns: Question, Framework",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "Question",
+            "x-source-required": false
+          },
+          "framework": {
+            "type": "string",
+            "description": "Framework",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkpoint_rows": {
+      "type": "array",
+      "description": "Table with columns: Checkpoint, Status",
+      "items": {
+        "type": "object",
+        "properties": {
+          "checkpoint": {
+            "type": "string",
+            "description": "Checkpoint",
+            "x-source-required": false
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "topic_rows": {
+      "type": "array",
+      "description": "Table with columns: Topic, File",
+      "items": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "description": "Topic",
+            "x-source-required": false
+          },
+          "file": {
+            "type": "string",
+            "description": "File",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-drafting/references/ya-reference.md"
+}

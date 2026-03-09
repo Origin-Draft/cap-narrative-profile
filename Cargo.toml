@@ -1,0 +1,3 @@
+[workspace]
+members = ["grimoire-types"]
+resolver = "2"

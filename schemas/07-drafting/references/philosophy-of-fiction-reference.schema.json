@@ -1,0 +1,297 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/references/philosophy-of-fiction-reference.schema.json",
+  "title": "Grimoire · Philosophy Of Fiction Reference",
+  "description": "Extraction schema for philosophy-of-fiction-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "stage_rows": {
+      "type": "array",
+      "description": "Table with columns: Stage, Term, What Happens, Craft Zone",
+      "items": {
+        "type": "object",
+        "properties": {
+          "stage": {
+            "type": "string",
+            "description": "Stage",
+            "x-source-required": false
+          },
+          "term": {
+            "type": "string",
+            "description": "Term",
+            "x-source-required": false
+          },
+          "what_happens": {
+            "type": "string",
+            "description": "What Happens",
+            "x-source-required": false
+          },
+          "craft_zone": {
+            "type": "string",
+            "description": "Craft Zone",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "present_rows": {
+      "type": "array",
+      "description": "Table with columns: Present, Cognitive Function, Narrative Equivalent",
+      "items": {
+        "type": "object",
+        "properties": {
+          "present": {
+            "type": "string",
+            "description": "Present",
+            "x-source-required": false
+          },
+          "cognitive_function": {
+            "type": "string",
+            "description": "Cognitive Function",
+            "x-source-required": false
+          },
+          "narrative_equivalent": {
+            "type": "string",
+            "description": "Narrative Equivalent",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "type_rows": {
+      "type": "array",
+      "description": "Table with columns: Type, Definition, Character Manifestation",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "character_manifestation": {
+            "type": "string",
+            "description": "Character Manifestation",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "concept_rows": {
+      "type": "array",
+      "description": "Table with columns: Concept, Definition, Craft Use",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concept": {
+            "type": "string",
+            "description": "Concept",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "craft_use": {
+            "type": "string",
+            "description": "Craft Use",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_5_rows": {
+      "type": "array",
+      "description": "Table with columns: Type, Definition, Reader Experience, Genre Default",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "reader_experience": {
+            "type": "string",
+            "description": "Reader Experience",
+            "x-source-required": false
+          },
+          "genre_default": {
+            "type": "string",
+            "description": "Genre Default",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "term_rows": {
+      "type": "array",
+      "description": "Table with columns: Term, Definition, Craft Translation",
+      "items": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "Term",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "craft_translation": {
+            "type": "string",
+            "description": "Craft Translation",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "cause_rows": {
+      "type": "array",
+      "description": "Table with columns: Cause, Mechanism, Fix",
+      "items": {
+        "type": "object",
+        "properties": {
+          "cause": {
+            "type": "string",
+            "description": "Cause",
+            "x-source-required": false
+          },
+          "mechanism": {
+            "type": "string",
+            "description": "Mechanism",
+            "x-source-required": false
+          },
+          "fix": {
+            "type": "string",
+            "description": "Fix",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_8_rows": {
+      "type": "array",
+      "description": "Table with columns: Type, Authority, Narrative Situation, Reliability",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "authority": {
+            "type": "string",
+            "description": "Authority",
+            "x-source-required": false
+          },
+          "narrative_situation": {
+            "type": "string",
+            "description": "Narrative Situation",
+            "x-source-required": false
+          },
+          "reliability": {
+            "type": "string",
+            "description": "Reliability",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "operator_rows": {
+      "type": "array",
+      "description": "Table with columns: Operator, Question, World-Building Application, Genre Targeting",
+      "items": {
+        "type": "object",
+        "properties": {
+          "operator": {
+            "type": "string",
+            "description": "Operator",
+            "x-source-required": false
+          },
+          "question": {
+            "type": "string",
+            "description": "Question",
+            "x-source-required": false
+          },
+          "worldbuilding_application": {
+            "type": "string",
+            "description": "World-Building Application",
+            "x-source-required": false
+          },
+          "genre_targeting": {
+            "type": "string",
+            "description": "Genre Targeting",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_10_rows": {
+      "type": "array",
+      "description": "Table with columns: Concept, Primary Grimoire Connection",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concept": {
+            "type": "string",
+            "description": "Concept",
+            "x-source-required": false
+          },
+          "primary_grimoire_connection": {
+            "type": "string",
+            "description": "Primary Grimoire Connection",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Are your fictional world's four modal operators internally consistent?",
+          "Who holds authentication authority? Is it stable or contested?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-drafting/references/philosophy-of-fiction-reference.md"
+}

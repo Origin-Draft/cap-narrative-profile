@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["scripts"]
+
+[project]
+name = "gbr-protocol"
+version = "1.0.0"
+description = "Grimoire Book Representation (GBR) Protocol — typed data model and validation tooling for structured narrative fiction"
+requires-python = ">=3.10"
+
+dependencies = [
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "black>=24.0",
+    "ruff>=0.3",
+]
+
+[project.scripts]
+grimoire-validate = "scripts.validate_against_schema:main"

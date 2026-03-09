@@ -1,0 +1,687 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/05-plot-and-structure/architecture/beat-sheet.schema.json",
+  "title": "Grimoire · Beat Sheet",
+  "description": "Extraction schema for beat-sheet.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "story_title": {
+      "type": "string",
+      "description": "Story Title:",
+      "x-source-required": false
+    },
+    "structural_framework": {
+      "type": "string",
+      "description": "Structural Framework:",
+      "x-source-required": false
+    },
+    "total_estimated_beats": {
+      "type": "string",
+      "description": "Total Estimated Beats:",
+      "x-source-required": false
+    },
+    "target_word_count": {
+      "type": "string",
+      "description": "Target Word Count:",
+      "x-source-required": false
+    },
+    "key_structural_moments_to_hit": {
+      "type": "string",
+      "description": "Key Structural Moments to Hit:",
+      "x-source-required": false
+    },
+    "working_titlebeat_name": {
+      "type": "string",
+      "description": "Working Title/Beat Name:",
+      "x-source-required": false
+    },
+    "story_function": {
+      "type": "string",
+      "description": "Story Function:",
+      "x-source-required": false
+    },
+    "pov_character": {
+      "type": "string",
+      "description": "POV Character:",
+      "x-source-required": false
+    },
+    "setting": {
+      "type": "string",
+      "description": "Setting:",
+      "x-source-required": false
+    },
+    "characters_present": {
+      "type": "string",
+      "description": "Characters Present:",
+      "x-source-required": false
+    },
+    "emotional_tone": {
+      "type": "string",
+      "description": "Emotional Tone:",
+      "x-source-required": false
+    },
+    "what_happens_external": {
+      "type": "string",
+      "description": "What Happens (External):",
+      "x-source-required": false
+    },
+    "what_changes_internal": {
+      "type": "string",
+      "description": "What Changes (Internal):",
+      "x-source-required": false
+    },
+    "conflicttension": {
+      "type": "string",
+      "description": "Conflict/Tension:",
+      "x-source-required": false
+    },
+    "key_information_revealed": {
+      "type": "string",
+      "description": "Key Information Revealed:",
+      "x-source-required": false
+    },
+    "plantssetup_for_later": {
+      "type": "string",
+      "description": "Plants/Setup for Later:",
+      "x-source-required": false
+    },
+    "dialogueinteraction_notes": {
+      "type": "string",
+      "description": "Dialogue/Interaction Notes:",
+      "x-source-required": false
+    },
+    "draft_priority": {
+      "type": "string",
+      "description": "Draft Priority:",
+      "x-source-required": false
+    },
+    "_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Romance Beat, Position, Structural Alignment, Collision Phase",
+      "items": {
+        "type": "object",
+        "properties": {
+          "romance_beat": {
+            "type": "string",
+            "description": "Romance Beat",
+            "x-source-required": false
+          },
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "structural_alignment": {
+            "type": "string",
+            "description": "Structural Alignment",
+            "x-source-required": false
+          },
+          "collision_phase": {
+            "type": "string",
+            "description": "Collision Phase",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_2_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Mystery Beat, Position, Structural Alignment, Tension Function",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mystery_beat": {
+            "type": "string",
+            "description": "Mystery Beat",
+            "x-source-required": false
+          },
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "structural_alignment": {
+            "type": "string",
+            "description": "Structural Alignment",
+            "x-source-required": false
+          },
+          "tension_function": {
+            "type": "string",
+            "description": "Tension Function",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_3_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Thriller Beat, Position, Structural Alignment, Tension Function",
+      "items": {
+        "type": "object",
+        "properties": {
+          "thriller_beat": {
+            "type": "string",
+            "description": "Thriller Beat",
+            "x-source-required": false
+          },
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "structural_alignment": {
+            "type": "string",
+            "description": "Structural Alignment",
+            "x-source-required": false
+          },
+          "tension_function": {
+            "type": "string",
+            "description": "Tension Function",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_4_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Fantasy Beat, Position, Structural Alignment, Wonder Function",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fantasy_beat": {
+            "type": "string",
+            "description": "Fantasy Beat",
+            "x-source-required": false
+          },
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "structural_alignment": {
+            "type": "string",
+            "description": "Structural Alignment",
+            "x-source-required": false
+          },
+          "wonder_function": {
+            "type": "string",
+            "description": "Wonder Function",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_5_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Literary Beat, Position, Structural Alignment, Interior Function",
+      "items": {
+        "type": "object",
+        "properties": {
+          "literary_beat": {
+            "type": "string",
+            "description": "Literary Beat",
+            "x-source-required": false
+          },
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "structural_alignment": {
+            "type": "string",
+            "description": "Structural Alignment",
+            "x-source-required": false
+          },
+          "interior_function": {
+            "type": "string",
+            "description": "Interior Function",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_6_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Horror Beat, Position, Structural Alignment, Dread Function",
+      "items": {
+        "type": "object",
+        "properties": {
+          "horror_beat": {
+            "type": "string",
+            "description": "Horror Beat",
+            "x-source-required": false
+          },
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "structural_alignment": {
+            "type": "string",
+            "description": "Structural Alignment",
+            "x-source-required": false
+          },
+          "dread_function": {
+            "type": "string",
+            "description": "Dread Function",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_7_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Sci-Fi Beat, Position, Structural Alignment, Estrangement Function",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scifi_beat": {
+            "type": "string",
+            "description": "Sci-Fi Beat",
+            "x-source-required": false
+          },
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "structural_alignment": {
+            "type": "string",
+            "description": "Structural Alignment",
+            "x-source-required": false
+          },
+          "estrangement_function": {
+            "type": "string",
+            "description": "Estrangement Function",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_8_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Historical Beat, Position, Structural Alignment, Historical Function",
+      "items": {
+        "type": "object",
+        "properties": {
+          "historical_beat": {
+            "type": "string",
+            "description": "Historical Beat",
+            "x-source-required": false
+          },
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "structural_alignment": {
+            "type": "string",
+            "description": "Structural Alignment",
+            "x-source-required": false
+          },
+          "historical_function": {
+            "type": "string",
+            "description": "Historical Function",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "hmf_beat_rows": {
+      "type": "array",
+      "description": "Table with columns: HMF Beat, Position, Function",
+      "items": {
+        "type": "object",
+        "properties": {
+          "hmf_beat": {
+            "type": "string",
+            "description": "HMF Beat",
+            "x-source-required": false
+          },
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "function": {
+            "type": "string",
+            "description": "Function",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "emplotment_type_rows": {
+      "type": "array",
+      "description": "Table with columns: Emplotment Type, Formal shape, Ideological tendency, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "emplotment_type": {
+            "type": "string",
+            "description": "Emplotment Type",
+            "x-source-required": false
+          },
+          "formal_shape": {
+            "type": "string",
+            "description": "Formal shape",
+            "x-source-required": false
+          },
+          "ideological_tendency": {
+            "type": "string",
+            "description": "Ideological tendency",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Plot advancement (external action/event)",
+          "Character development (internal growth/realization)",
+          "World building (reveal setting/rules information)",
+          "Thematic exploration (dramatize theme)",
+          "Setup/plant (place clue, establish element for later payoff)",
+          "Pacing/breather (intentional slowdown for reader processing)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Ordinary Worlds (Separate)",
+          "The Meet",
+          "Push-Pull Begins",
+          "First Threshold",
+          "Deepening",
+          "Midpoint Shift",
+          "Intimacy Deepens",
+          "Dark Moment",
+          "Realization",
+          "Grand Gesture",
+          "Resolution (HEA/HFN)",
+          "Supplementary: [specify]"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Crime Discovery",
+          "Suspect Introduction (motive/means/opportunity)",
+          "Red Herring / False Lead",
+          "Clue Plant (fair play)",
+          "Investigative Procedure",
+          "Witness / Interrogation",
+          "Midpoint Reframe (suspect pool shifts)",
+          "Detective's Doubt",
+          "Evidence Convergence",
+          "Final Clue (triggers solution)",
+          "Reveal / Accusation (parlor scene)",
+          "Justice Outcome (resolved, partial, or pyrrhic)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_4": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Inciting Anomaly / Threat Introduced",
+          "Normal Channels Fail",
+          "Scope Revelation (it's bigger than they thought)",
+          "Protagonist Becomes a Target",
+          "Loss of Safe Haven",
+          "Alliance of Necessity",
+          "Ticking Clock Activated",
+          "Betrayal or Trust Broken",
+          "Desperate Plan",
+          "Confrontation with Architect / Source",
+          "Pyrrhic or Hard-Won Resolution"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_5": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Ordinary World / Status Quo",
+          "Call / Discovery of Power or Destiny",
+          "Mentor / Guide Introduction",
+          "Threshold Crossing (into the magical/unknown)",
+          "Rules of the World Revealed",
+          "First Trial / Test",
+          "Alliance Forged",
+          "Midpoint Reversal (false victory/defeat, power cost)",
+          "Betrayal or Loss",
+          "Descent / Dark Night",
+          "Final Confrontation (magic + character growth)",
+          "New Equilibrium / Return"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_6": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Habitual Perception (protagonist's limited worldview)",
+          "Small Disturbance (something doesn't quite fit)",
+          "Resistance / Rationalization",
+          "Subtext-Laden Interaction (what's unsaid matters most)",
+          "Memory or Parallel Thread (the \"Ten\" — a seeming tangent)",
+          "Convergence (threads align beneath the surface)",
+          "Epiphany or Perceptual Shift",
+          "Aftermath (the world is the same; the protagonist is not)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_7": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Normality / Safe Space Established",
+          "Uncanny Signal (first anomaly; can be rationalized)",
+          "Escalation (rationalization fails; the threat is real)",
+          "Isolation Deepens (exit blocked, help unreachable, disbelief)",
+          "The Nature Revealed (what the threat is; what rules it follows)",
+          "Confrontation / Survival Attempt",
+          "Categorical Violation (the moment that breaks ontological expectations)",
+          "Cost of Survival (escape requires sacrifice or permanent change)",
+          "Aftermath (the world absorbs what happened; the protagonist is marked)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_8": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "The Known World (status quo before the novum)",
+          "Novum Introduction (the new element that estranges the familiar)",
+          "Cognitive Adjustment (characters and reader recalibrate)",
+          "Novum Entailments (second-order consequences ripple outward)",
+          "Social / Political Friction (the novum disrupts power structures)",
+          "Ethical Threshold (the novum forces a moral choice without precedent)",
+          "Crisis of Understanding (the novum is larger or stranger than assumed)",
+          "Confrontation (the protagonist acts on knowledge gained)",
+          "New Equilibrium (the world is permanently changed; so is the reader's frame)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_9": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "The Period Established (the era's norms, constraints, textures)",
+          "Historical Disruption (a real event intrudes on ordinary life)",
+          "Forced Participation (neutrality becomes impossible)",
+          "The Human Cost (the great event experienced through intimate, bodily detail)",
+          "Encounter with Power (the protagonist brushes against history-makers)",
+          "Moral Complexity (both sides have legitimate claims)",
+          "Historical Irony (the reader knows what the characters cannot)",
+          "After the Event (survival, loss, and the rewriting of memory)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_10": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Does each beat clearly result from previous events?",
+          "Are there any \"and then\" moments where causality is weak?",
+          "Do character decisions make sense given prior events?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_11": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Does the reader learn things in the right order?",
+          "Are there any reveals that happen too early or too late?",
+          "Do characters know things they shouldn't yet?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_12": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "For every payoff beat, is there a clear setup beat earlier?",
+          "Are there setup beats that never pay off? (Cut them or add payoff.)",
+          "Does setup feel natural or heavy-handed?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_13": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Do major characters disappear for long stretches?",
+          "Are character arcs progressing visibly across beats?",
+          "Does the protagonist drive the action or just react?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_14": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Is there rhythm between high-tension and quieter beats?",
+          "Do you have too many static conversation beats in a row?",
+          "Is each section escalating in stakes/intensity?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_15": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Do you hit your major structural moments at appropriate places?",
+          "Is your Midpoint roughly in the middle?",
+          "Does climax feel like the highest-stakes moment?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_16": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Are any documents, testimonies, or archives shown as constructed or mediated?",
+          "Does the ending resist totalizing resolution of the historical question?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "05-plot-and-structure/architecture/beat-sheet.md"
+}

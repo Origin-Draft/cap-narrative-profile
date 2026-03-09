@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/01-concept/premise-and-logline.schema.json",
+  "title": "Grimoire · Premise And Logline",
+  "description": "Extraction schema for premise-and-logline.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "what_sparked_this_story": {
+      "type": "string",
+      "description": "What sparked this story?",
+      "x-source-required": false
+    },
+    "why_does_this_idea_interest_you": {
+      "type": "string",
+      "description": "Why does this idea interest you?",
+      "x-source-required": false
+    },
+    "who_is_driving_this_story": {
+      "type": "string",
+      "description": "Who is driving this story?",
+      "x-source-required": false
+    },
+    "what_kicks_the_story_into_motion": {
+      "type": "string",
+      "description": "What kicks the story into motion?",
+      "x-source-required": false
+    },
+    "why_cant_they_ignore_it_or_walk_away": {
+      "type": "string",
+      "description": "Why can't they ignore it or walk away?",
+      "x-source-required": false
+    },
+    "what_does_the_protagonist_want_or_need_to_do": {
+      "type": "string",
+      "description": "What does the protagonist want or need to do?",
+      "x-source-required": false
+    },
+    "whats_standing_in_their_way": {
+      "type": "string",
+      "description": "What's standing in their way?",
+      "x-source-required": false
+    },
+    "what_happens_if_they_fail": {
+      "type": "string",
+      "description": "What happens if they fail?",
+      "x-source-required": false
+    },
+    "what_do_they_stand_to_gain_if_they_succeed": {
+      "type": "string",
+      "description": "What do they stand to gain if they succeed?",
+      "x-source-required": false
+    },
+    "does_every_major_plot_turn_reflect_this_premise": {
+      "type": "string",
+      "description": "Does every major plot turn reflect this premise?",
+      "x-source-required": false
+    },
+    "your_premise": {
+      "type": "string",
+      "description": "Your Premise:",
+      "x-source-required": false
+    },
+    "draft_1_rough": {
+      "type": "string",
+      "description": "Draft 1 (Rough):",
+      "x-source-required": false
+    },
+    "draft_2_tighten": {
+      "type": "string",
+      "description": "Draft 2 (Tighten):",
+      "x-source-required": false
+    },
+    "draft_3_polish": {
+      "type": "string",
+      "description": "Draft 3 (Polish):",
+      "x-source-required": false
+    },
+    "final_logline": {
+      "type": "string",
+      "description": "Final Logline:",
+      "x-source-required": false
+    },
+    "concept_rows": {
+      "type": "array",
+      "description": "Table with columns: Concept, Source, Focus, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concept": {
+            "type": "string",
+            "description": "Concept",
+            "x-source-required": false
+          },
+          "source": {
+            "type": "string",
+            "description": "Source",
+            "x-source-required": false
+          },
+          "focus": {
+            "type": "string",
+            "description": "Focus",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "01-concept/premise-and-logline.md"
+}

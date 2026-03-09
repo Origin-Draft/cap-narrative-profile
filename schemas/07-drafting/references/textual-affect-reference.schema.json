@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/references/textual-affect-reference.schema.json",
+  "title": "Grimoire · Textual Affect Reference",
+  "description": "Extraction schema for textual-affect-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "affect_rows": {
+      "type": "array",
+      "description": "Table with columns: Affect, Emotion",
+      "items": {
+        "type": "object",
+        "properties": {
+          "affect": {
+            "type": "string",
+            "description": "Affect",
+            "x-source-required": false
+          },
+          "emotion": {
+            "type": "string",
+            "description": "Emotion",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_2_rows": {
+      "type": "array",
+      "description": "Table with columns: Affect, Definition, Craft technique",
+      "items": {
+        "type": "object",
+        "properties": {
+          "affect": {
+            "type": "string",
+            "description": "Affect",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "craft_technique": {
+            "type": "string",
+            "description": "Craft technique",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "atmospheric_technique_rows": {
+      "type": "array",
+      "description": "Table with columns: Atmospheric technique, How it works, Risk",
+      "items": {
+        "type": "object",
+        "properties": {
+          "atmospheric_technique": {
+            "type": "string",
+            "description": "Atmospheric technique",
+            "x-source-required": false
+          },
+          "how_it_works": {
+            "type": "string",
+            "description": "How it works",
+            "x-source-required": false
+          },
+          "risk": {
+            "type": "string",
+            "description": "Risk",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "uncanny_mechanism_rows": {
+      "type": "array",
+      "description": "Table with columns: Uncanny mechanism, Description, Narrative application",
+      "items": {
+        "type": "object",
+        "properties": {
+          "uncanny_mechanism": {
+            "type": "string",
+            "description": "Uncanny mechanism",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          },
+          "narrative_application": {
+            "type": "string",
+            "description": "Narrative application",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "work_rows": {
+      "type": "array",
+      "description": "Table with columns: Work, Key Concept",
+      "items": {
+        "type": "object",
+        "properties": {
+          "work": {
+            "type": "string",
+            "description": "Work",
+            "x-source-required": false
+          },
+          "key_concept": {
+            "type": "string",
+            "description": "Key Concept",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-drafting/references/textual-affect-reference.md"
+}

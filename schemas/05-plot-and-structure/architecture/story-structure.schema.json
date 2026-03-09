@@ -1,0 +1,670 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/05-plot-and-structure/architecture/story-structure.schema.json",
+  "title": "Grimoire · Story Structure",
+  "description": "Extraction schema for story-structure.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "primary_framework_choice": {
+      "type": "string",
+      "description": "Primary Framework Choice:",
+      "x-source-required": false
+    },
+    "why_this_framework": {
+      "type": "string",
+      "description": "Why this framework?",
+      "x-source-required": false
+    },
+    "blended_elements_if_any": {
+      "type": "string",
+      "description": "Blended elements (if any):",
+      "x-source-required": false
+    },
+    "opening_image_hook": {
+      "type": "string",
+      "description": "Opening Image / Hook:",
+      "x-source-required": false
+    },
+    "exposition_normal_world": {
+      "type": "string",
+      "description": "Exposition & Normal World:",
+      "x-source-required": false
+    },
+    "inciting_incident": {
+      "type": "string",
+      "description": "Inciting Incident:",
+      "x-source-required": false
+    },
+    "debate_reaction": {
+      "type": "string",
+      "description": "Debate / Reaction:",
+      "x-source-required": false
+    },
+    "plot_point_1_point_of_no_return": {
+      "type": "string",
+      "description": "Plot Point 1 / Point of No Return:",
+      "x-source-required": false
+    },
+    "rising_action_fun_and_games": {
+      "type": "string",
+      "description": "Rising Action / Fun and Games:",
+      "x-source-required": false
+    },
+    "midpoint": {
+      "type": "string",
+      "description": "Midpoint:",
+      "x-source-required": false
+    },
+    "things_fall_apart_bad_guys_close_in": {
+      "type": "string",
+      "description": "Things Fall Apart / Bad Guys Close In:",
+      "x-source-required": false
+    },
+    "crisis_all_is_lost": {
+      "type": "string",
+      "description": "Crisis / All Is Lost:",
+      "x-source-required": false
+    },
+    "plot_point_2_discovery": {
+      "type": "string",
+      "description": "Plot Point 2 / Discovery:",
+      "x-source-required": false
+    },
+    "climax": {
+      "type": "string",
+      "description": "Climax:",
+      "x-source-required": false
+    },
+    "falling_action": {
+      "type": "string",
+      "description": "Falling Action:",
+      "x-source-required": false
+    },
+    "resolution_denouement": {
+      "type": "string",
+      "description": "Resolution / Denouement:",
+      "x-source-required": false
+    },
+    "closing_image": {
+      "type": "string",
+      "description": "Closing Image:",
+      "x-source-required": false
+    },
+    "1_opening_image_01": {
+      "type": "string",
+      "description": "1. Opening Image (0-1%)",
+      "x-source-required": false
+    },
+    "2_theme_stated_5": {
+      "type": "string",
+      "description": "2. Theme Stated (5%)",
+      "x-source-required": false
+    },
+    "3_setup_110": {
+      "type": "string",
+      "description": "3. Setup (1-10%)",
+      "x-source-required": false
+    },
+    "4_catalyst_10": {
+      "type": "string",
+      "description": "4. Catalyst (10%)",
+      "x-source-required": false
+    },
+    "5_debate_1020": {
+      "type": "string",
+      "description": "5. Debate (10-20%)",
+      "x-source-required": false
+    },
+    "6_break_into_two_20": {
+      "type": "string",
+      "description": "6. Break Into Two (20%)",
+      "x-source-required": false
+    },
+    "7_b_story_22": {
+      "type": "string",
+      "description": "7. B Story (22%)",
+      "x-source-required": false
+    },
+    "8_fun_and_games_2050": {
+      "type": "string",
+      "description": "8. Fun and Games (20-50%)",
+      "x-source-required": false
+    },
+    "9_midpoint_50": {
+      "type": "string",
+      "description": "9. Midpoint (50%)",
+      "x-source-required": false
+    },
+    "10_bad_guys_close_in_5075": {
+      "type": "string",
+      "description": "10. Bad Guys Close In (50-75%)",
+      "x-source-required": false
+    },
+    "11_all_is_lost_75": {
+      "type": "string",
+      "description": "11. All Is Lost (75%)",
+      "x-source-required": false
+    },
+    "12_dark_night_of_the_soul_7580": {
+      "type": "string",
+      "description": "12. Dark Night of the Soul (75-80%)",
+      "x-source-required": false
+    },
+    "13_break_into_three_80": {
+      "type": "string",
+      "description": "13. Break Into Three (80%)",
+      "x-source-required": false
+    },
+    "14_finale_8099": {
+      "type": "string",
+      "description": "14. Finale (80-99%)",
+      "x-source-required": false
+    },
+    "15_final_image_99100": {
+      "type": "string",
+      "description": "15. Final Image (99-100%)",
+      "x-source-required": false
+    },
+    "the_ordinary_world": {
+      "type": "string",
+      "description": "THE ORDINARY WORLD",
+      "x-source-required": false
+    },
+    "the_call_to_adventure": {
+      "type": "string",
+      "description": "THE CALL TO ADVENTURE",
+      "x-source-required": false
+    },
+    "refusal_of_the_call": {
+      "type": "string",
+      "description": "REFUSAL OF THE CALL",
+      "x-source-required": false
+    },
+    "meeting_the_mentor": {
+      "type": "string",
+      "description": "MEETING THE MENTOR",
+      "x-source-required": false
+    },
+    "crossing_the_first_threshold": {
+      "type": "string",
+      "description": "CROSSING THE FIRST THRESHOLD",
+      "x-source-required": false
+    },
+    "tests_allies_and_enemies": {
+      "type": "string",
+      "description": "TESTS, ALLIES, AND ENEMIES",
+      "x-source-required": false
+    },
+    "approach_to_the_inmost_cave": {
+      "type": "string",
+      "description": "APPROACH TO THE INMOST CAVE",
+      "x-source-required": false
+    },
+    "the_ordeal": {
+      "type": "string",
+      "description": "THE ORDEAL",
+      "x-source-required": false
+    },
+    "reward_seizing_the_sword": {
+      "type": "string",
+      "description": "REWARD (SEIZING THE SWORD)",
+      "x-source-required": false
+    },
+    "the_road_back": {
+      "type": "string",
+      "description": "THE ROAD BACK",
+      "x-source-required": false
+    },
+    "resurrection": {
+      "type": "string",
+      "description": "RESURRECTION",
+      "x-source-required": false
+    },
+    "return_with_the_elixir": {
+      "type": "string",
+      "description": "RETURN WITH THE ELIXIR",
+      "x-source-required": false
+    },
+    "ki_introduction_setup": {
+      "type": "string",
+      "description": "KI (Introduction / Setup)",
+      "x-source-required": false
+    },
+    "what_is_the_world_of_this_story": {
+      "type": "string",
+      "description": "What is the world of this story?",
+      "x-source-required": false
+    },
+    "what_rhythms_or_patterns_define_this_space": {
+      "type": "string",
+      "description": "What rhythms or patterns define this space?",
+      "x-source-required": false
+    },
+    "sho_development_continuation": {
+      "type": "string",
+      "description": "SHO (Development / Continuation)",
+      "x-source-required": false
+    },
+    "what_aspects_deepen": {
+      "type": "string",
+      "description": "What aspects deepen?",
+      "x-source-required": false
+    },
+    "what_nuances_emerge": {
+      "type": "string",
+      "description": "What nuances emerge?",
+      "x-source-required": false
+    },
+    "ten_twist_complication": {
+      "type": "string",
+      "description": "TEN (Twist / Complication)",
+      "x-source-required": false
+    },
+    "what_new_perspective_or_element_appears": {
+      "type": "string",
+      "description": "What new perspective or element appears?",
+      "x-source-required": false
+    },
+    "how_does_it_seem_disconnected_from_ki_and_sho": {
+      "type": "string",
+      "description": "How does it seem disconnected from Ki and Sho?",
+      "x-source-required": false
+    },
+    "ketsu_conclusion_reconciliation": {
+      "type": "string",
+      "description": "KETSU (Conclusion / Reconciliation)",
+      "x-source-required": false
+    },
+    "how_do_the_elements_connect_thematically": {
+      "type": "string",
+      "description": "How do the elements connect thematically?",
+      "x-source-required": false
+    },
+    "what_realization_or_feeling_emerges_from_the_whole": {
+      "type": "string",
+      "description": "What realization or feeling emerges from the whole?",
+      "x-source-required": false
+    },
+    "what_image_or_moment_brings_closure": {
+      "type": "string",
+      "description": "What image or moment brings closure?",
+      "x-source-required": false
+    },
+    "dominant_rasa": {
+      "type": "string",
+      "description": "Dominant Rasa:",
+      "x-source-required": false
+    },
+    "opening_rasa": {
+      "type": "string",
+      "description": "Opening Rasa:",
+      "x-source-required": false
+    },
+    "why_this_emotion_first": {
+      "type": "string",
+      "description": "Why this emotion first?",
+      "x-source-required": false
+    },
+    "rasa_transitions": {
+      "type": "string",
+      "description": "Rasa Transitions:",
+      "x-source-required": false
+    },
+    "vibhava_determinants": {
+      "type": "string",
+      "description": "Vibhava (Determinants):",
+      "x-source-required": false
+    },
+    "anubhava_consequences": {
+      "type": "string",
+      "description": "Anubhava (Consequences):",
+      "x-source-required": false
+    },
+    "landing_rasa": {
+      "type": "string",
+      "description": "Landing Rasa:",
+      "x-source-required": false
+    },
+    "opening_image_anchor_point": {
+      "type": "string",
+      "description": "Opening Image / Anchor Point:",
+      "x-source-required": false
+    },
+    "nature_of_the_cycle": {
+      "type": "string",
+      "description": "Nature of the Cycle:",
+      "x-source-required": false
+    },
+    "the_world_and_its_rhythms": {
+      "type": "string",
+      "description": "The world and its rhythms:",
+      "x-source-required": false
+    },
+    "the_characters_within_the_cycle": {
+      "type": "string",
+      "description": "The characters within the cycle:",
+      "x-source-required": false
+    },
+    "the_seed_of_disruption": {
+      "type": "string",
+      "description": "The seed of disruption:",
+      "x-source-required": false
+    },
+    "the_turn_recognition": {
+      "type": "string",
+      "description": "The Turn (Recognition):",
+      "x-source-required": false
+    },
+    "who_perceives_the_cycle": {
+      "type": "string",
+      "description": "Who perceives the cycle?",
+      "x-source-required": false
+    },
+    "return_to_origin": {
+      "type": "string",
+      "description": "Return to Origin:",
+      "x-source-required": false
+    },
+    "what_the_cycle_argues": {
+      "type": "string",
+      "description": "What the cycle argues:",
+      "x-source-required": false
+    },
+    "1_hook": {
+      "type": "string",
+      "description": "1. HOOK",
+      "x-source-required": false
+    },
+    "who_is_your_protagonist_at_the_start": {
+      "type": "string",
+      "description": "Who is your protagonist at the start?",
+      "x-source-required": false
+    },
+    "whats_wrong_or_missing": {
+      "type": "string",
+      "description": "What's wrong or missing?",
+      "x-source-required": false
+    },
+    "2_plot_turn_1": {
+      "type": "string",
+      "description": "2. PLOT TURN 1",
+      "x-source-required": false
+    },
+    "what_event_disrupts_stasis": {
+      "type": "string",
+      "description": "What event disrupts stasis?",
+      "x-source-required": false
+    },
+    "3_pinch_point_1": {
+      "type": "string",
+      "description": "3. PINCH POINT 1",
+      "x-source-required": false
+    },
+    "what_shows_the_antagonists_strength": {
+      "type": "string",
+      "description": "What shows the antagonist's strength?",
+      "x-source-required": false
+    },
+    "how_do_stakes_increase": {
+      "type": "string",
+      "description": "How do stakes increase?",
+      "x-source-required": false
+    },
+    "4_midpoint": {
+      "type": "string",
+      "description": "4. MIDPOINT",
+      "x-source-required": false
+    },
+    "what_changes_protagonists_approach": {
+      "type": "string",
+      "description": "What changes protagonist's approach?",
+      "x-source-required": false
+    },
+    "how_does_protagonist_take_control": {
+      "type": "string",
+      "description": "How does protagonist take control?",
+      "x-source-required": false
+    },
+    "5_pinch_point_2": {
+      "type": "string",
+      "description": "5. PINCH POINT 2",
+      "x-source-required": false
+    },
+    "whats_the_major_defeat_or_complication": {
+      "type": "string",
+      "description": "What's the major defeat or complication?",
+      "x-source-required": false
+    },
+    "whats_lost_or_threatened": {
+      "type": "string",
+      "description": "What's lost or threatened?",
+      "x-source-required": false
+    },
+    "6_plot_turn_2": {
+      "type": "string",
+      "description": "6. PLOT TURN 2",
+      "x-source-required": false
+    },
+    "what_enables_the_final_confrontation": {
+      "type": "string",
+      "description": "What enables the final confrontation?",
+      "x-source-required": false
+    },
+    "7_resolution": {
+      "type": "string",
+      "description": "7. RESOLUTION",
+      "x-source-required": false
+    },
+    "how_does_the_climax_demonstrate_transformation": {
+      "type": "string",
+      "description": "How does the climax demonstrate transformation?",
+      "x-source-required": false
+    },
+    "whats_the_new_normal": {
+      "type": "string",
+      "description": "What's the new normal?",
+      "x-source-required": false
+    },
+    "crisis_1_opening": {
+      "type": "string",
+      "description": "Crisis 1 (Opening):",
+      "x-source-required": false
+    },
+    "crisis_2": {
+      "type": "string",
+      "description": "Crisis 2:",
+      "x-source-required": false
+    },
+    "crisis_3": {
+      "type": "string",
+      "description": "Crisis 3:",
+      "x-source-required": false
+    },
+    "crisis_4": {
+      "type": "string",
+      "description": "Crisis 4:",
+      "x-source-required": false
+    },
+    "crisis_5": {
+      "type": "string",
+      "description": "Crisis 5:",
+      "x-source-required": false
+    },
+    "whats_the_allornothing_moment": {
+      "type": "string",
+      "description": "What's the all-or-nothing moment?",
+      "x-source-required": false
+    },
+    "how_does_protagonist_use_accumulated_resources": {
+      "type": "string",
+      "description": "How does protagonist use accumulated resources?",
+      "x-source-required": false
+    },
+    "brief_falling_action": {
+      "type": "string",
+      "description": "BRIEF FALLING ACTION",
+      "x-source-required": false
+    },
+    "resolution": {
+      "type": "string",
+      "description": "RESOLUTION",
+      "x-source-required": false
+    },
+    "framework_selected": {
+      "type": "string",
+      "description": "Framework selected:",
+      "x-source-required": false
+    },
+    "what_story_properties_sent_you_toward_this_framework": {
+      "type": "string",
+      "description": "What story properties sent you toward this framework?",
+      "x-source-required": false
+    },
+    "what_does_this_framework_require_that_you_must_deliver": {
+      "type": "string",
+      "description": "What does this framework require that you must deliver?",
+      "x-source-required": false
+    },
+    "what_does_this_framework_obscure_or_suppress": {
+      "type": "string",
+      "description": "What does this framework obscure or suppress?",
+      "x-source-required": false
+    },
+    "movement_rows": {
+      "type": "array",
+      "description": "Table with columns: Movement, Rasa, Scenes/Chapters, How evoked (sthayibhava), Effect on reader",
+      "items": {
+        "type": "object",
+        "properties": {
+          "movement": {
+            "type": "string",
+            "description": "Movement",
+            "x-source-required": false
+          },
+          "rasa": {
+            "type": "string",
+            "description": "Rasa",
+            "x-source-required": false
+          },
+          "sceneschapters": {
+            "type": "string",
+            "description": "Scenes/Chapters",
+            "x-source-required": false
+          },
+          "how_evoked_sthayibhava": {
+            "type": "string",
+            "description": "How evoked (sthayibhava)",
+            "x-source-required": false
+          },
+          "effect_on_reader": {
+            "type": "string",
+            "description": "Effect on reader",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "cycle_rows": {
+      "type": "array",
+      "description": "Table with columns: Cycle, What repeats, What varies, What accumulates, New meaning revealed",
+      "items": {
+        "type": "object",
+        "properties": {
+          "cycle": {
+            "type": "string",
+            "description": "Cycle",
+            "x-source-required": false
+          },
+          "what_repeats": {
+            "type": "string",
+            "description": "What repeats",
+            "x-source-required": false
+          },
+          "what_varies": {
+            "type": "string",
+            "description": "What varies",
+            "x-source-required": false
+          },
+          "what_accumulates": {
+            "type": "string",
+            "description": "What accumulates",
+            "x-source-required": false
+          },
+          "new_meaning_revealed": {
+            "type": "string",
+            "description": "New meaning revealed",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "framework_rows": {
+      "type": "array",
+      "description": "Table with columns: Framework, Why rejected",
+      "items": {
+        "type": "object",
+        "properties": {
+          "framework": {
+            "type": "string",
+            "description": "Framework",
+            "x-source-required": false
+          },
+          "why_rejected": {
+            "type": "string",
+            "description": "Why rejected",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Shringara (Love / Beauty / Erotic delight)",
+          "Hasya (Laughter / Comedy / Joy)",
+          "Karuna (Compassion / Sorrow / Pathos)",
+          "Raudra (Fury / Righteous anger)",
+          "Vira (Heroism / Courage / Valor)",
+          "Bhayanaka (Terror / Fear / Dread)",
+          "Bibhatsa (Disgust / Revulsion)",
+          "Adbhuta (Wonder / Amazement)",
+          "Shanta (Peace / Tranquility / Spiritual calm)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Seasonal / Natural (aligned to earth rhythms)",
+          "Generational (the same patterns across family lines)",
+          "Daily / Ritual (recurring routine as structure)",
+          "Historical (history repeating, rhyming, or spiraling)",
+          "Psychological (compulsive repetition, trauma loops)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "05-plot-and-structure/architecture/story-structure.md"
+}

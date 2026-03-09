@@ -1,0 +1,290 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/06-scenes/scene-template.schema.json",
+  "title": "Grimoire · Scene Template",
+  "description": "Extraction schema for scene-template.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "scene_numberid": {
+      "type": "string",
+      "description": "Scene Number/ID:",
+      "x-source-required": false
+    },
+    "working_title": {
+      "type": "string",
+      "description": "Working Title:",
+      "x-source-required": false
+    },
+    "story_position": {
+      "type": "string",
+      "description": "Story Position:",
+      "x-source-required": false
+    },
+    "pov_character": {
+      "type": "string",
+      "description": "POV Character:",
+      "x-source-required": false
+    },
+    "attending_characters": {
+      "type": "string",
+      "description": "Attending Characters:",
+      "x-source-required": false
+    },
+    "setting": {
+      "type": "string",
+      "description": "Setting:",
+      "x-source-required": false
+    },
+    "time": {
+      "type": "string",
+      "description": "Time:",
+      "x-source-required": false
+    },
+    "weatheratmosphere": {
+      "type": "string",
+      "description": "Weather/Atmosphere:",
+      "x-source-required": false
+    },
+    "what_does_the_pov_character_want_in_this_scene": {
+      "type": "string",
+      "description": "What does the POV character want in this scene?",
+      "x-source-required": false
+    },
+    "why_does_this_goal_matter": {
+      "type": "string",
+      "description": "Why does this goal matter?",
+      "x-source-required": false
+    },
+    "whats_the_plan": {
+      "type": "string",
+      "description": "What's the plan?",
+      "x-source-required": false
+    },
+    "opponentobstacle": {
+      "type": "string",
+      "description": "Opponent/Obstacle:",
+      "x-source-required": false
+    },
+    "how_does_the_conflict_escalate": {
+      "type": "string",
+      "description": "How does the conflict escalate?",
+      "x-source-required": false
+    },
+    "dialogue_strategy": {
+      "type": "string",
+      "description": "Dialogue Strategy:",
+      "x-source-required": false
+    },
+    "action_strategy": {
+      "type": "string",
+      "description": "Action Strategy:",
+      "x-source-required": false
+    },
+    "emotional_escalation": {
+      "type": "string",
+      "description": "Emotional Escalation:",
+      "x-source-required": false
+    },
+    "what_happens_at_scenes_end": {
+      "type": "string",
+      "description": "What happens at scene's end?",
+      "x-source-required": false
+    },
+    "what_has_changed": {
+      "type": "string",
+      "description": "What has changed?",
+      "x-source-required": false
+    },
+    "new_information_revealed": {
+      "type": "string",
+      "description": "New Information Revealed:",
+      "x-source-required": false
+    },
+    "plantsetup_for_later": {
+      "type": "string",
+      "description": "Plant/Setup for Later:",
+      "x-source-required": false
+    },
+    "immediate_emotional_response": {
+      "type": "string",
+      "description": "Immediate Emotional Response:",
+      "x-source-required": false
+    },
+    "physical_reaction": {
+      "type": "string",
+      "description": "Physical Reaction:",
+      "x-source-required": false
+    },
+    "processing_duration": {
+      "type": "string",
+      "description": "Processing Duration:",
+      "x-source-required": false
+    },
+    "the_problem": {
+      "type": "string",
+      "description": "The Problem:",
+      "x-source-required": false
+    },
+    "options_available": {
+      "type": "string",
+      "description": "Options Available:",
+      "x-source-required": false
+    },
+    "why_is_this_hard": {
+      "type": "string",
+      "description": "Why is this hard?",
+      "x-source-required": false
+    },
+    "characters_internal_conflict": {
+      "type": "string",
+      "description": "Character's Internal Conflict:",
+      "x-source-required": false
+    },
+    "what_does_the_character_choose": {
+      "type": "string",
+      "description": "What does the character choose?",
+      "x-source-required": false
+    },
+    "why_this_choice": {
+      "type": "string",
+      "description": "Why this choice?",
+      "x-source-required": false
+    },
+    "new_goal": {
+      "type": "string",
+      "description": "New Goal:",
+      "x-source-required": false
+    },
+    "resolvesetup": {
+      "type": "string",
+      "description": "Resolve/Setup:",
+      "x-source-required": false
+    },
+    "dominant_sense_for_this_scene": {
+      "type": "string",
+      "description": "Dominant Sense for This Scene:",
+      "x-source-required": false
+    },
+    "key_sensory_details": {
+      "type": "string",
+      "description": "Key Sensory Details:",
+      "x-source-required": false
+    },
+    "emotional_weather": {
+      "type": "string",
+      "description": "Emotional Weather:",
+      "x-source-required": false
+    },
+    "scenes_unique_image": {
+      "type": "string",
+      "description": "Scene's Unique Image:",
+      "x-source-required": false
+    },
+    "pacing_notes": {
+      "type": "string",
+      "description": "Pacing Notes:",
+      "x-source-required": false
+    },
+    "target_word_count_for_this_scene": {
+      "type": "string",
+      "description": "Target Word Count for This Scene:",
+      "x-source-required": false
+    },
+    "estimated_time_to_draft": {
+      "type": "string",
+      "description": "Estimated Time to Draft:",
+      "x-source-required": false
+    },
+    "priority": {
+      "type": "string",
+      "description": "Priority:",
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Person vs. Person (interpersonal clash)",
+          "Person vs. Self (internal struggle)",
+          "Person vs. Environment (physical obstacle)",
+          "Person vs. Society (systemic opposition)",
+          "Multiple layers (check all that apply)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "**Full Disaster** — Complete failure; worse off than at scene start",
+          "**Partial Disaster** — Gets goal but with unexpected cost/complication",
+          "**Dilemma** — Forced to choose between two bad options",
+          "**Success with Complication** — Achieves goal but new problem emerges",
+          "**Full Success** — Gets goal cleanly (rare; use sparingly)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Does my POV character have a clear, specific goal?",
+          "Is there meaningful opposition to that goal?",
+          "Does the scene end differently than it begins?",
+          "Does the outcome create a new problem/question that propels the story forward?",
+          "Do I know what the next scene's goal is (emerged from this scene's decision)?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_4": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Simple (straightforward action, one location, minimal characters)",
+          "Moderate (some complexity, multiple characters, subtext)",
+          "Complex (multiple layers, high stakes, intricate choreography)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_5": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Critical (tent-pole scene, can't cut)",
+          "Important (significant but could be adjusted)",
+          "Supporting (serves story but lower priority)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "06-scenes/scene-template.md"
+}

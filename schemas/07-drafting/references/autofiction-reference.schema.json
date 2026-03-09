@@ -1,0 +1,175 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/references/autofiction-reference.schema.json",
+  "title": "Grimoire · Autofiction Reference",
+  "description": "Extraction schema for autofiction-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "mode_rows": {
+      "type": "array",
+      "description": "Table with columns: Mode, Identity Claim, Genre Label, Key Contract",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "description": "Mode",
+            "x-source-required": false
+          },
+          "identity_claim": {
+            "type": "string",
+            "description": "Identity Claim",
+            "x-source-required": false
+          },
+          "genre_label": {
+            "type": "string",
+            "description": "Genre Label",
+            "x-source-required": false
+          },
+          "key_contract": {
+            "type": "string",
+            "description": "Key Contract",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "author_name_protagonist_name_rows": {
+      "type": "array",
+      "description": "Table with columns: Author name = Protagonist name?, Genre label, Resulting pact",
+      "items": {
+        "type": "object",
+        "properties": {
+          "author_name_protagonist_name": {
+            "type": "string",
+            "description": "Author name = Protagonist name?",
+            "x-source-required": false
+          },
+          "genre_label": {
+            "type": "string",
+            "description": "Genre label",
+            "x-source-required": false
+          },
+          "resulting_pact": {
+            "type": "string",
+            "description": "Resulting pact",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "question_rows": {
+      "type": "array",
+      "description": "Table with columns: Question, Consideration",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "Question",
+            "x-source-required": false
+          },
+          "consideration": {
+            "type": "string",
+            "description": "Consideration",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "frame_rows": {
+      "type": "array",
+      "description": "Table with columns: Frame, How Reader Reads, Effect",
+      "items": {
+        "type": "object",
+        "properties": {
+          "frame": {
+            "type": "string",
+            "description": "Frame",
+            "x-source-required": false
+          },
+          "how_reader_reads": {
+            "type": "string",
+            "description": "How Reader Reads",
+            "x-source-required": false
+          },
+          "effect": {
+            "type": "string",
+            "description": "Effect",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_5_rows": {
+      "type": "array",
+      "description": "Table with columns: Mode, Description, Formal Markers, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "description": "Mode",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          },
+          "formal_markers": {
+            "type": "string",
+            "description": "Formal Markers",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "topic_rows": {
+      "type": "array",
+      "description": "Table with columns: Topic, Grimoire File",
+      "items": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "description": "Topic",
+            "x-source-required": false
+          },
+          "grimoire_file": {
+            "type": "string",
+            "description": "Grimoire File",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "string",
+      "enum": [],
+      "description": "Single-select from options: ",
+      "x-todo": "verify enum is single-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-drafting/references/autofiction-reference.md"
+}

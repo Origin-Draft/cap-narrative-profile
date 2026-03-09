@@ -1,0 +1,240 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/08-revision/structural-revision/revision-plan.schema.json",
+  "title": "Grimoire · Revision Plan",
+  "description": "Extraction schema for revision-plan.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "pass_rows": {
+      "type": "array",
+      "description": "Table with columns: Pass, Purpose, Start Date, End Date, Status",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pass": {
+            "type": "string",
+            "description": "Pass",
+            "x-source-required": false
+          },
+          "purpose": {
+            "type": "string",
+            "description": "Purpose",
+            "x-source-required": false
+          },
+          "start_date": {
+            "type": "string",
+            "description": "Start Date",
+            "x-source-required": false
+          },
+          "end_date": {
+            "type": "string",
+            "description": "End Date",
+            "x-source-required": false
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Plot coherence: Does the plot make logical sense? _____",
+          "Causality: Do events cause each other, or are they coincidence-driven? _____",
+          "Pacing: Does the story maintain momentum? _____",
+          "Character arcs: Do major characters transform across the story? _____",
+          "Resolution: Are plot threads tied up satisfyingly? _____"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Scene purpose: Does every scene advance plot or character? _____",
+          "Dialogue: Does it sound natural and character-specific? _____",
+          "Description: Is setting grounded and sensory? _____",
+          "Emotion: Do emotional beats land? _____"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Clarity: Is prose clear and easy to follow? _____",
+          "Style: Is voice consistent and engaging? _____",
+          "Efficiency: Is prose tight, or bloated with filler? _____",
+          "Technical: Is grammar/punctuation solid, or riddled with errors? _____"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_4": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "All plot holes fixed",
+          "Character arcs complete",
+          "Pacing issues addressed (no major sags)",
+          "Climax lands in right place structurally",
+          "Theme is clear and consistent",
+          "All dropped plot threads resolved or deliberately left open"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_5": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Protagonist has clear want vs. need tension",
+          "Protagonist drives the story (isn't just reactive)",
+          "Supporting characters feel three-dimensional",
+          "Emotional beats land (reader should *feel* key moments)",
+          "Character voices are distinct in dialogue",
+          "Relationships evolve across the story"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_6": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Every scene has clear purpose",
+          "No cuttable scenes remain",
+          "Scene openings hook; scene endings propel forward",
+          "Settings are vivid and grounded",
+          "Action is clear (reader can visualize what's happening)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_7": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Filter words reduced significantly",
+          "Weak verbs replaced with strong ones",
+          "Redundancies cut",
+          "Sentence rhythm varied",
+          "Dialogue sounds natural",
+          "Prose has consistent voice"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_8": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Beta readers finished the book (didn't DNF)",
+          "No major confusion or logic gaps flagged",
+          "Emotional beats largely landed",
+          "Pacing worked for most readers",
+          "Readers would recommend the book"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_9": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "No grammar errors",
+          "Punctuation correct and consistent",
+          "All names/places spelled consistently",
+          "Style guide rules applied consistently",
+          "Formatting clean"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_10": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Zero typos (realistically: fewer than 1 per 10,000 words)",
+          "Formatting perfect",
+          "Manuscript ready for submission or publication"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_11": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "No — begin corrective passes against the original plan",
+          "Yes — which version is stronger?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_12": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "[../01-concept/premise-and-logline.md](../01-concept/premise-and-logline.md)",
+          "[../01-concept/theme-exploration.md](../01-concept/theme-exploration.md)",
+          "[../03-characters/character-arc.md](../03-characters/character-arc.md)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "08-revision/structural-revision/revision-plan.md"
+}

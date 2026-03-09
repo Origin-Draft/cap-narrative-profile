@@ -1,0 +1,516 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/08-revision/critical-theory/narrative-ethics-audit.schema.json",
+  "title": "Grimoire · Narrative Ethics Audit",
+  "description": "Extraction schema for narrative-ethics-audit.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "character_rows": {
+      "type": "array",
+      "description": "Table with columns: Character, Identity markers relevant to representation, Role in narrative, Has interiority beyond their function?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character": {
+            "type": "string",
+            "description": "Character",
+            "x-source-required": false
+          },
+          "identity_markers_relevant_to_representation": {
+            "type": "string",
+            "description": "Identity markers relevant to representation",
+            "x-source-required": false
+          },
+          "role_in_narrative": {
+            "type": "string",
+            "description": "Role in narrative",
+            "x-source-required": false
+          },
+          "has_interiority_beyond_their_function": {
+            "type": "string",
+            "description": "Has interiority beyond their function?",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "protagonist_antagonist_supporting_minor_rows": {
+      "type": "array",
+      "description": "Table with columns: protagonist / antagonist / supporting / minor, yes / no / partial",
+      "items": {
+        "type": "object",
+        "properties": {
+          "protagonist_antagonist_supporting_minor": {
+            "type": "string",
+            "description": "protagonist / antagonist / supporting / minor",
+            "x-source-required": false
+          },
+          "yes_no_partial": {
+            "type": "string",
+            "description": "yes / no / partial",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_3_rows": {
+      "type": "array",
+      "description": "Table with columns: Character, Speaks for themselves?, If no: who speaks for them and why?, Planned fix",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character": {
+            "type": "string",
+            "description": "Character",
+            "x-source-required": false
+          },
+          "speaks_for_themselves": {
+            "type": "string",
+            "description": "Speaks for themselves?",
+            "x-source-required": false
+          },
+          "if_no_who_speaks_for_them_and_why": {
+            "type": "string",
+            "description": "If no: who speaks for them and why?",
+            "x-source-required": false
+          },
+          "planned_fix": {
+            "type": "string",
+            "description": "Planned fix",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "passage_chscene_rows": {
+      "type": "array",
+      "description": "Table with columns: Passage (ch/scene), Who is gazed at, Who gazes, Intentional?, Action",
+      "items": {
+        "type": "object",
+        "properties": {
+          "passage_chscene": {
+            "type": "string",
+            "description": "Passage (ch/scene)",
+            "x-source-required": false
+          },
+          "who_is_gazed_at": {
+            "type": "string",
+            "description": "Who is gazed at",
+            "x-source-required": false
+          },
+          "who_gazes": {
+            "type": "string",
+            "description": "Who gazes",
+            "x-source-required": false
+          },
+          "intentional": {
+            "$ref": "grimoire:base#/$defs/yesNoPartial"
+          },
+          "action": {
+            "type": "string",
+            "description": "Action",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "yes_no_rows": {
+      "type": "array",
+      "description": "Table with columns: yes / no, keep / revise / cut",
+      "items": {
+        "type": "object",
+        "properties": {
+          "yes_no": {
+            "type": "string",
+            "description": "yes / no",
+            "x-source-required": false
+          },
+          "keep_revise_cut": {
+            "type": "string",
+            "description": "keep / revise / cut",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_6_rows": {
+      "type": "array",
+      "description": "Table with columns: Character, Nature of moral compromise, Is the reader's complicity acknowledged or interrogated in the narrative?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character": {
+            "type": "string",
+            "description": "Character",
+            "x-source-required": false
+          },
+          "nature_of_moral_compromise": {
+            "type": "string",
+            "description": "Nature of moral compromise",
+            "x-source-required": false
+          },
+          "is_the_readers_complicity_acknowledged_or_interrogated_in_th": {
+            "type": "string",
+            "description": "Is the reader's complicity acknowledged or interrogated in the narrative?",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "yes_no_partially_rows": {
+      "type": "array",
+      "description": "Table with columns: yes / no / partially",
+      "items": {
+        "type": "object",
+        "properties": {
+          "yes_no_partially": {
+            "type": "string",
+            "description": "yes / no / partially",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "power_axis_rows": {
+      "type": "array",
+      "description": "Table with columns: Power axis, Visible in world-building?, Acknowledged in character behavior?, Notes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "power_axis": {
+            "type": "string",
+            "description": "Power axis",
+            "x-source-required": false
+          },
+          "visible_in_worldbuilding": {
+            "type": "string",
+            "description": "Visible in world-building?",
+            "x-source-required": false
+          },
+          "acknowledged_in_character_behavior": {
+            "type": "string",
+            "description": "Acknowledged in character behavior?",
+            "x-source-required": false
+          },
+          "notes": {
+            "type": "string",
+            "description": "Notes",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_9_rows": {
+      "type": "array",
+      "description": "Table with columns: Character, Key decision point, Degree of agency, If limited: is the limitation meaningful or structural oversight?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character": {
+            "type": "string",
+            "description": "Character",
+            "x-source-required": false
+          },
+          "key_decision_point": {
+            "type": "string",
+            "description": "Key decision point",
+            "x-source-required": false
+          },
+          "degree_of_agency": {
+            "type": "string",
+            "description": "Degree of agency",
+            "x-source-required": false
+          },
+          "if_limited_is_the_limitation_meaningful_or_structural_oversi": {
+            "type": "string",
+            "description": "If limited: is the limitation meaningful or structural oversight?",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "full_constrained_minimal_rows": {
+      "type": "array",
+      "description": "Table with columns: full / constrained / minimal",
+      "items": {
+        "type": "object",
+        "properties": {
+          "full_constrained_minimal": {
+            "type": "string",
+            "description": "full / constrained / minimal",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "issue_rows": {
+      "type": "array",
+      "description": "Table with columns: Issue, Section, Priority (high/med/low), Planned fix, Status",
+      "items": {
+        "type": "object",
+        "properties": {
+          "issue": {
+            "type": "string",
+            "description": "Issue",
+            "x-source-required": false
+          },
+          "section": {
+            "type": "string",
+            "description": "Section",
+            "x-source-required": false
+          },
+          "priority_highmedlow": {
+            "$ref": "grimoire:base#/$defs/priorityEnum"
+          },
+          "planned_fix": {
+            "type": "string",
+            "description": "Planned fix",
+            "x-source-required": false
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "open_in_progress_resolved_rows": {
+      "type": "array",
+      "description": "Table with columns: open / in progress / resolved",
+      "items": {
+        "type": "object",
+        "properties": {
+          "open_in_progress_resolved": {
+            "type": "string",
+            "description": "open / in progress / resolved",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "reader_rows": {
+      "type": "array",
+      "description": "Table with columns: Reader, Expertise / Identity, Date, Key feedback",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reader": {
+            "type": "string",
+            "description": "Reader",
+            "x-source-required": false
+          },
+          "expertise_identity": {
+            "type": "string",
+            "description": "Expertise / Identity",
+            "x-source-required": false
+          },
+          "date": {
+            "type": "string",
+            "description": "Date",
+            "x-source-required": false
+          },
+          "key_feedback": {
+            "type": "string",
+            "description": "Key feedback",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "No",
+          "Yes — character(s): _______________ — plan to address:"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "No",
+          "Yes — character(s): _______________ — plan to address:"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "No",
+          "Possibly — passages to review: _______________"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_4": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Yes — their argument is:",
+          "No — plan to develop:"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_5": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Yes",
+          "No — plan to address:"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_6": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "No — the complexity is preserved in:",
+          "Yes — plan to address:"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_7": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Power asymmetry between leads is acknowledged and negotiated, not romanticized",
+          "Pursuit behavior that would constitute harassment is not reframed as passion",
+          "Consent is present at each escalation of intimacy",
+          "The love interest has agency and a life independent of the protagonist"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_8": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Violence is not aestheticized for pleasure without narrative purpose"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_9": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "No monolithic \"evil race\" without internal diversity or motivation",
+          "Cultural traditions informing the world-building are acknowledged"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_10": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Historical injustices are confronted rather than aestheticized"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_11": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "N/A",
+          "Yes",
+          "No — plan to address:"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_12": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Yes",
+          "No / not sure — plan to address:"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_13": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Yes",
+          "Partially — gap between intention and effect:",
+          "No — plan to address:"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "08-revision/critical-theory/narrative-ethics-audit.md"
+}

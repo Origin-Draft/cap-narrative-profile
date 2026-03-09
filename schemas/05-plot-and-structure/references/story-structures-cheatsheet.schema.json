@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/05-plot-and-structure/references/story-structures-cheatsheet.schema.json",
+  "title": "Grimoire · Story Structures Cheatsheet",
+  "description": "Extraction schema for story-structures-cheatsheet.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "structure_rows": {
+      "type": "array",
+      "description": "Table with columns: Structure, Acts, Best Genre, Core Feature, Difficulty",
+      "items": {
+        "type": "object",
+        "properties": {
+          "structure": {
+            "type": "string",
+            "description": "Structure",
+            "x-source-required": false
+          },
+          "acts": {
+            "type": "string",
+            "description": "Acts",
+            "x-source-required": false
+          },
+          "best_genre": {
+            "type": "string",
+            "description": "Best Genre",
+            "x-source-required": false
+          },
+          "core_feature": {
+            "type": "string",
+            "description": "Core Feature",
+            "x-source-required": false
+          },
+          "difficulty": {
+            "type": "string",
+            "description": "Difficulty",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "05-plot-and-structure/references/story-structures-cheatsheet.md"
+}

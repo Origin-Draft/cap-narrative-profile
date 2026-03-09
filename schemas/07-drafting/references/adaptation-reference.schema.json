@@ -1,0 +1,170 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/references/adaptation-reference.schema.json",
+  "title": "Grimoire · Adaptation Reference",
+  "description": "Extraction schema for adaptation-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "mode_rows": {
+      "type": "array",
+      "description": "Table with columns: Mode, Engagement Type, What Must Be Made Explicit, What Can Feel More Implicit",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "description": "Mode",
+            "x-source-required": false
+          },
+          "engagement_type": {
+            "type": "string",
+            "description": "Engagement Type",
+            "x-source-required": false
+          },
+          "what_must_be_made_explicit": {
+            "type": "string",
+            "description": "What Must Be Made Explicit",
+            "x-source-required": false
+          },
+          "what_can_feel_more_implicit": {
+            "type": "string",
+            "description": "What Can Feel More Implicit",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "adaptation_rows": {
+      "type": "array",
+      "description": "Table with columns: Adaptation, Appropriation",
+      "items": {
+        "type": "object",
+        "properties": {
+          "adaptation": {
+            "type": "string",
+            "description": "Adaptation",
+            "x-source-required": false
+          },
+          "appropriation": {
+            "type": "string",
+            "description": "Appropriation",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "derogatory_term_rows": {
+      "type": "array",
+      "description": "Table with columns: Derogatory term, Metaphor it invokes, Replace with",
+      "items": {
+        "type": "object",
+        "properties": {
+          "derogatory_term": {
+            "type": "string",
+            "description": "Derogatory term",
+            "x-source-required": false
+          },
+          "metaphor_it_invokes": {
+            "type": "string",
+            "description": "Metaphor it invokes",
+            "x-source-required": false
+          },
+          "replace_with": {
+            "type": "string",
+            "description": "Replace with",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "affordance_rows": {
+      "type": "array",
+      "description": "Table with columns: Affordance, What It Enables, How Linear Prose Approximates It",
+      "items": {
+        "type": "object",
+        "properties": {
+          "affordance": {
+            "type": "string",
+            "description": "Affordance",
+            "x-source-required": false
+          },
+          "what_it_enables": {
+            "type": "string",
+            "description": "What It Enables",
+            "x-source-required": false
+          },
+          "how_linear_prose_approximates_it": {
+            "type": "string",
+            "description": "How Linear Prose Approximates It",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "principle_rows": {
+      "type": "array",
+      "description": "Table with columns: Principle, Definition, Application",
+      "items": {
+        "type": "object",
+        "properties": {
+          "principle": {
+            "type": "string",
+            "description": "Principle",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "application": {
+            "type": "string",
+            "description": "Application",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "concept_rows": {
+      "type": "array",
+      "description": "Table with columns: Concept, Primary Grimoire Connection",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concept": {
+            "type": "string",
+            "description": "Concept",
+            "x-source-required": false
+          },
+          "primary_grimoire_connection": {
+            "type": "string",
+            "description": "Primary Grimoire Connection",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "string",
+      "enum": [],
+      "description": "Single-select from options: ",
+      "x-todo": "verify enum is single-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-drafting/references/adaptation-reference.md"
+}

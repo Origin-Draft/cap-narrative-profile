@@ -1,0 +1,159 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/03-characters/cross-refs/actantial-map.schema.json",
+  "title": "Grimoire · Actantial Map",
+  "description": "Extraction schema for actantial-map.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "character_rows": {
+      "type": "array",
+      "description": "Table with columns: Character, What They Desire (Object)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character": {
+            "type": "string",
+            "description": "Character",
+            "x-source-required": false
+          },
+          "what_they_desire_object": {
+            "type": "string",
+            "description": "What They Desire (Object)",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "helper_rows": {
+      "type": "array",
+      "description": "Table with columns: Helper, Nature of Aid, Grimoire Character Link",
+      "items": {
+        "type": "object",
+        "properties": {
+          "helper": {
+            "type": "string",
+            "description": "Helper",
+            "x-source-required": false
+          },
+          "nature_of_aid": {
+            "type": "string",
+            "description": "Nature of Aid",
+            "x-source-required": false
+          },
+          "grimoire_character_link": {
+            "type": "string",
+            "description": "Grimoire Character Link",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "opponent_rows": {
+      "type": "array",
+      "description": "Table with columns: Opponent, Nature of Opposition, Grimoire Character Link",
+      "items": {
+        "type": "object",
+        "properties": {
+          "opponent": {
+            "type": "string",
+            "description": "Opponent",
+            "x-source-required": false
+          },
+          "nature_of_opposition": {
+            "type": "string",
+            "description": "Nature of Opposition",
+            "x-source-required": false
+          },
+          "grimoire_character_link": {
+            "type": "string",
+            "description": "Grimoire Character Link",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "sender_rows": {
+      "type": "array",
+      "description": "Table with columns: Sender, How It Initiates, Form",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sender": {
+            "type": "string",
+            "description": "Sender",
+            "x-source-required": false
+          },
+          "how_it_initiates": {
+            "type": "string",
+            "description": "How It Initiates",
+            "x-source-required": false
+          },
+          "form": {
+            "type": "string",
+            "description": "Form",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "receiver_rows": {
+      "type": "array",
+      "description": "Table with columns: Receiver, How They Benefit",
+      "items": {
+        "type": "object",
+        "properties": {
+          "receiver": {
+            "type": "string",
+            "description": "Receiver",
+            "x-source-required": false
+          },
+          "how_they_benefit": {
+            "type": "string",
+            "description": "How They Benefit",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "actant_rows": {
+      "type": "array",
+      "description": "Table with columns: Actant, Character, Semiotic Square Position",
+      "items": {
+        "type": "object",
+        "properties": {
+          "actant": {
+            "type": "string",
+            "description": "Actant",
+            "x-source-required": false
+          },
+          "character": {
+            "type": "string",
+            "description": "Character",
+            "x-source-required": false
+          },
+          "semiotic_square_position": {
+            "type": "string",
+            "description": "Semiotic Square Position",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "03-characters/cross-refs/actantial-map.md"
+}

@@ -1,0 +1,135 @@
+{
+  "scene_id": "metamorphosis_ch01_s01",
+  "book_id": "metamorphosis",
+  "chapter": 1,
+  "scene_index": 1,
+  "act": 1,
+  "arc_position": 0.0,
+  "chapter_position": "opening",
+  "word_count": 738,
+  
+  "_comment": "Character references use slugs from registry.characters",
+  "pov_character": "gregor_samsa",
+  "participants": ["gregor_samsa"],
+  "setting": "gregor_room",
+  
+  "prose": "One morning, when Gregor Samsa woke from troubled dreams, he found\nhimself transformed in his bed into a horrible vermin. He lay on his\narmour-like back, and if he lifted his head a little he could see his\nbrown belly, slightly domed and divided by arches into stiff sections.\nThe bedding was hardly able to cover it and seemed ready to slide off\nany moment. His many legs, pitifully thin compared with the size of the\nrest of him, waved about helplessly as he looked.\n\n\"What's happened to me?\" he thought. It wasn't a dream. His room, a\nproper human room although a little too small, lay peacefully between\nits four familiar walls. A collection of textile samples lay spread out\non the table—Samsa was a travelling salesman—and above it there hung a\npicture that he had recently cut out of an illustrated magazine and\nhoused in a nice, gilded frame. It showed a lady fitted out with a fur\nhat and fur boa who sat upright, raising a heavy fur muff that covered\nthe whole of her lower arm towards the viewer.\n\nGregor then turned to look out the window at the dull weather. Drops of\nrain could be heard hitting the pane, which made him feel quite sad.\n\"How about if I sleep a little bit longer and forget all this\nnonsense\", he thought, but that was something he was unable to do\nbecause he was used to sleeping on his right, and in his present state\ncouldn't get into that position. However hard he threw himself onto his\nright, he always rolled back to where he was. He must have tried it a\nhundred times, shut his eyes so that he wouldn't have to look at the\nfloundering legs, and only stopped when he began to feel a mild, dull\npain there that he had never felt before.\n\n\"Oh, God\", he thought, \"what a strenuous career it is that I've chosen!\nTravelling day in and day out. Doing business like this takes much more\neffort than doing your own business at home, and on top of that there's\nthe curse of travelling, worries about making train connections, bad\nand irregular food, contact with different people all the time so that\nyou can never get to know anyone or become friendly with them. It can\nall go to Hell!\" He felt a slight itch up on his belly; pushed himself\nslowly up on his back towards the headboard so that he could lift his\nhead better; found where the itch was, and saw that it was covered with\nlots of little white spots which he didn't know what to make of; and\nwhen he tried to feel the place with one of his legs he drew it quickly\nback because as soon as he touched it he was overcome by a cold\nshudder.\n\nHe slid back into his former position. \"Getting up early all the time\",\nhe thought, \"it makes you stupid. You've got to get enough sleep. Other\ntravelling salesmen live a life of luxury. For instance, whenever I go\nback to the guest house during the morning to copy out the contract,\nthese gentlemen are always still sitting there eating their breakfasts.\nI ought to just try that with my boss; I'd get kicked out on the spot.\nBut who knows, maybe that would be the best thing for me. If I didn't\nhave my parents to think about I'd have given in my notice a long time\nago, I'd have gone up to the boss and told him just what I think, tell\nhim everything I would, let him know just what I feel. He'd fall right\noff his desk! And it's a funny sort of business to be sitting up there\nat your desk, talking down at your subordinates from up there,\nespecially when you have to go right up close because the boss is hard\nof hearing. Well, there's still some hope; once I've got the money\ntogether to pay off my parents' debt to him—another five or six years I\nsuppose—that's definitely what I'll do. That's when I'll make the big\nchange. First of all though, I've got to get up, my train leaves at\nfive.\"\n\nAnd he looked over at the alarm clock, ticking on the chest of drawers.\n\"God in Heaven!\" he thought. It was half past six and the hands were\nquietly moving forwards, it was even...",
+
+  "diegetic_level": "intradiegetic",
+  "sequence": "scene",
+  "beat": "ordinary_world",
+  "scene_function": "exposition",
+  
+  "pov": "third_limited",
+  "focalization": "internal_fixed",
+  "focalizer": "gregor_samsa",
+  "narratee_type": "implicit_reader",
+  "narrator_reliability": "reliable",
+  
+  "metafictional_technique": null,
+  "irony_type": "situational",
+  "anti_mimetic_technique": "impossible_narrator",
+  
+  "event_significance": "kernel",
+  "pentad_focus": "agent",
+  "burke_form": "progressive",
+  
+  "turn": {
+    "from": "routine",
+    "to": "crisis",
+    "value_dimension": "control_chaos",
+    "value_charge_open": "negative",
+    "value_charge_close": "negative",
+    "_comment": "References registry.want_vocabulary",
+    "character_want": "security",
+    "want_outcome": "denied"
+  },
+  
+  "tone": "anxious",
+  "target_tension": 4,
+  "target_pacing": "scene",
+  
+  "narrative_time": {
+    "order": "chronological",
+    "duration_mode": "scene",
+    "frequency": "singulative"
+  },
+  
+  "subtext": {
+    "technique": "hemingway_iceberg",
+    "maxim_violated": null,
+    "violation_type": null,
+    "iceberg_category": "character_history",
+    "_comment": "What's beneath the surface: years of resentment, desire to escape job"
+  },
+  
+  "freudian_mechanism": "displacement",
+  "lacan_register": "real",
+  "abject_category": "animal",
+  
+  "_comment_psychoanalytic": "Transformation as return of repressed; body horror as encounter with the Real; vermin-self as abjected identity that cannot be integrated",
+
+  "character_states": [
+    {
+      "_comment": "Per-character state tracking — references registry.characters",
+      "character": "gregor_samsa",
+      "pov_role": "focal",
+      
+      "emotional_state_entry": {
+        "primary": "confusion",
+        "secondary": "anxiety",
+        "intensity": 4
+      },
+      "emotional_state_exit": {
+        "primary": "panic",
+        "secondary": "resignation",
+        "intensity": 4
+      },
+      "emotional_arc": "escalation",
+      
+      "knowledge_at_entry": [
+        "Must catch train at 5am",
+        "Family depends on his income",
+        "5-6 years until debt paid off"
+      ],
+      "knowledge_gained": [
+        "His body is now vermin-form",
+        "He has overslept badly"
+      ],
+      
+      "objective_this_scene": "Get out of bed and catch his train",
+      "tactic": "denial",
+      "obstacle": "physical_barrier",
+      "stakes_personal": "Job loss; inability to fulfill duty",
+      "stakes_relational": "Family financial ruin",
+      
+      "personal_arc_beat": "catalyst",
+      "wound_triggered": true,
+      "_comment_wound": "His wound (powerlessness) is triggered by total loss of bodily control",
+      
+      "social_mask": "none",
+      "_comment_mask": "Gregor is alone; no mask needed; inner life fully exposed"
+    }
+  ],
+  
+  "canonical_summary": "Gregor Samsa discovers transformation at Gregor's Room; wants security [DENIED]; stakes=existential, atmosphere=anxious, role=ESTABLISHES.",
+  "_comment_summary": "Canonical summary is deterministic serialization of semantic layer — can be parsed back to scene_id, character slugs, setting slug, want slug, outcome enum",
+  
+  "_annotation": {
+    "schema_version": "v3.0.14",
+    "status": "example",
+    "source": "manual_annotation",
+    "registry_version": "metamorphosis_registry.example.json",
+    "confidence": {
+      "pov": 1.0,
+      "focalization": 1.0,
+      "beat": 0.9,
+      "tone": 0.95,
+      "irony_type": 0.85,
+      "freudian_mechanism": 0.8,
+      "lacan_register": 0.75,
+      "abject_category": 0.9
+    },
+    "notes": "Opening scene establishes the anti-mimetic premise (impossible body). Heavy use of FID — narrator's voice bleeds into Gregor's anxious thoughts about work. Irony: Gregor worries about missing work while transformed into vermin."
+  }
+}

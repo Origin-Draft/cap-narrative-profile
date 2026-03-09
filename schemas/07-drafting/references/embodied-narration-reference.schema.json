@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/references/embodied-narration-reference.schema.json",
+  "title": "Grimoire · Embodied Narration Reference",
+  "description": "Extraction schema for embodied-narration-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "schema_rows": {
+      "type": "array",
+      "description": "Table with columns: Schema, Bodily Origin, Abstract Mapping, Prose Use",
+      "items": {
+        "type": "object",
+        "properties": {
+          "schema": {
+            "type": "string",
+            "description": "Schema",
+            "x-source-required": false
+          },
+          "bodily_origin": {
+            "type": "string",
+            "description": "Bodily Origin",
+            "x-source-required": false
+          },
+          "abstract_mapping": {
+            "type": "string",
+            "description": "Abstract Mapping",
+            "x-source-required": false
+          },
+          "prose_use": {
+            "type": "string",
+            "description": "Prose Use",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "element_rows": {
+      "type": "array",
+      "description": "Table with columns: Element, Fiction Application",
+      "items": {
+        "type": "object",
+        "properties": {
+          "element": {
+            "type": "string",
+            "description": "Element",
+            "x-source-required": false
+          },
+          "fiction_application": {
+            "type": "string",
+            "description": "Fiction Application",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "disembodied_rows": {
+      "type": "array",
+      "description": "Table with columns: Disembodied, Embodied",
+      "items": {
+        "type": "object",
+        "properties": {
+          "disembodied": {
+            "type": "string",
+            "description": "Disembodied",
+            "x-source-required": false
+          },
+          "embodied": {
+            "type": "string",
+            "description": "Embodied",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "level_rows": {
+      "type": "array",
+      "description": "Table with columns: Level, Description, Technique",
+      "items": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "string",
+            "description": "Level",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          },
+          "technique": {
+            "type": "string",
+            "description": "Technique",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "static_rows": {
+      "type": "array",
+      "description": "Table with columns: Static, Kinesthetic",
+      "items": {
+        "type": "object",
+        "properties": {
+          "static": {
+            "type": "string",
+            "description": "Static",
+            "x-source-required": false
+          },
+          "kinesthetic": {
+            "type": "string",
+            "description": "Kinesthetic",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Check, Pass?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "check": {
+            "type": "string",
+            "description": "Check",
+            "x-source-required": false
+          },
+          "pass": {
+            "type": "string",
+            "description": "Pass?",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "author_rows": {
+      "type": "array",
+      "description": "Table with columns: Author, Work, Core Idea",
+      "items": {
+        "type": "object",
+        "properties": {
+          "author": {
+            "type": "string",
+            "description": "Author",
+            "x-source-required": false
+          },
+          "work": {
+            "type": "string",
+            "description": "Work",
+            "x-source-required": false
+          },
+          "core_idea": {
+            "type": "string",
+            "description": "Core Idea",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-drafting/references/embodied-narration-reference.md"
+}

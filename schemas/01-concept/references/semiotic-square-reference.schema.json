@@ -1,0 +1,174 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/01-concept/references/semiotic-square-reference.schema.json",
+  "title": "Grimoire · Semiotic Square Reference",
+  "description": "Extraction schema for semiotic-square-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "position_rows": {
+      "type": "array",
+      "description": "Table with columns: Position, Label, Description, Narrative Role",
+      "items": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "label": {
+            "type": "string",
+            "description": "Label",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          },
+          "narrative_role": {
+            "type": "string",
+            "description": "Narrative Role",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_2_rows": {
+      "type": "array",
+      "description": "Table with columns: Position, Value, Who Occupies It",
+      "items": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "value": {
+            "type": "string",
+            "description": "Value",
+            "x-source-required": false
+          },
+          "who_occupies_it": {
+            "type": "string",
+            "description": "Who Occupies It",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_3_rows": {
+      "type": "array",
+      "description": "Table with columns: Position, Value, Who Occupies It",
+      "items": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "value": {
+            "type": "string",
+            "description": "Value",
+            "x-source-required": false
+          },
+          "who_occupies_it": {
+            "type": "string",
+            "description": "Who Occupies It",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "actant_rows": {
+      "type": "array",
+      "description": "Table with columns: Actant, Function, Common Manifestation",
+      "items": {
+        "type": "object",
+        "properties": {
+          "actant": {
+            "type": "string",
+            "description": "Actant",
+            "x-source-required": false
+          },
+          "function": {
+            "type": "string",
+            "description": "Function",
+            "x-source-required": false
+          },
+          "common_manifestation": {
+            "type": "string",
+            "description": "Common Manifestation",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "actantial_position_rows": {
+      "type": "array",
+      "description": "Table with columns: Actantial Position, Grimoire Template, Key Field",
+      "items": {
+        "type": "object",
+        "properties": {
+          "actantial_position": {
+            "type": "string",
+            "description": "Actantial Position",
+            "x-source-required": false
+          },
+          "grimoire_template": {
+            "type": "string",
+            "description": "Grimoire Template",
+            "x-source-required": false
+          },
+          "key_field": {
+            "type": "string",
+            "description": "Key Field",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Function, Label, Description",
+      "items": {
+        "type": "object",
+        "properties": {
+          "function": {
+            "type": "string",
+            "description": "Function",
+            "x-source-required": false
+          },
+          "label": {
+            "type": "string",
+            "description": "Label",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "01-concept/references/semiotic-square-reference.md"
+}

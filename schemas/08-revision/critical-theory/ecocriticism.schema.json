@@ -1,0 +1,151 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/08-revision/critical-theory/ecocriticism.schema.json",
+  "title": "Grimoire · Ecocriticism",
+  "description": "Extraction schema for ecocriticism.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "criterion_rows": {
+      "type": "array",
+      "description": "Table with columns: Criterion, Description, Audit Question",
+      "items": {
+        "type": "object",
+        "properties": {
+          "criterion": {
+            "type": "string",
+            "description": "Criterion",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          },
+          "audit_question": {
+            "type": "string",
+            "description": "Audit Question",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "pastoral_convention_rows": {
+      "type": "array",
+      "description": "Table with columns: Pastoral Convention, What It Hides",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pastoral_convention": {
+            "type": "string",
+            "description": "Pastoral Convention",
+            "x-source-required": false
+          },
+          "what_it_hides": {
+            "type": "string",
+            "description": "What It Hides",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "scale_rows": {
+      "type": "array",
+      "description": "Table with columns: Scale, Strength, Limitation",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scale": {
+            "type": "string",
+            "description": "Scale",
+            "x-source-required": false
+          },
+          "strength": {
+            "type": "string",
+            "description": "Strength",
+            "x-source-required": false
+          },
+          "limitation": {
+            "type": "string",
+            "description": "Limitation",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "strategy_rows": {
+      "type": "array",
+      "description": "Table with columns: Strategy, How It Works, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "strategy": {
+            "type": "string",
+            "description": "Strategy",
+            "x-source-required": false
+          },
+          "how_it_works": {
+            "type": "string",
+            "description": "How It Works",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "level_rows": {
+      "type": "array",
+      "description": "Table with columns: Level, Description, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "string",
+            "description": "Level",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "**Buell's four criteria:** How many does the text meet? (Target: at least 2)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "08-revision/critical-theory/ecocriticism.md"
+}

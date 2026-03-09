@@ -1,0 +1,154 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/01-concept/references/dynamic-genre-reference.schema.json",
+  "title": "Grimoire · Dynamic Genre Reference",
+  "description": "Extraction schema for dynamic-genre-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "gesture_rows": {
+      "type": "array",
+      "description": "Table with columns: Gesture, What it does, Aesthetic value, Risk",
+      "items": {
+        "type": "object",
+        "properties": {
+          "gesture": {
+            "type": "string",
+            "description": "Gesture",
+            "x-source-required": false
+          },
+          "what_it_does": {
+            "type": "string",
+            "description": "What it does",
+            "x-source-required": false
+          },
+          "aesthetic_value": {
+            "type": "string",
+            "description": "Aesthetic value",
+            "x-source-required": false
+          },
+          "risk": {
+            "type": "string",
+            "description": "Risk",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "mode_rows": {
+      "type": "array",
+      "description": "Table with columns: Mode, Defines, Example in genre combination",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "description": "Mode",
+            "x-source-required": false
+          },
+          "defines": {
+            "type": "string",
+            "description": "Defines",
+            "x-source-required": false
+          },
+          "example_in_genre_combination": {
+            "type": "string",
+            "description": "Example in genre combination",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "level_rows": {
+      "type": "array",
+      "description": "Table with columns: Level, Name, Description",
+      "items": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "string",
+            "description": "Level",
+            "x-source-required": false
+          },
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "tragic_mode_rows": {
+      "type": "array",
+      "description": "Table with columns: Tragic mode, Comic mode, Elegiac mode, Satiric mode, Ironic mode",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tragic_mode": {
+            "type": "string",
+            "description": "Tragic mode",
+            "x-source-required": false
+          },
+          "comic_mode": {
+            "type": "string",
+            "description": "Comic mode",
+            "x-source-required": false
+          },
+          "elegiac_mode": {
+            "type": "string",
+            "description": "Elegiac mode",
+            "x-source-required": false
+          },
+          "satiric_mode": {
+            "type": "string",
+            "description": "Satiric mode",
+            "x-source-required": false
+          },
+          "ironic_mode": {
+            "type": "string",
+            "description": "Ironic mode",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "work_rows": {
+      "type": "array",
+      "description": "Table with columns: Work, Key Concept",
+      "items": {
+        "type": "object",
+        "properties": {
+          "work": {
+            "type": "string",
+            "description": "Work",
+            "x-source-required": false
+          },
+          "key_concept": {
+            "type": "string",
+            "description": "Key Concept",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "01-concept/references/dynamic-genre-reference.md"
+}

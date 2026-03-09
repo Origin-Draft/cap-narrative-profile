@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/craft-guides/description-and-setting.schema.json",
+  "title": "Grimoire · Description And Setting",
+  "description": "Extraction schema for description-and-setting.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "baseline_establishment_essential_for_uncanny_to_work": {
+      "type": "string",
+      "description": "Baseline establishment (essential for uncanny to work):",
+      "x-source-required": false
+    },
+    "uncanny_technique_for_key_scene": {
+      "type": "string",
+      "description": "Uncanny technique for key scene:",
+      "x-source-required": false
+    },
+    "scene_rows": {
+      "type": "array",
+      "description": "Table with columns: Scene, Target minor affect, How embedded in description",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scene": {
+            "type": "string",
+            "description": "Scene",
+            "x-source-required": false
+          },
+          "target_minor_affect": {
+            "type": "string",
+            "description": "Target minor affect",
+            "x-source-required": false
+          },
+          "how_embedded_in_description": {
+            "type": "string",
+            "description": "How embedded in description",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "space_rows": {
+      "type": "array",
+      "description": "Table with columns: Space, Uncanny mechanism, How rendered in description",
+      "items": {
+        "type": "object",
+        "properties": {
+          "space": {
+            "type": "string",
+            "description": "Space",
+            "x-source-required": false
+          },
+          "uncanny_mechanism": {
+            "type": "string",
+            "description": "Uncanny mechanism",
+            "x-source-required": false
+          },
+          "how_rendered_in_description": {
+            "type": "string",
+            "description": "How rendered in description",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "eg_protagonists_childhood_home_rows": {
+      "type": "array",
+      "description": "Table with columns: [e.g., protagonist's childhood home], [Déjà vu / familiar made strange], [Described as recognizable but slightly wrong dimensions; objects in wrong positions]",
+      "items": {
+        "type": "object",
+        "properties": {
+          "eg_protagonists_childhood_home": {
+            "type": "string",
+            "description": "[e.g., protagonist's childhood home]",
+            "x-source-required": false
+          },
+          "déjà_vu_familiar_made_strange": {
+            "type": "string",
+            "description": "[Déjà vu / familiar made strange]",
+            "x-source-required": false
+          },
+          "described_as_recognizable_but_slightly_wrong_dimensions_obje": {
+            "type": "string",
+            "description": "[Described as recognizable but slightly wrong dimensions; objects in wrong positions]",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Filtered through POV character's perspective and concerns?",
+          "Telling details chosen (specific, vivid, revealing)?",
+          "Integrated into action, not static blocks?",
+          "Multiple senses used (not just visual)?",
+          "Show vs. tell balance appropriate for pacing?",
+          "Grounding details present in dialogue scenes?",
+          "No info dumps (worldbuilding spread out)?",
+          "Length matches scene pacing needs?",
+          "First line of description hooks/orients reader?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-drafting/craft-guides/description-and-setting.md"
+}

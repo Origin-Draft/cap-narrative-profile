@@ -1,0 +1,339 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/03-characters/core-identity/character-profile.schema.json",
+  "title": "Grimoire · Character Profile",
+  "description": "Extraction schema for character-profile.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "full_name": {
+      "type": "string",
+      "description": "Full Name:",
+      "x-source-required": false
+    },
+    "preferred_namenickname": {
+      "type": "string",
+      "description": "Preferred Name/Nickname:",
+      "x-source-required": false
+    },
+    "age_birthday": {
+      "type": "string",
+      "description": "Age & Birthday:",
+      "x-source-required": false
+    },
+    "role_in_story": {
+      "type": "string",
+      "description": "Role in Story:",
+      "x-source-required": false
+    },
+    "archetype": {
+      "type": "string",
+      "description": "Archetype:",
+      "x-source-required": false
+    },
+    "alignment": {
+      "type": "string",
+      "description": "Alignment:",
+      "x-source-required": false
+    },
+    "primary_social_circle": {
+      "type": "string",
+      "description": "Primary Social Circle:",
+      "x-source-required": false
+    },
+    "primary_wound": {
+      "type": "string",
+      "description": "Primary Wound:",
+      "x-source-required": false
+    },
+    "point_of_presence": {
+      "type": "string",
+      "description": "Point of Presence:",
+      "x-source-required": false
+    },
+    "general_appearance": {
+      "type": "string",
+      "description": "General Appearance:",
+      "x-source-required": false
+    },
+    "distinctive_features": {
+      "type": "string",
+      "description": "Distinctive Features:",
+      "x-source-required": false
+    },
+    "voice_sound": {
+      "type": "string",
+      "description": "Voice & Sound:",
+      "x-source-required": false
+    },
+    "mannerisms_body_language": {
+      "type": "string",
+      "description": "Mannerisms & Body Language:",
+      "x-source-required": false
+    },
+    "typical_attire": {
+      "type": "string",
+      "description": "Typical Attire:",
+      "x-source-required": false
+    },
+    "sensory_signature": {
+      "type": "string",
+      "description": "Sensory Signature:",
+      "x-source-required": false
+    },
+    "three_defining_traits": {
+      "type": "string",
+      "description": "Three Defining Traits:",
+      "x-source-required": false
+    },
+    "strengths": {
+      "type": "string",
+      "description": "Strengths:",
+      "x-source-required": false
+    },
+    "flaws_weaknesses": {
+      "type": "string",
+      "description": "Flaws & Weaknesses:",
+      "x-source-required": false
+    },
+    "contradictions": {
+      "type": "string",
+      "description": "Contradictions:",
+      "x-source-required": false
+    },
+    "temperament": {
+      "type": "string",
+      "description": "Temperament:",
+      "x-source-required": false
+    },
+    "core_wound": {
+      "type": "string",
+      "description": "Core Wound:",
+      "x-source-required": false
+    },
+    "core_fear": {
+      "type": "string",
+      "description": "Core Fear:",
+      "x-source-required": false
+    },
+    "core_desire": {
+      "type": "string",
+      "description": "Core Desire:",
+      "x-source-required": false
+    },
+    "secret_shame": {
+      "type": "string",
+      "description": "Secret Shame:",
+      "x-source-required": false
+    },
+    "greatest_pride": {
+      "type": "string",
+      "description": "Greatest Pride:",
+      "x-source-required": false
+    },
+    "coping_mechanisms": {
+      "type": "string",
+      "description": "Coping Mechanisms:",
+      "x-source-required": false
+    },
+    "blind_spots": {
+      "type": "string",
+      "description": "Blind Spots:",
+      "x-source-required": false
+    },
+    "socioeconomic_class": {
+      "type": "string",
+      "description": "Socioeconomic Class:",
+      "x-source-required": false
+    },
+    "education": {
+      "type": "string",
+      "description": "Education:",
+      "x-source-required": false
+    },
+    "geographic_origin": {
+      "type": "string",
+      "description": "Geographic Origin:",
+      "x-source-required": false
+    },
+    "family_structure": {
+      "type": "string",
+      "description": "Family Structure:",
+      "x-source-required": false
+    },
+    "formative_relationships": {
+      "type": "string",
+      "description": "Formative Relationships:",
+      "x-source-required": false
+    },
+    "key_life_events": {
+      "type": "string",
+      "description": "Key Life Events:",
+      "x-source-required": false
+    },
+    "previous_loveslosses": {
+      "type": "string",
+      "description": "Previous Loves/Losses:",
+      "x-source-required": false
+    },
+    "current_life_situation": {
+      "type": "string",
+      "description": "Current Life Situation:",
+      "x-source-required": false
+    },
+    "external_goal_plot_level": {
+      "type": "string",
+      "description": "External Goal (Plot Level):",
+      "x-source-required": false
+    },
+    "internal_goal_emotionalpsychological": {
+      "type": "string",
+      "description": "Internal Goal (Emotional/Psychological):",
+      "x-source-required": false
+    },
+    "the_gap_between_them": {
+      "type": "string",
+      "description": "The Gap Between Them:",
+      "x-source-required": false
+    },
+    "what_theyre_willing_to_sacrifice": {
+      "type": "string",
+      "description": "What They're Willing to Sacrifice:",
+      "x-source-required": false
+    },
+    "what_stops_them_from_getting_what_they_want": {
+      "type": "string",
+      "description": "What Stops Them From Getting What They Want:",
+      "x-source-required": false
+    },
+    "vocabulary_level": {
+      "type": "string",
+      "description": "Vocabulary Level:",
+      "x-source-required": false
+    },
+    "sentence_rhythm": {
+      "type": "string",
+      "description": "Sentence Rhythm:",
+      "x-source-required": false
+    },
+    "verbal_tics_patterns": {
+      "type": "string",
+      "description": "Verbal Tics & Patterns:",
+      "x-source-required": false
+    },
+    "topics_they_gravitate_toward": {
+      "type": "string",
+      "description": "Topics They Gravitate Toward:",
+      "x-source-required": false
+    },
+    "topics_they_avoid": {
+      "type": "string",
+      "description": "Topics They Avoid:",
+      "x-source-required": false
+    },
+    "humor_style_if_any": {
+      "type": "string",
+      "description": "Humor Style (If Any):",
+      "x-source-required": false
+    },
+    "how_they_express_emotion": {
+      "type": "string",
+      "description": "How They Express Emotion:",
+      "x-source-required": false
+    },
+    "how_others_see_them": {
+      "type": "string",
+      "description": "How Others See Them:",
+      "x-source-required": false
+    },
+    "how_they_see_themselves": {
+      "type": "string",
+      "description": "How They See Themselves:",
+      "x-source-required": false
+    },
+    "social_comfort_zone": {
+      "type": "string",
+      "description": "Social Comfort Zone:",
+      "x-source-required": false
+    },
+    "relationship_patterns": {
+      "type": "string",
+      "description": "Relationship Patterns:",
+      "x-source-required": false
+    },
+    "who_theyre_drawn_to": {
+      "type": "string",
+      "description": "Who They're Drawn To:",
+      "x-source-required": false
+    },
+    "who_they_repel_or_avoid": {
+      "type": "string",
+      "description": "Who They Repel or Avoid:",
+      "x-source-required": false
+    },
+    "power_status": {
+      "type": "string",
+      "description": "Power & Status:",
+      "x-source-required": false
+    },
+    "object_they_carry": {
+      "type": "string",
+      "description": "Object They Carry:",
+      "x-source-required": false
+    },
+    "color_palette": {
+      "type": "string",
+      "description": "Color Palette:",
+      "x-source-required": false
+    },
+    "sensory_associations": {
+      "type": "string",
+      "description": "Sensory Associations:",
+      "x-source-required": false
+    },
+    "animalarchetype_optional": {
+      "type": "string",
+      "description": "Animal/Archetype (Optional):",
+      "x-source-required": false
+    },
+    "song_or_musical_style": {
+      "type": "string",
+      "description": "Song or Musical Style:",
+      "x-source-required": false
+    },
+    "false_belief_at_story_start": {
+      "type": "string",
+      "description": "False Belief at Story Start:",
+      "x-source-required": false
+    },
+    "truth_theyll_discover": {
+      "type": "string",
+      "description": "Truth They'll Discover:",
+      "x-source-required": false
+    },
+    "how_will_story_break_them_open": {
+      "type": "string",
+      "description": "How Will Story Break Them Open:",
+      "x-source-required": false
+    },
+    "possible_transformation": {
+      "type": "string",
+      "description": "Possible Transformation:",
+      "x-source-required": false
+    },
+    "possible_failure_state": {
+      "type": "string",
+      "description": "Possible Failure State:",
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "03-characters/core-identity/character-profile.md"
+}

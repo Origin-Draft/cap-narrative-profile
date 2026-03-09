@@ -1,0 +1,189 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/08-revision/references/queer-narratology-reference.schema.json",
+  "title": "Grimoire · Queer Narratology Reference",
+  "description": "Extraction schema for queer-narratology-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "dynamic_rows": {
+      "type": "array",
+      "description": "Table with columns: Dynamic, Narrative Effect",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dynamic": {
+            "type": "string",
+            "description": "Dynamic",
+            "x-source-required": false
+          },
+          "narrative_effect": {
+            "type": "string",
+            "description": "Narrative Effect",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "conventional_rows": {
+      "type": "array",
+      "description": "Table with columns: Conventional, Butler-Informed",
+      "items": {
+        "type": "object",
+        "properties": {
+          "conventional": {
+            "type": "string",
+            "description": "Conventional",
+            "x-source-required": false
+          },
+          "butlerinformed": {
+            "type": "string",
+            "description": "Butler-Informed",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "reproductive_futurism_default_rows": {
+      "type": "array",
+      "description": "Table with columns: Reproductive Futurism (default), Queer Alternative",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reproductive_futurism_default": {
+            "type": "string",
+            "description": "Reproductive Futurism (default)",
+            "x-source-required": false
+          },
+          "queer_alternative": {
+            "type": "string",
+            "description": "Queer Alternative",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "normative_time_rows": {
+      "type": "array",
+      "description": "Table with columns: Normative Time, Queer Time",
+      "items": {
+        "type": "object",
+        "properties": {
+          "normative_time": {
+            "type": "string",
+            "description": "Normative Time",
+            "x-source-required": false
+          },
+          "queer_time": {
+            "type": "string",
+            "description": "Queer Time",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "approach_rows": {
+      "type": "array",
+      "description": "Table with columns: Approach, Description",
+      "items": {
+        "type": "object",
+        "properties": {
+          "approach": {
+            "type": "string",
+            "description": "Approach",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "trope_rows": {
+      "type": "array",
+      "description": "Table with columns: Trope, Signal, Repair",
+      "items": {
+        "type": "object",
+        "properties": {
+          "trope": {
+            "type": "string",
+            "description": "Trope",
+            "x-source-required": false
+          },
+          "signal": {
+            "type": "string",
+            "description": "Signal",
+            "x-source-required": false
+          },
+          "repair": {
+            "type": "string",
+            "description": "Repair",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Check, Pass?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "check": {
+            "type": "string",
+            "description": "Check",
+            "x-source-required": false
+          },
+          "pass": {
+            "type": "string",
+            "description": "Pass?",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "author_rows": {
+      "type": "array",
+      "description": "Table with columns: Author, Work, Core Idea",
+      "items": {
+        "type": "object",
+        "properties": {
+          "author": {
+            "type": "string",
+            "description": "Author",
+            "x-source-required": false
+          },
+          "work": {
+            "type": "string",
+            "description": "Work",
+            "x-source-required": false
+          },
+          "core_idea": {
+            "type": "string",
+            "description": "Core Idea",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "08-revision/references/queer-narratology-reference.md"
+}

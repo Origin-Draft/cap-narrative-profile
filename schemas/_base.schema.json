@@ -1,0 +1,188 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:base",
+  "title": "Grimoire Base Definitions",
+  "description": "Shared $defs for all Grimoire template extraction schemas. Every per-template schema should reference this via $ref.",
+  "$defs": {
+    "labelValue": {
+      "type": "string",
+      "description": "A **Label:** [placeholder] field — single-line or short paragraph answer.",
+      "x-source-required": false
+    },
+    "longText": {
+      "type": "string",
+      "description": "A freeform paragraph field (P13 pattern): multi-sentence to multi-paragraph.",
+      "minLength": 0,
+      "x-source-required": false
+    },
+    "entityRef": {
+      "type": "string",
+      "description": "A reference to a declared Grimoire entity (character, setting, beat). Value should match a snake_case entity tag declared elsewhere.",
+      "x-entity-ref": true,
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "tensorValue": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "A 1–10 numeric scale (e.g. tension level)."
+    },
+    "psychicDistance": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Gardner psychic distance: 1 = omniscient/distant, 5 = deep interior."
+    },
+    "sourceCitation": {
+      "type": "string",
+      "description": "A passage citation from a source text being analyzed. Grammar: 'ch{N}' optionally followed by '.p{N}' (paragraph) or '.pg{N}' (page), optionally followed by a quoted fragment. Examples: 'ch3', 'ch3.p12', 'ch3.pg47', 'ch3.p12 \"the door swung open\"'. Multiple sources: comma-separated.",
+      "examples": [
+        "ch3",
+        "ch3.p12",
+        "ch3.pg47",
+        "ch3.p12 \"the door swung open\"",
+        "ch3.p4, ch7.p18"
+      ]
+    },
+    "sourceTextMeta": {
+      "type": "object",
+      "description": "Metadata about the source text being analyzed. Place once per analysis document.",
+      "properties": {
+        "title": { "type": "string" },
+        "author": { "type": "string" },
+        "edition": { "type": "string" },
+        "year": { "type": ["integer", "string"] }
+      },
+      "required": ["title", "author"]
+    },
+    "checkboxGroup": {
+      "type": "array",
+      "description": "A group of checkboxes (P5 pattern — multi-select).",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "booleanCheck": {
+      "type": "boolean",
+      "description": "A single checkbox (P5/P7 pattern — checked or not)."
+    },
+    "conditionalField": {
+      "type": "object",
+      "description": "A checkbox + detail fill-in (P7 pattern): boolean selection with optional supporting text.",
+      "properties": {
+        "selected": { "type": ["boolean", "string"] },
+        "detail": { "type": "string" }
+      },
+      "required": ["selected"]
+    },
+    "priorityEnum": {
+      "type": "string",
+      "enum": ["high", "medium", "low", "High", "Medium", "Low"]
+    },
+    "yesNoPartial": {
+      "type": "string",
+      "enum": ["yes", "no", "partial", "Yes", "No", "Partial"]
+    },
+    "yesNoMaybe": {
+      "type": "string",
+      "enum": ["yes", "no", "maybe", "Yes", "No", "Maybe"]
+    },
+    "arcTypeEnum": {
+      "type": "string",
+      "enum": [
+        "Positive Change", "Negative/Fall", "Flat",
+        "Minor", "Disillusionment", "Corruption", "None"
+      ]
+    },
+    "roleEnum": {
+      "type": "string",
+      "enum": [
+        "Protagonist", "Antagonist", "Deuteragonist", "Mentor", "Ally",
+        "Love Interest", "Rival", "Foil", "Guardian", "Trickster",
+        "Herald", "Supporting", "Walk-on"
+      ]
+    },
+    "archetypeEnum": {
+      "type": "string",
+      "enum": [
+        "Hero", "Mentor", "Threshold Guardian", "Herald", "Shapeshifter",
+        "Shadow", "Trickster", "Ally", "Lover", "Ruler", "Sage",
+        "Innocent", "Explorer", "Outlaw"
+      ]
+    },
+    "alignmentEnum": {
+      "type": "string",
+      "enum": [
+        "lawful_good", "neutral_good", "chaotic_good",
+        "lawful_neutral", "true_neutral", "chaotic_neutral",
+        "lawful_evil", "neutral_evil", "chaotic_evil"
+      ]
+    },
+    "woundEnum": {
+      "type": "string",
+      "enum": [
+        "abandonment", "betrayal", "humiliation", "loss", "rejection",
+        "trauma", "powerlessness", "invisibility", "failure",
+        "shame", "isolation", "injustice", "grief"
+      ]
+    },
+    "driveModelEnum": {
+      "type": "string",
+      "enum": ["wound", "desire", "duty", "perception", "existential"]
+    },
+    "diegeticLevelEnum": {
+      "type": "string",
+      "enum": ["extradiegetic", "intradiegetic", "metadiegetic"]
+    },
+    "consciousnessEnum": {
+      "type": "string",
+      "enum": ["psycho_narration", "free_indirect", "quoted_monologue"]
+    },
+    "speechActEnum": {
+      "type": "string",
+      "enum": ["assertive", "directive", "commissive", "expressive", "declaration"]
+    },
+    "gazeEnum": {
+      "type": "string",
+      "enum": ["active", "passive", "power", "counter", "internalized"]
+    },
+    "pactEnum": {
+      "type": "string",
+      "enum": ["autobiographical", "fictional", "autofictional"]
+    },
+    "actantEnum": {
+      "type": "string",
+      "enum": ["subject", "object", "sender", "receiver", "helper", "opponent"]
+    },
+    "povTypeEnum": {
+      "type": "string",
+      "enum": [
+        "first_person", "second_person", "third_limited", "third_omniscient",
+        "third_objective", "multiple", "epistolary"
+      ]
+    },
+    "conflictTypeEnum": {
+      "type": "string",
+      "enum": [
+        "person_vs_person", "person_vs_self", "person_vs_environment",
+        "person_vs_society", "person_vs_technology", "person_vs_fate", "multiple"
+      ]
+    },
+    "outcomeTypeEnum": {
+      "type": "string",
+      "enum": [
+        "full_disaster", "partial_disaster", "dilemma",
+        "success_with_complication", "full_success"
+      ]
+    },
+    "annotations": {
+      "type": "object",
+      "description": "Extracted <!-- key:value --> annotation tags from the markdown. Keys are tag names (character, setting, beat, etc.); values are the tag values or arrays of values.",
+      "additionalProperties": {
+        "oneOf": [
+          { "type": "string" },
+          { "type": "array", "items": { "type": "string" } }
+        ]
+      }
+    }
+  }
+}

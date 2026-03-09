@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/03-characters/core-identity/character-sheet-extended.schema.json",
+  "title": "Grimoire · Character Sheet Extended",
+  "description": "Extraction schema for character-sheet-extended.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "attribute_rows": {
+      "type": "array",
+      "description": "Table with columns: Attribute, Score (1–10, optional), Narrative Anchor",
+      "items": {
+        "type": "object",
+        "properties": {
+          "attribute": {
+            "type": "string",
+            "description": "Attribute",
+            "x-source-required": false
+          },
+          "score_110_optional": {
+            "type": "string",
+            "description": "Score (1–10, optional)",
+            "x-source-required": false
+          },
+          "narrative_anchor": {
+            "type": "string",
+            "description": "Narrative Anchor",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "trigger_rows": {
+      "type": "array",
+      "description": "Table with columns: Trigger, Visible Response, Hidden Response, Recovery Pattern",
+      "items": {
+        "type": "object",
+        "properties": {
+          "trigger": {
+            "type": "string",
+            "description": "Trigger",
+            "x-source-required": false
+          },
+          "visible_response": {
+            "type": "string",
+            "description": "Visible Response",
+            "x-source-required": false
+          },
+          "hidden_response": {
+            "type": "string",
+            "description": "Hidden Response",
+            "x-source-required": false
+          },
+          "recovery_pattern": {
+            "type": "string",
+            "description": "Recovery Pattern",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "dimension_rows": {
+      "type": "array",
+      "description": "Table with columns: Dimension, Primary Mode, Situational Shift",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dimension": {
+            "type": "string",
+            "description": "Dimension",
+            "x-source-required": false
+          },
+          "primary_mode": {
+            "type": "string",
+            "description": "Primary Mode",
+            "x-source-required": false
+          },
+          "situational_shift": {
+            "type": "string",
+            "description": "Situational Shift",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "chapterscene_rows": {
+      "type": "array",
+      "description": "Table with columns: Chapter/Scene, What Changed, New Constraint Going Forward",
+      "items": {
+        "type": "object",
+        "properties": {
+          "chapterscene": {
+            "type": "string",
+            "description": "Chapter/Scene",
+            "x-source-required": false
+          },
+          "what_changed": {
+            "type": "string",
+            "description": "What Changed",
+            "x-source-required": false
+          },
+          "new_constraint_going_forward": {
+            "type": "string",
+            "description": "New Constraint Going Forward",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "03-characters/core-identity/character-sheet-extended.md"
+}

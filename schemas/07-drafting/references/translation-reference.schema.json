@@ -1,0 +1,209 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/references/translation-reference.schema.json",
+  "title": "Grimoire · Translation Reference",
+  "description": "Extraction schema for translation-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "domestication_rows": {
+      "type": "array",
+      "description": "Table with columns: Domestication, Foreignization",
+      "items": {
+        "type": "object",
+        "properties": {
+          "domestication": {
+            "type": "string",
+            "description": "Domestication",
+            "x-source-required": false
+          },
+          "foreignization": {
+            "type": "string",
+            "description": "Foreignization",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "strategy_rows": {
+      "type": "array",
+      "description": "Table with columns: Strategy, Technique, Effect, Representative example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "strategy": {
+            "type": "string",
+            "description": "Strategy",
+            "x-source-required": false
+          },
+          "technique": {
+            "type": "string",
+            "description": "Technique",
+            "x-source-required": false
+          },
+          "effect": {
+            "type": "string",
+            "description": "Effect",
+            "x-source-required": false
+          },
+          "representative_example": {
+            "type": "string",
+            "description": "Representative example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "trigger_rows": {
+      "type": "array",
+      "description": "Table with columns: Trigger, Social Context, Emotional Valence, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "trigger": {
+            "type": "string",
+            "description": "Trigger",
+            "x-source-required": false
+          },
+          "social_context": {
+            "type": "string",
+            "description": "Social Context",
+            "x-source-required": false
+          },
+          "emotional_valence": {
+            "type": "string",
+            "description": "Emotional Valence",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "type_rows": {
+      "type": "array",
+      "description": "Table with columns: Type, Operation, Fiction Application",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "operation": {
+            "type": "string",
+            "description": "Operation",
+            "x-source-required": false
+          },
+          "fiction_application": {
+            "type": "string",
+            "description": "Fiction Application",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "technique_rows": {
+      "type": "array",
+      "description": "Table with columns: Technique, Risk, Mitigation",
+      "items": {
+        "type": "object",
+        "properties": {
+          "technique": {
+            "type": "string",
+            "description": "Technique",
+            "x-source-required": false
+          },
+          "risk": {
+            "type": "string",
+            "description": "Risk",
+            "x-source-required": false
+          },
+          "mitigation": {
+            "type": "string",
+            "description": "Mitigation",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "concept_rows": {
+      "type": "array",
+      "description": "Table with columns: Concept, Definition, Application",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concept": {
+            "type": "string",
+            "description": "Concept",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "application": {
+            "type": "string",
+            "description": "Application",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_7_rows": {
+      "type": "array",
+      "description": "Table with columns: Concept, Primary Grimoire Connection",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concept": {
+            "type": "string",
+            "description": "Concept",
+            "x-source-required": false
+          },
+          "primary_grimoire_connection": {
+            "type": "string",
+            "description": "Primary Grimoire Connection",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Have I made a conscious rendering strategy choice (not a default)?",
+          "Have I mapped each multilingual character's code-switching triggers?",
+          "Do I have competence in the languages / speech varieties I'm rendering?",
+          "Have I consulted sensitivity readers from affected communities?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-drafting/references/translation-reference.md"
+}

@@ -1,0 +1,200 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/references/dramatism-reference.schema.json",
+  "title": "Grimoire · Dramatism Reference",
+  "description": "Extraction schema for dramatism-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "term_rows": {
+      "type": "array",
+      "description": "Table with columns: Term, Question, Narrative Equivalent",
+      "items": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "Term",
+            "x-source-required": false
+          },
+          "question": {
+            "type": "string",
+            "description": "Question",
+            "x-source-required": false
+          },
+          "narrative_equivalent": {
+            "type": "string",
+            "description": "Narrative Equivalent",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "ratio_rows": {
+      "type": "array",
+      "description": "Table with columns: Ratio, Emphasis, Story Argument",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ratio": {
+            "type": "string",
+            "description": "Ratio",
+            "x-source-required": false
+          },
+          "emphasis": {
+            "type": "string",
+            "description": "Emphasis",
+            "x-source-required": false
+          },
+          "story_argument": {
+            "type": "string",
+            "description": "Story Argument",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "mechanism_rows": {
+      "type": "array",
+      "description": "Table with columns: Mechanism, How It Works, Fiction Use",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mechanism": {
+            "type": "string",
+            "description": "Mechanism",
+            "x-source-required": false
+          },
+          "how_it_works": {
+            "type": "string",
+            "description": "How It Works",
+            "x-source-required": false
+          },
+          "fiction_use": {
+            "type": "string",
+            "description": "Fiction Use",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "condition_rows": {
+      "type": "array",
+      "description": "Table with columns: Condition, What Creates It, What Breaks It",
+      "items": {
+        "type": "object",
+        "properties": {
+          "condition": {
+            "type": "string",
+            "description": "Condition",
+            "x-source-required": false
+          },
+          "what_creates_it": {
+            "type": "string",
+            "description": "What Creates It",
+            "x-source-required": false
+          },
+          "what_breaks_it": {
+            "type": "string",
+            "description": "What Breaks It",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "design_step_rows": {
+      "type": "array",
+      "description": "Table with columns: Design Step, Question, Output",
+      "items": {
+        "type": "object",
+        "properties": {
+          "design_step": {
+            "type": "string",
+            "description": "Design Step",
+            "x-source-required": false
+          },
+          "question": {
+            "type": "string",
+            "description": "Question",
+            "x-source-required": false
+          },
+          "output": {
+            "type": "string",
+            "description": "Output",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "character_type_rows": {
+      "type": "array",
+      "description": "Table with columns: Character Type, Typical Screen Terms, Selection, Deflection",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character_type": {
+            "type": "string",
+            "description": "Character Type",
+            "x-source-required": false
+          },
+          "typical_screen_terms": {
+            "type": "string",
+            "description": "Typical Screen Terms",
+            "x-source-required": false
+          },
+          "selection": {
+            "type": "string",
+            "description": "Selection",
+            "x-source-required": false
+          },
+          "deflection": {
+            "type": "string",
+            "description": "Deflection",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "concept_rows": {
+      "type": "array",
+      "description": "Table with columns: Concept, Primary Grimoire Connection",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concept": {
+            "type": "string",
+            "description": "Concept",
+            "x-source-required": false
+          },
+          "primary_grimoire_connection": {
+            "type": "string",
+            "description": "Primary Grimoire Connection",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "string",
+      "enum": [],
+      "description": "Single-select from options: ",
+      "x-todo": "verify enum is single-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-drafting/references/dramatism-reference.md"
+}

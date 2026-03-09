@@ -1,0 +1,205 @@
+{
+  "$schema": "../schema/registry.schema.json",
+  "book_id": "metamorphosis",
+
+  "characters": {
+    "gregor_samsa": {
+      "id": "gregor_samsa",
+      "name": "Gregor Samsa",
+      "archetype": "everyman",
+      "wound": "powerlessness",
+      "alignment": "lawful_good",
+      "role": "protagonist",
+      "drive_model": "duty",
+      "arc_type": "negative_fall",
+      "actant": "subject",
+      "ghost": "Years of self-sacrifice as family breadwinner; suppressed resentment at exploitation",
+      "want": "To continue providing for his family and pay off his father's debt",
+      "need": "To recognize his worth beyond economic utility; to be loved for himself",
+      "flaw": "Complete self-abnegation; inability to assert his own needs",
+      "voice_signature": {
+        "sentence_length_tendency": "medium",
+        "vocabulary_register": "standard",
+        "syntax_complexity": "moderate",
+        "fid_markers": ["unattributed_questions", "present_tense_feelings"],
+        "forbidden_words": [],
+        "signature_phrases": ["if only", "perhaps"]
+      }
+    },
+
+    "grete_samsa": {
+      "id": "grete_samsa",
+      "name": "Grete Samsa",
+      "archetype": "shapeshifter",
+      "wound": "abandonment",
+      "alignment": "neutral_good",
+      "role": "ally",
+      "drive_model": "desire",
+      "arc_type": "disillusionment",
+      "actant": "helper",
+      "ghost": "Childhood dependence on Gregor's financial support",
+      "want": "To care for and eventually cure her brother",
+      "need": "To establish her own identity independent of Gregor's sacrifice",
+      "flaw": "Compassion fatigue; eventual prioritization of self over brother"
+    },
+
+    "mr_samsa": {
+      "id": "mr_samsa",
+      "name": "Mr. Samsa",
+      "archetype": "shadow",
+      "wound": "shame",
+      "alignment": "lawful_neutral",
+      "role": "antagonist",
+      "drive_model": "wound",
+      "arc_type": "flat",
+      "actant": "opponent",
+      "ghost": "Business failure that indebted the family to Gregor's employer",
+      "want": "To restore family honor and regain patriarchal authority",
+      "need": "To acknowledge his debt to Gregor; to show gratitude",
+      "flaw": "Violent assertion of authority; cannot tolerate role reversal"
+    },
+
+    "mrs_samsa": {
+      "id": "mrs_samsa",
+      "name": "Mrs. Samsa",
+      "archetype": "caregiver",
+      "wound": "powerlessness",
+      "alignment": "neutral_good",
+      "role": "ally",
+      "drive_model": "desire",
+      "arc_type": "flat",
+      "actant": "helper",
+      "ghost": "Chronic illness and dependence on others",
+      "want": "To see her son restored; to maintain family unity",
+      "need": "To face reality; to grieve",
+      "flaw": "Physical weakness; denial; inability to act"
+    },
+
+    "chief_clerk": {
+      "id": "chief_clerk",
+      "name": "the Chief Clerk",
+      "archetype": "herald",
+      "wound": null,
+      "alignment": "lawful_neutral",
+      "role": "catalyst",
+      "drive_model": "duty",
+      "arc_type": "none",
+      "actant": "sender",
+      "ghost": null,
+      "want": "To retrieve Gregor for work; to enforce institutional obligation",
+      "need": null,
+      "flaw": "Institutional dehumanization; cannot see person behind worker"
+    },
+
+    "middle_lodger": {
+      "id": "middle_lodger",
+      "name": "the Middle Lodger",
+      "archetype": "threshold_guardian",
+      "wound": null,
+      "alignment": "true_neutral",
+      "role": "catalyst",
+      "drive_model": "desire",
+      "arc_type": "none",
+      "actant": "opponent",
+      "ghost": null,
+      "want": "Quiet lodgings; value for money",
+      "need": null,
+      "flaw": "Disgust at the Other; representative of bourgeois intolerance"
+    }
+  },
+
+  "relationships": [
+    {
+      "source": "gregor_samsa",
+      "target": "grete_samsa",
+      "rel_type": "sibling",
+      "description": "Gregor's beloved younger sister; recipient of his sacrifice; initially his caregiver",
+      "dynamic_at_start": "protective",
+      "dynamic_at_end": "estranged",
+      "power_balance": "shifting"
+    },
+    {
+      "source": "gregor_samsa",
+      "target": "mr_samsa",
+      "rel_type": "child",
+      "description": "Father-son relationship inverted by economic dependency",
+      "dynamic_at_start": "strained",
+      "dynamic_at_end": "hostile",
+      "power_balance": "contested"
+    },
+    {
+      "source": "gregor_samsa",
+      "target": "mrs_samsa",
+      "rel_type": "child",
+      "description": "Mother who loves but cannot face transformed son",
+      "dynamic_at_start": "trusting",
+      "dynamic_at_end": "alienated",
+      "power_balance": "source_dominant"
+    },
+    {
+      "source": "mr_samsa",
+      "target": "mrs_samsa",
+      "rel_type": "spouse",
+      "description": "United in crisis but divided on how to handle Gregor",
+      "dynamic_at_start": "harmonious",
+      "dynamic_at_end": "harmonious",
+      "power_balance": "source_dominant"
+    },
+    {
+      "source": "grete_samsa",
+      "target": "mr_samsa",
+      "rel_type": "child",
+      "description": "Daughter who ultimately aligns with father's rejection",
+      "dynamic_at_start": "respectful",
+      "dynamic_at_end": "allied",
+      "power_balance": "target_dominant"
+    }
+  ],
+
+  "settings": {
+    "gregor_room": {
+      "id": "gregor_room",
+      "name": "Gregor's Room",
+      "type": "domestic_modest",
+      "general_vibe": "Increasingly bare and prison-like as furniture removed",
+      "sensory_signature": [
+        "sample case leaning against wall",
+        "picture of woman in furs on wall",
+        "window overlooking gray street"
+      ]
+    },
+    "living_room": {
+      "id": "living_room",
+      "name": "the Living Room",
+      "type": "domestic_modest",
+      "general_vibe": "Center of family life from which Gregor is excluded",
+      "sensory_signature": [
+        "opened door revealing lamplight",
+        "violin music",
+        "dining table with lodgers"
+      ]
+    },
+    "family_flat": {
+      "id": "family_flat",
+      "name": "the Family Flat",
+      "type": "domestic_modest",
+      "general_vibe": "Cramped city apartment; increasingly commercialized as lodgers invade",
+      "sensory_signature": [
+        "central corridor connecting rooms",
+        "kitchen sounds of charwoman",
+        "dust and neglect accumulating"
+      ]
+    }
+  },
+
+  "want_vocabulary": {
+    "security": "security",
+    "connection": "connection",
+    "dignity": "dignity",
+    "belonging": "belonging",
+    "restoration": "restoration",
+    "authority": "authority",
+    "escape": "escape",
+    "recognition": "recognition"
+  }
+}

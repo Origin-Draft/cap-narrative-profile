@@ -1,0 +1,231 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/01-concept/genre-and-audience.schema.json",
+  "title": "Grimoire · Genre And Audience",
+  "description": "Extraction schema for genre-and-audience.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "what_genre_is_your_book": {
+      "type": "string",
+      "description": "What genre is your book?",
+      "x-source-required": false
+    },
+    "why_this_genre": {
+      "type": "string",
+      "description": "Why this genre?",
+      "x-source-required": false
+    },
+    "subgenre_if_applicable": {
+      "type": "string",
+      "description": "Subgenre (if applicable):",
+      "x-source-required": false
+    },
+    "blended_genres_if_applicable": {
+      "type": "string",
+      "description": "Blended genres (if applicable):",
+      "x-source-required": false
+    },
+    "primary_vs_secondary": {
+      "type": "string",
+      "description": "Primary vs. Secondary:",
+      "x-source-required": false
+    },
+    "structural_conventions": {
+      "type": "string",
+      "description": "Structural conventions:",
+      "x-source-required": false
+    },
+    "tonal_conventions": {
+      "type": "string",
+      "description": "Tonal conventions:",
+      "x-source-required": false
+    },
+    "character_conventions": {
+      "type": "string",
+      "description": "Character conventions:",
+      "x-source-required": false
+    },
+    "pacing_conventions": {
+      "type": "string",
+      "description": "Pacing conventions:",
+      "x-source-required": false
+    },
+    "setting_conventions": {
+      "type": "string",
+      "description": "Setting conventions:",
+      "x-source-required": false
+    },
+    "which_conventions_will_you_deliver_on": {
+      "type": "string",
+      "description": "Which conventions will you deliver on?",
+      "x-source-required": false
+    },
+    "which_conventions_will_you_twist_blend_or_avoid": {
+      "type": "string",
+      "description": "Which conventions will you twist, blend, or avoid?",
+      "x-source-required": false
+    },
+    "what_emotional_experience_does_your_genre_promise": {
+      "type": "string",
+      "description": "What emotional experience does your genre promise?",
+      "x-source-required": false
+    },
+    "plot": {
+      "type": "string",
+      "description": "Plot:",
+      "x-source-required": false
+    },
+    "characters": {
+      "type": "string",
+      "description": "Characters:",
+      "x-source-required": false
+    },
+    "ending": {
+      "type": "string",
+      "description": "Ending:",
+      "x-source-required": false
+    },
+    "age_category": {
+      "type": "string",
+      "description": "Age category:",
+      "x-source-required": false
+    },
+    "is_this_important_to_your_story": {
+      "type": "string",
+      "description": "Is this important to your story?",
+      "x-source-required": false
+    },
+    "readers_who_loved": {
+      "type": "string",
+      "description": "Readers who loved:",
+      "x-source-required": false
+    },
+    "why_those_books": {
+      "type": "string",
+      "description": "Why those books?",
+      "x-source-required": false
+    },
+    "what_does_your_target_reader_value_in_a_book": {
+      "type": "string",
+      "description": "What does your target reader value in a book?",
+      "x-source-required": false
+    },
+    "your_reader_prioritizes": {
+      "type": "string",
+      "description": "Your reader prioritizes:",
+      "x-source-required": false
+    },
+    "your_target_reader_is": {
+      "type": "string",
+      "description": "Your target reader is:",
+      "x-source-required": false
+    },
+    "comp_1": {
+      "type": "string",
+      "description": "Comp 1:",
+      "x-source-required": false
+    },
+    "what_it_shares_with_your_book": {
+      "type": "string",
+      "description": "What it shares with your book:",
+      "x-source-required": false
+    },
+    "what_makes_your_book_different": {
+      "type": "string",
+      "description": "What makes your book different:",
+      "x-source-required": false
+    },
+    "comp_2": {
+      "type": "string",
+      "description": "Comp 2:",
+      "x-source-required": false
+    },
+    "highconcept_pitch_optional": {
+      "type": "string",
+      "description": "High-concept pitch (optional):",
+      "x-source-required": false
+    },
+    "notes_on_alignment_issues": {
+      "type": "string",
+      "description": "Notes on alignment issues:",
+      "x-source-required": false
+    },
+    "genre_mode_combination": {
+      "type": "string",
+      "description": "Genre × Mode combination:",
+      "x-source-required": false
+    },
+    "modegenre_tension_if_any": {
+      "type": "string",
+      "description": "Mode-genre tension (if any):",
+      "x-source-required": false
+    },
+    "stage_in_genre_evolution_fowlers_model": {
+      "type": "string",
+      "description": "Stage in genre evolution (Fowler's model):",
+      "x-source-required": false
+    },
+    "how_the_genre_cycle_position_affects_your_choices": {
+      "type": "string",
+      "description": "How the genre cycle position affects your choices:",
+      "x-source-required": false
+    },
+    "genre_or_subgenre_rows": {
+      "type": "array",
+      "description": "Table with columns: Genre or subgenre, % of the book's DNA, Reader expectations activated, How you are meeting / subverting each",
+      "items": {
+        "type": "object",
+        "properties": {
+          "genre_or_subgenre": {
+            "type": "string",
+            "description": "Genre or subgenre",
+            "x-source-required": false
+          },
+          "of_the_books_dna": {
+            "type": "string",
+            "description": "% of the book's DNA",
+            "x-source-required": false
+          },
+          "reader_expectations_activated": {
+            "type": "string",
+            "description": "Reader expectations activated",
+            "x-source-required": false
+          },
+          "how_you_are_meeting_subverting_each": {
+            "type": "string",
+            "description": "How you are meeting / subverting each",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Tragic (inevitable loss; resolution through defeat or sacrifice)",
+          "Comic (incongruity resolved; social integration achieved)",
+          "Elegiac (mourning and memorial; the beauty of what is lost)",
+          "Satiric (critique through exaggeration; the system exposed)",
+          "Ironic (stated and meant diverge; resolutions are undercut)",
+          "Other: _______________"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "01-concept/genre-and-audience.md"
+}

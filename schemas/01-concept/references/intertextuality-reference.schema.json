@@ -1,0 +1,159 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/01-concept/references/intertextuality-reference.schema.json",
+  "title": "Grimoire · Intertextuality Reference",
+  "description": "Extraction schema for intertextuality-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "relation_rows": {
+      "type": "array",
+      "description": "Table with columns: Relation, Definition, Practical Implication",
+      "items": {
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string",
+            "description": "Relation",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "practical_implication": {
+            "type": "string",
+            "description": "Practical Implication",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "operation_rows": {
+      "type": "array",
+      "description": "Table with columns: Operation, Definition, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
+            "description": "Operation",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "ratio_rows": {
+      "type": "array",
+      "description": "Table with columns: Ratio, Definition, How a strong writer uses it",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ratio": {
+            "type": "string",
+            "description": "Ratio",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "how_a_strong_writer_uses_it": {
+            "type": "string",
+            "description": "How a strong writer uses it",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "type_rows": {
+      "type": "array",
+      "description": "Table with columns: Type, Definition, Reader competence required",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "reader_competence_required": {
+            "type": "string",
+            "description": "Reader competence required",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "term_rows": {
+      "type": "array",
+      "description": "Table with columns: Term, Definition",
+      "items": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "Term",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "source_rows": {
+      "type": "array",
+      "description": "Table with columns: Source, Key Contribution",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Source",
+            "x-source-required": false
+          },
+          "key_contribution": {
+            "type": "string",
+            "description": "Key Contribution",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "01-concept/references/intertextuality-reference.md"
+}

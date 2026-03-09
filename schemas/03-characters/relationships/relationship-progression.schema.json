@@ -1,0 +1,292 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/03-characters/relationships/relationship-progression.schema.json",
+  "title": "Grimoire · Relationship Progression",
+  "description": "Extraction schema for relationship-progression.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "how_does_your_version_deviate_from_the_archetype": {
+      "type": "string",
+      "description": "How does your version deviate from the archetype?",
+      "x-source-required": false
+    },
+    "retreats_down_the_ladder": {
+      "type": "string",
+      "description": "Retreats down the ladder:",
+      "x-source-required": false
+    },
+    "_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Stage, Trigger Event, Chapter/Beat, Emotional State, External Marker",
+      "items": {
+        "type": "object",
+        "properties": {
+          "stage": {
+            "type": "string",
+            "description": "Stage",
+            "x-source-required": false
+          },
+          "trigger_event": {
+            "type": "string",
+            "description": "Trigger Event",
+            "x-source-required": false
+          },
+          "chapterbeat": {
+            "type": "string",
+            "description": "Chapter/Beat",
+            "x-source-required": false
+          },
+          "emotional_state": {
+            "type": "string",
+            "description": "Emotional State",
+            "x-source-required": false
+          },
+          "external_marker": {
+            "type": "string",
+            "description": "External Marker",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "rung_rows": {
+      "type": "array",
+      "description": "Table with columns: Rung, Type, Scene/Chapter, Emotional Context, Initiated By",
+      "items": {
+        "type": "object",
+        "properties": {
+          "rung": {
+            "type": "string",
+            "description": "Rung",
+            "x-source-required": false
+          },
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "scenechapter": {
+            "type": "string",
+            "description": "Scene/Chapter",
+            "x-source-required": false
+          },
+          "emotional_context": {
+            "type": "string",
+            "description": "Emotional Context",
+            "x-source-required": false
+          },
+          "initiated_by": {
+            "type": "string",
+            "description": "Initiated By",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "beat_rows": {
+      "type": "array",
+      "description": "Table with columns: Beat, Who Trusts Whom, Should They?, Information Gap, Reader Knows?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "beat": {
+            "type": "string",
+            "description": "Beat",
+            "x-source-required": false
+          },
+          "who_trusts_whom": {
+            "type": "string",
+            "description": "Who Trusts Whom",
+            "x-source-required": false
+          },
+          "should_they": {
+            "type": "string",
+            "description": "Should They?",
+            "x-source-required": false
+          },
+          "information_gap": {
+            "type": "string",
+            "description": "Information Gap",
+            "x-source-required": false
+          },
+          "reader_knows": {
+            "type": "string",
+            "description": "Reader Knows?",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "trial_event_rows": {
+      "type": "array",
+      "description": "Table with columns: Trial / Event, Who Participates, Bond Formed/Tested, Who's Excluded, Consequence",
+      "items": {
+        "type": "object",
+        "properties": {
+          "trial_event": {
+            "type": "string",
+            "description": "Trial / Event",
+            "x-source-required": false
+          },
+          "who_participates": {
+            "type": "string",
+            "description": "Who Participates",
+            "x-source-required": false
+          },
+          "bond_formedtested": {
+            "type": "string",
+            "description": "Bond Formed/Tested",
+            "x-source-required": false
+          },
+          "whos_excluded": {
+            "type": "string",
+            "description": "Who's Excluded",
+            "x-source-required": false
+          },
+          "consequence": {
+            "type": "string",
+            "description": "Consequence",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "plot_beat_rows": {
+      "type": "array",
+      "description": "Table with columns: Plot Beat, [A & B] State, [A & C] State, [D & E] State",
+      "items": {
+        "type": "object",
+        "properties": {
+          "plot_beat": {
+            "type": "string",
+            "description": "Plot Beat",
+            "x-source-required": false
+          },
+          "a_b_state": {
+            "type": "string",
+            "description": "[A & B] State",
+            "x-source-required": false
+          },
+          "a_c_state": {
+            "type": "string",
+            "description": "[A & C] State",
+            "x-source-required": false
+          },
+          "d_e_state": {
+            "type": "string",
+            "description": "[D & E] State",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Vulnerability exchange — Scene: [reference]",
+          "Reliability proof — Scene: [reference]",
+          "Secret shared — Scene: [reference]",
+          "Defended in absence — Scene: [reference]"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Boundary violation — Scene: [reference]",
+          "Competing needs — Scene: [reference]",
+          "Misread intention — Scene: [reference]",
+          "Loyalty test — Scene: [reference]",
+          "Power shift — Scene: [reference]"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Betrayal — Scene: [reference]",
+          "Abandonment — Scene: [reference]",
+          "Confrontation — Scene: [reference]",
+          "Reveal — Scene: [reference]",
+          "Sacrifice refusal — Scene: [reference]"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_4": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Accountability — Scene: [reference]",
+          "Changed behavior — Scene: [reference]",
+          "Difficult conversation — Scene: [reference]",
+          "Grace offered — Scene: [reference]",
+          "Shared grief — Scene: [reference]"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_5": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Role reversal — Scene: [reference]",
+          "Mutual recognition — Scene: [reference]",
+          "Letting go — Scene: [reference]",
+          "New contract — Scene: [reference]"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_6": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Are there no skipped stages without narrative justification?",
+          "Is there variety in beat types (not all confrontation, not all vulnerability)?",
+          "Can you point to the specific scene where each stage transition happens?",
+          "Would removing any tracked relationship lose a subplot or thematic thread?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "03-characters/relationships/relationship-progression.md"
+}

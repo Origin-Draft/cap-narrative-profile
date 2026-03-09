@@ -1,0 +1,149 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/00-start-here/book-brief.schema.json",
+  "title": "Grimoire · Book Brief",
+  "description": "Extraction schema for book-brief.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "working_title": {
+      "type": "string",
+      "description": "Working Title:",
+      "x-source-required": false
+    },
+    "genre": {
+      "type": "string",
+      "description": "Genre:",
+      "x-source-required": false
+    },
+    "target_word_count": {
+      "type": "string",
+      "description": "Target Word Count:",
+      "x-source-required": false
+    },
+    "target_audience": {
+      "type": "string",
+      "description": "Target Audience:",
+      "x-source-required": false
+    },
+    "premise_23_sentences": {
+      "type": "string",
+      "description": "Premise (2–3 Sentences):",
+      "x-source-required": false
+    },
+    "setting": {
+      "type": "string",
+      "description": "Setting:",
+      "x-source-required": false
+    },
+    "name": {
+      "type": "string",
+      "description": "Name:",
+      "x-source-required": false
+    },
+    "age": {
+      "type": "string",
+      "description": "Age:",
+      "x-source-required": false
+    },
+    "core_desire": {
+      "type": "string",
+      "description": "Core Desire:",
+      "x-source-required": false
+    },
+    "greatest_fear": {
+      "type": "string",
+      "description": "Greatest Fear:",
+      "x-source-required": false
+    },
+    "key_trait": {
+      "type": "string",
+      "description": "Key Trait:",
+      "x-source-required": false
+    },
+    "onesentence_arc": {
+      "type": "string",
+      "description": "One-Sentence Arc:",
+      "x-source-required": false
+    },
+    "external_conflict": {
+      "type": "string",
+      "description": "External Conflict:",
+      "x-source-required": false
+    },
+    "internal_conflict": {
+      "type": "string",
+      "description": "Internal Conflict:",
+      "x-source-required": false
+    },
+    "central_question": {
+      "type": "string",
+      "description": "Central Question:",
+      "x-source-required": false
+    },
+    "tone": {
+      "type": "string",
+      "description": "Tone:",
+      "x-source-required": false
+    },
+    "narrative_style": {
+      "type": "string",
+      "description": "Narrative Style:",
+      "x-source-required": false
+    },
+    "prose_style": {
+      "type": "string",
+      "description": "Prose Style:",
+      "x-source-required": false
+    },
+    "primary_theme": {
+      "type": "string",
+      "description": "Primary Theme:",
+      "x-source-required": false
+    },
+    "secondary_themes": {
+      "type": "string",
+      "description": "Secondary Themes:",
+      "x-source-required": false
+    },
+    "thematic_statement_optional": {
+      "type": "string",
+      "description": "Thematic Statement (Optional):",
+      "x-source-required": false
+    },
+    "comp_1": {
+      "type": "string",
+      "description": "Comp 1:",
+      "x-source-required": false
+    },
+    "comp_2": {
+      "type": "string",
+      "description": "Comp 2:",
+      "x-source-required": false
+    },
+    "highconcept_comp_optional": {
+      "type": "string",
+      "description": "High-Concept Comp (Optional):",
+      "x-source-required": false
+    },
+    "what_makes_this_book_special": {
+      "type": "string",
+      "description": "What Makes This Book Special:",
+      "x-source-required": false
+    },
+    "personal_connection_optional": {
+      "type": "string",
+      "description": "Personal Connection (Optional):",
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "00-start-here/book-brief.md"
+}

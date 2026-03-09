@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/references/narrative-voice-reference.schema.json",
+  "title": "Grimoire · Narrative Voice Reference",
+  "description": "Extraction schema for narrative-voice-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "concept_rows": {
+      "type": "array",
+      "description": "Table with columns: Concept, Question, Template Location",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concept": {
+            "type": "string",
+            "description": "Concept",
+            "x-source-required": false
+          },
+          "question": {
+            "type": "string",
+            "description": "Question",
+            "x-source-required": false
+          },
+          "template_location": {
+            "type": "string",
+            "description": "Template Location",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "type_rows": {
+      "type": "array",
+      "description": "Table with columns: Type, Definition, Examples",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "examples": {
+            "type": "string",
+            "description": "Examples",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "position_rows": {
+      "type": "array",
+      "description": "Table with columns: Position, Definition, Technique, Examples",
+      "items": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "technique": {
+            "type": "string",
+            "description": "Technique",
+            "x-source-required": false
+          },
+          "examples": {
+            "type": "string",
+            "description": "Examples",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "axis_rows": {
+      "type": "array",
+      "description": "Table with columns: Axis, Question, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "axis": {
+            "type": "string",
+            "description": "Axis",
+            "x-source-required": false
+          },
+          "question": {
+            "type": "string",
+            "description": "Question",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "work_rows": {
+      "type": "array",
+      "description": "Table with columns: Work, Key Concept",
+      "items": {
+        "type": "object",
+        "properties": {
+          "work": {
+            "type": "string",
+            "description": "Work",
+            "x-source-required": false
+          },
+          "key_concept": {
+            "type": "string",
+            "description": "Key Concept",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-drafting/references/narrative-voice-reference.md"
+}

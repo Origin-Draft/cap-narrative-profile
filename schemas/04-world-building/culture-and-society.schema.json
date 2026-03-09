@@ -1,0 +1,394 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/04-world-building/culture-and-society.schema.json",
+  "title": "Grimoire · Culture And Society",
+  "description": "Extraction schema for culture-and-society.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "nameidentity_of_this_culture": {
+      "type": "string",
+      "description": "Name/Identity of This Culture:",
+      "x-source-required": false
+    },
+    "geographicdemographic_scope": {
+      "type": "string",
+      "description": "Geographic/Demographic Scope:",
+      "x-source-required": false
+    },
+    "dominant_values": {
+      "type": "string",
+      "description": "Dominant Values:",
+      "x-source-required": false
+    },
+    "defining_characteristics_outsider_view": {
+      "type": "string",
+      "description": "Defining Characteristics (Outsider View):",
+      "x-source-required": false
+    },
+    "internal_complexity": {
+      "type": "string",
+      "description": "Internal Complexity:",
+      "x-source-required": false
+    },
+    "does_this_culture_have_formal_classcastehierarchy": {
+      "type": "string",
+      "description": "Does this culture have formal class/caste/hierarchy?",
+      "x-source-required": false
+    },
+    "class_levels": {
+      "type": "string",
+      "description": "Class Levels:",
+      "x-source-required": false
+    },
+    "social_mobility": {
+      "type": "string",
+      "description": "Social Mobility:",
+      "x-source-required": false
+    },
+    "markers_of_status": {
+      "type": "string",
+      "description": "Markers of Status:",
+      "x-source-required": false
+    },
+    "the_untouchables": {
+      "type": "string",
+      "description": "The Untouchables:",
+      "x-source-required": false
+    },
+    "power_distribution": {
+      "type": "string",
+      "description": "Power Distribution:",
+      "x-source-required": false
+    },
+    "political_system": {
+      "type": "string",
+      "description": "Political System:",
+      "x-source-required": false
+    },
+    "who_rules": {
+      "type": "string",
+      "description": "Who Rules:",
+      "x-source-required": false
+    },
+    "legal_system": {
+      "type": "string",
+      "description": "Legal System:",
+      "x-source-required": false
+    },
+    "law_enforcement": {
+      "type": "string",
+      "description": "Law Enforcement:",
+      "x-source-required": false
+    },
+    "crime_punishment": {
+      "type": "string",
+      "description": "Crime & Punishment:",
+      "x-source-required": false
+    },
+    "corruption": {
+      "type": "string",
+      "description": "Corruption:",
+      "x-source-required": false
+    },
+    "rights_citizenship": {
+      "type": "string",
+      "description": "Rights & Citizenship:",
+      "x-source-required": false
+    },
+    "economic_base": {
+      "type": "string",
+      "description": "Economic Base:",
+      "x-source-required": false
+    },
+    "key_resources": {
+      "type": "string",
+      "description": "Key Resources:",
+      "x-source-required": false
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency:",
+      "x-source-required": false
+    },
+    "wealth_distribution": {
+      "type": "string",
+      "description": "Wealth Distribution:",
+      "x-source-required": false
+    },
+    "labor_systems": {
+      "type": "string",
+      "description": "Labor Systems:",
+      "x-source-required": false
+    },
+    "trade_commerce": {
+      "type": "string",
+      "description": "Trade & Commerce:",
+      "x-source-required": false
+    },
+    "poverty_survival": {
+      "type": "string",
+      "description": "Poverty & Survival:",
+      "x-source-required": false
+    },
+    "economic_tensions": {
+      "type": "string",
+      "description": "Economic Tensions:",
+      "x-source-required": false
+    },
+    "religious_structure": {
+      "type": "string",
+      "description": "Religious Structure:",
+      "x-source-required": false
+    },
+    "deitieshigher_powers": {
+      "type": "string",
+      "description": "Deities/Higher Powers:",
+      "x-source-required": false
+    },
+    "religious_authority": {
+      "type": "string",
+      "description": "Religious Authority:",
+      "x-source-required": false
+    },
+    "practice_ritual": {
+      "type": "string",
+      "description": "Practice & Ritual:",
+      "x-source-required": false
+    },
+    "afterlife_beliefs": {
+      "type": "string",
+      "description": "Afterlife Beliefs:",
+      "x-source-required": false
+    },
+    "sacred_profane": {
+      "type": "string",
+      "description": "Sacred & Profane:",
+      "x-source-required": false
+    },
+    "religious_diversity": {
+      "type": "string",
+      "description": "Religious Diversity:",
+      "x-source-required": false
+    },
+    "skeptics_nonbelievers": {
+      "type": "string",
+      "description": "Skeptics & Non-Believers:",
+      "x-source-required": false
+    },
+    "common_superstitions": {
+      "type": "string",
+      "description": "Common Superstitions:",
+      "x-source-required": false
+    },
+    "omens_signs": {
+      "type": "string",
+      "description": "Omens & Signs:",
+      "x-source-required": false
+    },
+    "taboos": {
+      "type": "string",
+      "description": "Taboos:",
+      "x-source-required": false
+    },
+    "life_cycle_rituals": {
+      "type": "string",
+      "description": "Life Cycle Rituals:",
+      "x-source-required": false
+    },
+    "family_structure": {
+      "type": "string",
+      "description": "Family Structure:",
+      "x-source-required": false
+    },
+    "kinship_systems": {
+      "type": "string",
+      "description": "Kinship Systems:",
+      "x-source-required": false
+    },
+    "marriagepartnership": {
+      "type": "string",
+      "description": "Marriage/Partnership:",
+      "x-source-required": false
+    },
+    "children": {
+      "type": "string",
+      "description": "Children:",
+      "x-source-required": false
+    },
+    "elders": {
+      "type": "string",
+      "description": "Elders:",
+      "x-source-required": false
+    },
+    "chosen_family": {
+      "type": "string",
+      "description": "Chosen Family:",
+      "x-source-required": false
+    },
+    "outsiders_strangers": {
+      "type": "string",
+      "description": "Outsiders & Strangers:",
+      "x-source-required": false
+    },
+    "languages": {
+      "type": "string",
+      "description": "Language(s):",
+      "x-source-required": false
+    },
+    "communication_norms": {
+      "type": "string",
+      "description": "Communication Norms:",
+      "x-source-required": false
+    },
+    "nonverbal_communication": {
+      "type": "string",
+      "description": "Non-Verbal Communication:",
+      "x-source-required": false
+    },
+    "art_aesthetics": {
+      "type": "string",
+      "description": "Art & Aesthetics:",
+      "x-source-required": false
+    },
+    "storytelling_traditions": {
+      "type": "string",
+      "description": "Storytelling Traditions:",
+      "x-source-required": false
+    },
+    "censorship_taboo_topics": {
+      "type": "string",
+      "description": "Censorship & Taboo Topics:",
+      "x-source-required": false
+    },
+    "names_naming": {
+      "type": "string",
+      "description": "Names & Naming:",
+      "x-source-required": false
+    },
+    "gender_roles": {
+      "type": "string",
+      "description": "Gender Roles:",
+      "x-source-required": false
+    },
+    "gender_diversity": {
+      "type": "string",
+      "description": "Gender Diversity:",
+      "x-source-required": false
+    },
+    "occupational_restrictions": {
+      "type": "string",
+      "description": "Occupational Restrictions:",
+      "x-source-required": false
+    },
+    "power_dynamics": {
+      "type": "string",
+      "description": "Power Dynamics:",
+      "x-source-required": false
+    },
+    "sexuality": {
+      "type": "string",
+      "description": "Sexuality:",
+      "x-source-required": false
+    },
+    "body_appearance": {
+      "type": "string",
+      "description": "Body & Appearance:",
+      "x-source-required": false
+    },
+    "how_does_this_culture_handle_disagreement": {
+      "type": "string",
+      "description": "How Does This Culture Handle Disagreement?",
+      "x-source-required": false
+    },
+    "socially_acceptable_conflicts": {
+      "type": "string",
+      "description": "Socially Acceptable Conflicts:",
+      "x-source-required": false
+    },
+    "unacceptable_conflicts": {
+      "type": "string",
+      "description": "Unacceptable Conflicts:",
+      "x-source-required": false
+    },
+    "ingroups_outgroups": {
+      "type": "string",
+      "description": "In-Groups & Out-Groups:",
+      "x-source-required": false
+    },
+    "prejudices_discrimination": {
+      "type": "string",
+      "description": "Prejudices & Discrimination:",
+      "x-source-required": false
+    },
+    "unity_myths": {
+      "type": "string",
+      "description": "Unity Myths:",
+      "x-source-required": false
+    },
+    "typical_daily_rhythm": {
+      "type": "string",
+      "description": "Typical Daily Rhythm:",
+      "x-source-required": false
+    },
+    "food_culture": {
+      "type": "string",
+      "description": "Food Culture:",
+      "x-source-required": false
+    },
+    "clothing": {
+      "type": "string",
+      "description": "Clothing:",
+      "x-source-required": false
+    },
+    "housing": {
+      "type": "string",
+      "description": "Housing:",
+      "x-source-required": false
+    },
+    "leisure": {
+      "type": "string",
+      "description": "Leisure:",
+      "x-source-required": false
+    },
+    "personal_hygiene": {
+      "type": "string",
+      "description": "Personal Hygiene:",
+      "x-source-required": false
+    },
+    "technologymagic_in_daily_life": {
+      "type": "string",
+      "description": "Technology/Magic in Daily Life:",
+      "x-source-required": false
+    },
+    "how_does_this_culture_embody_or_challenge_your_storys_themes": {
+      "type": "string",
+      "description": "How does this culture embody or challenge your story's themes?",
+      "x-source-required": false
+    },
+    "what_about_this_culture_creates_conflict_for_your_protagonis": {
+      "type": "string",
+      "description": "What about this culture creates conflict for your protagonist?",
+      "x-source-required": false
+    },
+    "what_does_this_culture_reveal_about_power": {
+      "type": "string",
+      "description": "What does this culture reveal about power?",
+      "x-source-required": false
+    },
+    "if_you_could_describe_this_culture_in_one_sentence_what_woul": {
+      "type": "string",
+      "description": "If you could describe this culture in one sentence, what would it be?",
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "04-world-building/culture-and-society.md"
+}

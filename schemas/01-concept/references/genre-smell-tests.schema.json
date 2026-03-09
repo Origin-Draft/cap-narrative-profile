@@ -1,0 +1,374 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/01-concept/references/genre-smell-tests.schema.json",
+  "title": "Grimoire · Genre Smell Tests",
+  "description": "Extraction schema for genre-smell-tests.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "weight_rows": {
+      "type": "array",
+      "description": "Table with columns: Weight, Tag, Meaning, Violate?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "weight": {
+            "type": "string",
+            "description": "Weight",
+            "x-source-required": false
+          },
+          "tag": {
+            "type": "string",
+            "description": "Tag",
+            "x-source-required": false
+          },
+          "meaning": {
+            "type": "string",
+            "description": "Meaning",
+            "x-source-required": false
+          },
+          "violate": {
+            "type": "string",
+            "description": "Violate?",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "convention_rows": {
+      "type": "array",
+      "description": "Table with columns: Convention, Timing, What to Check",
+      "items": {
+        "type": "object",
+        "properties": {
+          "convention": {
+            "type": "string",
+            "description": "Convention",
+            "x-source-required": false
+          },
+          "timing": {
+            "type": "string",
+            "description": "Timing",
+            "x-source-required": false
+          },
+          "what_to_check": {
+            "type": "string",
+            "description": "What to Check",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_3_rows": {
+      "type": "array",
+      "description": "Table with columns: Convention, Timing, What to Check",
+      "items": {
+        "type": "object",
+        "properties": {
+          "convention": {
+            "type": "string",
+            "description": "Convention",
+            "x-source-required": false
+          },
+          "timing": {
+            "type": "string",
+            "description": "Timing",
+            "x-source-required": false
+          },
+          "what_to_check": {
+            "type": "string",
+            "description": "What to Check",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_4_rows": {
+      "type": "array",
+      "description": "Table with columns: Convention, Timing, What to Check",
+      "items": {
+        "type": "object",
+        "properties": {
+          "convention": {
+            "type": "string",
+            "description": "Convention",
+            "x-source-required": false
+          },
+          "timing": {
+            "type": "string",
+            "description": "Timing",
+            "x-source-required": false
+          },
+          "what_to_check": {
+            "type": "string",
+            "description": "What to Check",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_5_rows": {
+      "type": "array",
+      "description": "Table with columns: Convention, Timing, What to Check",
+      "items": {
+        "type": "object",
+        "properties": {
+          "convention": {
+            "type": "string",
+            "description": "Convention",
+            "x-source-required": false
+          },
+          "timing": {
+            "type": "string",
+            "description": "Timing",
+            "x-source-required": false
+          },
+          "what_to_check": {
+            "type": "string",
+            "description": "What to Check",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_6_rows": {
+      "type": "array",
+      "description": "Table with columns: Convention, Timing, What to Check",
+      "items": {
+        "type": "object",
+        "properties": {
+          "convention": {
+            "type": "string",
+            "description": "Convention",
+            "x-source-required": false
+          },
+          "timing": {
+            "type": "string",
+            "description": "Timing",
+            "x-source-required": false
+          },
+          "what_to_check": {
+            "type": "string",
+            "description": "What to Check",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_7_rows": {
+      "type": "array",
+      "description": "Table with columns: Convention, Timing, What to Check",
+      "items": {
+        "type": "object",
+        "properties": {
+          "convention": {
+            "type": "string",
+            "description": "Convention",
+            "x-source-required": false
+          },
+          "timing": {
+            "type": "string",
+            "description": "Timing",
+            "x-source-required": false
+          },
+          "what_to_check": {
+            "type": "string",
+            "description": "What to Check",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_8_rows": {
+      "type": "array",
+      "description": "Table with columns: Convention, Timing, What to Check",
+      "items": {
+        "type": "object",
+        "properties": {
+          "convention": {
+            "type": "string",
+            "description": "Convention",
+            "x-source-required": false
+          },
+          "timing": {
+            "type": "string",
+            "description": "Timing",
+            "x-source-required": false
+          },
+          "what_to_check": {
+            "type": "string",
+            "description": "What to Check",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_9_rows": {
+      "type": "array",
+      "description": "Table with columns: Convention, Timing, What to Check",
+      "items": {
+        "type": "object",
+        "properties": {
+          "convention": {
+            "type": "string",
+            "description": "Convention",
+            "x-source-required": false
+          },
+          "timing": {
+            "type": "string",
+            "description": "Timing",
+            "x-source-required": false
+          },
+          "what_to_check": {
+            "type": "string",
+            "description": "What to Check",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_10_rows": {
+      "type": "array",
+      "description": "Table with columns: Convention, Timing, What to Check",
+      "items": {
+        "type": "object",
+        "properties": {
+          "convention": {
+            "type": "string",
+            "description": "Convention",
+            "x-source-required": false
+          },
+          "timing": {
+            "type": "string",
+            "description": "Timing",
+            "x-source-required": false
+          },
+          "what_to_check": {
+            "type": "string",
+            "description": "What to Check",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_11_rows": {
+      "type": "array",
+      "description": "Table with columns: Convention, Timing, What to Check",
+      "items": {
+        "type": "object",
+        "properties": {
+          "convention": {
+            "type": "string",
+            "description": "Convention",
+            "x-source-required": false
+          },
+          "timing": {
+            "type": "string",
+            "description": "Timing",
+            "x-source-required": false
+          },
+          "what_to_check": {
+            "type": "string",
+            "description": "What to Check",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_12_rows": {
+      "type": "array",
+      "description": "Table with columns: Convention, Timing, What to Check",
+      "items": {
+        "type": "object",
+        "properties": {
+          "convention": {
+            "type": "string",
+            "description": "Convention",
+            "x-source-required": false
+          },
+          "timing": {
+            "type": "string",
+            "description": "Timing",
+            "x-source-required": false
+          },
+          "what_to_check": {
+            "type": "string",
+            "description": "What to Check",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_13_rows": {
+      "type": "array",
+      "description": "Table with columns: Convention, Timing, What to Check",
+      "items": {
+        "type": "object",
+        "properties": {
+          "convention": {
+            "type": "string",
+            "description": "Convention",
+            "x-source-required": false
+          },
+          "timing": {
+            "type": "string",
+            "description": "Timing",
+            "x-source-required": false
+          },
+          "what_to_check": {
+            "type": "string",
+            "description": "What to Check",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "if_your_primary_genre_is_rows": {
+      "type": "array",
+      "description": "Table with columns: If Your Primary Genre Is..., Watch Out For..., Why It Smells",
+      "items": {
+        "type": "object",
+        "properties": {
+          "if_your_primary_genre_is": {
+            "type": "string",
+            "description": "If Your Primary Genre Is...",
+            "x-source-required": false
+          },
+          "watch_out_for": {
+            "type": "string",
+            "description": "Watch Out For...",
+            "x-source-required": false
+          },
+          "why_it_smells": {
+            "type": "string",
+            "description": "Why It Smells",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "01-concept/references/genre-smell-tests.md"
+}

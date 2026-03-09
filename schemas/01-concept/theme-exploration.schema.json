@@ -1,0 +1,177 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/01-concept/theme-exploration.schema.json",
+  "title": "Grimoire · Theme Exploration",
+  "description": "Extraction schema for theme-exploration.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "what_drew_you_to_this_story": {
+      "type": "string",
+      "description": "What drew you to this story?",
+      "x-source-required": false
+    },
+    "what_questions_keep_surfacing": {
+      "type": "string",
+      "description": "What questions keep surfacing?",
+      "x-source-required": false
+    },
+    "your_controlling_idea": {
+      "type": "string",
+      "description": "Your Controlling Idea:",
+      "x-source-required": false
+    },
+    "what_is_your_story_fundamentally_about": {
+      "type": "string",
+      "description": "What is your story fundamentally about?",
+      "x-source-required": false
+    },
+    "why_does_this_theme_matter_to_you_personally": {
+      "type": "string",
+      "description": "Why does this theme matter to you personally?",
+      "x-source-required": false
+    },
+    "what_question_does_your_story_ask_about_the_primary_theme": {
+      "type": "string",
+      "description": "What question does your story ask about the primary theme?",
+      "x-source-required": false
+    },
+    "your_thematic_question": {
+      "type": "string",
+      "description": "Your Thematic Question:",
+      "x-source-required": false
+    },
+    "value_a": {
+      "type": "string",
+      "description": "Value A:",
+      "x-source-required": false
+    },
+    "value_b_in_tension_with_a": {
+      "type": "string",
+      "description": "Value B (in tension with A):",
+      "x-source-required": false
+    },
+    "how_does_your_protagonist_navigate_this_tension": {
+      "type": "string",
+      "description": "How does your protagonist navigate this tension?",
+      "x-source-required": false
+    },
+    "how_does_your_protagonist_embody_the_theme": {
+      "type": "string",
+      "description": "How does your protagonist embody the theme?",
+      "x-source-required": false
+    },
+    "what_false_belief_do_they_hold_at_the_start": {
+      "type": "string",
+      "description": "What false belief do they hold at the start?",
+      "x-source-required": false
+    },
+    "what_truth_do_they_discover_by_the_end": {
+      "type": "string",
+      "description": "What truth do they discover by the end?",
+      "x-source-required": false
+    },
+    "how_does_this_connect_to_their_external_goal": {
+      "type": "string",
+      "description": "How does this connect to their external goal?",
+      "x-source-required": false
+    },
+    "how_does_your_plot_externalize_the_theme": {
+      "type": "string",
+      "description": "How does your plot externalize the theme?",
+      "x-source-required": false
+    },
+    "what_key_plot_moments_directly_engage_the_theme": {
+      "type": "string",
+      "description": "What key plot moments directly engage the theme?",
+      "x-source-required": false
+    },
+    "secondary_theme_1": {
+      "type": "string",
+      "description": "Secondary Theme 1:",
+      "x-source-required": false
+    },
+    "how_it_intersects_with_the_primary_theme": {
+      "type": "string",
+      "description": "How it intersects with the primary theme:",
+      "x-source-required": false
+    },
+    "secondary_theme_2_optional": {
+      "type": "string",
+      "description": "Secondary Theme 2 (Optional):",
+      "x-source-required": false
+    },
+    "how_it_intersects": {
+      "type": "string",
+      "description": "How it intersects:",
+      "x-source-required": false
+    },
+    "potential_motifs": {
+      "type": "string",
+      "description": "Potential Motifs:",
+      "x-source-required": false
+    },
+    "notes_on_adjustments_needed": {
+      "type": "string",
+      "description": "Notes on adjustments needed:",
+      "x-source-required": false
+    },
+    "position_rows": {
+      "type": "array",
+      "description": "Table with columns: Position, Role, Your Story",
+      "items": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "role": {
+            "$ref": "grimoire:base#/$defs/roleEnum"
+          },
+          "your_story": {
+            "type": "string",
+            "description": "Your Story",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "character_rows": {
+      "type": "array",
+      "description": "Table with columns: Character, Opening position, Closing position",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character": {
+            "type": "string",
+            "description": "Character",
+            "x-source-required": false
+          },
+          "opening_position": {
+            "type": "string",
+            "description": "Opening position",
+            "x-source-required": false
+          },
+          "closing_position": {
+            "type": "string",
+            "description": "Closing position",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "01-concept/theme-exploration.md"
+}

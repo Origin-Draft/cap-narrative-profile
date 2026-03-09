@@ -1,0 +1,132 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/01-concept/comparable-titles.schema.json",
+  "title": "Grimoire · Comparable Titles",
+  "description": "Extraction schema for comparable-titles.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "books_youve_loved_that_feel_similar_to_yours": {
+      "type": "string",
+      "description": "Books you've loved that feel similar to yours:",
+      "x-source-required": false
+    },
+    "primary_similarity": {
+      "type": "string",
+      "description": "Primary similarity:",
+      "x-source-required": false
+    },
+    "what_makes_your_book_different_from_this_comp": {
+      "type": "string",
+      "description": "What makes your book different from this comp?",
+      "x-source-required": false
+    },
+    "why_would_a_reader_who_loved_the_comp_want_your_unique_angle": {
+      "type": "string",
+      "description": "Why would a reader who loved the comp want your unique angle?",
+      "x-source-required": false
+    },
+    "approximate_salesrecognition": {
+      "type": "string",
+      "description": "Approximate sales/recognition:",
+      "x-source-required": false
+    },
+    "title": {
+      "type": "string",
+      "description": "Title:",
+      "x-source-required": false
+    },
+    "why_its_similar": {
+      "type": "string",
+      "description": "Why it's similar:",
+      "x-source-required": false
+    },
+    "why_yours_is_different": {
+      "type": "string",
+      "description": "Why yours is different:",
+      "x-source-required": false
+    },
+    "your_mashup": {
+      "type": "string",
+      "description": "Your mashup:",
+      "x-source-required": false
+    },
+    "best_version": {
+      "type": "string",
+      "description": "Best version:",
+      "x-source-required": false
+    },
+    "what_does_this_book_do_exceptionally_well": {
+      "type": "string",
+      "description": "What does this book do exceptionally well?",
+      "x-source-required": false
+    },
+    "what_techniques_can_you_learn_from": {
+      "type": "string",
+      "description": "What techniques can you learn from?",
+      "x-source-required": false
+    },
+    "what_would_you_do_differently": {
+      "type": "string",
+      "description": "What would you do differently?",
+      "x-source-required": false
+    },
+    "reader_reviews_common_praise_and_criticism": {
+      "type": "string",
+      "description": "Reader reviews: Common praise and criticism",
+      "x-source-required": false
+    },
+    "adjustments_needed": {
+      "type": "string",
+      "description": "Adjustments needed:",
+      "x-source-required": false
+    },
+    "what_itch_does_comp_1_scratch_that_your_book_also_scratches": {
+      "type": "string",
+      "description": "What itch does Comp 1 scratch that your book also scratches?",
+      "x-source-required": false
+    },
+    "what_additional_itch_does_your_book_scratch_that_the_comp_do": {
+      "type": "string",
+      "description": "What additional itch does your book scratch that the comp doesn't?",
+      "x-source-required": false
+    },
+    "title_rows": {
+      "type": "array",
+      "description": "Table with columns: Title, Author, Publication Year, Recent Enough? (Y/N)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Title",
+            "x-source-required": false
+          },
+          "author": {
+            "type": "string",
+            "description": "Author",
+            "x-source-required": false
+          },
+          "publication_year": {
+            "type": "string",
+            "description": "Publication Year",
+            "x-source-required": false
+          },
+          "recent_enough_yn": {
+            "$ref": "grimoire:base#/$defs/yesNoPartial"
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "01-concept/comparable-titles.md"
+}

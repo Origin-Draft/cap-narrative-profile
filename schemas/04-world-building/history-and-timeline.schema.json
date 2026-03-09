@@ -1,0 +1,204 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/04-world-building/history-and-timeline.schema.json",
+  "title": "Grimoire · History And Timeline",
+  "description": "Extraction schema for history-and-timeline.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "current_dateyear": {
+      "type": "string",
+      "description": "Current Date/Year:",
+      "x-source-required": false
+    },
+    "current_political_situation": {
+      "type": "string",
+      "description": "Current Political Situation:",
+      "x-source-required": false
+    },
+    "current_social_climate": {
+      "type": "string",
+      "description": "Current Social Climate:",
+      "x-source-required": false
+    },
+    "defining_characteristics_of_this_era": {
+      "type": "string",
+      "description": "Defining Characteristics of This Era:",
+      "x-source-required": false
+    },
+    "whats_about_to_change": {
+      "type": "string",
+      "description": "What's About to Change:",
+      "x-source-required": false
+    },
+    "time_period": {
+      "type": "string",
+      "description": "Time Period:",
+      "x-source-required": false
+    },
+    "defining_events": {
+      "type": "string",
+      "description": "Defining Event(s):",
+      "x-source-required": false
+    },
+    "key_figures": {
+      "type": "string",
+      "description": "Key Figures:",
+      "x-source-required": false
+    },
+    "how_it_changed_the_world": {
+      "type": "string",
+      "description": "How It Changed the World:",
+      "x-source-required": false
+    },
+    "longterm_consequences": {
+      "type": "string",
+      "description": "Long-Term Consequences:",
+      "x-source-required": false
+    },
+    "cultural_memory": {
+      "type": "string",
+      "description": "Cultural Memory:",
+      "x-source-required": false
+    },
+    "date": {
+      "type": "string",
+      "description": "Date:",
+      "x-source-required": false
+    },
+    "what_happened": {
+      "type": "string",
+      "description": "What Happened:",
+      "x-source-required": false
+    },
+    "why_it_happened": {
+      "type": "string",
+      "description": "Why It Happened:",
+      "x-source-required": false
+    },
+    "who_was_involved": {
+      "type": "string",
+      "description": "Who Was Involved:",
+      "x-source-required": false
+    },
+    "immediate_consequences": {
+      "type": "string",
+      "description": "Immediate Consequences:",
+      "x-source-required": false
+    },
+    "longterm_impact": {
+      "type": "string",
+      "description": "Long-Term Impact:",
+      "x-source-required": false
+    },
+    "connection_to_your_story": {
+      "type": "string",
+      "description": "Connection to Your Story:",
+      "x-source-required": false
+    },
+    "old_secrets": {
+      "type": "string",
+      "description": "Old Secrets:",
+      "x-source-required": false
+    },
+    "unresolved_conflicts": {
+      "type": "string",
+      "description": "Unresolved Conflicts:",
+      "x-source-required": false
+    },
+    "inherited_obligations": {
+      "type": "string",
+      "description": "Inherited Obligations:",
+      "x-source-required": false
+    },
+    "lost_knowledge": {
+      "type": "string",
+      "description": "Lost Knowledge:",
+      "x-source-required": false
+    },
+    "propheciespredictions": {
+      "type": "string",
+      "description": "Prophecies/Predictions:",
+      "x-source-required": false
+    },
+    "what_stories_does_this_culture_tell_about_its_past": {
+      "type": "string",
+      "description": "What stories does this culture tell about its past?",
+      "x-source-required": false
+    },
+    "which_stories_are_true": {
+      "type": "string",
+      "description": "Which stories are true?",
+      "x-source-required": false
+    },
+    "whose_history_gets_remembered": {
+      "type": "string",
+      "description": "Whose history gets remembered?",
+      "x-source-required": false
+    },
+    "whats_contested": {
+      "type": "string",
+      "description": "What's contested?",
+      "x-source-required": false
+    },
+    "historical_symbols": {
+      "type": "string",
+      "description": "Historical Symbols:",
+      "x-source-required": false
+    },
+    "revision_revisionism": {
+      "type": "string",
+      "description": "Revision & Revisionism:",
+      "x-source-required": false
+    },
+    "character_name": {
+      "type": "string",
+      "description": "Character Name:",
+      "x-source-required": false
+    },
+    "direct_experience": {
+      "type": "string",
+      "description": "Direct Experience:",
+      "x-source-required": false
+    },
+    "inherited_legacy": {
+      "type": "string",
+      "description": "Inherited Legacy:",
+      "x-source-required": false
+    },
+    "historical_stakes": {
+      "type": "string",
+      "description": "Historical Stakes:",
+      "x-source-required": false
+    },
+    "what_patterns_repeat_in_your_worlds_history": {
+      "type": "string",
+      "description": "What patterns repeat in your world's history?",
+      "x-source-required": false
+    },
+    "what_does_history_reveal_about_your_theme": {
+      "type": "string",
+      "description": "What does history reveal about your theme?",
+      "x-source-required": false
+    },
+    "what_historical_question_is_your_story_interrogating": {
+      "type": "string",
+      "description": "What historical question is your story interrogating?",
+      "x-source-required": false
+    },
+    "how_will_your_story_add_to_this_worlds_history": {
+      "type": "string",
+      "description": "How will your story add to this world's history?",
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "04-world-building/history-and-timeline.md"
+}

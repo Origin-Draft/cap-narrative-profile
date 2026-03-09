@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/01-concept/plot-type-selection.schema.json",
+  "title": "Grimoire · Plot Type Selection",
+  "description": "Extraction schema for plot-type-selection.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "what_alternatives_did_you_consider": {
+      "type": "string",
+      "description": "What alternatives did you consider?",
+      "x-source-required": false
+    },
+    "what_data_from_your_story_sent_you_toward_this_choice": {
+      "type": "string",
+      "description": "What data from your story sent you toward this choice?",
+      "x-source-required": false
+    },
+    "what_does_this_choice_cost_you": {
+      "type": "string",
+      "description": "What does this choice cost you?",
+      "x-source-required": false
+    },
+    "if_this_choice_turns_out_to_be_wrong_what_would_the_signal_b": {
+      "type": "string",
+      "description": "If this choice turns out to be wrong, what would the signal be?",
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "[Convention 1 from genre-conventions catalog]",
+          "[Convention 2]",
+          "[Convention 3]"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "01-concept/plot-type-selection.md"
+}

@@ -1,0 +1,189 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/active-drafting/oral-performance-design.schema.json",
+  "title": "Grimoire · Oral Performance Design",
+  "description": "Extraction schema for oral-performance-design.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "is_the_audiobook_a_primary_or_secondary_delivery_format_for_": {
+      "type": "string",
+      "description": "Is the audiobook a primary or secondary delivery format for this project?",
+      "x-source-required": false
+    },
+    "planned_narrator_voices": {
+      "type": "string",
+      "description": "Planned narrator voice(s):",
+      "x-source-required": false
+    },
+    "tts_engine_in_use": {
+      "type": "string",
+      "description": "TTS engine in use:",
+      "x-source-required": false
+    },
+    "voice_profiles_defined_in_voice_profilespy": {
+      "type": "string",
+      "description": "Voice profiles defined in voice_profiles.py?",
+      "x-source-required": false
+    },
+    "your_default_sentence_architecture": {
+      "type": "string",
+      "description": "Your default sentence architecture:",
+      "x-source-required": false
+    },
+    "embedded_clause_tolerance_for_audio_chapters": {
+      "type": "string",
+      "description": "Embedded clause tolerance for audio chapters:",
+      "x-source-required": false
+    },
+    "passages_already_identified_as_too_subordinative": {
+      "type": "string",
+      "description": "Passages already identified as too subordinative:",
+      "x-source-required": false
+    },
+    "your_rule_for_pronoun_distance": {
+      "type": "string",
+      "description": "Your rule for pronoun distance:",
+      "x-source-required": false
+    },
+    "your_rule_for_samegender_scenes": {
+      "type": "string",
+      "description": "Your rule for same-gender scenes:",
+      "x-source-required": false
+    },
+    "passages_flagged_for_pronoun_confusion": {
+      "type": "string",
+      "description": "Passages flagged for pronoun confusion:",
+      "x-source-required": false
+    },
+    "dominant_rhythm_pattern_in_this_project": {
+      "type": "string",
+      "description": "Dominant rhythm pattern in this project:",
+      "x-source-required": false
+    },
+    "breath_break_design": {
+      "type": "string",
+      "description": "Breath break design:",
+      "x-source-required": false
+    },
+    "known_rhythm_problems_from_tts_preview": {
+      "type": "string",
+      "description": "Known rhythm problems (from TTS preview):",
+      "x-source-required": false
+    },
+    "recurring_phrases_or_epithets_in_this_project": {
+      "type": "string",
+      "description": "Recurring phrases or epithets in this project:",
+      "x-source-required": false
+    },
+    "chapterscene_transition_signals": {
+      "type": "string",
+      "description": "Chapter/scene transition signals:",
+      "x-source-required": false
+    },
+    "partchapter_break_audio_cues": {
+      "type": "string",
+      "description": "Part/chapter break audio cues:",
+      "x-source-required": false
+    },
+    "characters_who_need_voiceprofile_strengthening_before_tts": {
+      "type": "string",
+      "description": "Characters who need voice-profile strengthening before TTS:",
+      "x-source-required": false
+    },
+    "default_annotation_density": {
+      "type": "string",
+      "description": "Default annotation density:",
+      "x-source-required": false
+    },
+    "emotiontone_annotation_vocabulary_in_use": {
+      "type": "string",
+      "description": "Emotion/tone annotation vocabulary in use:",
+      "x-source-required": false
+    },
+    "pace_annotation_rules": {
+      "type": "string",
+      "description": "Pace annotation rules:",
+      "x-source-required": false
+    },
+    "characters_with_custom_voice_profiles_requiring_special_anno": {
+      "type": "string",
+      "description": "Characters with custom voice profiles requiring special annotation:",
+      "x-source-required": false
+    },
+    "character_rows": {
+      "type": "array",
+      "description": "Table with columns: Character, Voice differentiator, Survives audio?, Tag-free ID confidence",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character": {
+            "type": "string",
+            "description": "Character",
+            "x-source-required": false
+          },
+          "voice_differentiator": {
+            "type": "string",
+            "description": "Voice differentiator",
+            "x-source-required": false
+          },
+          "survives_audio": {
+            "type": "string",
+            "description": "Survives audio?",
+            "x-source-required": false
+          },
+          "tagfree_id_confidence": {
+            "type": "string",
+            "description": "Tag-free ID confidence",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "chapter_rows": {
+      "type": "array",
+      "description": "Table with columns: Chapter, Issue Type, Specific Text, Fix Applied, Status",
+      "items": {
+        "type": "object",
+        "properties": {
+          "chapter": {
+            "type": "string",
+            "description": "Chapter",
+            "x-source-required": false
+          },
+          "issue_type": {
+            "type": "string",
+            "description": "Issue Type",
+            "x-source-required": false
+          },
+          "specific_text": {
+            "type": "string",
+            "description": "Specific Text",
+            "x-source-required": false
+          },
+          "fix_applied": {
+            "type": "string",
+            "description": "Fix Applied",
+            "x-source-required": false
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-drafting/active-drafting/oral-performance-design.md"
+}

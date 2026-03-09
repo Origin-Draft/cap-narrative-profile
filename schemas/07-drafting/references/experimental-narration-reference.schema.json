@@ -1,0 +1,219 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/references/experimental-narration-reference.schema.json",
+  "title": "Grimoire · Experimental Narration Reference",
+  "description": "Extraction schema for experimental-narration-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "type_rows": {
+      "type": "array",
+      "description": "Table with columns: Type, Narrator Error, Signal, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "narrator_error": {
+            "type": "string",
+            "description": "Narrator Error",
+            "x-source-required": false
+          },
+          "signal": {
+            "type": "string",
+            "description": "Signal",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "technique_rows": {
+      "type": "array",
+      "description": "Table with columns: Technique, Function, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "technique": {
+            "type": "string",
+            "description": "Technique",
+            "x-source-required": false
+          },
+          "function": {
+            "type": "string",
+            "description": "Function",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_3_rows": {
+      "type": "array",
+      "description": "Table with columns: Type, Organized By, Function, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "organized_by": {
+            "type": "string",
+            "description": "Organized By",
+            "x-source-required": false
+          },
+          "function": {
+            "type": "string",
+            "description": "Function",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "function_rows": {
+      "type": "array",
+      "description": "Table with columns: Function, \"You\" =, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "function": {
+            "type": "string",
+            "description": "Function",
+            "x-source-required": false
+          },
+          "you": {
+            "type": "string",
+            "description": "\"You\" =",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "constraint_rows": {
+      "type": "array",
+      "description": "Table with columns: Constraint, Type, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "constraint": {
+            "type": "string",
+            "description": "Constraint",
+            "x-source-required": false
+          },
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "form_rows": {
+      "type": "array",
+      "description": "Table with columns: Form, Function",
+      "items": {
+        "type": "object",
+        "properties": {
+          "form": {
+            "type": "string",
+            "description": "Form",
+            "x-source-required": false
+          },
+          "function": {
+            "type": "string",
+            "description": "Function",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Check, Pass?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "check": {
+            "type": "string",
+            "description": "Check",
+            "x-source-required": false
+          },
+          "pass": {
+            "type": "string",
+            "description": "Pass?",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "author_rows": {
+      "type": "array",
+      "description": "Table with columns: Author, Work, Core Idea",
+      "items": {
+        "type": "object",
+        "properties": {
+          "author": {
+            "type": "string",
+            "description": "Author",
+            "x-source-required": false
+          },
+          "work": {
+            "type": "string",
+            "description": "Work",
+            "x-source-required": false
+          },
+          "core_idea": {
+            "type": "string",
+            "description": "Core Idea",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-drafting/references/experimental-narration-reference.md"
+}

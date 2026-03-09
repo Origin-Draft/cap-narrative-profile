@@ -1,0 +1,149 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/05-plot-and-structure/references/reader-cognition-reference.schema.json",
+  "title": "Grimoire · Reader Cognition Reference",
+  "description": "Extraction schema for reader-cognition-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "effect_rows": {
+      "type": "array",
+      "description": "Table with columns: Effect, What Triggers It, Reader's Temporal Orientation, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "effect": {
+            "type": "string",
+            "description": "Effect",
+            "x-source-required": false
+          },
+          "what_triggers_it": {
+            "type": "string",
+            "description": "What Triggers It",
+            "x-source-required": false
+          },
+          "readers_temporal_orientation": {
+            "type": "string",
+            "description": "Reader's Temporal Orientation",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "device_rows": {
+      "type": "array",
+      "description": "Table with columns: Device, Reveals, Creates",
+      "items": {
+        "type": "object",
+        "properties": {
+          "device": {
+            "type": "string",
+            "description": "Device",
+            "x-source-required": false
+          },
+          "reveals": {
+            "type": "string",
+            "description": "Reveals",
+            "x-source-required": false
+          },
+          "creates": {
+            "type": "string",
+            "description": "Creates",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "level_rows": {
+      "type": "array",
+      "description": "Table with columns: Level, Type, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "string",
+            "description": "Level",
+            "x-source-required": false
+          },
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "gap_type_rows": {
+      "type": "array",
+      "description": "Table with columns: Gap Type, What It Is, How It Works",
+      "items": {
+        "type": "object",
+        "properties": {
+          "gap_type": {
+            "type": "string",
+            "description": "Gap Type",
+            "x-source-required": false
+          },
+          "what_it_is": {
+            "type": "string",
+            "description": "What It Is",
+            "x-source-required": false
+          },
+          "how_it_works": {
+            "type": "string",
+            "description": "How It Works",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "concept_rows": {
+      "type": "array",
+      "description": "Table with columns: Concept, Definition, Craft Implication",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concept": {
+            "type": "string",
+            "description": "Concept",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "craft_implication": {
+            "type": "string",
+            "description": "Craft Implication",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "05-plot-and-structure/references/reader-cognition-reference.md"
+}

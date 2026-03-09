@@ -1,0 +1,202 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/04-world-building/world-rules.schema.json",
+  "title": "Grimoire · World Rules",
+  "description": "Extraction schema for world-rules.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "what_kind_of_rules_define_your_world": {
+      "type": "string",
+      "description": "What kind of rules define your world?",
+      "x-source-required": false
+    },
+    "primary_rule_type_for_your_story": {
+      "type": "string",
+      "description": "Primary rule type for your story:",
+      "x-source-required": false
+    },
+    "the_rule": {
+      "type": "string",
+      "description": "The Rule:",
+      "x-source-required": false
+    },
+    "why_this_rule_exists": {
+      "type": "string",
+      "description": "Why This Rule Exists:",
+      "x-source-required": false
+    },
+    "what_this_rule_prevents": {
+      "type": "string",
+      "description": "What This Rule Prevents:",
+      "x-source-required": false
+    },
+    "consequences_of_attempting_to_break_it": {
+      "type": "string",
+      "description": "Consequences of Attempting to Break It:",
+      "x-source-required": false
+    },
+    "how_this_rule_creates_story_tension": {
+      "type": "string",
+      "description": "How This Rule Creates Story Tension:",
+      "x-source-required": false
+    },
+    "soft_rule_1": {
+      "type": "string",
+      "description": "Soft Rule #1:",
+      "x-source-required": false
+    },
+    "usual_effect": {
+      "type": "string",
+      "description": "Usual Effect:",
+      "x-source-required": false
+    },
+    "exception_conditions": {
+      "type": "string",
+      "description": "Exception Conditions:",
+      "x-source-required": false
+    },
+    "energyfuel_requirements": {
+      "type": "string",
+      "description": "Energy/Fuel Requirements:",
+      "x-source-required": false
+    },
+    "physical_toll_on_user": {
+      "type": "string",
+      "description": "Physical Toll on User:",
+      "x-source-required": false
+    },
+    "material_requirements": {
+      "type": "string",
+      "description": "Material Requirements:",
+      "x-source-required": false
+    },
+    "environmental_requirements": {
+      "type": "string",
+      "description": "Environmental Requirements:",
+      "x-source-required": false
+    },
+    "knowledgeskill_requirements": {
+      "type": "string",
+      "description": "Knowledge/Skill Requirements:",
+      "x-source-required": false
+    },
+    "sociallegal_restrictions": {
+      "type": "string",
+      "description": "Social/Legal Restrictions:",
+      "x-source-required": false
+    },
+    "moralpsychological_cost": {
+      "type": "string",
+      "description": "Moral/Psychological Cost:",
+      "x-source-required": false
+    },
+    "failure_states": {
+      "type": "string",
+      "description": "Failure States:",
+      "x-source-required": false
+    },
+    "common_knowledge": {
+      "type": "string",
+      "description": "Common Knowledge:",
+      "x-source-required": false
+    },
+    "specialized_knowledge": {
+      "type": "string",
+      "description": "Specialized Knowledge:",
+      "x-source-required": false
+    },
+    "secretforbidden_knowledge": {
+      "type": "string",
+      "description": "Secret/Forbidden Knowledge:",
+      "x-source-required": false
+    },
+    "misinformation": {
+      "type": "string",
+      "description": "Misinformation:",
+      "x-source-required": false
+    },
+    "knowledge_gatekeepers": {
+      "type": "string",
+      "description": "Knowledge Gatekeepers:",
+      "x-source-required": false
+    },
+    "known_exploits": {
+      "type": "string",
+      "description": "Known Exploits:",
+      "x-source-required": false
+    },
+    "theoretical_but_untested_exploits": {
+      "type": "string",
+      "description": "Theoretical But Untested Exploits:",
+      "x-source-required": false
+    },
+    "forbidden_experiments": {
+      "type": "string",
+      "description": "Forbidden Experiments:",
+      "x-source-required": false
+    },
+    "exception_1": {
+      "type": "string",
+      "description": "Exception #1:",
+      "x-source-required": false
+    },
+    "whenwhy": {
+      "type": "string",
+      "description": "When/Why:",
+      "x-source-required": false
+    },
+    "cost": {
+      "type": "string",
+      "description": "Cost:",
+      "x-source-required": false
+    },
+    "narrative_justification": {
+      "type": "string",
+      "description": "Narrative Justification:",
+      "x-source-required": false
+    },
+    "how_do_your_worlds_rules_reflect_your_storys_themes": {
+      "type": "string",
+      "description": "How do your world's rules reflect your story's themes?",
+      "x-source-required": false
+    },
+    "what_philosophical_question_do_your_rules_explore": {
+      "type": "string",
+      "description": "What philosophical question do your rules explore?",
+      "x-source-required": false
+    },
+    "what_do_the_rules_reveal_about_power_in_your_world": {
+      "type": "string",
+      "description": "What do the rules reveal about power in your world?",
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "**Real-world physics and natural laws** (realistic fiction baseline)",
+          "**Magic system** (supernatural abilities, spells, enchantments)",
+          "**Advanced technology** (sci-fi tech, futuristic capabilities)",
+          "**Alternate physics** (different gravity, time flow, dimensional rules)",
+          "**Supernatural beings** (gods, spirits, vampires, etc. with defined traits)",
+          "**Economic/resource systems** (scarcity, trade, currency as major constraint)",
+          "**Social/legal systems** (laws, hierarchies, taboos with real enforcement)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "04-world-building/world-rules.md"
+}

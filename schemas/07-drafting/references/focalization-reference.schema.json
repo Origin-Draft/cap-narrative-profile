@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/references/focalization-reference.schema.json",
+  "title": "Grimoire · Focalization Reference",
+  "description": "Extraction schema for focalization-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "type_rows": {
+      "type": "array",
+      "description": "Table with columns: Type, Who Sees vs. Who Knows, Narrator's Access, Canonical Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "who_sees_vs_who_knows": {
+            "type": "string",
+            "description": "Who Sees vs. Who Knows",
+            "x-source-required": false
+          },
+          "narrators_access": {
+            "type": "string",
+            "description": "Narrator's Access",
+            "x-source-required": false
+          },
+          "canonical_example": {
+            "type": "string",
+            "description": "Canonical Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "level_rows": {
+      "type": "array",
+      "description": "Table with columns: Level, Distance, Example, When to Use",
+      "items": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "string",
+            "description": "Level",
+            "x-source-required": false
+          },
+          "distance": {
+            "type": "string",
+            "description": "Distance",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          },
+          "when_to_use": {
+            "type": "string",
+            "description": "When to Use",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "mode_rows": {
+      "type": "array",
+      "description": "Table with columns: Mode, How It Works, Effect, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "description": "Mode",
+            "x-source-required": false
+          },
+          "how_it_works": {
+            "type": "string",
+            "description": "How It Works",
+            "x-source-required": false
+          },
+          "effect": {
+            "type": "string",
+            "description": "Effect",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "concept_rows": {
+      "type": "array",
+      "description": "Table with columns: Concept, Definition, Test Question for Your Novel",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concept": {
+            "type": "string",
+            "description": "Concept",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "test_question_for_your_novel": {
+            "type": "string",
+            "description": "Test Question for Your Novel",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-drafting/references/focalization-reference.md"
+}

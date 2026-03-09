@@ -1,0 +1,285 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/01-concept/genre-pattern-audit.schema.json",
+  "title": "Grimoire · Genre Pattern Audit",
+  "description": "Extraction schema for genre-pattern-audit.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "summary_of_findings": {
+      "type": "string",
+      "description": "Summary of findings:",
+      "x-source-required": false
+    },
+    "what_social_anxiety_does_your_genre_historically_manage": {
+      "type": "string",
+      "description": "What social anxiety does your genre historically manage?",
+      "x-source-required": false
+    },
+    "if_refusing_the_conventional_resolution_your_alternative": {
+      "type": "string",
+      "description": "If refusing the conventional resolution, your alternative:",
+      "x-source-required": false
+    },
+    "whose_interests_does_your_resolution_serve": {
+      "type": "string",
+      "description": "Whose interests does your resolution serve?",
+      "x-source-required": false
+    },
+    "_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Core Convention, Status, Notes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "core_convention": {
+            "type": "string",
+            "description": "Core Convention",
+            "x-source-required": false
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "x-source-required": false
+          },
+          "notes": {
+            "type": "string",
+            "description": "Notes",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_2_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Expected Convention, Timing Expected, Your Timing, Status, Justification (if subverted)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "expected_convention": {
+            "type": "string",
+            "description": "Expected Convention",
+            "x-source-required": false
+          },
+          "timing_expected": {
+            "type": "string",
+            "description": "Timing Expected",
+            "x-source-required": false
+          },
+          "your_timing": {
+            "type": "string",
+            "description": "Your Timing",
+            "x-source-required": false
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "x-source-required": false
+          },
+          "justification_if_subverted": {
+            "type": "string",
+            "description": "Justification (if subverted)",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "genreexpected_beat_rows": {
+      "type": "array",
+      "description": "Table with columns: Genre-Expected Beat, Expected Timing, Your Timing, Delta, Intentional?, Effect on Reader",
+      "items": {
+        "type": "object",
+        "properties": {
+          "genreexpected_beat": {
+            "type": "string",
+            "description": "Genre-Expected Beat",
+            "x-source-required": false
+          },
+          "expected_timing": {
+            "type": "string",
+            "description": "Expected Timing",
+            "x-source-required": false
+          },
+          "your_timing": {
+            "type": "string",
+            "description": "Your Timing",
+            "x-source-required": false
+          },
+          "delta": {
+            "type": "string",
+            "description": "Delta",
+            "x-source-required": false
+          },
+          "intentional": {
+            "$ref": "grimoire:base#/$defs/yesNoPartial"
+          },
+          "effect_on_reader": {
+            "type": "string",
+            "description": "Effect on Reader",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "smell_name_rows": {
+      "type": "array",
+      "description": "Table with columns: Smell Name, Present?, Intentional?, Where?, Fix / Justification",
+      "items": {
+        "type": "object",
+        "properties": {
+          "smell_name": {
+            "type": "string",
+            "description": "Smell Name",
+            "x-source-required": false
+          },
+          "present": {
+            "type": "string",
+            "description": "Present?",
+            "x-source-required": false
+          },
+          "intentional": {
+            "$ref": "grimoire:base#/$defs/yesNoPartial"
+          },
+          "where": {
+            "type": "string",
+            "description": "Where?",
+            "x-source-required": false
+          },
+          "fix_justification": {
+            "type": "string",
+            "description": "Fix / Justification",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_5_rows": {
+      "type": "array",
+      "description": "Table with columns: Smell Name, Present?, Intentional?, Where?, Fix / Justification",
+      "items": {
+        "type": "object",
+        "properties": {
+          "smell_name": {
+            "type": "string",
+            "description": "Smell Name",
+            "x-source-required": false
+          },
+          "present": {
+            "type": "string",
+            "description": "Present?",
+            "x-source-required": false
+          },
+          "intentional": {
+            "$ref": "grimoire:base#/$defs/yesNoPartial"
+          },
+          "where": {
+            "type": "string",
+            "description": "Where?",
+            "x-source-required": false
+          },
+          "fix_justification": {
+            "type": "string",
+            "description": "Fix / Justification",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "convention_from_genre_b_rows": {
+      "type": "array",
+      "description": "Table with columns: Convention from Genre B, Conflicts With (Genre A), How?, Your Resolution",
+      "items": {
+        "type": "object",
+        "properties": {
+          "convention_from_genre_b": {
+            "type": "string",
+            "description": "Convention from Genre B",
+            "x-source-required": false
+          },
+          "conflicts_with_genre_a": {
+            "type": "string",
+            "description": "Conflicts With (Genre A)",
+            "x-source-required": false
+          },
+          "how": {
+            "type": "string",
+            "description": "How?",
+            "x-source-required": false
+          },
+          "your_resolution": {
+            "type": "string",
+            "description": "Your Resolution",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "convention_rows": {
+      "type": "array",
+      "description": "Table with columns: Convention, Fulfill, Modify, Rupture, Notes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "convention": {
+            "type": "string",
+            "description": "Convention",
+            "x-source-required": false
+          },
+          "fulfill": {
+            "type": "string",
+            "description": "Fulfill",
+            "x-source-required": false
+          },
+          "modify": {
+            "type": "string",
+            "description": "Modify",
+            "x-source-required": false
+          },
+          "rupture": {
+            "type": "string",
+            "description": "Rupture",
+            "x-source-required": false
+          },
+          "notes": {
+            "type": "string",
+            "description": "Notes",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Would a genre reader recognize this as [your genre] by chapter 3?",
+          "Does the ending deliver the emotional contract of this genre?",
+          "Are ALL convention breaks intentional and documented?",
+          "Have you checked the smell catalog for your specific genre?",
+          "If blending genres, have you identified where conventions conflict?",
+          "Would a genre-savvy beta reader say \"this works\" or \"this feels off\"?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "01-concept/genre-pattern-audit.md"
+}

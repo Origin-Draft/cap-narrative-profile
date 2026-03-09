@@ -1,0 +1,174 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/08-revision/references/disability-reference.schema.json",
+  "title": "Grimoire · Disability Reference",
+  "description": "Extraction schema for disability-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "model_rows": {
+      "type": "array",
+      "description": "Table with columns: Model, View, Narrative Sign, Quality",
+      "items": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "Model",
+            "x-source-required": false
+          },
+          "view": {
+            "type": "string",
+            "description": "View",
+            "x-source-required": false
+          },
+          "narrative_sign": {
+            "type": "string",
+            "description": "Narrative Sign",
+            "x-source-required": false
+          },
+          "quality": {
+            "type": "string",
+            "description": "Quality",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Question",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "Question",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "check_rows": {
+      "type": "array",
+      "description": "Table with columns: Check, Question",
+      "items": {
+        "type": "object",
+        "properties": {
+          "check": {
+            "type": "string",
+            "description": "Check",
+            "x-source-required": false
+          },
+          "question": {
+            "type": "string",
+            "description": "Question",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "trope_rows": {
+      "type": "array",
+      "description": "Table with columns: Trope, Signal, Repair",
+      "items": {
+        "type": "object",
+        "properties": {
+          "trope": {
+            "type": "string",
+            "description": "Trope",
+            "x-source-required": false
+          },
+          "signal": {
+            "type": "string",
+            "description": "Signal",
+            "x-source-required": false
+          },
+          "repair": {
+            "type": "string",
+            "description": "Repair",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_5_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Principle, Key",
+      "items": {
+        "type": "object",
+        "properties": {
+          "principle": {
+            "type": "string",
+            "description": "Principle",
+            "x-source-required": false
+          },
+          "key": {
+            "type": "string",
+            "description": "Key",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_6_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Check, Pass?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "check": {
+            "type": "string",
+            "description": "Check",
+            "x-source-required": false
+          },
+          "pass": {
+            "type": "string",
+            "description": "Pass?",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "author_rows": {
+      "type": "array",
+      "description": "Table with columns: Author, Work, Core Idea",
+      "items": {
+        "type": "object",
+        "properties": {
+          "author": {
+            "type": "string",
+            "description": "Author",
+            "x-source-required": false
+          },
+          "work": {
+            "type": "string",
+            "description": "Work",
+            "x-source-required": false
+          },
+          "core_idea": {
+            "type": "string",
+            "description": "Core Idea",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "08-revision/references/disability-reference.md"
+}
