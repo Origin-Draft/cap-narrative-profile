@@ -89,6 +89,11 @@
       "description": "Unit-level interpretive claims. All fields profile-defined.",
       "additionalProperties": true
     },
+    "craft_targets": {
+      "type": "object",
+      "description": "Fourth epistemic section. Prescriptive authorial intent — what the author is aiming for in this unit. Not observable and not structural analysis. All fields profile-defined. Profiles MUST NOT use the interpreted_value wrapper on craft_targets fields.",
+      "additionalProperties": true
+    },
     "participant_states": {
       "type": "array",
       "items": { "$ref": "participant-state.schema.json" },

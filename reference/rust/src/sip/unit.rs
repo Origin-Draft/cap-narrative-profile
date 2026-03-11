@@ -117,6 +117,12 @@ pub struct SipUnit {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub interpretations: Option<Value>,
 
+    /// Fourth epistemic section: prescriptive authorial intent.
+    /// Not observable from the artifact; not structural analysis.
+    /// All fields profile-defined.  MUST NOT use `interpreted_value` wrapper.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub craft_targets: Option<Value>,
+
     /// Per-entity state snapshots.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub participant_states: Vec<SipParticipantState>,

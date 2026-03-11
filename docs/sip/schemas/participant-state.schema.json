@@ -46,7 +46,12 @@
     },
     "observables": {
       "type": "object",
-      "description": "Observable traits relevant to this unit. Profile-extensible.",
+      "description": "Observable traits of this participant relevant to this unit. Profile-extensible.",
+      "additionalProperties": true
+    },
+    "structure": {
+      "type": "object",
+      "description": "Structural properties of this participant's role in the unit (tactics, arc beat, trigger type, etc.). Profile-extensible.",
       "additionalProperties": true
     },
     "interpretations": {

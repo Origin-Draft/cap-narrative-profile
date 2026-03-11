@@ -383,9 +383,6 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
     if let Some(cm) = interp_gbr.get("canonical_metrics") {
         unit_interp_map.insert("canonical_metrics".into(), cm.clone());
     }
-    if let Some(tone) = str_field(craft, "tone") {
-        unit_interp_map.insert("tone".into(), json!(tone));
-    }
     if let Some(mt) = motif_tags {
         unit_interp_map.insert("motif_tags".into(), mt);
     }
@@ -410,6 +407,23 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
         None
     } else {
         Some(Value::Object(unit_interp_map))
+    };
+
+    // ── §4: craft_targets — fourth epistemic section (prescriptive authorial intent) ──
+    let mut craft_targets_map = serde_json::Map::new();
+    if let Some(tone) = str_field(craft, "tone") {
+        craft_targets_map.insert("tone".into(), json!(tone));
+    }
+    if let Some(tt) = craft.get("target_tension") {
+        craft_targets_map.insert("tension".into(), tt.clone());
+    }
+    if let Some(tp) = str_field(craft, "target_pacing") {
+        craft_targets_map.insert("pacing".into(), json!(tp));
+    }
+    let unit_craft_targets = if craft_targets_map.is_empty() {
+        None
+    } else {
+        Some(Value::Object(craft_targets_map))
     };
 
     // ── §7.6: character_states → participant_states ───────────────────────
@@ -484,6 +498,7 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
                 obstacle: None,
                 information_state: info_state,
                 observables: None,
+                structure: None,
                 interpretations: cs_interp,
             }
         })
@@ -498,6 +513,7 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
         observables: unit_observables,
         structure: Some(unit_structure),
         interpretations: unit_interp,
+        craft_targets: unit_craft_targets,
         participant_states,
         metadata: None,
     };

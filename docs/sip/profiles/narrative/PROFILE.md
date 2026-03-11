@@ -156,15 +156,24 @@ Per SIP §6.3, the narrative profile declares these additional requirements on c
 
 ### 4.1 `craft_targets`
 
-The narrative profile defines a fourth epistemic section on Units:
+The narrative profile defines a fourth epistemic section on Units. Craft targets are prescriptive authorial intent — what the author is aiming for. They are always intentional and do not carry the `interpreted_value` wrapper.
 
 | Property | Description |
 |----------|-------------|
 | **Name** | `craft_targets` |
 | **Purpose** | Prescriptive authorial intent — what the author is aiming for in this unit |
-| **interpreted_value wrapper** | Not required (values are goals, not claims) |
-| **Typical fields** | `tension` (float 0–1), `pacing` (string), `tone` (enum from `narrative_voice.json → tone`) |
+| **interpreted_value wrapper** | Not used (values are goals, not inferred claims) |
 | **Validation** | `tension`, when present, MUST be a float between 0.0 and 1.0 |
+
+**Registered craft_targets fields:**
+
+| Field | Type | Source Enum | Description |
+|-------|------|-------------|-------------|
+| `tension` | float 0.0–1.0 | — | Target narrative tension level (1 = low, 5 = maximum when integer; or 0.0–1.0 normalized) |
+| `pacing` | string | `scene_structure.json → pacing` | Target pacing mode for this unit |
+| `tone` | string | `narrative_voice.json → tone` | Authorial/narrator attitude |
+
+**Conversion note:** When converting from GBR v0.2.0, `craft_targets.target_tension` maps to `craft_targets.tension`, `craft_targets.target_pacing` maps to `craft_targets.pacing`, and `craft_targets.tone` stays at `craft_targets.tone`.
 
 ---
 
@@ -223,7 +232,7 @@ value           = 1*( ALPHA / DIGIT / "-" / "→" / "_" )
    - `SHIFT=<before>→<after>` — abbreviated state values from `structure.transition.before` and `.after`
    - `BEAT=<beat>` — from `unit.structure.grouping.beat`
    - `POV=<pov>` — from `unit.observables.context.pov`
-   - `TONE=<tone>` — from `unit.interpretations.tone` or nearest `craft_targets.tone`
+   - `TONE=<tone>` — from `unit.craft_targets.tone`
    - `ARC=<arc_moment>` — a single descriptor of where on the character arc this unit falls
 
 ### 6.3 Examples
@@ -343,7 +352,9 @@ Each entry in `character_states[]` maps to one entry in `units[0].participant_st
 | `interpretations.narrator_reliability` | `units[0].interpretations.narrator_reliability` |
 | `interpretations.stakes_domain` | `units[0].interpretations.stakes_domain` |
 | `interpretations.canonical_metrics` | `units[0].interpretations.canonical_metrics` |
-| `craft_targets.tone` | `units[0].interpretations.tone` |
+| `craft_targets.tone` | `units[0].craft_targets.tone` |
+| `craft_targets.target_tension` | `units[0].craft_targets.tension` |
+| `craft_targets.target_pacing` | `units[0].craft_targets.pacing` |
 | `motif_tags` | `units[0].interpretations.motif_tags` |
 | `theory_notes` | `units[0].interpretations.theory_notes` |
 

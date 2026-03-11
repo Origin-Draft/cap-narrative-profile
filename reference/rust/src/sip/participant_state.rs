@@ -78,6 +78,11 @@ pub struct SipParticipantState {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub observables: Option<Value>,
 
+    /// Structural properties of this participant's role in the unit
+    /// (tactics, arc beat, trigger type, etc.).  Profile-extensible.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub structure: Option<Value>,
+
     /// Interpretive claims about this participant.  Profile-extensible.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub interpretations: Option<Value>,
