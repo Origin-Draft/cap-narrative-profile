@@ -1425,6 +1425,27 @@
         "disillusionment", "fall_then_rise", "rise_then_fall"
       ],
       "description": "Direction of a character's arc through the story"
+    },
+    "interpreted_value": {
+      "description": "Wrapper for interpretation fields that may carry confidence and provenance metadata. Use oneOf[ <bare_type>, interpreted_value_wrapper ] in field schemas.",
+      "type": "object",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "description": "The interpreted value itself (type varies per field)"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "Confidence score for this interpretation (0.0–1.0)"
+        },
+        "source": {
+          "type": "string",
+          "description": "Origin of the interpretation (e.g. 'model:gpt-4', 'human:editor', 'derived:emotion-classifier')"
+        }
+      },
+      "additionalProperties": false
     }
   }
 }

@@ -78,6 +78,64 @@ Validators MUST load the Entity Registry before validating referential constrain
 
 ---
 
+## Epistemic Sections (v0.2.0)
+
+Every GBR document type internally separates its fields into up to four epistemic sections. This separation is structural — the JSON schema enforces it.
+
+```
+┌─────────────────────────────────────────────────┐
+│  GBR Document (any type)                        │
+│                                                 │
+│  ┌───────────────┐  ┌────────────────────────┐  │
+│  │  observables   │  │  structure              │  │
+│  │  (grounded     │  │  (how observables are   │  │
+│  │   in artifact) │  │   organized)            │  │
+│  └───────────────┘  └────────────────────────┘  │
+│  ┌───────────────┐  ┌────────────────────────┐  │
+│  │ interpretations│  │  craft_targets          │  │
+│  │  (inferred     │  │  (authorial intent;     │  │
+│  │   meaning)     │  │   Scene Cards only)     │  │
+│  └───────────────┘  └────────────────────────┘  │
+└─────────────────────────────────────────────────┘
+```
+
+### Observables
+
+Facts directly grounded in the artifact. Named participants, quoted dialogue, explicit locations, visible actions, explicit objects and ordering markers.
+
+Observable fields are always certain. They MUST NOT carry the `interpreted_value` metadata wrapper.
+
+### Structure
+
+How observables are organized in the canonical model. Sequence, containment, adjacency, state transitions, dependency links, causal links (when explicitly grounded), grouping into scenes/modules/etc.
+
+The `canonical_summary` object lives in `structure` because it is the round-trip-critical bridge between fabula and syuzhet.
+
+### Interpretations
+
+Inferred meaning layered on top of observables and structure. Motivation, emotional state, theme, subtext, implied conflict class, literary-theoretical classifications.
+
+Interpretation fields MAY carry an optional metadata wrapper: `{ "value": <T>, "confidence": 0.0–1.0, "source": "human" | "model" | "inferred" | "consensus" }`. Plain values (without the wrapper) are also accepted.
+
+Interpretive metrics extracted from the canonical summary (`iceberg_proportion`, `subtext_load`, and per-turn fields like `emotional_state`, `masked_emotion`, `tactic`, `significance`) live in `interpretations.canonical_metrics`.
+
+### Craft Targets
+
+Prescriptive authorial intent — neither description nor inference, but desired effect. Present only on Scene Cards.
+
+### Section applicability by document type
+
+| Document Type | `observables` | `structure` | `interpretations` | `craft_targets` |
+|---|---|---|---|---|
+| Entity Registry | ✓ | ✓ | ✓ | — |
+| Story Architecture | ✓ | ✓ | ✓ | — |
+| Scene Card | ✓ | ✓ | ✓ | ✓ |
+| Character Scene State | ✓ | ✓ | ✓ | — |
+
+See [ADR-006](../docs/decisions/ADR-006-observable-structure-interpretation.md) for the full rationale.
+
+---
+
 ## Design Rationale
 
 See [docs/design-principles.md](../docs/design-principles.md) for the rationale behind each design decision, and [docs/decisions/](../docs/decisions/) for Architecture Decision Records.

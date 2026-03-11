@@ -1,0 +1,14 @@
+{
+  "$schema": "https://gbr-protocol.dev/schemas/scene-card.schema.json",
+  "scene_id": "test_missing_observables_s01",
+  "book_id": "conformance-test-invalid",
+  "chapter": 1,
+
+  "structure": {
+    "beat": "inciting_incident"
+  },
+
+  "interpretations": {
+    "pov": "third_limited"
+  }
+}

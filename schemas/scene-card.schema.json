@@ -2,9 +2,9 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://gbr-protocol.dev/schemas/v0/scene-card.schema.json",
   "title": "SceneCard",
-  "description": "Complete scene specification enabling bidirectional prose ↔ structure conversion. Contains structural position, voice/craft settings, character states, and canonical summary.",
+  "description": "Complete scene specification enabling bidirectional prose ↔ structure conversion. v0.2.0: fields organized into observables/structure/interpretations/craft_targets epistemic sections.",
   "type": "object",
-  "required": ["scene_id", "book_id", "chapter", "beat", "pov", "focalizer"],
+  "required": ["scene_id", "book_id", "chapter", "observables", "structure", "interpretations"],
   "properties": {
     "scene_id": {
       "type": "string",
@@ -18,159 +18,194 @@
     "chapter": { "type": "integer", "minimum": 1 },
     "scene_index": { "type": "integer", "minimum": 1 },
     "scene_number_in_chapter": { "type": "integer", "minimum": 1 },
-    "act": { "type": "integer", "minimum": 1, "maximum": 5 },
-    "sequence": { "$ref": "enums.schema.json#/$defs/sequence_type" },
-    "beat": { "$ref": "enums.schema.json#/$defs/beat_type" },
-    "arc_position": {
-      "type": "number",
-      "minimum": 0,
-      "maximum": 1,
-      "description": "0.0–1.0 position through story arc"
-    },
-    "scene_function": { "$ref": "enums.schema.json#/$defs/scene_function" },
 
-    "turn": {
+    "observables": {
       "type": "object",
-      "description": "Emotional/dramatic direction change",
+      "description": "Facts directly grounded in the artifact. Fields MUST NOT use the interpreted_value wrapper.",
+      "required": ["focalizer"],
       "properties": {
-        "from": { "$ref": "enums.schema.json#/$defs/scene_polarity" },
-        "to": { "$ref": "enums.schema.json#/$defs/scene_polarity" }
-      }
-    },
-
-    "pov": { "$ref": "enums.schema.json#/$defs/pov_type" },
-    "focalization": { "$ref": "enums.schema.json#/$defs/focalization_type" },
-    "focalization_type": { "$ref": "enums.schema.json#/$defs/focalization_type" },
-    "focalizer": {
-      "type": "string",
-      "pattern": "^[a-z0-9_-]+$",
-      "description": "Character slug of focalizer"
-    },
-    "psychic_distance": {
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 5,
-      "description": "Gardner scale: 1=authorial distance, 5=deep interiority"
-    },
-    "consciousness_mode": { "$ref": "enums.schema.json#/$defs/consciousness_mode" },
-
-    "diegetic_level": { "$ref": "enums.schema.json#/$defs/diegetic_level" },
-    "narratee_type": { "$ref": "enums.schema.json#/$defs/narratee_type" },
-    "narrator_reliability": { "$ref": "enums.schema.json#/$defs/narrator_reliability_type" },
-
-    "narrative_time": {
-      "type": "object",
-      "description": "Genette temporal architecture",
-      "properties": {
-        "order": { "$ref": "enums.schema.json#/$defs/narrative_order" },
-        "analepsis_type": { "$ref": "enums.schema.json#/$defs/analepsis_type" },
-        "prolepsis_type": { "$ref": "enums.schema.json#/$defs/prolepsis_type" },
-        "duration_mode": { "$ref": "enums.schema.json#/$defs/duration_mode" },
-        "duration": {
-          "type": "object",
-          "properties": {
-            "value": { "type": "integer" },
-            "unit": { "$ref": "enums.schema.json#/$defs/time_unit" }
-          }
-        },
-        "frequency": { "$ref": "enums.schema.json#/$defs/frequency" },
-        "iterative_pattern": { "$ref": "enums.schema.json#/$defs/iterative_pattern" }
-      }
-    },
-
-    "target_tension": {
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 5,
-      "description": "1=calm, 5=maximum tension"
-    },
-    "target_pacing": { "$ref": "enums.schema.json#/$defs/duration_mode" },
-    "tone": { "$ref": "enums.schema.json#/$defs/tone" },
-
-    "setting": {
-      "oneOf": [
-        {
+        "focalizer": {
           "type": "string",
           "pattern": "^[a-z0-9_-]+$",
-          "description": "Setting slug from registry"
+          "description": "Character slug of focalizer"
         },
-        {
-          "type": "object",
-          "required": ["location"],
-          "properties": {
-            "location": { "type": "string", "pattern": "^[a-z0-9_-]+$" },
-            "time_of_day": { "$ref": "enums.schema.json#/$defs/time_of_day" },
-            "setting_type": { "type": "string" },
-            "atmosphere": { "type": "string" },
-            "spatial_structure": { "$ref": "enums.schema.json#/$defs/spatial_structure" },
-            "territory_type": { "$ref": "enums.schema.json#/$defs/territory_type" }
-          },
-          "additionalProperties": true
-        }
-      ],
-      "description": "Setting slug or inline setting object with location + context"
+        "event_type": { "$ref": "enums.schema.json#/$defs/event_type" },
+        "participants": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-z0-9_-]+$" },
+          "description": "Character slugs present in scene"
+        },
+        "diegetic_level": { "$ref": "enums.schema.json#/$defs/diegetic_level" },
+        "narratee_type": { "$ref": "enums.schema.json#/$defs/narratee_type" },
+        "setting_instance": { "$ref": "#/$defs/setting_instance" }
+      }
     },
-    "setting_instance": { "$ref": "#/$defs/setting_instance" },
 
-    "participants": {
-      "type": "array",
-      "items": { "type": "string", "pattern": "^[a-z0-9_-]+$" },
-      "description": "Character slugs present in scene"
+    "structure": {
+      "type": "object",
+      "description": "How the narrative is organized. Fields MUST NOT use the interpreted_value wrapper.",
+      "required": ["beat"],
+      "properties": {
+        "beat": { "$ref": "enums.schema.json#/$defs/beat_type" },
+        "act": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "sequence": { "$ref": "enums.schema.json#/$defs/sequence_type" },
+        "arc_position": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "0.0–1.0 position through story arc"
+        },
+        "scene_function": { "$ref": "enums.schema.json#/$defs/scene_function" },
+        "turn": {
+          "type": "object",
+          "description": "Emotional/dramatic direction change",
+          "properties": {
+            "from": { "$ref": "enums.schema.json#/$defs/scene_polarity" },
+            "to": { "$ref": "enums.schema.json#/$defs/scene_polarity" }
+          }
+        },
+        "causal_role": { "$ref": "enums.schema.json#/$defs/causal_role_type" },
+        "canonical_summary": {
+          "description": "Deterministic summary: string or semantic components for rendering",
+          "oneOf": [
+            { "type": "string" },
+            {
+              "type": "object",
+              "properties": {
+                "want": { "type": "string" },
+                "obstacle": { "type": "string" },
+                "scene_polarity": { "$ref": "enums.schema.json#/$defs/polarity_transition" },
+                "outcome": { "$ref": "enums.schema.json#/$defs/outcome_type" },
+                "delta": { "type": "string" },
+                "scene_turns": {
+                  "type": "array",
+                  "items": { "$ref": "#/$defs/scene_turn" }
+                },
+                "embedded_analepsis": {
+                  "type": "object",
+                  "properties": {
+                    "type": { "type": "string" },
+                    "mechanism": { "type": "string" },
+                    "narrative_order": { "$ref": "enums.schema.json#/$defs/narrative_order" },
+                    "fabula_date": { "type": "string" }
+                  },
+                  "additionalProperties": true
+                },
+                "pov_character": { "type": "string" },
+                "location": { "type": "string" },
+                "time": { "type": "string" },
+                "focalizer": { "type": "string" },
+                "chapter": { "type": "integer" },
+                "scene": { "type": "integer" }
+              },
+              "additionalProperties": true
+            }
+          ]
+        },
+        "chapter_position": { "$ref": "enums.schema.json#/$defs/chapter_position" },
+        "narrative_time": {
+          "type": "object",
+          "description": "Genette temporal architecture",
+          "properties": {
+            "order": { "$ref": "enums.schema.json#/$defs/narrative_order" },
+            "analepsis_type": { "$ref": "enums.schema.json#/$defs/analepsis_type" },
+            "prolepsis_type": { "$ref": "enums.schema.json#/$defs/prolepsis_type" },
+            "duration_mode": { "$ref": "enums.schema.json#/$defs/duration_mode" },
+            "duration": {
+              "type": "object",
+              "properties": {
+                "value": { "type": "integer" },
+                "unit": { "$ref": "enums.schema.json#/$defs/time_unit" }
+              }
+            },
+            "frequency": { "$ref": "enums.schema.json#/$defs/frequency" },
+            "iterative_pattern": { "$ref": "enums.schema.json#/$defs/iterative_pattern" }
+          }
+        }
+      }
     },
+
+    "interpretations": {
+      "type": "object",
+      "description": "Inferred meaning. All fields MAY use the interpreted_value wrapper.",
+      "required": ["pov"],
+      "properties": {
+        "pov": {
+          "oneOf": [
+            { "$ref": "enums.schema.json#/$defs/pov_type" },
+            { "$ref": "enums.schema.json#/$defs/interpreted_value" }
+          ]
+        },
+        "focalization": {
+          "oneOf": [
+            { "$ref": "enums.schema.json#/$defs/focalization_type" },
+            { "$ref": "enums.schema.json#/$defs/interpreted_value" }
+          ]
+        },
+        "psychic_distance": {
+          "oneOf": [
+            { "type": "integer", "minimum": 1, "maximum": 5 },
+            { "$ref": "enums.schema.json#/$defs/interpreted_value" }
+          ],
+          "description": "Gardner scale: 1=authorial distance, 5=deep interiority"
+        },
+        "consciousness_mode": {
+          "oneOf": [
+            { "$ref": "enums.schema.json#/$defs/consciousness_mode" },
+            { "$ref": "enums.schema.json#/$defs/interpreted_value" }
+          ]
+        },
+        "narrator_reliability": {
+          "oneOf": [
+            { "$ref": "enums.schema.json#/$defs/narrator_reliability_type" },
+            { "$ref": "enums.schema.json#/$defs/interpreted_value" }
+          ]
+        },
+        "subtext": {
+          "type": "object",
+          "properties": {
+            "technique": { "$ref": "enums.schema.json#/$defs/subtext_technique" },
+            "maxim_violated": { "$ref": "enums.schema.json#/$defs/gricean_maxim" },
+            "violation_type": { "$ref": "enums.schema.json#/$defs/violation_signature" },
+            "iceberg_category": { "$ref": "enums.schema.json#/$defs/iceberg_category" }
+          }
+        },
+        "canonical_metrics": {
+          "type": "object",
+          "description": "Interpretive metrics extracted from canonical summary analysis",
+          "properties": {
+            "iceberg_proportion": { "type": "number", "minimum": 0, "maximum": 1 },
+            "subtext_load": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        },
+        "stakes_domain": {
+          "oneOf": [
+            { "type": "string" },
+            { "type": "array", "items": { "type": "string" } }
+          ]
+        }
+      }
+    },
+
+    "craft_targets": {
+      "type": "object",
+      "description": "Authorial dials — not observable from text, not structural analysis.",
+      "properties": {
+        "target_tension": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5,
+          "description": "1=calm, 5=maximum tension"
+        },
+        "target_pacing": { "$ref": "enums.schema.json#/$defs/duration_mode" },
+        "tone": { "$ref": "enums.schema.json#/$defs/tone" }
+      }
+    },
+
     "character_states": {
       "type": "array",
       "items": { "$ref": "character-state.schema.json" },
       "description": "Per-character state specifications"
-    },
-
-    "subtext": {
-      "type": "object",
-      "properties": {
-        "technique": { "$ref": "enums.schema.json#/$defs/subtext_technique" },
-        "maxim_violated": { "$ref": "enums.schema.json#/$defs/gricean_maxim" },
-        "violation_type": { "$ref": "enums.schema.json#/$defs/violation_signature" },
-        "iceberg_category": { "$ref": "enums.schema.json#/$defs/iceberg_category" }
-      }
-    },
-
-    "canonical_summary": {
-      "description": "Semantic components for deterministic summary rendering",
-      "oneOf": [
-        { "type": "string" },
-        {
-          "type": "object",
-          "properties": {
-            "want": { "type": "string" },
-            "obstacle": { "type": "string" },
-            "scene_polarity": { "$ref": "enums.schema.json#/$defs/polarity_transition" },
-            "outcome": { "$ref": "enums.schema.json#/$defs/outcome_type" },
-            "delta": { "type": "string" },
-            "iceberg_proportion": { "type": "number", "minimum": 0, "maximum": 1 },
-            "subtext_load": { "type": "number", "minimum": 0, "maximum": 1 },
-            "scene_turns": {
-              "type": "array",
-              "items": { "$ref": "#/$defs/scene_turn" }
-            },
-            "embedded_analepsis": {
-              "type": "object",
-              "properties": {
-                "type": { "type": "string" },
-                "mechanism": { "type": "string" },
-                "narrative_order": { "$ref": "enums.schema.json#/$defs/narrative_order" },
-                "fabula_date": { "type": "string" }
-              },
-              "additionalProperties": true
-            },
-            "pov_character": { "type": "string" },
-            "location": { "type": "string" },
-            "time": { "type": "string" },
-            "focalizer": { "type": "string" },
-            "chapter": { "type": "integer" },
-            "scene": { "type": "integer" }
-          },
-          "additionalProperties": true
-        }
-      ]
     },
 
     "prose": {
@@ -178,15 +213,6 @@
       "description": "The actual prose passage (generation output / extraction input)"
     },
     "word_count": { "type": "integer" },
-    "chapter_position": { "$ref": "enums.schema.json#/$defs/chapter_position" },
-
-    "causal_role": { "$ref": "enums.schema.json#/$defs/causal_role_type" },
-    "stakes_domain": {
-      "oneOf": [
-        { "type": "string" },
-        { "type": "array", "items": { "type": "string" } }
-      ]
-    },
     "motif_tags": {
       "type": "array",
       "items": { "type": "string" }
@@ -194,41 +220,51 @@
     "theory_notes": {
       "type": "object",
       "additionalProperties": { "type": "string" }
-    },
-    "pov_role": { "$ref": "enums.schema.json#/$defs/pov_role" }
+    }
   },
 
   "$defs": {
     "scene_turn": {
       "type": "object",
+      "description": "A single narrative beat within the scene, split into observables and interpretations.",
       "properties": {
         "turn_number": { "type": "integer", "minimum": 1 },
-        "active_character": { "type": "string" },
-        "agent": { "type": "string" },
-        "verb": { "type": "string" },
-        "target": { "type": "string" },
-        "patient": { "type": "string" },
-        "result": { "type": "string" },
-        "emotional_state": {
-          "oneOf": [
-            { "$ref": "enums.schema.json#/$defs/emotion" },
-            { "type": "null" }
-          ]
+        "observables": {
+          "type": "object",
+          "properties": {
+            "active_character": { "type": "string" },
+            "agent": { "type": "string" },
+            "verb": { "type": "string" },
+            "target": { "type": "string" },
+            "patient": { "type": "string" },
+            "result": { "type": "string" }
+          }
         },
-        "masked_emotion": {
-          "oneOf": [
-            { "$ref": "enums.schema.json#/$defs/emotion" },
-            { "type": "null" }
-          ]
-        },
-        "tactic": {
-          "oneOf": [
-            { "$ref": "enums.schema.json#/$defs/tactic" },
-            { "type": "null" }
-          ]
-        },
-        "event_type": { "$ref": "enums.schema.json#/$defs/event_type" },
-        "significance": { "$ref": "enums.schema.json#/$defs/event_significance" }
+        "interpretations": {
+          "type": "object",
+          "properties": {
+            "emotional_state": {
+              "oneOf": [
+                { "$ref": "enums.schema.json#/$defs/emotion" },
+                { "type": "null" }
+              ]
+            },
+            "masked_emotion": {
+              "oneOf": [
+                { "$ref": "enums.schema.json#/$defs/emotion" },
+                { "type": "null" }
+              ]
+            },
+            "tactic": {
+              "oneOf": [
+                { "$ref": "enums.schema.json#/$defs/tactic" },
+                { "type": "null" }
+              ]
+            },
+            "event_type": { "$ref": "enums.schema.json#/$defs/event_type" },
+            "significance": { "$ref": "enums.schema.json#/$defs/event_significance" }
+          }
+        }
       },
       "additionalProperties": true
     },
@@ -242,6 +278,7 @@
         "weather": { "$ref": "enums.schema.json#/$defs/weather_condition" },
         "lighting_source": { "$ref": "enums.schema.json#/$defs/lighting_source" },
         "lighting_quality": { "$ref": "enums.schema.json#/$defs/lighting_quality" },
+        "atmosphere": { "type": "string" },
         "spatial_structure": { "$ref": "enums.schema.json#/$defs/spatial_structure" },
         "territory_type": { "$ref": "enums.schema.json#/$defs/territory_type" },
         "sensory_emphasis": {

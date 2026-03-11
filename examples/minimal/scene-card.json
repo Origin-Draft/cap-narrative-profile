@@ -3,49 +3,82 @@
   "scene_id": "minimal-example-ch01-s01",
   "book_id": "minimal-example",
   "chapter": 1,
-  "beat": "inciting_incident",
-  "pov": "third_limited",
-  "focalizer": "alex",
-  "scene_function": "revelation",
-  "scene_polarity": "neutral_to_negative",
-  "time_of_day": "morning",
-  "setting_ref": "the_apartment",
-  "duration_mode": "scene",
-  "narrative_order": "chronological",
-  "tone": "tense",
+
+  "observables": {
+    "focalizer": "alex",
+    "setting_instance": {
+      "setting": "the_apartment",
+      "time_of_day": "morning"
+    }
+  },
+
+  "structure": {
+    "beat": "inciting_incident",
+    "scene_function": "revelation",
+    "turn": {
+      "from": "neutral",
+      "to": "negative",
+      "value_charge_open": "neutral",
+      "value_charge_close": "negative"
+    },
+    "canonical_summary": {
+      "chapter": 1,
+      "scene": 1,
+      "location": "Alex's Apartment",
+      "time": "morning",
+      "focalizer": "alex",
+      "want": "alex wants to understand what the letter means",
+      "scene_turns": [
+        {
+          "observables": {
+            "event_type": "discovery",
+            "agent": "alex",
+            "verb": "opens",
+            "patient": "a letter from their estranged parent"
+          },
+          "result": "alex learns their parent has requested contact after fifteen years of silence"
+        },
+        {
+          "observables": {
+            "event_type": "internal_shift",
+            "agent": "alex",
+            "verb": "freezes",
+            "patient": "themselves"
+          },
+          "result": "all of alex's practiced distance collapses into the old wound"
+        }
+      ],
+      "outcome": "deferred",
+      "delta": "Alex's carefully maintained emotional distance from their abandonment is shattered; they must now decide whether to respond."
+    }
+  },
+
+  "interpretations": {
+    "pov": "third_limited",
+    "focalization": "internal_fixed",
+    "narrator_reliability": "reliable"
+  },
+
+  "craft_targets": {
+    "tone": "tense"
+  },
+
   "character_states": [
     {
-      "character_ref": "alex",
-      "pov_role": "focalizer",
-      "primary_emotion": "shock",
-      "want": "alex wants to understand what the letter means",
-      "trigger_type": "unexpected_revelation"
-    }
-  ],
-  "canonical_summary": {
-    "chapter": 1,
-    "scene": 1,
-    "location": "Alex's Apartment",
-    "time": "morning",
-    "focalizer": "alex",
-    "want": "alex wants to understand what the letter means",
-    "scene_turns": [
-      {
-        "event_type": "discovery",
-        "agent": "alex",
-        "verb": "opens",
-        "patient": "a letter from their estranged parent",
-        "result": "alex learns their parent has requested contact after fifteen years of silence"
+      "observables": {
+        "character": "alex",
+        "pov_role": "focalizer"
       },
-      {
-        "event_type": "internal_shift",
-        "agent": "alex",
-        "verb": "freezes",
-        "patient": "themselves",
-        "result": "all of alex's practiced distance collapses into the old wound"
+      "structure": {
+        "trigger_type": "unexpected_revelation",
+        "objective": {
+          "action": "understand",
+          "target": "the letter"
+        }
+      },
+      "interpretations": {
+        "emotion": "shock"
       }
-    ],
-    "outcome": "deferred",
-    "delta": "Alex's carefully maintained emotional distance from their abandonment is shattered; they must now decide whether to respond."
-  }
+    }
+  ]
 }

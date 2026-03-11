@@ -20,6 +20,14 @@ Characters are stored as a map: `slug → Character`.
 
 The map structure (rather than an array) enables O(1) lookup by slug. Every scene card references characters by slug; lookup is the protocol's primary integrity check.
 
+#### Epistemic Sections (v0.2.0)
+
+Character entries use the three-section epistemic structure. See [ADR-006](../docs/decisions/ADR-006-observable-structure-interpretation.md) for rationale.
+
+- **Observables:** `id`, `name` (REQUIRED), `aliases`
+- **Structure:** `role`, `voice_signature`
+- **Interpretations:** `archetype`, `wound`, `alignment`, `drive_model`, `arc_type`, `actant`, `ghost`, `want`, `need`, `flaw`
+
 ### Required Fields
 
 - `id` — snake_case slug; MUST match the parent map key (e.g., `"elizabeth_bennet"`)
@@ -71,6 +79,12 @@ Optional character voice fingerprint for prose generation consistency:
 
 Settings are stored as a map: `slug → Setting`.
 
+#### Epistemic Sections (v0.2.0)
+
+- **Observables:** `id`, `name` (REQUIRED)
+- **Structure:** `type`
+- **Interpretations:** `general_vibe`, `sensory_signature`
+
 ### Required Fields
 
 - `id` — snake_case slug; MUST match the parent map key
@@ -91,6 +105,12 @@ Physical location is not decoration — it is semantically charged. Settings enc
 ## Relationships
 
 Relationships are stored as an array of directed edge objects (not a map), because multiple relationship types can exist between the same pair of characters.
+
+#### Epistemic Sections (v0.2.0)
+
+- **Observables:** `source`, `target` (REQUIRED)
+- **Structure:** `rel_type` (REQUIRED)
+- **Interpretations:** `description`, `dynamic_at_start`, `dynamic_at_end`, `power_balance`
 
 ### Required Fields
 

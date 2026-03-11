@@ -1,0 +1,19 @@
+{
+  "$schema": "https://gbr-protocol.dev/schemas/scene-card.schema.json",
+  "scene_id": "test_missing_pov_s01",
+  "book_id": "conformance-test-invalid",
+  "chapter": 1,
+
+  "observables": {
+    "focalizer": "protagonist"
+  },
+
+  "structure": {
+    "beat": "inciting_incident"
+  },
+
+  "interpretations": {
+    "focalization": "internal_fixed",
+    "psychic_distance": 3
+  }
+}

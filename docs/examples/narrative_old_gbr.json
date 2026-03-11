@@ -1,0 +1,157 @@
+{
+  "_comment": "GBR v0.2.0 format — existing scene card from threshold corpus. Included for comparison with the new SIP core + narrative profile format.",
+  "$schema": "https://gbr-protocol.dev/schemas/v0/scene-card.schema.json",
+
+  "scene_id": "threshold_ch01_s01",
+  "book_id": "threshold",
+  "chapter": 1,
+
+  "observables": {
+    "focalizer": "nadia",
+    "participants": ["nadia"],
+    "diegetic_level": "intradiegetic",
+    "setting_instance": {
+      "setting": "childhood_home",
+      "time_of_day": "morning",
+      "atmosphere": "uncanny"
+    },
+    "narrative_time": {
+      "order": "chronological",
+      "duration_mode": "scene",
+      "frequency": "singulative"
+    }
+  },
+
+  "structure": {
+    "beat": "status_quo",
+    "scene_function": "world_building",
+    "scene_number_in_chapter": 1,
+    "causal_role": "setup",
+    "turn": {
+      "from": "negative",
+      "to": "negative",
+      "value_charge_open": "negative",
+      "value_charge_close": "negative"
+    },
+    "canonical_summary": {
+      "want": "Nadia wants to move through the house efficiently: assess, catalogue, call the estate agent, leave by tomorrow evening",
+      "obstacle": "The house refuses to be efficient. It is smaller than she remembered and larger than grief. The key sticks in the lock for a moment — not long enough to matter, long enough to notice.",
+      "outcome": "partially_achieved",
+      "delta": "Nadia's armor — the fiction that this is a logistical task — is intact but has taken the first small crack. She has noticed the house is smaller. She has not yet admitted what this means.",
+      "scene_turns": [
+        {
+          "observables": {
+            "turn_number": 1,
+            "active_character": "nadia",
+            "verb": "arrives",
+            "target": "childhood_home",
+            "event_type": "action",
+            "significance": "satellite"
+          },
+          "interpretations": {
+            "emotional_state": "resolve",
+            "masked_emotion": "dread",
+            "tactic": "appeal_to_logic"
+          }
+        },
+        {
+          "observables": {
+            "turn_number": 2,
+            "active_character": "nadia",
+            "verb": "unlocks",
+            "target": "front_door",
+            "event_type": "action",
+            "significance": "kernel"
+          },
+          "interpretations": {
+            "emotional_state": "resolve",
+            "masked_emotion": "grief"
+          }
+        },
+        {
+          "observables": {
+            "turn_number": 3,
+            "active_character": "nadia",
+            "verb": "catalogs",
+            "target": "ground_floor_rooms",
+            "event_type": "action",
+            "significance": "satellite"
+          },
+          "interpretations": {
+            "emotional_state": "resolve",
+            "masked_emotion": "grief",
+            "tactic": "appeal_to_logic"
+          }
+        },
+        {
+          "observables": {
+            "turn_number": 4,
+            "active_character": "nadia",
+            "verb": "stops",
+            "target": "kitchen_doorway",
+            "event_type": "internal_shift",
+            "significance": "kernel"
+          },
+          "interpretations": {
+            "emotional_state": "confusion",
+            "masked_emotion": "grief"
+          }
+        }
+      ]
+    }
+  },
+
+  "interpretations": {
+    "pov": "third_limited",
+    "focalization": "internal_fixed",
+    "consciousness_mode": "narrated_monologue",
+    "psychic_distance": 2,
+    "narrator_reliability": "factually_unreliable",
+    "stakes_domain": ["psychological", "relational"],
+    "canonical_metrics": {
+      "iceberg_proportion": 0.65,
+      "subtext_load": 0.6
+    }
+  },
+
+  "craft_targets": {
+    "tone": "clinical"
+  },
+
+  "character_states": [
+    {
+      "observables": {
+        "character": "nadia",
+        "pov_role": "focalizer"
+      },
+      "structure": {
+        "tactic": "appeal_to_logic",
+        "objective": {
+          "action": "catalogs_rooms",
+          "target": "childhood_home",
+          "obstacle": "the_house_is_her_fathers_body"
+        },
+        "knowledge_at_entry": [
+          { "fact": "what the estate agent needs to proceed with the sale" }
+        ],
+        "knowledge_gaps": [
+          { "fact": "why she has been carrying the house key for four months without opening the envelope" }
+        ]
+      },
+      "interpretations": {
+        "arc_type": "positive_change",
+        "drive_model": "wound",
+        "emotion": "resolve",
+        "masked_emotion": "grief"
+      }
+    }
+  ],
+
+  "motif_tags": ["the_key", "smallness", "silence"],
+
+  "theory_notes": {
+    "cohn": "Narrated monologue throughout — Nadia's cataloguing voice and the narrator's voice are fused.",
+    "booth": "The narrator is 'factually_unreliable' in a technical sense: Nadia's readiness assessment and her perception of the house's scale are both colored by grief.",
+    "bachelard": "The house as topoanalysis object: not just a setting but the site where Nadia's self was formed."
+  }
+}

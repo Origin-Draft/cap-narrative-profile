@@ -1,0 +1,258 @@
+{
+  "_comment": "Software domain smoke test — an API authentication flow encoded in SIP core + a sketched software profile. If this works without narrative-specific fields, the core architecture is genuinely domain-agnostic. This is a toy example: three services, one interaction, four steps.",
+
+  "protocol": "semantic-interaction-protocol",
+  "protocol_version": "0.1.0",
+  "profile": "software",
+  "profile_version": "0.1.0-sketch",
+
+  "artifact": {
+    "artifact_id": "auth_system",
+    "metadata": {
+      "title": "Authentication Subsystem",
+      "owner": "platform-team",
+      "size": 12400
+    },
+    "entities": [
+      {
+        "entity_id": "api_gateway",
+        "entity_type": "service",
+        "display_name": "API Gateway",
+        "observable_descriptors": {
+          "language": "go",
+          "entry_point": "cmd/gateway/main.go"
+        },
+        "structural_properties": {
+          "layer": "edge",
+          "protocol": "https"
+        },
+        "interpretations": {
+          "responsibility": "request_routing_and_auth_delegation",
+          "pattern": "api_gateway"
+        }
+      },
+      {
+        "entity_id": "auth_service",
+        "entity_type": "service",
+        "display_name": "Authentication Service",
+        "observable_descriptors": {
+          "language": "go",
+          "entry_point": "cmd/auth/main.go"
+        },
+        "structural_properties": {
+          "layer": "infrastructure",
+          "protocol": "grpc"
+        },
+        "interpretations": {
+          "responsibility": "identity_verification",
+          "pattern": "domain_service"
+        }
+      },
+      {
+        "entity_id": "user_db",
+        "entity_type": "data_store",
+        "display_name": "User Database",
+        "observable_descriptors": {
+          "engine": "postgresql",
+          "schema": "users"
+        },
+        "structural_properties": {
+          "layer": "persistence",
+          "protocol": "tcp"
+        },
+        "interpretations": {
+          "responsibility": "credential_storage",
+          "pattern": "relational_store"
+        }
+      },
+      {
+        "entity_id": "user_session",
+        "entity_type": "data_object",
+        "display_name": "User Session",
+        "observable_descriptors": {},
+        "structural_properties": {
+          "lifecycle": "transient",
+          "ttl_minutes": 30
+        },
+        "interpretations": {
+          "responsibility": "authentication_state_carrier"
+        }
+      }
+    ],
+    "relationships": [
+      {
+        "source": "api_gateway",
+        "target": "auth_service",
+        "relationship_type": "dependency",
+        "evidence": "import in gateway/auth_client.go",
+        "interpretations": {
+          "coupling": "tight",
+          "criticality": "high"
+        }
+      },
+      {
+        "source": "auth_service",
+        "target": "user_db",
+        "relationship_type": "dependency",
+        "evidence": "SQL queries in auth/repository.go",
+        "interpretations": {
+          "coupling": "moderate",
+          "criticality": "high"
+        }
+      }
+    ]
+  },
+
+  "units": [
+    {
+      "unit_id": "auth_login_flow",
+      "artifact_id": "auth_system",
+      "unit_type": "interaction",
+      "sequence_index": 1,
+
+      "observables": {
+        "participants": ["api_gateway", "auth_service", "user_db", "user_session"],
+        "context": {
+          "protocol": "https",
+          "endpoint": "/api/v1/login",
+          "method": "POST"
+        },
+        "event_type": "request_response"
+      },
+
+      "structure": {
+        "causal_role": "trigger",
+
+        "transition": {
+          "subject": "user_session",
+          "before": { "state_type": "authentication", "value": "unauthenticated" },
+          "after": { "state_type": "authentication", "value": "authenticated" },
+          "trigger": "Valid credentials submitted to /api/v1/login",
+          "description": "User transitions from unauthenticated to authenticated with a 30-minute session token."
+        },
+
+        "steps": [
+          {
+            "sequence_number": 1,
+            "agent": "api_gateway",
+            "action": "receives_login_request",
+            "target": "/api/v1/login",
+            "event_type": "request",
+            "significance": "essential",
+            "interpretations": {
+              "validation": "schema_validated",
+              "rate_limited": false
+            }
+          },
+          {
+            "sequence_number": 2,
+            "agent": "api_gateway",
+            "action": "delegates_authentication",
+            "target": "auth_service",
+            "event_type": "request",
+            "significance": "essential",
+            "interpretations": {
+              "protocol": "grpc",
+              "timeout_ms": 5000
+            }
+          },
+          {
+            "sequence_number": 3,
+            "agent": "auth_service",
+            "action": "queries_credentials",
+            "target": "user_db",
+            "event_type": "query",
+            "significance": "essential",
+            "interpretations": {
+              "query_type": "parameterized_select",
+              "credential_check": "bcrypt_compare"
+            }
+          },
+          {
+            "sequence_number": 4,
+            "agent": "auth_service",
+            "action": "issues_session_token",
+            "target": "user_session",
+            "event_type": "mutation",
+            "significance": "essential",
+            "interpretations": {
+              "token_type": "jwt",
+              "expiry_minutes": 30
+            }
+          }
+        ],
+
+        "semantic_fingerprint": "api_gateway receives POST /api/v1/login; delegates to auth_service via gRPC; auth_service queries user_db for credentials; on match, issues JWT session token (30m TTL); user_session transitions unauthenticated → authenticated."
+      },
+
+      "interpretations": {
+        "security_boundary": "authentication",
+        "failure_modes": ["invalid_credentials", "db_timeout", "rate_limit_exceeded"],
+        "trust_level": "untrusted_input_to_trusted_state"
+      },
+
+      "participant_states": [
+        {
+          "entity_ref": "api_gateway",
+          "role_in_unit": "initiator",
+          "objective": {
+            "action": "authenticate_user",
+            "target": "user_session"
+          },
+          "information_state": {
+            "knows": [
+              { "subject": "credentials", "predicate": "receives", "about": "user_session", "certainty": 1.0 }
+            ],
+            "gaps": [
+              { "subject": "credential_validity", "predicate": "unknown", "about": "user_session", "certainty": 0.0 }
+            ],
+            "gained": [
+              { "subject": "authentication_result", "predicate": "knows", "about": "user_session", "certainty": 1.0 }
+            ]
+          },
+          "observables": {},
+          "interpretations": {}
+        },
+        {
+          "entity_ref": "auth_service",
+          "role_in_unit": "processor",
+          "objective": {
+            "action": "verify_credentials",
+            "target": "user_db"
+          },
+          "information_state": {
+            "knows": [],
+            "gaps": [
+              { "subject": "stored_credential", "predicate": "unknown", "about": "user_db", "certainty": 0.0 }
+            ],
+            "gained": [
+              { "subject": "credential_match", "predicate": "knows", "about": "user_session", "certainty": 1.0 }
+            ]
+          },
+          "observables": {},
+          "interpretations": {}
+        }
+      ],
+
+      "metadata": {
+        "estimated_latency_ms": 150,
+        "sla_target_ms": 500
+      }
+    }
+  ],
+
+  "views": [
+    {
+      "view_id": "service_dependencies",
+      "view_type": "dependency_graph",
+      "description": "Runtime service dependency graph for the authentication subsystem",
+      "ordering": "dependency",
+      "data": {
+        "edges": [
+          { "source": "api_gateway", "target": "auth_service", "type": "synchronous", "protocol": "grpc" },
+          { "source": "auth_service", "target": "user_db", "type": "synchronous", "protocol": "tcp" }
+        ]
+      }
+    }
+  ]
+}

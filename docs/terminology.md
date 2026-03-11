@@ -35,6 +35,12 @@ A complete GBR dataset for a single narrative work. Layout: `{book_id}/registry.
 
 ## C
 
+**Craft Targets**
+The epistemic section of a Scene Card containing prescriptive authorial intent — target tension, target pacing, tone. These are neither observations of the artifact, structural positions, nor inferences — they are desired effects. Only Scene Cards have a `craft_targets` section. See ADR-006.
+
+**Canonical Metrics**
+The interpretive measurements extracted from a scene's canonical summary — `iceberg_proportion`, `subtext_load`, and per-turn fields (`emotional_state`, `masked_emotion`, `tactic`, `significance`). Stored in `interpretations.canonical_metrics`, not inside the structural `canonical_summary` object. See ADR-006.
+
 **Canonical Summary**
 The structured, machine-readable scene summary embedded in every Scene Card. Implements the Round-Trip Requirement: a comprehending reader with only the Canonical Summary can reconstruct the scene's narrative content. Consists of: focalizer, want, scene_turns array, outcome, delta. See `protocol/canonical-summary.md`.
 
@@ -116,7 +122,13 @@ The top-level narrative frame classification for the book (`genre_type`). Requir
 ## I
 
 **Iceberg Proportion**
-A float (0.0–1.0) encoding how much of the scene's meaning is withheld from explicit narration (Hemingway's iceberg principle). 0.0 = fully explicit; 1.0 = fully implicit. Optional.
+A float (0.0–1.0) encoding how much of the scene's meaning is withheld from explicit narration (Hemingway's iceberg principle). 0.0 = fully explicit; 1.0 = fully implicit. Optional. Stored in `interpretations.canonical_metrics`.
+
+**Interpretation**
+The epistemic section of a GBR document containing inferred meaning layered on top of observables and structure: motivations, emotional states, themes, subtext, literary-theoretical classifications. Interpretation fields MAY carry an `interpreted_value` wrapper for confidence and provenance. See ADR-006.
+
+**Interpreted Value**
+The optional metadata wrapper for interpretation fields. Either a plain value (e.g., `"humiliation"`) or a structured object: `{ "value": "humiliation", "confidence": 0.85, "source": "model" }`. The `source` enum is: `human`, `model`, `inferred`, `consensus`. Observable fields MUST NOT use this wrapper.
 
 ---
 
@@ -157,6 +169,9 @@ The degree to which the narrator's account can be trusted to align with the impl
 ---
 
 ## O
+
+**Observable**
+The epistemic section of a GBR document containing facts directly grounded in the artifact: named participants, quoted dialogue, explicit locations, visible actions, explicit objects and ordering markers. Observable fields are always certain and MUST NOT carry the `interpreted_value` metadata wrapper. See ADR-006.
 
 **Objective Object**
 A structured assertion encoding what a character wants to do (their action intention) in the scene. Fields: `action`, `target`, `obstacle`, `method`. See `protocol/character-state.md`.
@@ -201,7 +216,7 @@ A directed edge in the Entity Registry between two characters. Has type, dynamic
 A narratively expandable but non-essential event — one whose removal does not destroy the causal chain (Chatman). Satellites provide texture, characterization, and thematic resonance.
 
 **Scene Card**
-The primary unit of scene-level GBR data. Each scene card describes one scene of a narrative work, including: structural position, narrative voice, temporal properties, setting, character states, and the Canonical Summary.
+The primary unit of scene-level GBR data. Each scene card describes one scene of a narrative work, organized into four epistemic sections: `observables` (grounded facts), `structure` (organizational relationships), `interpretations` (inferred meaning), and `craft_targets` (authorial intent).
 
 **Scene Function**
 The primary dramatic purpose of a scene: `revelation`, `confrontation`, `decision`, `relationship_shift`, `world_building`, `setback`, `discovery`, `transit`. See `scene_structure.json`.
@@ -216,7 +231,10 @@ The rule that every Scene Card's `canonical_summary.scene_turns` array MUST cont
 A `snake_case` unique identifier used as a key in the Entity Registry's maps. Character slugs are used everywhere a character is referenced (focalizer, character_states, etc.).
 
 **Story Architecture**
-The GBR document encoding a book's macro-structural design: genre, collision architecture, protagonist arc, antagonist design, story premise. One per corpus. See `protocol/story-architecture.md`.
+The GBR document encoding a book's macro-structural design: genre, collision architecture, protagonist arc, antagonist design, story premise. One per corpus. Organized into three epistemic sections: `observables`, `structure`, `interpretations`. See `protocol/story-architecture.md`.
+
+**Structure (Epistemic Section)**
+The epistemic section of a GBR document containing how observables are organized in the canonical model: sequence, containment, adjacency, state transitions, dependency and causal links, groupings. The `canonical_summary` lives in this section. See ADR-006.
 
 **Subtext Load**
 An enum encoding how much of a scene's meaning operates below the surface: `explicit`, `moderate`, `high`, `dense`. Relates to `iceberg_proportion`.

@@ -3,26 +3,35 @@
   "scene_id": "conformance-minimal-s01",
   "book_id": "conformance-test-minimal",
   "chapter": 1,
-  "beat": "inciting_incident",
-  "pov": "third_limited",
-  "focalizer": "protagonist",
-  "canonical_summary": {
-    "chapter": 1,
-    "scene": 1,
-    "location": "Unnamed Location",
-    "time": "morning",
-    "focalizer": "protagonist",
-    "want": "protagonist wants to understand what happened",
-    "scene_turns": [
-      {
-        "event_type": "action",
-        "agent": "protagonist",
-        "verb": "discovers",
-        "patient": "an unexpected change",
-        "result": "the situation is irrevocably altered"
-      }
-    ],
-    "outcome": "failed",
-    "delta": "The protagonist's world has changed; they do not yet know how to proceed."
+
+  "observables": {
+    "focalizer": "protagonist"
+  },
+
+  "structure": {
+    "beat": "inciting_incident",
+    "canonical_summary": {
+      "want": "protagonist wants to understand what happened",
+      "outcome": "failed",
+      "delta": "The protagonist's world has changed; they do not yet know how to proceed.",
+      "scene_turns": [
+        {
+          "observables": {
+            "turn_number": 1,
+            "active_character": "protagonist",
+            "verb": "discovers",
+            "target": "an unexpected change",
+            "event_type": "action"
+          },
+          "interpretations": {
+            "result": "the situation is irrevocably altered"
+          }
+        }
+      ]
+    }
+  },
+
+  "interpretations": {
+    "pov": "third_limited"
   }
 }

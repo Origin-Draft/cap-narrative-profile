@@ -1,6 +1,6 @@
 {
   "error_type": "invalid_enum_value",
-  "field": "pov",
+  "field": "interpretations.pov",
   "invalid_value": "FIRST_PERSON_OBJECTIVE",
   "document_type": "scene_card",
   "conformance_level": 1,

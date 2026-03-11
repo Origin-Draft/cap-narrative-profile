@@ -3,25 +3,34 @@
   "scene_id": "conformance-invalid-s02",
   "book_id": "conformance-test-invalid",
   "chapter": 1,
-  "beat": "inciting_incident",
-  "pov": "third_limited",
-  "focalizer": "non_existent_character",
+
+  "observables": {
+    "focalizer": "non_existent_character"
+  },
+
+  "structure": {
+    "beat": "inciting_incident",
+    "canonical_summary": {
+      "want": "character wants to escape",
+      "outcome": "failed",
+      "delta": "Nothing changed.",
+      "scene_turns": []
+    }
+  },
+
+  "interpretations": {
+    "pov": "third_limited"
+  },
+
   "character_states": [
     {
-      "character_ref": "also_not_a_real_character",
-      "pov_role": "participant",
-      "primary_emotion": "anger"
+      "observables": {
+        "character": "also_not_a_real_character",
+        "pov_role": "participant"
+      },
+      "interpretations": {
+        "emotion": "anger"
+      }
     }
-  ],
-  "canonical_summary": {
-    "chapter": 1,
-    "scene": 1,
-    "location": "Home",
-    "time": "morning",
-    "focalizer": "non_existent_character",
-    "want": "character wants to escape",
-    "scene_turns": [],
-    "outcome": "failed",
-    "delta": "Nothing changed."
-  }
+  ]
 }

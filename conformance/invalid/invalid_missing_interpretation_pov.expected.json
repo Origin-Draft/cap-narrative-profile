@@ -1,0 +1,8 @@
+{
+  "error_type": "missing_required_field",
+  "field": "interpretations.pov",
+  "document_type": "scene_card",
+  "conformance_level": 1,
+  "message": "interpretations.pov is a required field. Every Scene Card must declare a point-of-view mode so the narrative stance is explicit.",
+  "spec_reference": "SPECIFICATION.md §7.4"
+}

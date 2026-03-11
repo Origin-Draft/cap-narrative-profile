@@ -14,24 +14,50 @@ The Story Architecture document makes this top-level design explicit so that sce
 
 ---
 
-## Required Fields
+## Epistemic Sections (v0.2.0)
+
+Story Architecture documents use the three-section epistemic structure. See [ADR-006](../docs/decisions/ADR-006-observable-structure-interpretation.md) for rationale.
+
+### Observables
+
+Facts directly grounded in the artifact.
+
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `book_id` | slug | ✓ | MUST match Entity Registry |
+| `inciting_incident.chapter` | integer | | Chapter in which incident occurs |
+
+### Structure
+
+How the narrative is organized at book level.
+
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `genre.primary` | enum | ✓ | `enums/literary_theory.json#genre_type` |
+| `genre.secondary` | enum | | Genre hybridization |
+| `genre.subgenre` | string | | Free-string specificity (e.g., `"southern gothic"`) |
+| `collision_type` | enum | | The structural conflict type |
+| `collision_pattern` | enum | | The structural shape of the collision |
+| `inciting_incident.type` | enum | | Structural nature of the disruption |
+| `inciting_incident.description` | string | | Brief description |
+| `actantial_map` | object | | Greimas role mapping (see below) |
+
+### Interpretations
+
+Inferred meaning. All fields MAY use the `interpreted_value` wrapper.
 
 | Field | Type | Notes |
 |-------|------|-------|
-| `book_id` | slug | MUST match Entity Registry |
-| `genre.primary` | enum | `enums/literary_theory.json#genre_type` |
-
----
-
-## Genre
-
-| Field | Type | Notes |
-|-------|------|-------|
-| `genre.primary` | enum | Required; primary genre classification |
-| `genre.secondary` | enum | Optional; genre hybridization |
-| `genre.subgenre` | string | Optional; free-string specificity (e.g., `"southern gothic"`) |
-
-Genre is the reader's contract — it sets expectations of form, content, affect, and resolution. Secondary genre formalizes Derrida's contamination principle: texts always participate in more than one genre.
+| `power_asymmetry` | enum | Which social world has structural advantage |
+| `antagonist_type` | enum | Truby's antagonist taxonomy |
+| `antagonist.arc_type` | enum | Does the antagonist change? |
+| `antagonist.opposition_level` | enum | Structural depth of challenge |
+| `antagonist.thematic_mirror` | boolean | Whether antagonist mirrors protagonist |
+| `protagonist_arc.arc_direction` | enum | Macro arc trajectory |
+| `protagonist_arc.drive_model` | enum | Primary motivational system |
+| `protagonist_arc.lie_believed` | string | False belief driving flaw |
+| `protagonist_arc.truth_needed` | string | Thematic truth to accept |
+| `protagonist_arc.wound_slug` | slug | Character's wound in registry |
 
 ---
 
@@ -39,21 +65,9 @@ Genre is the reader's contract — it sets expectations of form, content, affect
 
 The collision is the meeting of two incompatible social worlds that the protagonist must navigate. It is distinct from interpersonal conflict.
 
-| Field | Type | Notes |
-|-------|------|-------|
-| `collision_type` | enum | The structural conflict type |
-| `collision_pattern` | enum | The structural shape of the collision |
-| `power_asymmetry` | enum | Which social world has structural advantage |
-
 ---
 
 ## Inciting Incident
-
-| Field | Type | Notes |
-|-------|------|-------|
-| `type` | enum | Structural nature of the disruption |
-| `chapter` | integer | Chapter in which incident occurs |
-| `description` | string | Brief description |
 
 The inciting incident is the plot event that radically upsets the balance of forces in the protagonist's life and launches the story's central action.
 
@@ -61,26 +75,11 @@ The inciting incident is the plot event that radically upsets the balance of for
 
 ## Antagonist
 
-| Field | Type | Notes |
-|-------|------|-------|
-| `antagonist_type` | enum | Truby's antagonist taxonomy |
-| `arc_type` | enum | Does the antagonist change? |
-| `opposition_level` | enum | Structural depth of challenge (surface → existential) |
-| `thematic_mirror` | boolean | Whether antagonist mirrors protagonist thematically |
-
 The best antagonists are thematic mirrors of the protagonist — they want the same thing but pursue it through morally opposite means (Truby). When `thematic_mirror: true`, the antagonist's design is constrained by the protagonist's.
 
 ---
 
 ## Protagonist Arc
-
-| Field | Type | Notes |
-|-------|------|-------|
-| `arc_direction` | enum | Macro arc trajectory across the whole book |
-| `drive_model` | enum | Primary motivational system |
-| `lie_believed` | string | The false belief driving the protagonist's flaw |
-| `truth_needed` | string | The thematic truth the protagonist must accept |
-| `wound_slug` | string (slug) | References the character's wound in the registry |
 
 The tension between the lie believed and the truth needed drives the arc. Every scene's beat position should be legible against this framework.
 

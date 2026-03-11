@@ -5,52 +5,79 @@
     "scene_id": "edge-dual-pov-ch05-s01a",
     "book_id": "edge-cases-example",
     "chapter": 5,
-    "beat": "confrontation",
-    "pov": "third_limited",
-    "focalizer": "alex",
-    "focalization_type": "internal_fixed",
-    "scene_function": "confrontation",
-    "scene_polarity": "positive_to_negative",
+
+    "observables": {
+      "focalizer": "alex"
+    },
+
+    "structure": {
+      "beat": "confrontation",
+      "scene_function": "confrontation",
+      "turn": {
+        "value_charge_open": "positive",
+        "value_charge_close": "negative"
+      },
+      "canonical_summary": {
+        "want": "alex wants to be heard without having to beg",
+        "outcome": "redirected",
+        "delta": "Alex does not get what they wanted (to be heard) but achieves something more important: the clarity to act.",
+        "scene_turns": [
+          {
+            "observables": {
+              "turn_number": 1,
+              "active_character": "alex",
+              "verb": "presents",
+              "target": "the full evidence of Morgan's oversight",
+              "event_type": "dialogue_exchange"
+            },
+            "interpretations": {
+              "result": "Morgan dismisses it without looking up"
+            }
+          },
+          {
+            "observables": {
+              "turn_number": 2,
+              "active_character": "alex",
+              "verb": "recognizes",
+              "target": "that Morgan will never acknowledge the harm",
+              "event_type": "internal_shift"
+            },
+            "interpretations": {
+              "result": "Alex stops arguing and makes the decision to leave"
+            }
+          }
+        ]
+      }
+    },
+
+    "interpretations": {
+      "pov": "third_limited",
+      "focalization": "internal_fixed"
+    },
+
     "character_states": [
       {
-        "character_ref": "alex",
-        "pov_role": "focalizer",
-        "primary_emotion": "anger",
-        "masked_emotion": "fear",
-        "want": "alex wants to be heard without having to beg",
-        "tactic": "assertion"
+        "observables": {
+          "character": "alex",
+          "pov_role": "focalizer"
+        },
+        "structure": {
+          "tactic": "assertion"
+        },
+        "interpretations": {
+          "emotion": "anger",
+          "masked_emotion": "fear"
+        }
       },
       {
-        "character_ref": "morgan",
-        "pov_role": "participant",
-        "primary_emotion": "contempt"
-      }
-    ],
-    "canonical_summary": {
-      "chapter": 5,
-      "scene": 1,
-      "location": "The Office (Alex's perspective)",
-      "time": "afternoon",
-      "focalizer": "alex",
-      "want": "alex wants to be heard without having to beg",
-      "scene_turns": [
-        {
-          "event_type": "dialogue_exchange",
-          "agent": "alex",
-          "verb": "presents",
-          "patient": "the full evidence of Morgan's oversight",
-          "result": "Morgan dismisses it without looking up"
+        "observables": {
+          "character": "morgan",
+          "pov_role": "participant"
         },
-        {
-          "event_type": "internal_shift",
-          "agent": "alex",
-          "verb": "recognizes",
-          "patient": "that Morgan will never acknowledge the harm",
-          "result": "Alex stops arguing and makes the decision to leave"
+        "interpretations": {
+          "emotion": "contempt"
         }
-      ],
-      "outcome": "redirected",
-      "delta": "Alex does not get what they wanted (to be heard) but achieves something more important: the clarity to act."
-    }
+      }
+    ]
   }
 ]

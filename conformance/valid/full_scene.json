@@ -3,84 +3,126 @@
   "scene_id": "conformance-full-s03",
   "book_id": "conformance-test-full",
   "chapter": 3,
-  "beat": "first_threshold",
-  "pov": "third_limited",
-  "focalizer": "elena",
-  "scene_function": "decision",
-  "scene_polarity": "negative_to_positive",
-  "narrative_order": "chronological",
-  "duration_mode": "scene",
-  "frequency": "singulative",
-  "time_of_day": "evening",
-  "setting_ref": "the_crossing",
-  "setting_type": "exterior_liminal",
-  "spatial_structure": "threshold",
-  "atmosphere": "liminal",
-  "territory_type": "neutral_ground",
-  "causal_role": "setup",
-  "stakes_domain": "existential",
-  "beat_sequence": 3,
-  "tone": "tense",
-  "consciousness_mode": "narrated_monologue",
-  "psychic_distance": 4,
-  "focalization_type": "internal_fixed",
-  "diegetic_level": "intradiegetic",
+
+  "observables": {
+    "focalizer": "elena",
+    "diegetic_level": "intradiegetic",
+    "setting_instance": {
+      "setting": "the_crossing",
+      "time_of_day": "evening",
+      "setting_type": "exterior_liminal",
+      "atmosphere": "liminal",
+      "spatial_structure": "threshold",
+      "territory_type": "neutral_ground"
+    },
+    "narrative_time": {
+      "order": "chronological",
+      "duration_mode": "scene",
+      "frequency": "singulative"
+    }
+  },
+
+  "structure": {
+    "beat": "first_threshold",
+    "beat_sequence": 3,
+    "scene_function": "decision",
+    "causal_role": "setup",
+    "turn": {
+      "value_charge_open": "negative",
+      "value_charge_close": "positive"
+    },
+    "canonical_summary": {
+      "want": "elena wants to cross the border before the gates close",
+      "outcome": "achieved",
+      "delta": "Elena has irrevocably committed to the journey. Marco is left behind. The wound of abandonment she carries is now the wound she inflicts.",
+      "scene_turns": [
+        {
+          "observables": {
+            "turn_number": 1,
+            "active_character": "marco",
+            "verb": "pleads",
+            "target": "elena",
+            "event_type": "dialogue_exchange"
+          },
+          "interpretations": {
+            "result": "elena hesitates"
+          }
+        },
+        {
+          "observables": {
+            "turn_number": 2,
+            "active_character": "elena",
+            "verb": "resolves",
+            "target": "herself",
+            "event_type": "internal_shift"
+          },
+          "interpretations": {
+            "result": "elena decides to cross regardless of the cost"
+          }
+        },
+        {
+          "observables": {
+            "turn_number": 3,
+            "active_character": "elena",
+            "verb": "steps_through",
+            "target": "the gate",
+            "event_type": "action"
+          },
+          "interpretations": {
+            "result": "the threshold is crossed; return is impossible"
+          }
+        }
+      ]
+    }
+  },
+
+  "interpretations": {
+    "pov": "third_limited",
+    "focalization": "internal_fixed",
+    "consciousness_mode": "narrated_monologue",
+    "psychic_distance": 4,
+    "stakes_domain": ["existential"],
+    "canonical_metrics": {
+      "iceberg_proportion": 0.7,
+      "subtext_load": "high"
+    },
+    "motifs": ["threshold", "water"],
+    "symbols": ["the_locked_gate"]
+  },
+
+  "craft_targets": {
+    "tone": "tense"
+  },
+
   "character_states": [
     {
-      "character_ref": "elena",
-      "pov_role": "focalizer",
-      "primary_emotion": "fear",
-      "masked_emotion": "determination",
-      "drive_model": "wound",
-      "want": "elena wants to cross the border before the gates close",
-      "tactic": "assertion",
-      "wound_activation": true,
-      "trigger_type": "want_threat",
-      "arc_stage": "first_threshold"
+      "observables": {
+        "character": "elena",
+        "pov_role": "focalizer"
+      },
+      "structure": {
+        "tactic": "assertion",
+        "trigger_type": "want_threat",
+        "arc_beat": "first_threshold",
+        "wound_triggered": true
+      },
+      "interpretations": {
+        "emotion": "fear",
+        "masked_emotion": "determination",
+        "drive_model": "wound"
+      }
     },
     {
-      "character_ref": "marco",
-      "pov_role": "participant",
-      "primary_emotion": "anxiety",
-      "want": "marco wants to convince elena to stay",
-      "tactic": "appeal_to_emotion"
-    }
-  ],
-  "motifs": ["threshold", "water"],
-  "symbols": ["the_locked_gate"],
-  "iceberg_proportion": 0.7,
-  "subtext_load": "high",
-  "canonical_summary": {
-    "chapter": 3,
-    "scene": 1,
-    "location": "The Crossing",
-    "time": "evening",
-    "focalizer": "elena",
-    "want": "elena wants to cross the border before the gates close",
-    "scene_turns": [
-      {
-        "event_type": "dialogue_exchange",
-        "agent": "marco",
-        "verb": "pleads",
-        "patient": "elena",
-        "result": "elena hesitates"
+      "observables": {
+        "character": "marco",
+        "pov_role": "participant"
       },
-      {
-        "event_type": "internal_shift",
-        "agent": "elena",
-        "verb": "resolves",
-        "patient": "herself",
-        "result": "elena decides to cross regardless of the cost"
+      "structure": {
+        "tactic": "appeal_to_emotion"
       },
-      {
-        "event_type": "action",
-        "agent": "elena",
-        "verb": "steps_through",
-        "patient": "the gate",
-        "result": "the threshold is crossed; return is impossible"
+      "interpretations": {
+        "emotion": "anxiety"
       }
-    ],
-    "outcome": "achieved",
-    "delta": "Elena has irrevocably committed to the journey. Marco is left behind. The wound of abandonment she carries is now the wound she inflicts."
-  }
+    }
+  ]
 }

@@ -4,101 +4,124 @@
   "scene_id": "edge-analepsis-within-analepsis",
   "book_id": "gbr-conformance-edge-cases",
   "chapter": 12,
-  "chapter_temporal_position": "analepsis",
-  "scene_number_in_chapter": 1,
-  "narrative_time": {
-    "order": "analepsis",
-    "fabula_year": -15,
-    "syuzhet_position": "ch12-s1",
-    "duration_mode": "scene",
-    "frequency": "singulative"
+
+  "observables": {
+    "focalizer": "elena",
+    "diegetic_level": "intradiegetic",
+    "setting_instance": {
+      "setting": "the_old_kitchen",
+      "time_of_day": "morning",
+      "setting_type": "interior_domestic",
+      "atmosphere": "intimate",
+      "spatial_structure": "bounded",
+      "territory_type": "protagonist_home"
+    },
+    "narrative_time": {
+      "order": "analepsis",
+      "fabula_year": -15,
+      "syuzhet_position": "ch12-s1",
+      "duration_mode": "scene",
+      "frequency": "singulative"
+    },
+    "_narrative_time_note": "This scene (order=analepsis) is embedded within chapter 12, which is itself an analeptic chapter (chapter_temporal_position=analepsis). The fabula_year=-15 is relative to the story's narrative present."
   },
-  "_narrative_time_note": "This scene (order=analepsis) is embedded within chapter 12, which is itself an analeptic chapter (chapter_temporal_position=analepsis). The fabula_year=-15 is relative to the story's narrative present.",
-  "beat": "ghost",
-  "scene_function": "revelation",
-  "pov": "third_limited",
-  "focalization_type": "internal_fixed",
-  "pov_role": "participant",
-  "focalizer": "elena",
-  "diegetic_level": "intradiegetic",
-  "consciousness_mode": "narrated_monologue",
-  "psychic_distance": 2,
-  "narrator_reliability": "self_deceptive",
-  "_narrator_reliability_note": "Elena's memory of this event is already filtered by fifteen years of retrospective justification. The self-deception is structural: her recall omits her own role in the rupture.",
-  "setting": {
-    "location": "the_old_kitchen",
-    "time_of_day": "morning",
-    "setting_type": "interior_domestic",
-    "atmosphere": "intimate",
-    "spatial_structure": "bounded",
-    "territory_type": "protagonist_home"
+
+  "structure": {
+    "beat": "ghost",
+    "scene_number_in_chapter": 1,
+    "scene_function": "revelation",
+    "causal_role": "setup",
+    "chapter_temporal_position": "analepsis",
+    "turn": {
+      "value_charge_open": "negative",
+      "value_charge_close": "negative"
+    },
+    "canonical_summary": {
+      "want": "Elena wants to understand why her mother turned away",
+      "obstacle": "The memory itself resists coherent form — she recalls only fragments",
+      "outcome": "failed",
+      "delta": "Elena's subjective account of the original rupture is established — including its gaps — which the reader will later be able to compare against Marco's version in ch17",
+      "scene_turns": [
+        {
+          "observables": {
+            "turn_number": 1,
+            "active_character": "elena",
+            "verb": "recalls",
+            "target": "the_morning_her_mother_left",
+            "event_type": "internal_shift",
+            "significance": "kernel"
+          },
+          "interpretations": {
+            "emotional_state": "grief",
+            "masked_emotion": null,
+            "tactic": null
+          }
+        },
+        {
+          "observables": {
+            "turn_number": 2,
+            "active_character": "elena",
+            "verb": "distorts",
+            "target": "her_own_words_from_that_day",
+            "event_type": "internal_shift",
+            "significance": "kernel"
+          },
+          "interpretations": {
+            "emotional_state": "shame",
+            "masked_emotion": "guilt",
+            "tactic": null,
+            "_note": "The verb 'distorts' is the narrator's assessment, not Elena's — the reader can detect the gap even though Elena cannot."
+          }
+        }
+      ]
+    }
   },
-  "tone": "elegiac",
-  "canonical_summary": {
-    "want": "Elena wants to understand why her mother turned away",
-    "obstacle": "The memory itself resists coherent form — she recalls only fragments",
-    "scene_polarity": "negative_to_negative",
-    "outcome": "failed",
-    "delta": "Elena's subjective account of the original rupture is established — including its gaps — which the reader will later be able to compare against Marco's version in ch17",
-    "iceberg_proportion": 0.65,
-    "subtext_load": 0.7,
-    "scene_turns": [
-      {
-        "turn_number": 1,
-        "active_character": "elena",
-        "verb": "recalls",
-        "target": "the_morning_her_mother_left",
-        "emotional_state": "grief",
-        "masked_emotion": null,
-        "tactic": null,
-        "event_type": "internal_shift",
-        "significance": "kernel"
-      },
-      {
-        "turn_number": 2,
-        "active_character": "elena",
-        "verb": "distorts",
-        "target": "her_own_words_from_that_day",
-        "emotional_state": "shame",
-        "masked_emotion": "guilt",
-        "tactic": null,
-        "event_type": "internal_shift",
-        "significance": "kernel",
-        "_note": "The verb 'distorts' is the narrator's assessment, not Elena's — the reader can detect the gap even though Elena cannot."
-      }
-    ]
+
+  "interpretations": {
+    "pov": "third_limited",
+    "focalization": "internal_fixed",
+    "consciousness_mode": "narrated_monologue",
+    "psychic_distance": 2,
+    "narrator_reliability": "self_deceptive",
+    "_narrator_reliability_note": "Elena's memory of this event is already filtered by fifteen years of retrospective justification. The self-deception is structural: her recall omits her own role in the rupture.",
+    "stakes_domain": ["psychological", "relational"],
+    "canonical_metrics": {
+      "iceberg_proportion": 0.65,
+      "subtext_load": 0.7
+    },
+    "motif_tags": ["memory", "rupture", "maternal_wound"],
+    "theory_notes": {
+      "genette": "Double analepsis: intradiegetic scene embedded in an analeptic chapter. Fabula position is -15y; syuzhet position governs reading experience.",
+      "cohn": "Narrated monologue — FID renders Elena's distorted recall, making the gap visible to the reader but not to Elena.",
+      "herman": "Belated traumatic memory: the scene-within-flashback structure enacts the non-linear, fragmentary nature of traumatic recall (Caruth 1996)."
+    }
   },
+
+  "craft_targets": {
+    "tone": "elegiac"
+  },
+
   "character_states": [
     {
-      "character_id": "elena",
-      "role_in_scene": "focalizer",
-      "arc_type": "negative_fall",
-      "drive_model": "wound",
-      "emotion": "grief",
-      "masked_emotion": "shame",
-      "tactic": null,
-      "epistemic_state": {
-        "knowledge_objects": [
-          {
-            "fact": "mother's reason for leaving",
-            "known_to_character": false,
-            "certainty": 0.1
-          },
-          {
-            "fact": "what elena herself said that morning",
-            "known_to_character": "distorted",
-            "certainty": 0.4
-          }
+      "observables": {
+        "character": "elena",
+        "pov_role": "focalizer"
+      },
+      "structure": {
+        "tactic": null,
+        "knowledge_at_entry": [
+          { "fact": "what elena herself said that morning", "certainty": 0.4, "_note": "distorted recall" }
+        ],
+        "knowledge_gaps": [
+          { "fact": "mother's reason for leaving", "certainty": 0.1 }
         ]
+      },
+      "interpretations": {
+        "arc_type": "negative_fall",
+        "drive_model": "wound",
+        "emotion": "grief",
+        "masked_emotion": "shame"
       }
     }
-  ],
-  "causal_role": "setup",
-  "stakes_domain": ["psychological", "relational"],
-  "motif_tags": ["memory", "rupture", "maternal_wound"],
-  "theory_notes": {
-    "genette": "Double analepsis: intradiegetic scene embedded in an analeptic chapter. Fabula position is -15y; syuzhet position governs reading experience.",
-    "cohn": "Narrated monologue — FID renders Elena's distorted recall, making the gap visible to the reader but not to Elena.",
-    "herman": "Belated traumatic memory: the scene-within-flashback structure enacts the non-linear, fragmentary nature of traumatic recall (Caruth 1996)."
-  }
+  ]
 }

@@ -1,6 +1,6 @@
 # GBR Protocol
 
-**Version:** 0.1.0 | **Status:** Draft
+**Version:** 0.2.0 | **Status:** Draft
 
 The Grimoire Book Representation (GBR) Protocol is a formal standard for representing narrative fiction in a structured, machine-readable format.
 

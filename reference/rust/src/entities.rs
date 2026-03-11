@@ -22,26 +22,73 @@ use crate::enums::{
 use crate::tags::EntityRef;
 use crate::voice::VoiceSignature;
 
+// ── Interpreted value wrapper ────────────────────────────────────────────────
+
+/// Wrapper for interpretation fields that carries optional confidence metadata.
+///
+/// Matches the v0.2.0 `interpreted_value` pattern in the JSON Schema:
+/// a field can be either a bare value or an object with `value`, `confidence`,
+/// and `source`.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
+#[serde(untagged)]
+pub enum InterpretedValue<T> {
+    /// Simple value (no metadata)
+    Plain(T),
+    /// Value with confidence and source metadata
+    WithMetadata {
+        value: T,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        confidence: Option<f64>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        source: Option<String>,
+    },
+}
+
+impl<T> InterpretedValue<T> {
+    /// Returns a reference to the inner value regardless of variant.
+    pub fn value(&self) -> &T {
+        match self {
+            InterpretedValue::Plain(v) => v,
+            InterpretedValue::WithMetadata { value, .. } => value,
+        }
+    }
+}
+
 // ── Character ─────────────────────────────────────────────────────────────────
 
-/// A declared character entity (Phase 03).
+/// Observable fields for a character entity (v0.2.0).
 ///
-/// Replaces the Python `Character` dataclass; all previously-opaque fields are
-/// made explicit.  A character's voice fingerprint lives in `voice_signature`.
+/// Facts directly recoverable from the text's surface.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
-pub struct Character {
+pub struct CharacterObservables {
     /// Snake-case identifier used in `<!-- character:slug -->` tags
     pub id: String,
     pub name: String,
     pub slot: Option<String>,
-    pub archetype: Option<Archetype>,
-    pub wound: Option<Wound>,
-    pub alignment: Option<Alignment>,
+}
+
+/// Structural fields for a character entity (v0.2.0).
+///
+/// Authorial organizational choices rather than textual facts.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
+pub struct CharacterStructure {
     pub role: Option<Role>,
-    pub drive_model: Option<DriveModel>,
-    pub arc_type: Option<ArcType>,
+    /// Voice fingerprint — critical for LLM fine-tuning
+    pub voice_signature: Option<VoiceSignature>,
+}
+
+/// Interpretation fields for a character entity (v0.2.0).
+///
+/// Analytical judgments that require inference or critical frameworks.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
+pub struct CharacterInterpretations {
+    pub archetype: Option<InterpretedValue<Archetype>>,
+    pub wound: Option<InterpretedValue<Wound>>,
+    pub alignment: Option<InterpretedValue<Alignment>>,
+    pub drive_model: Option<InterpretedValue<DriveModel>>,
+    pub arc_type: Option<InterpretedValue<ArcType>>,
     /// Greimas actantial role in the story
-    pub actant: Option<Actant>,
+    pub actant: Option<InterpretedValue<Actant>>,
     /// Free-text description of the character's ghost / internal wound origin
     pub ghost: Option<String>,
     /// Free-text description of the character's want (external goal)
@@ -50,45 +97,96 @@ pub struct Character {
     pub need: Option<String>,
     /// Free-text description of the character's flaw
     pub flaw: Option<String>,
-    /// Voice fingerprint — critical for LLM fine-tuning
-    pub voice_signature: Option<VoiceSignature>,
+}
+
+/// A declared character entity (Phase 03), v0.2.0 three-tier structure.
+///
+/// Fields are organized into observable (surface facts), structural
+/// (authorial organization), and interpretive (analytical judgments)
+/// sections per the epistemic-section architecture (ADR-006).
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
+pub struct Character {
+    pub observables: CharacterObservables,
+    pub structure: CharacterStructure,
+    pub interpretations: CharacterInterpretations,
 }
 
 impl Character {
     pub fn entity_ref(&self) -> EntityRef {
-        EntityRef::new(&self.id)
+        EntityRef::new(&self.observables.id)
     }
 }
 
 // ── Relationship ──────────────────────────────────────────────────────────────
 
+/// Observable fields for a relationship entity (v0.2.0).
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
-pub struct Relationship {
+pub struct RelationshipObservables {
     pub source: EntityRef,
     pub target: EntityRef,
+}
+
+/// Structural fields for a relationship entity (v0.2.0).
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
+pub struct RelationshipStructure {
     pub rel_type: String,
+}
+
+/// Interpretation fields for a relationship entity (v0.2.0).
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
+pub struct RelationshipInterpretations {
     pub description: Option<String>,
     pub dynamic_at_start: Option<String>,
     pub dynamic_at_end: Option<String>,
     pub power_balance: Option<String>,
 }
 
+/// A declared relationship between two characters, v0.2.0 three-tier structure.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
+pub struct Relationship {
+    pub observables: RelationshipObservables,
+    pub structure: RelationshipStructure,
+    pub interpretations: RelationshipInterpretations,
+}
+
 // ── Setting ───────────────────────────────────────────────────────────────────
 
-/// A declared setting / location entity (Phase 04).
+/// Observable fields for a setting entity (v0.2.0).
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
-pub struct Setting {
+pub struct SettingObservables {
     pub id: String,
     pub name: String,
+}
+
+/// Structural fields for a setting entity (v0.2.0).
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
+pub struct SettingStructure {
+    /// Setting category (e.g. interior_domestic, exterior_public)
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub setting_type: Option<String>,
+}
+
+/// Interpretation fields for a setting entity (v0.2.0).
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
+pub struct SettingInterpretations {
     pub general_vibe: Option<String>,
     pub sensory: Option<SensoryPalette>,
     /// Three go-to sensory details that define this place
     pub sensory_signature: Option<[String; 3]>,
 }
 
+/// A declared setting / location entity (Phase 04), v0.2.0 three-tier structure.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
+pub struct Setting {
+    pub observables: SettingObservables,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub structure: Option<SettingStructure>,
+    pub interpretations: SettingInterpretations,
+}
+
 impl Setting {
     pub fn entity_ref(&self) -> EntityRef {
-        EntityRef::new(&self.id)
+        EntityRef::new(&self.observables.id)
     }
 }
 

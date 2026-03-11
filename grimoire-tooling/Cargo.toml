@@ -46,6 +46,14 @@ path = "src/bin/export_owl.rs"
 name = "grimoire-export-schemas"
 path = "src/bin/export_protocol_schemas.rs"
 
+[[bin]]
+name = "grimoire-sip-validate"
+path = "src/bin/sip_validate.rs"
+
+[[bin]]
+name = "grimoire-sip-convert"
+path = "src/bin/sip_convert.rs"
+
 [dependencies]
 gbr-types = { path = "../reference/rust" }
 serde = { version = "1", features = ["derive"] }

@@ -27,6 +27,7 @@ pub mod constraints;
 pub mod entities;
 pub mod enums;
 pub mod ontology;
+pub mod sip;
 pub mod tags;
 pub mod voice;
 
@@ -54,6 +55,19 @@ pub fn generate_all_schemas() -> serde_json::Value {
             "VoiceSignature": schema_for!(voice::VoiceSignature),
             "NarrativeVoice": schema_for!(voice::NarrativeVoice),
             "FocalizationConfig": schema_for!(voice::FocalizationConfig),
+        },
+        "sip": {
+            "SipArtifact": schema_for!(sip::SipArtifact),
+            "SipEntity": schema_for!(sip::SipEntity),
+            "SipUnit": schema_for!(sip::unit::SipUnit),
+            "SipStep": schema_for!(sip::SipStep),
+            "SipRelationship": schema_for!(sip::SipRelationship),
+            "SipState": schema_for!(sip::SipState),
+            "SipTransition": schema_for!(sip::SipTransition),
+            "SipView": schema_for!(sip::SipView),
+            "SipInterpretation": schema_for!(sip::SipInterpretation),
+            "SipParticipantState": schema_for!(sip::SipParticipantState),
+            "SipInformationState": schema_for!(sip::SipInformationState),
         },
     })
 }

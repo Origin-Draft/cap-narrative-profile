@@ -57,58 +57,161 @@
   "$defs": {
     "character": {
       "type": "object",
-      "required": ["id", "name"],
+      "required": ["observables"],
       "properties": {
-        "id": {
-          "type": "string",
-          "pattern": "^[a-z0-9_]+$",
-          "description": "Snake-case slug"
+        "observables": {
+          "type": "object",
+          "description": "Factual identifiers for this character.",
+          "required": ["id", "name"],
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z0-9_]+$",
+              "description": "Snake-case slug"
+            },
+            "name": { "type": "string", "description": "Display name" },
+            "slot": { "type": ["string", "null"], "description": "Cast template slot" }
+          }
         },
-        "name": { "type": "string", "description": "Display name" },
-        "slot": { "type": ["string", "null"], "description": "Cast template slot" },
-        "archetype": { "$ref": "enums.schema.json#/$defs/archetype" },
-        "wound": { "$ref": "enums.schema.json#/$defs/wound" },
-        "alignment": { "$ref": "enums.schema.json#/$defs/alignment" },
-        "role": { "$ref": "enums.schema.json#/$defs/role" },
-        "drive_model": { "$ref": "enums.schema.json#/$defs/drive_model" },
-        "arc_type": { "$ref": "enums.schema.json#/$defs/arc_type" },
-        "actant": { "$ref": "enums.schema.json#/$defs/actant" },
-        "ghost": { "type": ["string", "null"], "description": "Internal wound origin" },
-        "want": { "type": ["string", "null"], "description": "External goal" },
-        "need": { "type": ["string", "null"], "description": "Thematic truth needed" },
-        "flaw": { "type": ["string", "null"], "description": "Fatal flaw" },
-        "voice_signature": { "$ref": "#/$defs/voice_signature" },
-        "voice_embedding": { "$ref": "#/$defs/voice_embedding" }
+        "structure": {
+          "type": "object",
+          "description": "Organizational role and voice design.",
+          "properties": {
+            "role": { "$ref": "enums.schema.json#/$defs/role" },
+            "voice_signature": { "$ref": "#/$defs/voice_signature" },
+            "voice_embedding": { "$ref": "#/$defs/voice_embedding" }
+          }
+        },
+        "interpretations": {
+          "type": "object",
+          "description": "Inferred traits. All fields MAY use the interpreted_value wrapper.",
+          "properties": {
+            "archetype": {
+              "oneOf": [
+                { "$ref": "enums.schema.json#/$defs/archetype" },
+                { "$ref": "enums.schema.json#/$defs/interpreted_value" }
+              ]
+            },
+            "wound": {
+              "oneOf": [
+                { "$ref": "enums.schema.json#/$defs/wound" },
+                { "$ref": "enums.schema.json#/$defs/interpreted_value" }
+              ]
+            },
+            "alignment": {
+              "oneOf": [
+                { "$ref": "enums.schema.json#/$defs/alignment" },
+                { "$ref": "enums.schema.json#/$defs/interpreted_value" }
+              ]
+            },
+            "drive_model": {
+              "oneOf": [
+                { "$ref": "enums.schema.json#/$defs/drive_model" },
+                { "$ref": "enums.schema.json#/$defs/interpreted_value" }
+              ]
+            },
+            "arc_type": {
+              "oneOf": [
+                { "$ref": "enums.schema.json#/$defs/arc_type" },
+                { "$ref": "enums.schema.json#/$defs/interpreted_value" }
+              ]
+            },
+            "actant": {
+              "oneOf": [
+                { "$ref": "enums.schema.json#/$defs/actant" },
+                { "$ref": "enums.schema.json#/$defs/interpreted_value" }
+              ]
+            },
+            "ghost": { "type": ["string", "null"], "description": "Internal wound origin" },
+            "want": { "type": ["string", "null"], "description": "External goal" },
+            "need": { "type": ["string", "null"], "description": "Thematic truth needed" },
+            "flaw": { "type": ["string", "null"], "description": "Fatal flaw" }
+          }
+        }
       }
     },
 
     "relationship": {
       "type": "object",
-      "required": ["source", "target", "rel_type"],
+      "required": ["observables"],
       "properties": {
-        "source": { "type": "string", "pattern": "^[a-z0-9_]+$", "description": "Source character slug" },
-        "target": { "type": "string", "pattern": "^[a-z0-9_]+$", "description": "Target character slug" },
-        "rel_type": { "$ref": "enums.schema.json#/$defs/relationship_type" },
-        "description": { "type": ["string", "null"] },
-        "dynamic_at_start": { "$ref": "enums.schema.json#/$defs/relationship_dynamic" },
-        "dynamic_at_end": { "$ref": "enums.schema.json#/$defs/relationship_dynamic" },
-        "power_balance": { "$ref": "enums.schema.json#/$defs/power_balance" }
+        "observables": {
+          "type": "object",
+          "description": "Factual endpoints of the relationship.",
+          "required": ["source", "target"],
+          "properties": {
+            "source": { "type": "string", "pattern": "^[a-z0-9_]+$", "description": "Source character slug" },
+            "target": { "type": "string", "pattern": "^[a-z0-9_]+$", "description": "Target character slug" }
+          }
+        },
+        "structure": {
+          "type": "object",
+          "description": "Relationship classification.",
+          "required": ["rel_type"],
+          "properties": {
+            "rel_type": { "$ref": "enums.schema.json#/$defs/relationship_type" }
+          }
+        },
+        "interpretations": {
+          "type": "object",
+          "description": "Inferred dynamics. All fields MAY use the interpreted_value wrapper.",
+          "properties": {
+            "description": { "type": ["string", "null"] },
+            "dynamic_at_start": {
+              "oneOf": [
+                { "$ref": "enums.schema.json#/$defs/relationship_dynamic" },
+                { "$ref": "enums.schema.json#/$defs/interpreted_value" }
+              ]
+            },
+            "dynamic_at_end": {
+              "oneOf": [
+                { "$ref": "enums.schema.json#/$defs/relationship_dynamic" },
+                { "$ref": "enums.schema.json#/$defs/interpreted_value" }
+              ]
+            },
+            "power_balance": {
+              "oneOf": [
+                { "$ref": "enums.schema.json#/$defs/power_balance" },
+                { "$ref": "enums.schema.json#/$defs/interpreted_value" }
+              ]
+            }
+          }
+        }
       }
     },
 
     "setting": {
       "type": "object",
-      "required": ["id", "name"],
+      "required": ["observables"],
       "properties": {
-        "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
-        "name": { "type": "string", "description": "Display name" },
-        "type": { "$ref": "enums.schema.json#/$defs/setting_type" },
-        "general_vibe": { "type": ["string", "null"] },
-        "sensory_signature": {
-          "type": "array",
-          "items": { "type": "string" },
-          "maxItems": 3,
-          "description": "Three defining sensory details"
+        "observables": {
+          "type": "object",
+          "description": "Factual identifiers for this setting.",
+          "required": ["id", "name"],
+          "properties": {
+            "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+            "name": { "type": "string", "description": "Display name" }
+          }
+        },
+        "structure": {
+          "type": "object",
+          "description": "Setting classification.",
+          "properties": {
+            "type": { "$ref": "enums.schema.json#/$defs/setting_type" }
+          }
+        },
+        "interpretations": {
+          "type": "object",
+          "description": "Inferred atmospheric qualities.",
+          "properties": {
+            "general_vibe": { "type": ["string", "null"] },
+            "sensory_signature": {
+              "type": "array",
+              "items": { "type": "string" },
+              "maxItems": 3,
+              "description": "Three defining sensory details"
+            }
+          }
         }
       }
     },

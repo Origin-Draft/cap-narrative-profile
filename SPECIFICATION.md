@@ -1,8 +1,8 @@
 # GBR Protocol Specification
 
-**Version:** 0.1.0  
+**Version:** 0.2.0  
 **Status:** Draft  
-**Date:** 2026-03-09
+**Date:** 2026-03-10
 
 ---
 
@@ -152,6 +152,19 @@ The Scene Card is the atomic unit of the protocol. Scenes are the level at which
 
 The Canonical Summary is not a free-text description — it is a fixed-grammar string produced by a deterministic render function. A summary that cannot be produced by `render_summary()` is not a valid GBR canonical summary.
 
+### 3.6 Observable / Structure / Interpretation Separation
+
+Every GBR document type separates its fields into up to four epistemic sections:
+
+| Section | Definition | Metadata |
+|---------|-----------|----------|
+| `observables` | Facts directly grounded in the artifact | Always certain; no wrapper |
+| `structure` | How observables are organized | Certain when derived; no wrapper |
+| `interpretations` | Inferred meaning layered on top | Optional `{ value, confidence, source }` wrapper |
+| `craft_targets` | Prescriptive authorial intent (Scene Cards only) | Always intentional; no wrapper |
+
+Observable fields MUST NOT use the `interpreted_value` wrapper. Interpretation fields MAY use it. `craft_targets` appears only on Scene Cards. See ADR-006.
+
 ---
 
 ## 4. GBR Document Structure
@@ -221,32 +234,41 @@ The Entity Registry is the per-book controlled vocabulary. It MUST be created be
 
 ### 5.4 Character Entity
 
-#### Required Fields
+Characters use the three-section epistemic structure.
+
+#### 5.4.1 Observables
 
 | Field | Type | Constraint |
 |---|---|---|
 | `id` | string | MUST match the parent map key; MUST match `^[a-z0-9_]+$` |
 | `name` | string | Display name used in prose |
+| `voice_signature` | object | Character voice fingerprint (§5.4.4) |
 
-#### Optional Fields
+#### 5.4.2 Structure
 
 | Field | Type | Enum Reference |
 |---|---|---|
+| `role` | enum | `enums/character.json#role`; story function |
+| `actant` | enum | `enums/character.json#actant`; Greimas actantial position |
 | `slot` | string | Cast template position |
+
+#### 5.4.3 Interpretations
+
+All fields in this section MAY use the `interpreted_value` wrapper.
+
+| Field | Type | Enum Reference |
+|---|---|---|
 | `archetype` | enum | `enums/character.json#archetype` |
 | `wound` | enum | `enums/character.json#wound` |
 | `alignment` | enum | `enums/character.json#alignment` |
-| `role` | enum | `enums/character.json#role` |
 | `drive_model` | enum | `enums/character.json#drive_model` |
 | `arc_type` | enum | `enums/character.json#arc_type` |
-| `actant` | enum | `enums/character.json#actant` |
 | `ghost` | string | Specific traumatic backstory event |
 | `want` | string | External goal (what they consciously pursue) |
 | `need` | string | Thematic truth (what they actually need) |
 | `flaw` | string | Behavioral manifestation of wound |
-| `voice_signature` | object | Character voice fingerprint (§5.4.1) |
 
-#### 5.4.1 Voice Signature
+#### 5.4.4 Voice Signature
 
 | Field | Type | Values |
 |---|---|---|
@@ -259,34 +281,50 @@ The Entity Registry is the per-book controlled vocabulary. It MUST be created be
 
 ### 5.5 Setting Entity
 
-#### Required Fields
+Settings use the three-section epistemic structure.
+
+#### 5.5.1 Observables
 
 | Field | Type | Constraint |
 |---|---|---|
 | `id` | string | MUST match parent map key; MUST match `^[a-z0-9_]+$` |
 | `name` | string | Display name used in prose |
+| `sensory_signature` | array of string | Three defining sensory details |
 
-#### Optional Fields
+#### 5.5.2 Structure
 
 | Field | Type | Enum Reference |
 |---|---|---|
 | `type` | enum | `enums/setting.json#setting_type` |
+
+#### 5.5.3 Interpretations
+
+All fields in this section MAY use the `interpreted_value` wrapper.
+
+| Field | Type | Description |
+|---|---|---|
 | `general_vibe` | string | Atmosphere / emotional tone |
-| `sensory_signature` | array of string | Three defining sensory details |
 
 ### 5.6 Relationship Entity
 
-A Relationship is a directed edge between two characters.
+A Relationship is a directed edge between two characters. Relationships use the three-section epistemic structure.
 
-#### Required Fields
+#### 5.6.1 Observables
 
 | Field | Type | Constraint |
 |---|---|---|
 | `source` | string (slug) | MUST resolve to a declared character |
 | `target` | string (slug) | MUST resolve to a declared character |
+
+#### 5.6.2 Structure
+
+| Field | Type | Enum Reference |
+|---|---|---|
 | `rel_type` | enum | `enums/relationship.json#relationship_type` |
 
-#### Optional Fields
+#### 5.6.3 Interpretations
+
+All fields in this section MAY use the `interpreted_value` wrapper.
 
 | Field | Type | Enum Reference |
 |---|---|---|
@@ -308,7 +346,7 @@ The `want_vocabulary` object is a flat map from slug to display label:
 }
 ```
 
-Want slugs used in Character Scene State `objective` fields and Canonical Summary `character_want` fields MUST resolve against `want_vocabulary`.
+Want slugs used in Character Scene State `structure.objective` fields and Canonical Summary `character_want` fields MUST resolve against `want_vocabulary`.
 
 ---
 
@@ -316,39 +354,40 @@ Want slugs used in Character Scene State `objective` fields and Canonical Summar
 
 ### 6.1 Purpose
 
-The Story Architecture document encodes book-level structural metadata. It MUST be created once per book.
+The Story Architecture document encodes book-level structural metadata. It MUST be created once per book. Story Architecture uses the three-section epistemic structure (`observables`, `structure`, `interpretations`).
 
-### 6.2 Required Fields
-
-| Field | Type | Description |
-|---|---|---|
-| `book_id` | string (slug) | MUST match the Entity Registry |
-| `genre` | object | Genre classification |
-| `genre.primary` | enum | `enums/literary_theory.json#genre_type` |
-
-### 6.3 Optional Fields
+### 6.2 Observables
 
 | Field | Type | Description |
 |---|---|---|
-| `title` / `author` | string | Book metadata |
+| `book_id` | string (slug) | MUST match the Entity Registry; REQUIRED |
+| `title` | string | Book metadata |
+| `author` | string | Book metadata |
+
+### 6.3 Structure
+
+| Field | Type | Description |
+|---|---|---|
+| `genre` | object | Genre classification; REQUIRED |
+| `genre.primary` | enum | `enums/literary_theory.json#genre_type`; REQUIRED |
 | `genre.secondary` | enum | Secondary genre classification |
 | `genre.subgenre` | string | Free-string subgenre specification |
-| `collision_architecture` | object | Social collision structure (§6.4) |
 | `inciting_incident` | object | Inciting incident (§6.5) |
-| `antagonist` | object | Antagonist design (§6.6) |
-| `protagonist_arc` | object | Protagonist arc design (§6.7) |
 | `actantial_map` | object | Greimas actantial casting |
+| `book_structure` | object | Macro structure metadata (§6.6) |
+
+### 6.4 Interpretations
+
+All fields in this section MAY use the `interpreted_value` wrapper.
+
+| Field | Type | Description |
+|---|---|---|
+| `collision_architecture` | object | Social collision structure (§6.7) |
+| `antagonist` | object | Antagonist design (§6.8) |
+| `protagonist_arc` | object | Protagonist arc design (§6.9) |
 | `transtextual_references` | array | Intertextual relationships |
 | `themes` | array of string | Core thematic statements |
 | `controlling_idea` | string | McKee controlling idea |
-
-### 6.4 Collision Architecture
-
-| Field | Type | Enum Reference |
-|---|---|---|
-| `collision_type` | enum | `enums/literary_theory.json#collision_type` |
-| `collision_pattern` | enum | `enums/literary_theory.json#collision_pattern` |
-| `power_asymmetry` | enum | `enums/literary_theory.json#power_asymmetry_type` |
 
 ### 6.5 Inciting Incident
 
@@ -358,7 +397,25 @@ The Story Architecture document encodes book-level structural metadata. It MUST 
 | `chapter` | integer | Chapter in which incident occurs |
 | `description` | string | Brief description |
 
-### 6.6 Antagonist
+### 6.6 Book Structure
+
+| Field | Type | Description |
+|---|---|---|
+| `act_count` | integer | Number of acts |
+| `chapter_count` | integer | Number of chapters |
+| `word_count` | integer | Total word count |
+| `diegetic_level` | enum | `enums/narrative_voice.json#diegetic_level` |
+| `has_frame_narrative` | boolean | Whether frame narrative is used |
+
+### 6.7 Collision Architecture
+
+| Field | Type | Enum Reference |
+|---|---|---|
+| `collision_type` | enum | `enums/literary_theory.json#collision_type` |
+| `collision_pattern` | enum | `enums/literary_theory.json#collision_pattern` |
+| `power_asymmetry` | enum | `enums/literary_theory.json#power_asymmetry_type` |
+
+### 6.8 Antagonist
 
 | Field | Type | Enum Reference |
 |---|---|---|
@@ -367,7 +424,7 @@ The Story Architecture document encodes book-level structural metadata. It MUST 
 | `opposition_level` | enum | `enums/literary_theory.json#opposition_level` |
 | `thematic_mirror` | boolean | Whether antagonist mirrors protagonist thematically |
 
-### 6.7 Protagonist Arc
+### 6.9 Protagonist Arc
 
 | Field | Type | Enum Reference |
 |---|---|---|
@@ -384,66 +441,33 @@ The Story Architecture document encodes book-level structural metadata. It MUST 
 
 A Scene Card is the atomic unit of the GBR Protocol. It specifies everything needed to generate or extract a prose passage. Every declared scene MUST correspond to exactly one Scene Card.
 
-### 7.2 Required Fields
+Scene Cards use the four-section epistemic structure (`observables`, `structure`, `interpretations`, `craft_targets`).
+
+### 7.2 Observables
+
+Facts directly grounded in the artifact. These fields MUST NOT use the `interpreted_value` wrapper.
+
+#### Required Fields
 
 | Field | Type | Constraint |
 |---|---|---|
 | `scene_id` | string (slug) | MUST be unique within the corpus |
 | `book_id` | string (slug) | MUST match the Entity Registry |
 | `chapter` | integer ≥ 1 | Chapter number |
-| `beat` | enum | `enums/scene_structure.json#beat_type`; REQUIRED |
-| `pov` | enum | `enums/narrative_voice.json#pov_type`; REQUIRED |
 | `focalizer` | string (slug) | MUST resolve to a declared character |
 
-### 7.3 Story Structure Fields
+#### Optional Fields
 
 | Field | Type | Description |
 |---|---|---|
 | `scene_index` | integer ≥ 1 | Scene index within chapter |
-| `act` | integer 1–5 | Act number |
-| `sequence` | enum | `enums/scene_structure.json#sequence_type` |
-| `arc_position` | float 0.0–1.0 | Position through story arc |
-| `scene_function` | enum | `enums/scene_structure.json#scene_function` |
-| `turn` | object | `{from, to}` using `enums/scene_structure.json#scene_polarity`; scene MUST turn |
-
-### 7.4 Narrative Voice Fields
-
-| Field | Type | Enum Reference |
-|---|---|---|
-| `focalization` | enum | `enums/narrative_voice.json#focalization_type` |
-| `psychic_distance` | integer 1–5 | Gardner scale |
-| `consciousness_mode` | enum | `enums/narrative_voice.json#consciousness_mode` |
-| `diegetic_level` | enum | `enums/narrative_voice.json#diegetic_level` |
-| `narratee_type` | enum | `enums/narrative_voice.json#narratee_type` |
-| `narrator_reliability` | enum | `enums/narrative_voice.json#narrator_reliability_type` |
-
-### 7.5 Narrative Time Fields
-
-The `narrative_time` object operationalizes Genette's three temporal dimensions.
-
-| Field | Type | Enum Reference |
-|---|---|---|
-| `narrative_time.order` | enum | `enums/narrative_time.json#narrative_order` |
-| `narrative_time.duration_mode` | enum | `enums/narrative_time.json#duration_mode` |
-| `narrative_time.frequency` | enum | `enums/narrative_time.json#frequency` |
-| `narrative_time.duration` | string | Absolute story time covered (e.g., `"45 minutes"`) |
-
-### 7.6 Craft Settings
-
-| Field | Type | Constraint |
-|---|---|---|
-| `target_tension` | integer 1–5 | 1 = low suspense, 5 = maximum |
-| `target_pacing` | enum | `enums/narrative_time.json#duration_mode` |
-| `tone` | enum | `enums/narrative_voice.json#tone` |
-
-### 7.7 Setting
-
-| Field | Type | Constraint |
-|---|---|---|
+| `participants` | array of slugs | Characters involved (MUST resolve in registry) |
 | `setting` | string (slug) | MUST resolve to a declared Setting |
-| `setting_instance` | object | Scene-specific setting details (§7.7.1) |
+| `setting_instance` | object | Scene-specific setting details (§7.2.1) |
+| `prose` | string | The rendered prose text |
+| `word_count` | integer | Word count of prose |
 
-#### 7.7.1 Setting Instance
+#### 7.2.1 Setting Instance
 
 | Field | Type | Enum Reference |
 |---|---|---|
@@ -452,33 +476,94 @@ The `narrative_time` object operationalizes Genette's three temporal dimensions.
 | `lighting_source` | string | Free description |
 | `lighting_quality` | string | Free description |
 
-### 7.8 Character States
+### 7.3 Structure
 
-The `character_states` array MUST contain one Character Scene State object (§8) for each character present in the scene. The focalizer MUST always have a corresponding Character Scene State.
-
-```json
-"character_states": [
-  { "character": "elizabeth_bennet", "pov_role": "focalizer", ... },
-  { "character": "fitzwilliam_darcy", "pov_role": "participant", ... }
-]
-```
-
-### 7.9 Semantic Fields
+How observables are organized. The `canonical_summary` object lives in this section.
 
 | Field | Type | Description |
 |---|---|---|
+| `beat` | enum | `enums/scene_structure.json#beat_type`; REQUIRED |
+| `act` | integer 1–5 | Act number |
+| `sequence` | enum | `enums/scene_structure.json#sequence_type` |
+| `arc_position` | float 0.0–1.0 | Position through story arc |
+| `scene_function` | enum | `enums/scene_structure.json#scene_function` |
+| `turn` | object | `{from, to}` using `enums/scene_structure.json#scene_polarity`; scene MUST turn |
+| `narrative_time` | object | Genette temporal dimensions (§7.3.1) |
+| `diegetic_level` | enum | `enums/narrative_voice.json#diegetic_level` |
 | `event_type` | enum | `enums/scene_structure.json#event_type`; primary story event |
-| `participants` | array of slugs | Characters involved (MUST resolve in registry) |
-| `canonical_summary` | string | Deterministic summary (§9); REQUIRED if scene has been rendered |
-| `subtext` | object | Subtext annotation (§7.9.1) |
+| `causal_role` | enum | `enums/scene_structure.json#causal_role` |
+| `canonical_summary` | object | Deterministic summary (§9); structural and observable content |
 
-#### 7.9.1 Subtext Object
+#### 7.3.1 Narrative Time
+
+The `narrative_time` object operationalizes Genette's three temporal dimensions.
+
+| Field | Type | Enum Reference |
+|---|---|---|
+| `order` | enum | `enums/narrative_time.json#narrative_order` |
+| `duration_mode` | enum | `enums/narrative_time.json#duration_mode` |
+| `frequency` | enum | `enums/narrative_time.json#frequency` |
+| `duration` | string | Absolute story time covered (e.g., `"45 minutes"`) |
+
+### 7.4 Interpretations
+
+Inferred meaning. All fields in this section MAY use the `interpreted_value` wrapper.
+
+| Field | Type | Enum Reference |
+|---|---|---|
+| `pov` | enum | `enums/narrative_voice.json#pov_type`; REQUIRED |
+| `focalization` | enum | `enums/narrative_voice.json#focalization_type` |
+| `psychic_distance` | integer 1–5 | Gardner scale |
+| `consciousness_mode` | enum | `enums/narrative_voice.json#consciousness_mode` |
+| `narrator_reliability` | enum | `enums/narrative_voice.json#narrator_reliability_type` |
+| `narratee_type` | enum | `enums/narrative_voice.json#narratee_type` |
+| `subtext` | object | Subtext annotation (§7.4.1) |
+| `stakes_domain` | array of enum | `enums/scene_structure.json#stakes_domain` |
+| `atmosphere` | enum | `enums/setting.json#atmosphere` |
+| `motif_tags` | array of string | Recurring motif identifiers |
+| `theory_notes` | object | Free-form literary-theoretical commentary |
+| `canonical_metrics` | object | Interpretive metrics from canonical summary (§7.4.2) |
+
+#### 7.4.1 Subtext Object
 
 | Field | Type | Enum Reference |
 |---|---|---|
 | `iceberg_category` | enum | `enums/literary_theory.json#iceberg_category` |
 | `maxim_violated` | enum | `enums/literary_theory.json#gricean_maxim` |
 | `violation_type` | enum | `enums/literary_theory.json#violation_type` |
+
+#### 7.4.2 Canonical Metrics
+
+Interpretive measurements extracted from the canonical summary. These are NOT part of the structural `canonical_summary` object; they live in `interpretations`.
+
+| Field | Type | Description |
+|---|---|---|
+| `iceberg_proportion` | float 0.0–1.0 | Hemingway withholding ratio |
+| `subtext_load` | float 0.0–1.0 | Below-surface meaning density |
+
+### 7.5 Craft Targets
+
+Prescriptive authorial intent. These fields are neither observable, structural, nor interpretive — they express the desired effect.
+
+| Field | Type | Constraint |
+|---|---|---|
+| `target_tension` | integer 1–5 | 1 = low suspense, 5 = maximum |
+| `target_pacing` | enum | `enums/narrative_time.json#duration_mode` |
+| `tone` | enum | `enums/narrative_voice.json#tone` |
+
+### 7.6 Character States
+
+The `character_states` array MUST contain one Character Scene State object (§8) for each character present in the scene. The focalizer MUST always have a corresponding Character Scene State.
+
+```json
+"character_states": [
+  {
+    "observables": { "character": "elizabeth_bennet", "pov_role": "focalizer" },
+    "structure": { ... },
+    "interpretations": { ... }
+  }
+]
+```
 
 ---
 
@@ -488,57 +573,45 @@ The `character_states` array MUST contain one Character Scene State object (§8)
 
 A Character Scene State describes one character's internal and relational state at the entry and exit boundaries of a scene — their emotions, knowledge, objectives, tactics, and arc position.
 
-### 8.2 Required Fields
+Character Scene States use the three-section epistemic structure (`observables`, `structure`, `interpretations`).
+
+**Alias cleanup (v0.2.0):** The canonical field name is `character` (not `character_id` or `character_ref`). The canonical emotion field is `emotion` (not `primary_emotion`). The canonical focalization field is `focalization` (not `focalization_type`).
+
+### 8.2 Observables
+
+Facts directly grounded in the artifact. These fields MUST NOT use the `interpreted_value` wrapper.
 
 | Field | Type | Constraint |
 |---|---|---|
-| `character` | string (slug) | MUST resolve to a declared character |
-| `pov_role` | enum | `enums/narrative_voice.json#pov_role_type` |
+| `character` | string (slug) | MUST resolve to a declared character; REQUIRED |
+| `pov_role` | enum | `enums/narrative_voice.json#pov_role_type`; REQUIRED |
+| `posture` | string | Visible body position |
+| `body_language` | array of string | Observable physical behaviors |
+| `social_circles_active` | array of string | Social groups active in scene |
+| `fid_markers` | array of string | FID textual markers present in prose |
 
-### 8.3 Emotional State
+### 8.3 Structure
 
-| Field | Type | Description |
-|---|---|---|
-| `emotional_state_entry` | EmotionObject | Emotion at scene entry |
-| `emotional_state_exit` | EmotionObject | Emotion at scene exit |
-| `emotional_arc` | enum | `enums/emotion_psychology.json#emotional_arc_type` |
-
-**EmotionObject:**
-
-| Field | Type | Constraint |
-|---|---|---|
-| `emotion` | enum | `enums/emotion_psychology.json#emotion` |
-| `intensity` | integer 1–5 | Plutchik intensity scale |
-| `secondary_emotion` | enum | `enums/emotion_psychology.json#emotion` (optional) |
-| `masked` | boolean | Whether emotion is performed vs. felt |
-
-### 8.4 Epistemic State
+How the character's state is organized across the scene boundary.
 
 | Field | Type | Description |
 |---|---|---|
-| `knowledge_at_entry` | array of KnowledgeObject | What character knows at scene open |
-| `knowledge_gaps` | array of KnowledgeObject | What character does not know |
-| `knowledge_gained` | array of KnowledgeObject | What character learns during scene |
-
-**KnowledgeObject:**
-
-| Field | Type | Values |
-|---|---|---|
-| `domain` | string | `secrets`, `plans`, `relationships`, `identity`, `past`, `future`, `feelings`, `allegiances` |
-| `predicate` | string | `knows`, `believes`, `suspects`, `denies`, `fears`, `desires` |
-| `about_role` | string (slug) | Character the knowledge concerns |
-| `certainty` | float 0.0–1.0 | Epistemic confidence |
-
-### 8.5 Action Grammar
-
-| Field | Type | Description |
-|---|---|---|
-| `objective` | ObjectiveObject | Character's scene objective |
+| `objective` | ObjectiveObject | Character's scene objective (§8.3.1) |
 | `tactic` | enum | `enums/emotion_psychology.json#tactic` |
+| `tactic_shift` | string | Mid-scene tactic change |
 | `obstacle` | string | What blocks the objective |
 | `trigger_type` | enum | `enums/emotion_psychology.json#trigger_type` |
+| `want_outcome` | enum | `enums/scene_structure.json#want_outcome` |
+| `arc_beat` | enum | `enums/character.json#arc_beat_type` |
+| `arc_direction` | string | `advancing`, `regressing`, `stable` |
+| `wound_triggered` | boolean | Whether psychological wound was activated |
+| `knowledge_at_entry` | array of KnowledgeObject | What character knows at scene open (§8.3.2) |
+| `knowledge_gaps` | array of KnowledgeObject | What character does not know |
+| `knowledge_gained` | array of KnowledgeObject | What character learns during scene |
+| `relationships` | array of RelationshipState | Relational edges active in scene |
+| `psychic_distance_shifts` | array | Dynamic distance changes during scene |
 
-**ObjectiveObject:**
+#### 8.3.1 ObjectiveObject
 
 | Field | Type | Values |
 |---|---|---|
@@ -547,22 +620,49 @@ A Character Scene State describes one character's internal and relational state 
 | `target_role` | string (slug) | Character who holds what is wanted |
 | `constraint` | string | What the character cannot do while pursuing objective |
 
-### 8.6 Arc State
+#### 8.3.2 KnowledgeObject
 
-| Field | Type | Enum Reference |
+| Field | Type | Values |
 |---|---|---|
-| `arc_beat` | enum | `enums/character.json#arc_beat_type` |
-| `arc_direction` | string | `advancing`, `regressing`, `stable` |
-| `want_outcome` | enum | `enums/scene_structure.json#want_outcome` |
-| `wound_triggered` | boolean | Whether psychological wound was activated |
+| `domain` | string | `secrets`, `plans`, `relationships`, `identity`, `past`, `future`, `feelings`, `allegiances` |
+| `predicate` | string | `knows`, `believes`, `suspects`, `denies`, `fears`, `desires` |
+| `about_role` | string (slug) | Character the knowledge concerns |
+| `certainty` | float 0.0–1.0 | Epistemic confidence |
 
-### 8.7 Social State
+### 8.4 Interpretations
 
-| Field | Type | Enum Reference |
+Inferred meaning. All fields in this section MAY use the `interpreted_value` wrapper.
+
+| Field | Type | Description |
 |---|---|---|
+| `emotional_state_entry` | EmotionObject | Emotion at scene entry (§8.4.1) |
+| `emotional_state_exit` | EmotionObject | Emotion at scene exit |
+| `emotional_arc` | enum | `enums/emotion_psychology.json#emotional_arc_type` |
+| `emotion` | enum | `enums/emotion_psychology.json#emotion`; primary emotion felt |
+| `masked_emotion` | enum | `enums/emotion_psychology.json#emotion`; emotion displayed |
+| `psychic_distance` | integer 1–5 | Gardner scale for this character's rendering |
+| `consciousness_mode` | enum | `enums/narrative_voice.json#consciousness_mode` |
 | `social_mask` | string | The public persona performed |
 | `social_role` | enum | `enums/literary_theory.json#social_role_type` |
-| `territory_type` | enum | `enums/setting.json#territory_type` |
+| `want_need_alignment` | string | Relationship between want and need |
+| `actantial_role` | enum | `enums/character.json#actant` |
+| `wound_category` | enum | `enums/character.json#wound` |
+| `stakes` | object | Personal/relational stakes |
+| `arc_type` | enum | `enums/character.json#arc_type` |
+| `drive_model` | enum | `enums/character.json#drive_model` |
+
+#### 8.4.1 EmotionObject
+
+| Field | Type | Constraint |
+|---|---|---|
+| `emotion` | enum | `enums/emotion_psychology.json#emotion` |
+| `intensity` | integer 1–5 | Plutchik intensity scale |
+| `secondary_emotion` | enum | `enums/emotion_psychology.json#emotion` (optional) |
+| `masked` | boolean | Whether emotion is performed vs. felt |
+
+### 8.5 Focalizer-Specific Fields
+
+These fields apply only when `observables.pov_role == "focalizer"` and may appear in either `structure` or `interpretations` as classified above. The `psychic_distance_shifts` array (in `structure`) records rendering change points. The `psychic_distance` integer and `consciousness_mode` enum (in `interpretations`) classify the focalizer's rendering mode.
 
 ---
 
@@ -582,17 +682,17 @@ stakes={STAKES}, atmosphere={ATMOSPHERE}, role={CAUSAL_ROLE}.
 
 ### 9.3 Slot Definitions
 
-| Slot | Schema Field | Type | Render Rule |
+| Slot | Schema Path (v0.2.0) | Type | Render Rule |
 |---|---|---|---|
-| `{POV_CHAR}` | `focalizer` | slug | `registry.characters[slug].name` |
-| `{EVENT_VERB}` | `event_type` | enum | `EVENT_VERBS[event_type]` (§9.5) |
-| `{PARTICIPANTS}` | `participants[]` | slugs | Comma-joined display names |
-| `{LOCATION}` | `setting` | slug | `registry.settings[slug].name` |
-| `{WANT_OBJECT}` | `character_want` | slug | `registry.want_vocabulary[slug]` |
-| `{OUTCOME}` | `want_outcome` | enum | `GRANTED`, `DENIED`, `DEFERRED`, `PYRRHIC` |
-| `{STAKES}` | `stakes_domain` | enum | One of `enums/scene_structure.json#stakes_domain` |
-| `{ATMOSPHERE}` | `atmosphere` | enum | One of `enums/setting.json#atmosphere` |
-| `{CAUSAL_ROLE}` | `causal_role` | enum | One of `enums/scene_structure.json#causal_role` |
+| `{POV_CHAR}` | `observables.focalizer` | slug | `registry.characters[slug].name` |
+| `{EVENT_VERB}` | `observables.event_type` | enum | `EVENT_VERBS[event_type]` (§9.5) |
+| `{PARTICIPANTS}` | `observables.participants[]` | slugs | Comma-joined display names |
+| `{LOCATION}` | `observables.setting_instance.setting` | slug | `registry.settings[slug].name` |
+| `{WANT_OBJECT}` | `character_states[].structure.objective.verb` | string | Verb phrase |
+| `{OUTCOME}` | `character_states[].structure.want_outcome` | enum | `GRANTED`, `DENIED`, `DEFERRED`, `PYRRHIC` |
+| `{STAKES}` | `character_states[].interpretations.stakes.domain` | enum | One of `enums/scene_structure.json#stakes_domain` |
+| `{ATMOSPHERE}` | `observables.setting_instance.atmosphere` | enum | One of `enums/setting.json#atmosphere` |
+| `{CAUSAL_ROLE}` | `structure.causal_role` | enum | One of `enums/scene_structure.json#causal_role` |
 
 ### 9.4 Round-Trip Contract
 
@@ -664,10 +764,10 @@ All GBR documents MUST pass JSON Schema validation against the corresponding sch
 
 The following constraints MUST be satisfied:
 
-1. **Character references:** Every character slug referenced in a Scene Card or Character Scene State MUST exist in `registry.characters`.
-2. **Setting references:** Every setting slug referenced in a Scene Card MUST exist in `registry.settings`.
-3. **Focalizer:** The `focalizer` slug in a Scene Card MUST exist in `registry.characters` and MUST have a corresponding entry in `character_states` with `pov_role == "focalizer"`.
-4. **Want references:** Every want slug referenced in a Character Scene State `objective` or Canonical Summary MUST exist in `registry.want_vocabulary`.
+1. **Character references:** Every character slug referenced in a Scene Card (`observables.focalizer`, `observables.participants[]`) or Character Scene State (`observables.character`) MUST exist in `registry.characters`.
+2. **Setting references:** Every setting slug referenced in a Scene Card (`observables.setting_instance.setting`) MUST exist in `registry.settings`.
+3. **Focalizer:** The `observables.focalizer` slug in a Scene Card MUST exist in `registry.characters` and MUST have a corresponding entry in `character_states` with `observables.pov_role == "focalizer"`.
+4. **Want references:** Every want slug referenced in a Character Scene State `structure.objective` or Canonical Summary MUST exist in `registry.want_vocabulary` (if a want vocabulary is declared).
 5. **Uniqueness:** No two Scene Cards within a corpus MAY share the same `scene_id`.
 6. **Book ID consistency:** The `book_id` in all documents in a corpus MUST be identical.
 
@@ -679,11 +779,19 @@ The following constraints MUST be satisfied:
 
 ### 10.4 Canonical Summary Rules
 
-1. If a Scene Card contains a `canonical_summary`, it MUST pass round-trip validation (§9.4).
-2. `canonical_summary` is REQUIRED for Scene Cards used as training data or for corpus-level analysis.
+1. If a Scene Card contains `structure.canonical_summary`, it MUST pass round-trip validation (§9.4).
+2. `structure.canonical_summary` is REQUIRED for Scene Cards used as training data or for corpus-level analysis.
 3. All entity names in the summary MUST correspond to names in the Entity Registry.
 
-### 10.5 Validation Severity Levels
+### 10.5 Interpreted Value Rules
+
+1. Fields in an `interpretations` section MAY use the `interpreted_value` wrapper: `{ "value": <T>, "confidence": 0.0–1.0, "source": "<string>" }`.
+2. Fields in `observables` or `structure` sections MUST NOT use the `interpreted_value` wrapper.
+3. When `confidence` is provided, it MUST be a float in the range `[0.0, 1.0]`.
+4. When `source` is provided, it SHOULD indicate the origin of the interpretation (e.g. `"model:gpt-4"`, `"human:editor"`, `"derived:emotion-classifier"`).
+5. A bare value (without the wrapper) in an `interpretations` field is always valid — the wrapper is opt-in.
+
+### 10.6 Validation Severity Levels
 
 | Level | Meaning | Example |
 |---|---|---|

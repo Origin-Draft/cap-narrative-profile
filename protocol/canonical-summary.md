@@ -35,34 +35,42 @@ stakes={STAKES}, atmosphere={ATMOSPHERE}, role={CAUSAL_ROLE}.
 
 ### Slot Definitions
 
-| Slot | Schema Field | Render Rule |
-|------|-------------|-------------|
-| `{POV_CHAR}` | `focalizer` | `registry.characters[slug].name` |
-| `{EVENT_VERB}` | `event_type` | `EVENT_VERBS[event_type]` |
-| `{PARTICIPANTS}` | `participants[]` | Comma-joined display names |
-| `{LOCATION}` | `setting` | `registry.settings[slug].name` |
-| `{WANT_OBJECT}` | `character_want` | `registry.want_vocabulary[slug]` |
-| `{OUTCOME}` | `want_outcome` | `GRANTED`, `DENIED`, `DEFERRED`, `PYRRHIC` |
-| `{STAKES}` | `stakes_domain` | Enum value |
-| `{ATMOSPHERE}` | `atmosphere` | Enum value |
-| `{CAUSAL_ROLE}` | `causal_role` | `ESTABLISHES`, `ESCALATES`, `PIVOTS`, `RESOLVES` |
+| Slot | Schema Field (v0.2.0 path) | Render Rule |
+|------|---------------------------|-------------|
+| `{POV_CHAR}` | `observables.focalizer` | `registry.characters[slug].name` |
+| `{EVENT_VERB}` | `observables.event_type` | `EVENT_VERBS[event_type]` |
+| `{PARTICIPANTS}` | `observables.participants[]` | Comma-joined display names |
+| `{LOCATION}` | `observables.setting_instance.location` | `registry.settings[slug].name` |
+| `{WANT_OBJECT}` | `structure.canonical_summary.want` | `registry.want_vocabulary[slug]` |
+| `{OUTCOME}` | `structure.canonical_summary.outcome` | `GRANTED`, `DENIED`, `DEFERRED`, `PYRRHIC` |
+| `{STAKES}` | `interpretations.stakes_domain` | Enum value |
+| `{ATMOSPHERE}` | `interpretations.atmosphere` | Enum value |
+| `{CAUSAL_ROLE}` | `structure.causal_role` | `ESTABLISHES`, `ESCALATES`, `PIVOTS`, `RESOLVES` |
 
 ---
 
 ## Example
 
-**Semantic Structure:**
+**Semantic Structure (v0.2.0 — fields sourced from their epistemic sections):**
 ```json
 {
-  "focalizer": "elizabeth_bennet",
-  "event_type": "refusal",
-  "participants": ["fitzwilliam_darcy"],
-  "setting": "hunsford_parsonage",
-  "character_want": "honest_respect",
-  "want_outcome": "denied",
-  "stakes_domain": "social",
-  "atmosphere": "tense",
-  "causal_role": "pivots"
+  "observables": {
+    "focalizer": "elizabeth_bennet",
+    "event_type": "refusal",
+    "participants": ["fitzwilliam_darcy"],
+    "setting_instance": { "location": "hunsford_parsonage" }
+  },
+  "structure": {
+    "causal_role": "pivots",
+    "canonical_summary": {
+      "want": "honest_respect",
+      "outcome": "denied"
+    }
+  },
+  "interpretations": {
+    "stakes_domain": "social",
+    "atmosphere": "tense"
+  }
 }
 ```
 

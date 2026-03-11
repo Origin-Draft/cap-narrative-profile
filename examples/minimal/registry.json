@@ -3,18 +3,30 @@
   "book_id": "minimal-example",
   "characters": {
     "alex": {
-      "name": "Alex",
-      "archetype": "hero",
-      "role": "protagonist",
-      "wound": "abandonment",
-      "arc_type": "positive_change",
-      "drive_model": "wound"
+      "observables": {
+        "id": "alex",
+        "name": "Alex"
+      },
+      "structure": {
+        "role": "protagonist"
+      },
+      "interpretations": {
+        "archetype": "hero",
+        "wound": "abandonment",
+        "arc_type": "positive_change",
+        "drive_model": "wound"
+      }
     }
   },
   "settings": {
     "the_apartment": {
-      "name": "Alex's Apartment",
-      "setting_type": "interior_domestic"
+      "observables": {
+        "id": "the_apartment",
+        "name": "Alex's Apartment"
+      },
+      "structure": {
+        "type": "interior_domestic"
+      }
     }
   },
   "relationships": [],

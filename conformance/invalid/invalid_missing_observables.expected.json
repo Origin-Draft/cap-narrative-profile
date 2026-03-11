@@ -1,0 +1,8 @@
+{
+  "error_type": "missing_required_field",
+  "field": "observables",
+  "document_type": "scene_card",
+  "conformance_level": 1,
+  "message": "observables is a required top-level section on every Scene Card. It must contain at minimum a focalizer slug.",
+  "spec_reference": "SPECIFICATION.md §7.2"
+}

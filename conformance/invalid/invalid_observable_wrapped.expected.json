@@ -1,0 +1,8 @@
+{
+  "error_type": "invalid_field_type",
+  "field": "observables.focalizer",
+  "document_type": "scene_card",
+  "conformance_level": 1,
+  "message": "observables.focalizer must be a plain string. Observable fields MUST NOT use the interpreted_value wrapper ({value, confidence, source}) — only interpretation fields may use it.",
+  "spec_reference": "SPECIFICATION.md §3.6"
+}

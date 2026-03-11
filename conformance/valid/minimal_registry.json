@@ -3,9 +3,16 @@
   "book_id": "conformance-test-minimal",
   "characters": {
     "protagonist": {
-      "name": "Unnamed Protagonist",
-      "archetype": "hero",
-      "role": "protagonist"
+      "observables": {
+        "id": "protagonist",
+        "name": "Unnamed Protagonist"
+      },
+      "structure": {
+        "role": "protagonist"
+      },
+      "interpretations": {
+        "archetype": "hero"
+      }
     }
   },
   "settings": {},

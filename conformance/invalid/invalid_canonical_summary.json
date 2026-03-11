@@ -3,18 +3,22 @@
   "scene_id": "conformance-invalid-s03",
   "book_id": "conformance-test-invalid",
   "chapter": 1,
-  "beat": "inciting_incident",
-  "pov": "third_limited",
-  "focalizer": "protagonist",
-  "canonical_summary": {
-    "chapter": 1,
-    "scene": 1,
-    "location": "Home",
-    "time": "morning",
-    "focalizer": "protagonist",
-    "want": "protagonist wants to escape",
-    "scene_turns": [],
-    "outcome": "failed",
-    "delta": "Nothing changed."
+
+  "observables": {
+    "focalizer": "protagonist"
+  },
+
+  "structure": {
+    "beat": "inciting_incident",
+    "canonical_summary": {
+      "want": "protagonist wants to escape",
+      "outcome": "failed",
+      "delta": "Nothing changed.",
+      "scene_turns": []
+    }
+  },
+
+  "interpretations": {
+    "pov": "third_limited"
   }
 }

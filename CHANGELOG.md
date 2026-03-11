@@ -13,6 +13,54 @@ This project uses [Semantic Versioning](VERSIONING.md).
 
 ---
 
+## [0.2.0] — 2026-03-10
+
+**BREAKING** — Epistemic section restructuring (ADR-006).
+
+### Changed
+
+**Specification**
+- `SPECIFICATION.md` v0.2.0 — all document types restructured with epistemic sections (observables / structure / interpretations); Scene Cards add a fourth `craft_targets` section; new §3.6 Principle of Epistemic Separation; updated validation rules (§9–§10)
+
+**Protocol Documents** (`protocol/`)
+- `architecture.md` — added "Epistemic Sections (v0.2.0)" section
+- `scene-card.md` — field tables reorganized into four epistemic sections
+- `character-state.md` — fields reorganized into three epistemic sections with nested examples
+- `entity-registry.md` — character, setting, and relationship sub-objects reorganized into epistemic sub-sections
+- `story-architecture.md` — flat field tables replaced with observables/structure/interpretations tables
+
+**Schemas** (`schemas/`)
+- `enums.schema.json` — added `interpreted_value` `$def` (oneOf wrapper for interpretation enums)
+- `scene-card.schema.json` — top-level properties replaced by `observables`, `structure`, `interpretations`, `craft_targets`; scene_turn `$def` uses internal observables/interpretations split; `setting_instance` `$def` added
+- `character-state.schema.json` — top-level required reduced to `["observables"]`; three nested sections; oneOf wrappers on all interpretation enum fields; `character_id`/`character_ref` aliases removed (canonical: `character`)
+- `story-architecture.schema.json` — restructured into `observables` (`inciting_incident_chapter`), `structure` (`genre` required, structural fields), `interpretations` (thematic/analytical fields with oneOf wrappers)
+- `registry.schema.json` — character/setting/relationship `$defs` restructured into nested observables/structure/interpretations
+
+**Examples** (`examples/`)
+- All 17 example JSON files converted from flat v0.1.0 format to nested v0.2.0 format
+- `minimal/` — 4 files: story-architecture, registry, scene-card, character-state
+- `small-story/threshold/` — 5 files: story-architecture, registry, ch01_s01, ch01_s02, ch02_s01
+- `small-story/metamorphosis/` — 2 files: registry, scene card (ch01_s01)
+- `edge-cases/` — 6 files: omniscient_multiple_focalizer, non_present_character, iterative_scene, flat_arc_focalizer, dual_pov_split, analepsis_within_analepsis
+
+**Conformance Tests** (`conformance/`)
+- All 8 conformance test files updated to v0.2.0 nested structure
+- Expected error field paths updated (e.g. `pov` → `interpretations.pov`, `character_ref` → `observables.character`)
+
+**Reference Implementation** (`reference/rust/`)
+- `entities.rs` — `Character`, `Setting`, `Relationship` structs split into `*Observables`, `*Structure`, `*Interpretations` sub-structs; added `InterpretedValue<T>` enum wrapper
+
+### Added
+
+**Design Documentation** (`docs/`)
+- `docs/decisions/ADR-006-observable-structure-interpretation.md` — architectural decision record for the epistemic section split
+- `docs/terminology.md` — 6 new definitions: observable, structural field, interpretation, interpreted value, epistemic section, craft target
+
+### Removed
+- **Field aliases**: `character_id`, `character_ref` (use `character`); `focalization_type` (use `focalization`); `primary_emotion` (use `emotion`)
+
+---
+
 ## [0.1.0] — 2026-03-09
 
 Initial published version of the GBR (Grimoire Book Representation) Protocol.

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://gbr-protocol.dev/schemas/scene-card.schema.json",
+  "scene_id": "test_observable_wrapped_s01",
+  "book_id": "conformance-test-invalid",
+  "chapter": 1,
+
+  "observables": {
+    "focalizer": {
+      "value": "protagonist",
+      "confidence": 0.9,
+      "source": "human"
+    }
+  },
+
+  "structure": {
+    "beat": "inciting_incident"
+  },
+
+  "interpretations": {
+    "pov": "third_limited"
+  }
+}
