@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "narrative-context.schema.json",
+  "title": "Narrative Profile — Unit Observables Context",
+  "description": "Profile overlay schema constraining unit.observables.context for the narrative profile. Applies when profile='narrative'.",
+  "type": "object",
+  "properties": {
+    "focalizer": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Entity ref of the perceiving character. REQUIRED for unit_type 'scene'."
+    },
+    "pov": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Point of view type. REQUIRED for unit_type 'scene'."
+    },
+    "setting": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Entity ref of the location. SHOULD resolve to entity_type 'location'."
+    },
+    "diegetic_level": {
+      "type": "string",
+      "description": "Genette diegetic level (e.g., extradiegetic, intradiegetic, metadiegetic)."
+    },
+    "time_of_day": {
+      "type": "string",
+      "description": "When the unit occurs."
+    },
+    "atmosphere": {
+      "type": "string",
+      "description": "Environmental mood."
+    },
+    "spatial_structure": {
+      "type": "string",
+      "description": "Spatial configuration."
+    },
+    "narrative_time": {
+      "type": "object",
+      "description": "Genette temporal architecture.",
+      "properties": {
+        "order": {
+          "type": "string",
+          "description": "Narrative order (chronological, analepsis, prolepsis, achrony)."
+        },
+        "duration_mode": {
+          "type": "string",
+          "description": "Genette duration (ellipsis, summary, scene, stretch, pause)."
+        },
+        "frequency": {
+          "type": "string",
+          "description": "Genette frequency (singulative, repeating, iterative, pseudo_iterative)."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

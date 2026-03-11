@@ -1,0 +1,119 @@
+{
+  "$schema": "../../../sip-protocol/schemas/profile-descriptor.schema.json",
+  "profile_id": "narrative",
+  "profile_version": "0.1.0",
+  "sip_version_range": ">=0.1.0 <1.0.0",
+  "description": "Narrative fiction profile for the Semantic Interaction Protocol. Registers types, enums, required fields, and validation rules necessary to annotate prose fiction.",
+  "type_registries": {
+    "entity_types": [
+      { "value": "character", "description": "A person or anthropomorphized agent." },
+      { "value": "location", "description": "A named place or setting." },
+      { "value": "object", "description": "A significant physical or conceptual item." },
+      { "value": "group", "description": "A collective (family, organization, faction)." },
+      { "value": "narrator", "description": "A narrating voice that is not a character." }
+    ],
+    "unit_types": [
+      { "value": "scene", "description": "A continuous dramatic action in one setting." },
+      { "value": "beat", "description": "A single dramatic value-change within a scene." },
+      { "value": "chapter_segment", "description": "A structural division within a chapter." }
+    ],
+    "relationship_types": [
+      { "value": "family_parent_child", "description": "Parent-child bond.", "source_enum": "relationship.json → relationship_type" },
+      { "value": "family_sibling", "description": "Sibling bond.", "source_enum": "relationship.json → relationship_type" },
+      { "value": "romantic", "description": "Romantic relationship.", "source_enum": "relationship.json → relationship_type" },
+      { "value": "mentor", "description": "Mentor-mentee relationship.", "source_enum": "relationship.json → relationship_type" },
+      { "value": "rival", "description": "Rivalry or opposition.", "source_enum": "relationship.json → relationship_type" },
+      { "value": "ally", "description": "Alliance or friendship.", "source_enum": "relationship.json → relationship_type" },
+      { "value": "employer_employee", "description": "Employment or fealty.", "source_enum": "relationship.json → relationship_type" },
+      { "value": "foil", "description": "Thematic mirror or contrast.", "source_enum": "relationship.json → relationship_type" }
+    ],
+    "interpretation_types": [
+      { "value": "motivation", "description": "Character's driving desire." },
+      { "value": "emotion", "description": "Emotional state.", "source_enum": "emotion_psychology.json → emotion" },
+      { "value": "theme", "description": "Thematic assertion." },
+      { "value": "conflict_role", "description": "Role in central conflict." },
+      { "value": "archetype", "description": "Jungian or structural archetype.", "source_enum": "character.json → archetype" },
+      { "value": "wound", "description": "Psychological wound.", "source_enum": "character.json → wound" },
+      { "value": "arc_type", "description": "Character arc trajectory.", "source_enum": "character.json → arc_type" },
+      { "value": "drive_model", "description": "Drive model (5 types).", "source_enum": "character.json → drive_model" },
+      { "value": "actant", "description": "Greimas actantial role.", "source_enum": "character.json → actant" },
+      { "value": "irony_type", "description": "Type of irony present.", "source_enum": "literary_theory.json → irony_type" },
+      { "value": "gaze_type", "description": "Gaze framing.", "source_enum": "literary_theory.json → gaze_type" },
+      { "value": "speech_act_category", "description": "Austin/Searle classification.", "source_enum": "literary_theory.json → speech_act_category" },
+      { "value": "freudian_mechanism", "description": "Psychoanalytic defense mechanism.", "source_enum": "literary_theory.json → freudian_mechanism" },
+      { "value": "antagonist_type", "description": "Antagonist classification.", "source_enum": "literary_theory.json → antagonist_type" },
+      { "value": "opposition_level", "description": "Truby level of opposition.", "source_enum": "literary_theory.json → opposition_level" },
+      { "value": "transtextuality_type", "description": "Genette transtextual relation.", "source_enum": "literary_theory.json → transtextuality_type" },
+      { "value": "stakes_domain", "description": "What is at risk.", "source_enum": "scene_structure.json → stakes_domain" }
+    ],
+    "event_types": [
+      { "value": "action", "description": "Physical action.", "source_enum": "scene_structure.json → event_type" },
+      { "value": "dialogue", "description": "Speech between characters.", "source_enum": "scene_structure.json → event_type" },
+      { "value": "internal_shift", "description": "Internal thought or realization.", "source_enum": "scene_structure.json → event_type" },
+      { "value": "revelation", "description": "Information disclosed to reader or character.", "source_enum": "scene_structure.json → event_type" },
+      { "value": "description", "description": "Setting or character description.", "source_enum": "scene_structure.json → event_type" },
+      { "value": "flashback", "description": "Analeptic event.", "source_enum": "scene_structure.json → event_type" },
+      { "value": "flash_forward", "description": "Proleptic event.", "source_enum": "scene_structure.json → event_type" }
+    ],
+    "state_types": [
+      { "value": "emotional", "description": "Emotional condition.", "source_enum": "emotion_psychology.json → emotion" },
+      { "value": "relational", "description": "Relationship standing." },
+      { "value": "psychological", "description": "Internal psychological state." },
+      { "value": "social", "description": "Social role or status." },
+      { "value": "physical", "description": "Physical condition." },
+      { "value": "value_charge", "description": "McKee story value polarity (positive/negative/double-negative)." }
+    ],
+    "causal_role_extensions": [
+      { "value": "catalyst", "description": "Inciting force.", "source_enum": "scene_structure.json → causal_role" },
+      { "value": "escalation", "description": "Raising stakes.", "source_enum": "scene_structure.json → causal_role" },
+      { "value": "crisis", "description": "Moment of greatest tension.", "source_enum": "scene_structure.json → causal_role" },
+      { "value": "climax", "description": "Peak of dramatic action." },
+      { "value": "denouement", "description": "Unwinding after resolution." }
+    ]
+  },
+  "additional_epistemic_sections": [
+    {
+      "name": "craft_targets",
+      "purpose": "Prescriptive authorial intent — what the author is aiming for in this unit. Not observable from the artifact; not structural analysis.",
+      "confidence_model": "always_certain",
+      "schema_ref": "schemas/profile/narrative-craft-targets.schema.json"
+    }
+  ],
+  "required_fields": [
+    {
+      "object_type": "entity",
+      "when_type": "character",
+      "required_fields": ["structural_properties.role"],
+      "level": "required"
+    },
+    {
+      "object_type": "unit",
+      "when_type": "scene",
+      "required_fields": [
+        "observables.context.focalizer",
+        "observables.context.pov"
+      ],
+      "level": "required"
+    },
+    {
+      "object_type": "unit",
+      "required_fields": ["structure.grouping.beat"],
+      "level": "recommended"
+    },
+    {
+      "object_type": "step",
+      "required_fields": ["agent"],
+      "level": "required"
+    }
+  ],
+  "fingerprint_grammar": {
+    "format": "string",
+    "grammar_abnf": "fingerprint = agent-clause *( SP \"|\" SP qualifier )\nagent-clause = UPPER(agent) SP verb SP [UPPER(target)]\nqualifier = key \"=\" value\nkey = \"ROLE\" / \"SHIFT\" / \"BEAT\" / \"POV\" / \"TONE\" / \"ARC\"",
+    "description": "Single-line string: AGENT verb [TARGET] | ROLE=<causal_role> | SHIFT=<before>→<after> | BEAT=<beat> | POV=<pov> | TONE=<tone> | ARC=<arc_moment>"
+  },
+  "profile_schemas": {
+    "unit.observables.context": "schemas/profile/narrative-context.schema.json",
+    "unit.craft_targets": "schemas/profile/narrative-craft-targets.schema.json",
+    "entity[character].structural_properties": "schemas/profile/narrative-entity-character.schema.json"
+  }
+}

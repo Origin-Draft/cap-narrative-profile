@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "narrative-craft-targets.schema.json",
+  "title": "Narrative Profile — Craft Targets",
+  "description": "Profile overlay schema constraining unit.craft_targets for the narrative profile. Craft targets are prescriptive authorial intent — values are goals, not inferred claims. The interpreted_value wrapper MUST NOT be used.",
+  "type": "object",
+  "properties": {
+    "tension": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Target narrative tension level (0.0 = lowest, 1.0 = maximum)."
+    },
+    "pacing": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Target pacing mode for this unit (from scene_structure.json → pacing)."
+    },
+    "tone": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Authorial/narrator attitude (from narrative_voice.json → tone)."
+    }
+  },
+  "additionalProperties": false
+}

@@ -10,7 +10,7 @@
 ///   structure.canonical_summary.*     → units[0].structure.{steps, transition, grouping}
 ///   interpretations.*                 → units[0].interpretations
 ///   character_states[]                → units[0].participant_states[]
-///   structure.turn                    → artifact.interpretations.value_charge
+///   structure.turn                    → units[0].structure.transition.{before,after} + artifact.interpretations.value_charge
 ///
 /// Significance mapping (PROFILE.md §8.4):
 ///   "kernel"    → "essential"
@@ -28,7 +28,10 @@ use gbr_types::sip::{
     artifact::{ArtifactInterpretations, SipArtifact, SipMetadata},
     entity::SipEntity,
     enums::{CausalRole, Significance},
-    participant_state::{InformationItem, SipInformationState, SipParticipantState},
+    participant_state::{
+        InformationItem, Objective, SipInformationState, SipParticipantState,
+    },
+    state::SipState,
     transition::SipTransition,
     unit::{SipObservables, SipStep, SipStructure, SipUnit},
 };
@@ -175,6 +178,60 @@ fn translate_causal_role(raw: &str) -> Option<CausalRole> {
         "bridge" => Some(CausalRole::Other),
         _ => None,
     }
+}
+
+// ── Semantic Fingerprint (PROFILE.md §6) ─────────────────────────────────────
+
+/// Build a semantic fingerprint string per PROFILE.md §6.1–§6.3:
+///
+///   AGENT verb [TARGET] | ROLE=<causal_role> | SHIFT=<from>→<to> | BEAT=<beat>
+///
+/// Returns `None` if no essential step is found and no fallback agent exists.
+fn build_semantic_fingerprint(
+    focalizer: &Option<String>,
+    steps: &[SipStep],
+    causal_role: Option<&str>,
+    turn_from: Option<&str>,
+    turn_to: Option<&str>,
+    beat: Option<&str>,
+) -> Option<String> {
+    // §6.2 rule 2: first essential step, else first step
+    let kernel_step = steps
+        .iter()
+        .find(|s| s.significance == Some(Significance::Essential))
+        .or_else(|| steps.first());
+
+    let (agent_slug, verb, target) = match kernel_step {
+        Some(s) => (
+            s.agent.clone(),
+            s.action.clone(),
+            s.target.clone(),
+        ),
+        None => {
+            // Use focalizer as fallback agent
+            let agent = focalizer.as_deref()?.to_string();
+            (agent, "acts".to_string(), None)
+        }
+    };
+
+    let agent_upper = agent_slug.to_uppercase();
+    let mut fp = match &target {
+        Some(t) => format!("{} {} {}", agent_upper, verb, t.to_uppercase()),
+        None => format!("{} {}", agent_upper, verb),
+    };
+
+    // Qualifiers (ordered: ROLE, SHIFT, BEAT per §6.1)
+    if let Some(role) = causal_role {
+        fp.push_str(&format!(" | ROLE={role}"));
+    }
+    if let (Some(from), Some(to)) = (turn_from, turn_to) {
+        fp.push_str(&format!(" | SHIFT={from}\u{2192}{to}"));
+    }
+    if let Some(b) = beat {
+        fp.push_str(&format!(" | BEAT={b}"));
+    }
+
+    Some(fp)
 }
 
 // ── Conversion ───────────────────────────────────────────────────────────────
@@ -341,17 +398,48 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
         })
         .collect();
 
-    // §7.5: transition from delta
+    // §7.4: transition from delta + structure.turn → before/after (value_charge)
     let delta = str_field(canonical_summary, "delta");
+    let turn = structure.get("turn").unwrap_or(&Value::Null);
+    let turn_from = str_field(turn, "from");
+    let turn_to = str_field(turn, "to");
+
+    let transition_before = turn_from.map(|v| SipState {
+        subject: None,
+        state_type: "value_charge".to_string(),
+        value: json!(v),
+        evidence: None,
+        provenance: None,
+        confidence: None,
+    });
+    let transition_after = turn_to.map(|v| SipState {
+        subject: None,
+        state_type: "value_charge".to_string(),
+        value: json!(v),
+        evidence: None,
+        provenance: None,
+        confidence: None,
+    });
+
     let transition = delta.map(|d| SipTransition {
         subject: Some(artifact_id.clone()),
-        before: None,
-        after: None,
+        before: transition_before,
+        after: transition_after,
         trigger: None,
         description: d.to_string(),
         confidence: None,
         grounding: None,
     });
+
+    // ── §6: semantic fingerprint (PROFILE.md §6.1–§6.3) ──────────────────
+    let fingerprint = build_semantic_fingerprint(
+        &focalizer,
+        &steps,
+        causal_role_raw,
+        turn_from,
+        turn_to,
+        beat,
+    );
 
     let unit_structure = SipStructure {
         position: None,
@@ -359,7 +447,7 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
         grouping: grouping_val,
         steps,
         transition,
-        semantic_fingerprint: None,
+        semantic_fingerprint: fingerprint.map(|s| json!(s)),
     };
 
     // ── §7.6 + unit interpretations ───────────────────────────────────────
@@ -489,15 +577,46 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
                 Some(SipInformationState { knows, gaps, gained: Vec::new() })
             };
 
+            // §7.6: emotion → pre_state (state_type: emotional)
+            let pre_state = cs.get("interpretations")
+                .and_then(|i| i.get("emotion"))
+                .and_then(Value::as_str)
+                .map(|e| SipState {
+                    subject: None,
+                    state_type: "emotional".to_string(),
+                    value: json!(e),
+                    evidence: None,
+                    provenance: None,
+                    confidence: None,
+                });
+
+            // §7.6: structure.objective → objective (Objective struct)
+            let objective = cs_struct.get("objective").and_then(|obj| {
+                let action = str_field(obj, "action")?;
+                Some(Objective {
+                    action: action.to_string(),
+                    target: str_field(obj, "target").map(String::from),
+                })
+            });
+
+            // §7.6: structure.objective.obstacle → obstacle string
+            let obstacle = cs_struct
+                .get("objective")
+                .and_then(|obj| str_field(obj, "obstacle"))
+                .map(String::from);
+
+            // §7.6: structure.tactic → observables.tactic
+            let ps_observables = str_field(cs_struct, "tactic").map(|t| json!({ "tactic": t }));
+
             SipParticipantState {
                 entity_ref,
                 role_in_unit,
-                pre_state: None,
+                pre_state,
                 post_state: None,
-                objective: None,
-                obstacle: None,
+                objective,
+                obstacle,
                 information_state: info_state,
-                observables: None,
+                observables: ps_observables,
                 structure: None,
                 interpretations: cs_interp,
             }
@@ -518,10 +637,7 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
         metadata: None,
     };
 
-    // ── §7.1: artifact-level interpretations (value_charge) ───────────────
-    let turn = structure.get("turn").unwrap_or(&Value::Null);
-    let turn_from = str_field(turn, "from");
-    let turn_to = str_field(turn, "to");
+    // ── artifact-level interpretations (value_charge summary) ──────────────
     let artifact_interp = match (turn_from, turn_to) {
         (Some(open), Some(close)) => {
             let turn_str = format!("{open}\u{2192}{close}");

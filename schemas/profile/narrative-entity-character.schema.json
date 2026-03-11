@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "narrative-entity-character.schema.json",
+  "title": "Narrative Profile — Character Entity Constraints",
+  "description": "Profile overlay schema constraining entity.structural_properties when entity_type is 'character'. Per PROFILE.md §3.1, structural_properties.role is REQUIRED for characters.",
+  "type": "object",
+  "properties": {
+    "structural_properties": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Narrative role (protagonist, antagonist, supporting, etc.). REQUIRED for character entities."
+        }
+      },
+      "required": ["role"]
+    }
+  }
+}
