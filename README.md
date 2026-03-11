@@ -1,17 +1,37 @@
 # GBR Protocol
 
-**Version:** 0.2.0 | **Status:** Draft
+**GBR Version:** 0.2.0 | **SIP Version:** 0.1.0 | **Status:** Draft
 
-The Grimoire Book Representation (GBR) Protocol is a formal standard for representing narrative fiction in a structured, machine-readable format.
+The **Grimoire Book Representation (GBR) Protocol** is a formal standard for representing narrative fiction in a structured, machine-readable format. GBR is built on top of the **Semantic Interaction Protocol (SIP)** — a domain-agnostic substrate for decomposing any artifact type into canonical, epistemically-separated structures.
+
+---
+
+## Architecture
+
+```
+┌─────────────────────────────────────────┐
+│          GBR Narrative Profile           │  narrative-specific types, enums,
+│  (docs/sip/profiles/narrative/PROFILE.md)│  fingerprint grammar, validation rules
+├─────────────────────────────────────────┤
+│    Semantic Interaction Protocol (SIP)   │  domain-agnostic: entities, units,
+│       (docs/sip/SPECIFICATION.md)        │  steps, states, interpretations
+├─────────────────────────────────────────┤
+│           GBR Protocol (legacy)          │  scene cards, registries,
+│              (SPECIFICATION.md)          │  story architecture, canonical summary
+└─────────────────────────────────────────┘
+```
+
+New work targets SIP + the narrative profile. Existing GBR documents (v0.2.0) are the migration source; the converter binary produces SIP-native artifacts.
 
 ---
 
 ## Key Principles
 
 - **Lossless Round-Trip** — `parse(render(semantic_structure)) == semantic_structure`
-- **Typed Enumerations** — no free text where structure is possible; all categorical fields use closed vocabularies
+- **Typed Enumerations** — no free text where structure is possible
 - **Registry-First** — every entity reference resolves to a declared, named entity
-- **Scene as Atomic Unit** — the Scene Card is the fundamental representation unit
+- **Epistemic Separation** — observables, structure, and interpretations are distinct layers
+- **Profile Extension** — SIP core is domain-agnostic; narrative semantics live in the profile
 
 ---
 
@@ -19,45 +39,66 @@ The Grimoire Book Representation (GBR) Protocol is a formal standard for represe
 
 ```
 gbr-protocol/
-  SPECIFICATION.md          # Canonical normative specification
-  VERSIONING.md             # Versioning policy
-  CHANGELOG.md              # Release history
-  protocol/                 # Per-section expansion of the spec
-  schemas/                  # JSON Schema (auto-generated from Rust)
-  enums/                    # Documented enumeration vocabularies
-  examples/                 # Structured example corpus
-  conformance/              # Validation test suite (valid/ and invalid/)
-  reference/                # Reference implementations (Rust, Python)
-  template-schemas/         # Grimoire template extraction schemas
-  docs/                     # Design principles and Architecture Decision Records
+  SPECIFICATION.md               # GBR normative specification (v0.2.0)
+  VERSIONING.md                  # Versioning policy
+  CHANGELOG.md                   # Release history
+  protocol/                      # Per-section expansion of the GBR spec
+  schemas/                       # GBR JSON Schemas
+  enums/                         # Documented enumeration vocabularies
+  examples/                      # Structured example corpus (GBR + SIP)
+  conformance/                   # GBR validation test suite
+  reference/                     # Reference implementations (Rust, Python)
+    reference/rust/src/sip/      # SIP Rust types (gbr-types crate)
+    reference/python/            # Python conformance validator (GBR + SIP)
+  grimoire-tooling/              # CLI binaries
+  docs/                          # Design docs, ADRs, field audits
+    docs/sip/                    # SIP specification, schemas, conformance, profiles
+      docs/sip/SPECIFICATION.md           # SIP normative spec
+      docs/sip/schemas/                   # SIP JSON Schemas (12 files)
+      docs/sip/conformance/valid/         # SIP valid fixtures (4)
+      docs/sip/conformance/invalid/       # SIP invalid fixtures (6)
+      docs/sip/profiles/narrative/        # Narrative profile (Normative Draft)
+  template-schemas/              # Grimoire template extraction schemas
 ```
 
 ---
 
-## Specification
+## GBR Specification
 
-The canonical normative document is [SPECIFICATION.md](SPECIFICATION.md).
+The canonical GBR normative document is [SPECIFICATION.md](SPECIFICATION.md).
 
-It answers:
-1. What is GBR?
-2. How is GBR structured?
-3. What files and fields are valid?
-4. How is validity tested?
-5. What does compliance mean?
-6. How does versioning work?
+It covers document types (Scene Card, Entity Registry, Story Architecture, Character State), epistemic section structure, validation rules, and the lossless round-trip guarantee.
 
 ---
 
-## Schemas
+## Semantic Interaction Protocol (SIP)
 
-Protocol JSON Schemas are in [`schemas/`](schemas/). There are two layers:
+SIP is a domain-agnostic protocol for decomposing artifacts into canonical structures. It is the foundation GBR's narrative profile is built on.
 
-| Layer | Location | Source |
-|-------|----------|--------|
-| **Document schemas** | `schemas/` | Hand-crafted; define the full GBR document format accepted by validators and CI |
-| **Struct schemas** | `schemas/generated/` | Machine-generated from Rust types via `grimoire-export-schemas`; regenerate with `cargo run --bin grimoire-export-schemas` |
+- **Specification:** [`docs/sip/SPECIFICATION.md`](docs/sip/SPECIFICATION.md)
+- **Narrative Profile:** [`docs/sip/profiles/narrative/PROFILE.md`](docs/sip/profiles/narrative/PROFILE.md) — registers narrative-specific types, the semantic fingerprint grammar, migration guide from GBR v0.2.0, and validation rules
+- **Schemas:** [`docs/sip/schemas/`](docs/sip/schemas/) — 12 JSON Schema files covering all SIP core objects
+- **Conformance:** [`docs/sip/conformance/`](docs/sip/conformance/) — 4 valid + 6 invalid fixtures
 
-Document schemas currently in `schemas/`:
+A SIP artifact for a narrative scene looks like:
+
+```json
+{
+  "protocol": "semantic-interaction-protocol",
+  "protocol_version": "0.1.0",
+  "profile": "narrative",
+  "profile_version": "0.1.0",
+  "artifact_id": "threshold_ch01_s01",
+  "entities": [ ... ],
+  "units": [ ... ]
+}
+```
+
+---
+
+## GBR Schemas
+
+GBR document JSON Schemas are in [`schemas/`](schemas/):
 
 | Schema | Document Type |
 |--------|---------------|
@@ -67,7 +108,7 @@ Document schemas currently in `schemas/`:
 | `schemas/character-state.schema.json` | Character Scene State |
 | `schemas/enums.schema.json` | Enumeration vocabularies |
 
-> **Note:** The document schemas in `schemas/` currently reflect an earlier (v3) format of the Grimoire training data layout. They will be updated to match the GBR 0.1.0 document format (as used by `examples/small-story/threshold/` and `conformance/`) in a forthcoming schema migration. Until then, Level 1 schema validation against the document schemas will report expected mismatches for GBR 0.1.0-format documents.
+Struct schemas auto-generated from Rust types are in `schemas/generated/` (regenerate with `cargo run --bin grimoire-export-schemas`).
 
 ---
 
@@ -82,38 +123,71 @@ Documented enum definitions are in [`enums/`](enums/). Each file covers a domain
 Structured example documents are in [`examples/`](examples/):
 
 - `examples/minimal/` — smallest valid GBR documents
-- `examples/small-story/` — multi-scene story examples
+- `examples/small-story/threshold/` — three-scene story in both GBR and SIP formats
+  - `ch01_s01.json` / `ch01_s01.sip.json` — Status Quo + Inciting Incident
+  - `ch01_s02.json` / `ch01_s02.sip.json` — Revelation (embedded analepsis via document proxy)
+  - `ch02_s01.json` / `ch02_s01.sip.json` — Climax/Resolution (closed dramatic irony)
 - `examples/edge-cases/` — nonlinear narrative, unreliable narrator, etc.
 
 ---
 
 ## Conformance Tests
 
-The [`conformance/`](conformance/) directory contains:
-
+**GBR** — [`conformance/`](conformance/):
 - `conformance/valid/` — documents that MUST pass all validation
 - `conformance/invalid/` — documents with known defects; each paired with an `.expected.json`
+
+**SIP** — [`docs/sip/conformance/`](docs/sip/conformance/):
+- `docs/sip/conformance/valid/` — 4 fixtures (minimal, multi-unit, full-narrative, full-software)
+- `docs/sip/conformance/invalid/` — 6 fixtures (dangling-entity-ref, misordered-steps, missing-observables, missing-protocol, no-change-transition, wrong-protocol-value)
 
 ---
 
 ## Reference Implementations
 
-- **Rust:** [`reference/rust/`](reference/rust/) — `gbr-types` crate; typed structs, enum definitions, schema generation
-- **Python:** [`reference/python/`](reference/python/) — schema and referential conformance validator
+### Rust — `gbr-types` crate ([`reference/rust/`](reference/rust/))
+
+Typed structs for both GBR document types and the full SIP core object model (`reference/rust/src/sip/`). Includes 11 unit tests covering round-trips and conformance invariants.
 
 ```bash
-# Validate a registry
-jsonschema -i book/registry.json schemas/registry.schema.json
+cargo test -p gbr-types
+```
 
-# Validate a scene card
-jsonschema -i book/scenes/ch01_s01.json schemas/scene-card.schema.json
+### Python — [`reference/python/gbr_validate.py`](reference/python/gbr_validate.py)
+
+Conformance validator for both GBR documents and SIP artifacts. Three-level validation: schema (L1), entity-ref resolution (L2), semantic invariants (L3).
+
+```bash
+# Validate a GBR scene card
+python3 reference/python/gbr_validate.py scene-card examples/small-story/threshold/ch01_s01.json --level 3
+
+# Validate a SIP artifact
+python3 reference/python/gbr_validate.py sip-artifact examples/small-story/threshold/ch01_s01.sip.json --level 3
+```
+
+### CLI Binaries ([`grimoire-tooling/`](grimoire-tooling/))
+
+| Binary | Description |
+|--------|-------------|
+| `grimoire-sip-validate` | Three-level conformance checker for SIP artifacts (`--path`, `--level`, `--json`) |
+| `grimoire-sip-convert` | Convert GBR v0.2.0 scene cards to SIP narrative artifacts (`--input`, `--registry`, `--output`) |
+| `grimoire-gate-check` | Grimoire phase gate checker |
+| `grimoire-export-training` | Export training data pipeline |
+
+```bash
+# Validate a SIP artifact
+cargo build -p grimoire-tooling --bin grimoire-sip-validate
+./target/debug/grimoire-sip-validate --path examples/small-story/threshold/ch01_s01.sip.json --level 3
+
+# Convert a GBR scene card to SIP
+./target/debug/grimoire-sip-convert --input examples/small-story/threshold/ch01_s01.json --output /tmp/out.sip.json
 ```
 
 ---
 
 ## Versioning
 
-See [VERSIONING.md](VERSIONING.md). Current version: **GBR 0.1.0**.
+See [VERSIONING.md](VERSIONING.md). Current version: **GBR 0.2.0** / **SIP 0.1.0**.
 
 ---
 

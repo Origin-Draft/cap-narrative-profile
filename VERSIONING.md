@@ -2,7 +2,7 @@
 
 GBR uses [Semantic Versioning 2.0.0](https://semver.org/). The version string is `MAJOR.MINOR.PATCH`.
 
-**Current version: GBR 0.1.0**
+**Current version: GBR 0.2.0 / SIP 0.1.0**
 
 ---
 
