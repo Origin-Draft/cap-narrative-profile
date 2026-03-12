@@ -5,10 +5,10 @@
   "profile_version": "0.1.0",
   "artifact_id": "threshold_ch01_s01",
   "metadata": {
-    "chapter": 1,
-    "source_format": "GBR v0.2.0",
     "scene_id": "threshold_ch01_s01",
-    "book_id": "threshold"
+    "source_format": "GBR v0.2.0",
+    "book_id": "threshold",
+    "chapter": 1
   },
   "entities": [
     {
@@ -116,7 +116,7 @@
           },
           "description": "Nadia's armor — the fiction that this is a logistical task — is intact but has taken the first small crack. She has noticed the house is smaller. She has not yet admitted what this means."
         },
-        "semantic_fingerprint": "NADIA unlocks FRONT_DOOR | ROLE=setup | SHIFT=negative→negative | BEAT=status_quo"
+        "semantic_fingerprint": "NADIA unlocks FRONT_DOOR | ROLE=setup | SHIFT=negative→negative | BEAT=status_quo | POV=third_limited | TONE=clinical"
       },
       "interpretations": {
         "canonical_metrics": {
@@ -141,7 +141,12 @@
         "stakes_domain": [
           "psychological",
           "relational"
-        ]
+        ],
+        "theory_notes": {
+          "bachelard": "The house as topoanalysis object (Poetics of Space): the house is not just a setting but the site where Nadia's self was formed. Its smallness is the smallness of the child who lived there — and of the father she is now realizing she misread.",
+          "booth": "The narrator is 'factually_unreliable' in a technical sense: Nadia's readiness assessment and her perception of the house's scale are both colored by grief. The reader has access to the unreliability; Nadia does not.",
+          "cohn": "Narrated monologue throughout — Nadia's cataloguing voice and the narrator's voice are fused. The reader cannot always tell whether 'small' is a perceptual fact or a defense."
+        }
       },
       "craft_targets": {
         "tone": "clinical"

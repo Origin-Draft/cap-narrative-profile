@@ -24,10 +24,13 @@
 
 pub mod catalogs;
 pub mod constraints;
+pub mod corpus;
 pub mod entities;
 pub mod enums;
 pub mod ontology;
+pub mod overlay;
 pub mod tags;
+pub mod validate_narrative;
 pub mod voice;
 
 // SIP core types — re-exported from the standalone `sip-types` crate.

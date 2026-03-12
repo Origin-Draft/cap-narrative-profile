@@ -101,11 +101,7 @@
           "to": "negative"
         },
 
-        "semantic_fingerprint": {
-          "want": "Nadia wants to move through the house efficiently: assess, catalogue, call the estate agent, leave by tomorrow evening",
-          "obstacle": "The house refuses to be efficient. It is smaller than she remembered and larger than grief.",
-          "outcome": "partially_achieved"
-        },
+        "semantic_fingerprint": "NADIA arrives CHILDHOOD_HOME | WANT=assess-and-leave | OBSTACLE=grief-spatialised | OUTCOME=partially_achieved",
 
         "steps": [
           {

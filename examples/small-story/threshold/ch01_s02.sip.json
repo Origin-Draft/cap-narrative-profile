@@ -5,10 +5,10 @@
   "profile_version": "0.1.0",
   "artifact_id": "threshold_ch01_s02",
   "metadata": {
-    "chapter": 1,
     "source_format": "GBR v0.2.0",
-    "scene_id": "threshold_ch01_s02",
-    "book_id": "threshold"
+    "chapter": 1,
+    "book_id": "threshold",
+    "scene_id": "threshold_ch01_s02"
   },
   "entities": [
     {
@@ -118,7 +118,7 @@
           },
           "description": "Nadia now knows that her father used words — in private, on paper — that he could never use aloud. The entry describes her playing piano at age nine, and the word he uses is 'longing.' This is the information that breaks her model of him. She cannot unsee it."
         },
-        "semantic_fingerprint": "NADIA finds JOURNAL_OPEN_ON_DESK | ROLE=payoff | SHIFT=negative→positive | BEAT=revelation"
+        "semantic_fingerprint": "NADIA finds JOURNAL_OPEN_ON_DESK | ROLE=payoff | SHIFT=negative→positive | BEAT=revelation | POV=third_limited | TONE=elegiac"
       },
       "interpretations": {
         "canonical_metrics": {
@@ -144,7 +144,12 @@
           "relational",
           "psychological",
           "moral"
-        ]
+        ],
+        "theory_notes": {
+          "encoding_guidance": "Non-present characters with scene turns via document proxy should have their embedded_analepsis noted at the canonical_summary level, not as a separate scene. This avoids inflating scene count while preserving temporal information.",
+          "genette": "The journal entry functions as embedded analepsis via document proxy: the fabula event (Robert writing in 1987) is not narrated as a scene; it speaks directly through quotation. This avoids a flashback cut while achieving the same temporal depth.",
+          "hemingway": "Iceberg proportion 0.75: what Robert could not say aloud is present in the scene as absence. The journal entry contains the thing he omitted from every conversation. The 'seven-eighths below water' is the forty-year accumulation of unexpressed feeling."
+        }
       },
       "craft_targets": {
         "tone": "elegiac"

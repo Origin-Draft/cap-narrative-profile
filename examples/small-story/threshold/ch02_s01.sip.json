@@ -5,10 +5,10 @@
   "profile_version": "0.1.0",
   "artifact_id": "threshold_ch02_s01",
   "metadata": {
+    "source_format": "GBR v0.2.0",
     "book_id": "threshold",
     "chapter": 2,
-    "scene_id": "threshold_ch02_s01",
-    "source_format": "GBR v0.2.0"
+    "scene_id": "threshold_ch02_s01"
   },
   "entities": [
     {
@@ -111,7 +111,7 @@
           },
           "description": "Nadia has no conscious explanation for what she has done. She knows she called; she knows she postponed; she knows she is holding her father's journal. The reader has an explanation. Nadia does not. This is the story's closing irony: the woman who prided herself on logic acts entirely from feeling, and cannot see it."
         },
-        "semantic_fingerprint": "NADIA calls ESTATE_AGENT | ROLE=payoff | SHIFT=positive→positive | BEAT=climax"
+        "semantic_fingerprint": "NADIA calls ESTATE_AGENT | ROLE=payoff | SHIFT=positive→positive | BEAT=climax | POV=third_limited | TONE=tender"
       },
       "interpretations": {
         "canonical_metrics": {
@@ -137,7 +137,13 @@
         "stakes_domain": [
           "relational",
           "psychological"
-        ]
+        ],
+        "theory_notes": {
+          "booth": "Closed dramatic irony: the narrator and reader share knowledge Nadia lacks. She believes she is deferring logistics; the reader understands she is choosing to grieve. Neither narrator nor reader corrects her — the irony is left intact as the story closes.",
+          "encoding_guidance": "When a character makes a decision they cannot name, encode the focalizer's knowledge_gaps with the actual decision fact. This forces the system to distinguish between the action layer (decision logged) and the character layer (unknown to character). The delta should name the irony explicitly for training signal clarity.",
+          "genette_frequency": "The re-reading of the journal entry (fourth time) is singulative in narration but iterative in Nadia's experience. The current scene narrates the fourth instance explicitly to foreground the shift from reading-for-information to reading-as-ritual.",
+          "hemingway": "The highest iceberg proportion in the story (0.80). What is submerged: the full weight of Nadia's grief, forty years of silence between father and daughter, the choice she has made without knowing she made it. What surfaces: she calls, she sits, she stays."
+        }
       },
       "craft_targets": {
         "tone": "tender"

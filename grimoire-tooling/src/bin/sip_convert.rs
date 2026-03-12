@@ -27,7 +27,7 @@ use std::path::PathBuf;
 use gbr_types::sip::{
     artifact::{ArtifactInterpretations, SipArtifact, SipMetadata},
     entity::SipEntity,
-    enums::{CausalRole, Significance},
+    enums::{CausalRole, KnownCausalRole, Significance},
     participant_state::{
         InformationItem, Objective, SipInformationState, SipParticipantState,
     },
@@ -170,13 +170,13 @@ fn translate_significance(raw: &str) -> Significance {
 
 fn translate_causal_role(raw: &str) -> Option<CausalRole> {
     match raw {
-        "setup" => Some(CausalRole::Setup),
-        "trigger" => Some(CausalRole::Trigger),
-        "complication" => Some(CausalRole::Complication),
-        // GBR "payoff" maps to SIP Resolution; "bridge" has no SIP core equivalent
-        "payoff" | "resolution" => Some(CausalRole::Resolution),
-        "bridge" => Some(CausalRole::Other),
-        _ => None,
+        "setup" => Some(CausalRole::Known(KnownCausalRole::Setup)),
+        "trigger" => Some(CausalRole::Known(KnownCausalRole::Trigger)),
+        "complication" => Some(CausalRole::Known(KnownCausalRole::Complication)),
+        // GBR "payoff" maps to SIP Resolution; "bridge" is a GBR-specific extension
+        "payoff" | "resolution" => Some(CausalRole::Known(KnownCausalRole::Resolution)),
+        "bridge" => Some(CausalRole::Custom("bridge".to_owned())),
+        other => Some(CausalRole::Custom(other.to_owned())),
     }
 }
 
@@ -185,8 +185,10 @@ fn translate_causal_role(raw: &str) -> Option<CausalRole> {
 /// Build a semantic fingerprint string per PROFILE.md §6.1–§6.3:
 ///
 ///   AGENT verb [TARGET] | ROLE=<causal_role> | SHIFT=<from>→<to> | BEAT=<beat>
+///   [| POV=<pov>] [| TONE=<tone>] [| ARC=<arc_type>]
 ///
 /// Returns `None` if no essential step is found and no fallback agent exists.
+#[allow(clippy::too_many_arguments)]
 fn build_semantic_fingerprint(
     focalizer: &Option<String>,
     steps: &[SipStep],
@@ -194,6 +196,9 @@ fn build_semantic_fingerprint(
     turn_from: Option<&str>,
     turn_to: Option<&str>,
     beat: Option<&str>,
+    pov: Option<&str>,
+    tone: Option<&str>,
+    arc_type: Option<&str>,
 ) -> Option<String> {
     // §6.2 rule 2: first essential step, else first step
     let kernel_step = steps
@@ -202,11 +207,7 @@ fn build_semantic_fingerprint(
         .or_else(|| steps.first());
 
     let (agent_slug, verb, target) = match kernel_step {
-        Some(s) => (
-            s.agent.clone(),
-            s.action.clone(),
-            s.target.clone(),
-        ),
+        Some(s) => (s.agent.clone(), s.action.clone(), s.target.clone()),
         None => {
             // Use focalizer as fallback agent
             let agent = focalizer.as_deref()?.to_string();
@@ -220,7 +221,7 @@ fn build_semantic_fingerprint(
         None => format!("{} {}", agent_upper, verb),
     };
 
-    // Qualifiers (ordered: ROLE, SHIFT, BEAT per §6.1)
+    // Qualifiers (ordered: ROLE, SHIFT, BEAT, POV, TONE, ARC per §6.1)
     if let Some(role) = causal_role {
         fp.push_str(&format!(" | ROLE={role}"));
     }
@@ -229,6 +230,15 @@ fn build_semantic_fingerprint(
     }
     if let Some(b) = beat {
         fp.push_str(&format!(" | BEAT={b}"));
+    }
+    if let Some(p) = pov {
+        fp.push_str(&format!(" | POV={p}"));
+    }
+    if let Some(t) = tone {
+        fp.push_str(&format!(" | TONE={t}"));
+    }
+    if let Some(a) = arc_type {
+        fp.push_str(&format!(" | ARC={a}"));
     }
 
     Some(fp)
@@ -305,6 +315,7 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
     let diegetic_level = str_field(obs, "diegetic_level").map(String::from);
     let time_of_day = str_field(setting_instance, "time_of_day");
     let atmosphere = str_field(setting_instance, "atmosphere");
+    let spatial_structure = str_field(setting_instance, "spatial_structure");
     let narrative_time = obs.get("narrative_time").cloned();
 
     let mut ctx = serde_json::Map::new();
@@ -322,6 +333,9 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
     }
     if let Some(atm) = atmosphere {
         ctx.insert("atmosphere".into(), json!(atm));
+    }
+    if let Some(ss) = spatial_structure {
+        ctx.insert("spatial_structure".into(), json!(ss));
     }
     if let Some(nt) = narrative_time {
         ctx.insert("narrative_time".into(), nt);
@@ -432,6 +446,14 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
     });
 
     // ── §6: semantic fingerprint (PROFILE.md §6.1–§6.3) ──────────────────
+    // (interp_gbr and craft are also used below for unit interpretations)
+    let interp_gbr = gbr.get("interpretations").unwrap_or(&Value::Null);
+    let craft = gbr.get("craft_targets").unwrap_or(&Value::Null);
+
+    let pov_raw = str_field(interp_gbr, "pov");
+    let tone_raw = str_field(craft, "tone");
+    let arc_type_raw = str_field(interp_gbr, "arc_type");
+
     let fingerprint = build_semantic_fingerprint(
         &focalizer,
         &steps,
@@ -439,6 +461,9 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
         turn_from,
         turn_to,
         beat,
+        pov_raw,
+        tone_raw,
+        arc_type_raw,
     );
 
     let unit_structure = SipStructure {
@@ -447,12 +472,11 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
         grouping: grouping_val,
         steps,
         transition,
-        semantic_fingerprint: fingerprint.map(|s| json!(s)),
+        semantic_fingerprint: fingerprint,
     };
 
     // ── §7.6 + unit interpretations ───────────────────────────────────────
-    let interp_gbr = gbr.get("interpretations").unwrap_or(&Value::Null);
-    let craft = gbr.get("craft_targets").unwrap_or(&Value::Null);
+    // (interp_gbr, craft already bound above for fingerprint)
     let motif_tags = gbr.get("motif_tags").cloned();
 
     let mut unit_interp_map = serde_json::Map::new();
@@ -490,6 +514,12 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
             cs.insert("outcome".into(), json!(o));
         }
         unit_interp_map.insert("canonical_summary".into(), Value::Object(cs));
+    }
+    // §7.7: theory_notes → interpretations.theory_notes (PROFILE.md §7.7)
+    if let Some(tn) = gbr.get("theory_notes") {
+        if !tn.is_null() {
+            unit_interp_map.insert("theory_notes".into(), tn.clone());
+        }
     }
     let unit_interp = if unit_interp_map.is_empty() {
         None
