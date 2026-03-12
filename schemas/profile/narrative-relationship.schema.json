@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "narrative-relationship.schema.json",
+  "title": "Narrative Profile — Relationship",
+  "description": "Profile overlay schema constraining relationship.interpretations for the narrative profile.",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "Human-readable description of the relationship."
+    },
+    "dynamic_at_start": {
+      "type": "string",
+      "description": "Relational dynamic when the story begins."
+    },
+    "dynamic_at_end": {
+      "type": "string",
+      "description": "Relational dynamic at the story's end (or last observed point)."
+    },
+    "power_balance": {
+      "type": "string",
+      "description": "Who holds structural power in the relationship."
+    },
+    "trust": {
+      "type": "string",
+      "description": "Trust level between the two parties."
+    },
+    "intimacy": {
+      "type": "string",
+      "description": "Intimacy / closeness level."
+    },
+    "stability": {
+      "type": "string",
+      "description": "How stable or volatile the relationship is."
+    }
+  },
+  "additionalProperties": true
+}

@@ -31,6 +31,7 @@ pub mod ontology;
 pub mod overlay;
 pub mod tags;
 pub mod validate_narrative;
+pub mod views;
 pub mod voice;
 
 // SIP core types — re-exported from the standalone `sip-types` crate.

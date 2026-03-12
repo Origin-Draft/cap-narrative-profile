@@ -31,6 +31,7 @@ use gbr_types::sip::{
     participant_state::{
         InformationItem, Objective, SipInformationState, SipParticipantState,
     },
+    relationship::SipRelationship,
     state::SipState,
     transition::SipTransition,
     unit::{SipObservables, SipStep, SipStructure, SipUnit},
@@ -96,9 +97,38 @@ fn parse_args() -> Args {
 
 // ── Registry ────────────────────────────────────────────────────────────────
 
-/// Optional JSON object mapping `entity_id → { display_name, entity_type }`.
+/// Parses a GBR `registry.json` and provides typed accessors for entity and
+/// relationship data.
+///
+/// GBR registry format:
+/// ```json
+/// { "book_id": "…", "characters": { "<slug>": { "observables": …, "structure": …, "interpretations": … } },
+///   "settings": { "<slug>": { … } }, "relationships": [ { "observables": …, "structure": …, "interpretations": … } ] }
+/// ```
 struct Registry {
-    inner: HashMap<String, Value>,
+    root: Value,
+}
+
+/// Strip `{ "value": x, "confidence": … }` InterpretedValue wrappers from an
+/// object, collapsing each wrapped field to its plain value.
+fn flatten_interpreted_values(v: &Value) -> Value {
+    match v {
+        Value::Object(m) => {
+            let mut out = serde_json::Map::new();
+            for (k, val) in m {
+                // If val is { "value": x, … }, extract x
+                if let Some(inner) = val.as_object() {
+                    if let Some(plain) = inner.get("value") {
+                        out.insert(k.clone(), plain.clone());
+                        continue;
+                    }
+                }
+                out.insert(k.clone(), flatten_interpreted_values(val));
+            }
+            Value::Object(out)
+        }
+        _ => v.clone(),
+    }
 }
 
 impl Registry {
@@ -107,37 +137,92 @@ impl Registry {
             eprintln!("ERROR: could not read registry '{}': {e}", path.display());
             std::process::exit(2);
         });
-        let v: Value = serde_json::from_str(&text).unwrap_or_else(|e| {
+        let root: Value = serde_json::from_str(&text).unwrap_or_else(|e| {
             eprintln!("ERROR: could not parse registry '{}': {e}", path.display());
             std::process::exit(2);
         });
-        let inner = v
-            .as_object()
-            .map(|m| m.iter().map(|(k, v)| (k.clone(), v.clone())).collect())
-            .unwrap_or_default();
-        Registry { inner }
+        Registry { root }
     }
 
     fn empty() -> Self {
-        Registry { inner: HashMap::new() }
+        Registry { root: Value::Object(Default::default()) }
+    }
+
+    fn char_entry(&self, id: &str) -> Option<&Value> {
+        self.root.get("characters")?.get(id)
+    }
+
+    fn setting_entry(&self, id: &str) -> Option<&Value> {
+        self.root.get("settings")?.get(id)
     }
 
     fn display_name(&self, id: &str) -> String {
-        self.inner
-            .get(id)
-            .and_then(|e| e.get("display_name"))
+        let name = self
+            .char_entry(id)
+            .and_then(|e| e.get("observables"))
+            .and_then(|o| o.get("name"))
             .and_then(Value::as_str)
-            .map(String::from)
-            .unwrap_or_else(|| title_case(&id.replace('_', " ")))
+            .or_else(|| {
+                self.setting_entry(id)
+                    .and_then(|e| e.get("observables"))
+                    .and_then(|o| o.get("name"))
+                    .and_then(Value::as_str)
+            });
+        name.map(String::from).unwrap_or_else(|| title_case(&id.replace('_', " ")))
     }
 
     fn entity_type(&self, id: &str, fallback: &str) -> String {
-        self.inner
-            .get(id)
-            .and_then(|e| e.get("entity_type"))
-            .and_then(Value::as_str)
-            .map(String::from)
-            .unwrap_or_else(|| fallback.to_string())
+        if self.char_entry(id).is_some() {
+            return "character".to_string();
+        }
+        if self.setting_entry(id).is_some() {
+            return "location".to_string();
+        }
+        fallback.to_string()
+    }
+
+    /// Structural properties for a character (role, voice_signature).
+    fn char_structural_props(&self, id: &str) -> Option<Value> {
+        self.char_entry(id)?.get("structure").cloned()
+    }
+
+    /// Interpretations for a character, flattening any InterpretedValue wrappers.
+    fn char_interpretations(&self, id: &str) -> Option<Value> {
+        let interp = self.char_entry(id)?.get("interpretations")?;
+        Some(flatten_interpreted_values(interp))
+    }
+
+    /// Structural properties for a setting (setting_type).
+    fn setting_structural_props(&self, id: &str) -> Option<Value> {
+        self.setting_entry(id)?.get("structure").cloned()
+    }
+
+    /// Interpretations for a setting.
+    fn setting_interpretations(&self, id: &str) -> Option<Value> {
+        self.setting_entry(id)?.get("interpretations").cloned()
+    }
+
+    /// All relationships as `(source, target, rel_type, interpretations)` tuples.
+    fn build_relationships(&self) -> Vec<(String, String, String, Option<Value>)> {
+        let rels = match self.root.get("relationships").and_then(Value::as_array) {
+            Some(a) => a,
+            None => return Vec::new(),
+        };
+        rels.iter()
+            .filter_map(|r| {
+                let obs = r.get("observables")?;
+                let source = obs.get("source")?.as_str()?.to_string();
+                let target = obs.get("target")?.as_str()?.to_string();
+                let rel_type = r
+                    .get("structure")
+                    .and_then(|s| s.get("rel_type"))
+                    .and_then(Value::as_str)
+                    .unwrap_or("related_to")
+                    .to_string();
+                let interp = r.get("interpretations").cloned();
+                Some((source, target, rel_type, interp))
+            })
+            .collect()
     }
 }
 
@@ -286,13 +371,19 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
 
     // Character entities from participants[]
     for p in &participants_raw {
+        // Gather the slot field (if present) as observable_descriptors
+        let obs_desc = reg
+            .char_entry(p)
+            .and_then(|e| e.get("observables"))
+            .and_then(|o| o.get("slot"))
+            .map(|slot| json!({ "slot": slot }));
         entities.push(SipEntity {
             entity_id: p.clone(),
             entity_type: reg.entity_type(p, "character"),
             display_name: reg.display_name(p),
-            observable_descriptors: None,
-            structural_properties: None,
-            interpretations: None,
+            observable_descriptors: obs_desc,
+            structural_properties: reg.char_structural_props(p),
+            interpretations: reg.char_interpretations(p),
         });
     }
 
@@ -304,8 +395,8 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
                 entity_type: reg.entity_type(sid, "location"),
                 display_name: reg.display_name(sid),
                 observable_descriptors: None,
-                structural_properties: None,
-                interpretations: None,
+                structural_properties: reg.setting_structural_props(sid),
+                interpretations: reg.setting_interpretations(sid),
             });
         }
     }
@@ -682,6 +773,25 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
         _ => None,
     };
 
+    // ── build relationships from registry ────────────────────────────────
+    // Include registry relationships that connect entities present in this scene.
+    let scene_entity_ids: std::collections::HashSet<&str> =
+        entities.iter().map(|e| e.entity_id.as_str()).collect();
+    let relationships: Vec<SipRelationship> = reg
+        .build_relationships()
+        .into_iter()
+        .filter(|(src, tgt, _, _)| {
+            scene_entity_ids.contains(src.as_str()) && scene_entity_ids.contains(tgt.as_str())
+        })
+        .map(|(source, target, relationship_type, interpretations)| SipRelationship {
+            source,
+            target,
+            relationship_type,
+            evidence: None,
+            interpretations,
+        })
+        .collect();
+
     Ok(SipArtifact {
         protocol: "semantic-interaction-protocol".to_string(),
         protocol_version: "0.1.0".to_string(),
@@ -691,7 +801,7 @@ fn convert(gbr: &Value, reg: &Registry) -> Result<SipArtifact, String> {
         metadata,
         entities,
         units: vec![unit],
-        relationships: Vec::new(),
+        relationships,
         views: Vec::new(),
         interpretations: artifact_interp,
     })

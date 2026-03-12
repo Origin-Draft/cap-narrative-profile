@@ -227,12 +227,133 @@ pub struct NarrativeStepInterpretations {
 //
 // Entity observable/structural/interpretation overlays diverge by entity_type
 // (character vs. location vs. motif). The typed structs are in `entities.rs`.
+// ── Typed entity overlay structs ─────────────────────────────────────────────
+//
+// These mirror the `CharacterStructure`, `CharacterInterpretations`,
+// `SettingStructure`, and `SettingInterpretations` types in `entities.rs` but
+// are plain (no `InterpretedValue` wrappers) for use as SIP overlay associated
+// types. They are also used by the converter (`sip_convert.rs`) to serialise
+// registry data into SipEntity fields.
+
+/// Observable descriptors shared by all character entities (name + narrative slot).
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
+pub struct NarrativeCharacterObservables {
+    /// Canonical display name.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    /// Narrative function slot (e.g. `"protagonist"`, `"ally"`, `"foil"`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub slot: Option<String>,
+}
+
+/// Structural role of a character in the story architecture.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
+pub struct NarrativeCharacterStructure {
+    /// Narrative role string (e.g. `"protagonist"`, `"antagonist"`, `"mentor"`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub role: Option<String>,
+    /// Idiosyncratic voice tag used for prose consistency.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub voice_signature: Option<String>,
+}
+
+/// Interpretive design layer for a character (archetype, wound, arc, actant, etc.).
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
+pub struct NarrativeCharacterInterpretations {
+    /// Jungian / Campbell archetype label.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub archetype: Option<String>,
+    /// Deep psychological wound shaping behaviour.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub wound: Option<String>,
+    /// D&D-style alignment (e.g. `"neutral_good"`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub alignment: Option<String>,
+    /// Primary motivational system (`DriveModel`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub drive_model: Option<String>,
+    /// Macro arc direction (e.g. `"positive_change"`, `"disillusionment"`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub arc_type: Option<String>,
+    /// Greimas actantial role.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub actant: Option<String>,
+    /// The haunting ghost (backstory wound expressed as image or memory).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub ghost: Option<String>,
+    /// What the character consciously wants.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub want: Option<String>,
+    /// What the character unconsciously needs.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub need: Option<String>,
+    /// The dominant character flaw.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub flaw: Option<String>,
+}
+
+/// Observable descriptors for a location / setting entity.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
+pub struct NarrativeLocationObservables {
+    /// Canonical display name.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+}
+
+/// Structural classification of a setting / location.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
+pub struct NarrativeLocationStructure {
+    /// Setting type (enum from `setting.json`, e.g. `"interior_domestic"`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub setting_type: Option<String>,
+}
+
+/// Interpretive atmosphere and sensory design of a setting.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
+pub struct NarrativeLocationInterpretations {
+    /// Dominant emotional atmosphere (e.g. `"oppressive"`, `"liminal"`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub general_vibe: Option<String>,
+    /// Sensory signature: list of sensory-detail tags.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub sensory_signature: Vec<String>,
+}
+
+/// Interpretations layer for a relationship between two characters.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
+pub struct NarrativeRelationshipInterpretations {
+    /// Human-readable description of the relationship.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    /// Relational dynamic when the story begins.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub dynamic_at_start: Option<String>,
+    /// Relational dynamic at story end (or last observed point).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub dynamic_at_end: Option<String>,
+    /// Who holds structural power in the relationship.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub power_balance: Option<String>,
+    /// Trust level between the two parties.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub trust: Option<String>,
+    /// Intimacy / closeness level.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub intimacy: Option<String>,
+    /// How stable / volatile the relationship is.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub stability: Option<String>,
+}
+
 // For the ProfileOverlay associated types, we use serde_json::Value so callers
 // can choose the right concrete type via entity_observables_as::<CharacterObservables>()
 // or entity_observables_as::<SettingObservables>() as appropriate.
 
-/// Placeholder for entity overlay types — use `entity_observables_as::<T>()` with the
-/// concrete entity-type struct from `entities.rs` instead.
+/// Untyped fallback for entity overlay fields.
+///
+/// Prefer the concrete typed variants:
+/// - `NarrativeCharacterObservables` / `NarrativeCharacterStructure` / `NarrativeCharacterInterpretations`
+/// - `NarrativeLocationObservables` / `NarrativeLocationStructure` / `NarrativeLocationInterpretations`
 pub type NarrativeEntityValue = Value;
 
 // ── ProfileOverlay marker impl ────────────────────────────────────────────────

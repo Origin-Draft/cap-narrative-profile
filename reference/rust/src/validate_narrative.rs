@@ -8,7 +8,7 @@
 //!
 //! ```rust,no_run
 //! use gbr_types::sip::{SipArtifact, ConformanceLevel, validate_core};
-//! use gbr_types::validate_narrative::NarrativeValidator;
+//! use gbr_types::validate_narrative::{NarrativeValidator, validate_corpus};
 //! use gbr_types::sip::ProfileValidator;
 //!
 //! let artifact: SipArtifact = unimplemented!();
@@ -16,6 +16,7 @@
 //! issues.extend(NarrativeValidator.validate(&artifact, ConformanceLevel::Referential));
 //! ```
 
+use crate::corpus::NarrativeCorpus;
 use crate::sip::{
     enums::{ConformanceLevel, ValidationSeverity},
     validate::{ProfileValidator, ValidationIssue},
@@ -220,6 +221,130 @@ impl ProfileValidator for NarrativeValidator {
 
         issues
     }
+}
+
+// ── Corpus-level validation ───────────────────────────────────────────────────
+
+/// Validate a [`NarrativeCorpus`] for cross-artifact consistency.
+///
+/// Checks:
+/// - **NCC1** — protagonist / antagonist entity slugs declared in
+///   `story_architecture` resolve to entries in `shared_entities`.
+/// - **NCC2** — consecutive artifacts share compatible participant states:
+///   the `post_state` of scene N matches the `pre_state` of scene N+1 for
+///   the same participant (warning only, since post_state is often missing).
+///
+/// Returns a list of [`ValidationIssue`] entries. An empty list means the
+/// corpus passes all corpus-level checks at the requested `level`.
+pub fn validate_corpus(
+    corpus: &NarrativeCorpus,
+    level: ConformanceLevel,
+) -> Vec<ValidationIssue> {
+    let mut issues = Vec::new();
+
+    // ── NCC1: architecture slug resolution ───────────────────────────────
+    if level >= ConformanceLevel::Referential {
+        if let Some(arch) = &corpus.story_architecture {
+            let known_slugs: std::collections::HashSet<&str> =
+                corpus.shared_entities.iter().map(|e| e.entity_id.as_str()).collect();
+
+            // Protagonist arc: wound_slug
+            if let Some(arc) = &arch.protagonist_arc {
+                if let Some(slug) = &arc.wound_slug {
+                    if !known_slugs.contains(slug.as_str()) {
+                        issues.push(ValidationIssue {
+                            severity: ValidationSeverity::Warning,
+                            code: "NCC1:WOUND_SLUG_UNRESOLVED".into(),
+                            message: format!(
+                                "story_architecture.protagonist_arc.wound_slug {:?} not found in shared_entities",
+                                slug
+                            ),
+                            path: "story_architecture.protagonist_arc.wound_slug".into(),
+                        });
+                    }
+                }
+            }
+
+            // Antagonist entity_slug
+            if let Some(ant) = &arch.antagonist {
+                if let Some(slug) = &ant.entity_slug {
+                    // Abstract force slugs like "self" are allowed — only warn for non-trivial slugs
+                    if slug != "self"
+                        && slug != "society"
+                        && !known_slugs.contains(slug.as_str())
+                    {
+                        issues.push(ValidationIssue {
+                            severity: ValidationSeverity::Warning,
+                            code: "NCC1:ANTAGONIST_SLUG_UNRESOLVED".into(),
+                            message: format!(
+                                "story_architecture.antagonist.entity_slug {:?} not found in shared_entities",
+                                slug
+                            ),
+                            path: "story_architecture.antagonist.entity_slug".into(),
+                        });
+                    }
+                }
+            }
+        }
+    }
+
+    // ── NCC2: consecutive participant-state continuity ───────────────────
+    if level >= ConformanceLevel::RoundTrip {
+        // Build per-entity post_state map for each artifact
+        // post_state[artifact_idx][entity_id] = state_value string
+        let state_snapshots: Vec<
+            std::collections::HashMap<&str, &serde_json::Value>,
+        > = corpus
+            .artifacts
+            .iter()
+            .map(|artifact| {
+                let mut map = std::collections::HashMap::new();
+                for unit in &artifact.units {
+                    for ps in &unit.participant_states {
+                        if let Some(post) = &ps.post_state {
+                            map.insert(ps.entity_ref.as_str(), &post.value);
+                        }
+                    }
+                }
+                map
+            })
+            .collect();
+
+        for i in 1..corpus.artifacts.len() {
+            let prev_post = &state_snapshots[i - 1];
+            let curr_artifact = &corpus.artifacts[i];
+
+            for unit in &curr_artifact.units {
+                for ps in &unit.participant_states {
+                    if let Some(pre) = &ps.pre_state {
+                        if let Some(prev_val) = prev_post.get(ps.entity_ref.as_str()) {
+                            if *prev_val != &pre.value {
+                                issues.push(ValidationIssue {
+                                    severity: ValidationSeverity::Warning,
+                                    code: "NCC2:STATE_CONTINUITY_GAP".into(),
+                                    message: format!(
+                                        "participant '{}': post_state in '{}' ({}) does not match pre_state in '{}' ({})",
+                                        ps.entity_ref,
+                                        corpus.artifacts[i - 1].artifact_id,
+                                        prev_val,
+                                        curr_artifact.artifact_id,
+                                        pre.value
+                                    ),
+                                    path: format!(
+                                        "artifacts[{}].participant_states[entity={}].pre_state",
+                                        i,
+                                        ps.entity_ref
+                                    ),
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    issues
 }
 
 #[cfg(test)]

@@ -54,6 +54,10 @@ path = "src/bin/sip_validate.rs"
 name = "grimoire-sip-convert"
 path = "src/bin/sip_convert.rs"
 
+[[bin]]
+name = "grimoire-sip-corpus"
+path = "src/bin/sip_corpus.rs"
+
 [dependencies]
 gbr-types = { path = "../reference/rust" }
 serde = { version = "1", features = ["derive"] }

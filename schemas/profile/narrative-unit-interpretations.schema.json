@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "narrative-unit-interpretations.schema.json",
+  "title": "Narrative Profile — Unit Interpretations",
+  "description": "Profile overlay schema constraining unit.interpretations for the narrative profile. Applies when profile='narrative'.",
+  "type": "object",
+  "properties": {
+    "pov": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Point of view type (third_person_limited, first_person, omniscient, etc.)."
+    },
+    "focalization": {
+      "type": "string",
+      "description": "Genette focalization type (zero, internal, external)."
+    },
+    "consciousness_mode": {
+      "type": "string",
+      "description": "Dorrit Cohn consciousness mode (psychonarration, narrated_monologue, quoted_monologue)."
+    },
+    "psychic_distance": {
+      "type": "string",
+      "description": "Gardner psychic distance level (1–5 or label)."
+    },
+    "narrator_reliability": {
+      "type": "string",
+      "description": "Booth narrator reliability (reliable, unreliable, partially_unreliable)."
+    },
+    "arc_type": {
+      "type": "string",
+      "description": "Scene-level arc direction."
+    },
+    "stakes_domain": {
+      "type": "string",
+      "description": "Domain of stakes at risk in this unit (physical, emotional, social, etc.)."
+    },
+    "canonical_metrics": {
+      "type": "object",
+      "description": "Structured quality metrics for this unit.",
+      "additionalProperties": true
+    },
+    "canonical_summary": {
+      "type": "object",
+      "description": "Structured scene goal/obstacle/outcome triplet.",
+      "properties": {
+        "want":     { "type": "string" },
+        "obstacle": { "type": "string" },
+        "outcome":  { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "motif_tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Motif slugs active in this unit."
+    },
+    "theory_notes": {
+      "description": "Free-form or structured literary-theory annotations.",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

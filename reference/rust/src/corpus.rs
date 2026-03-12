@@ -47,31 +47,179 @@ pub struct CrossArtifactRelationship {
     pub properties: Option<Value>,
 }
 
-// ── Story architecture summary ────────────────────────────────────────────────
+// ── Story architecture sub-types ──────────────────────────────────────────────
 
-/// High-level narrative architecture for the whole story.
+/// The inciting incident — the event that disrupts the story equilibrium.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
+pub struct IncitingIncident {
+    /// Chapter in which the incident occurs (1-based).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub chapter: Option<u32>,
+    /// Structural type of the disruption (enum from `scene_structure.json`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub incident_type: Option<String>,
+    /// Brief human-readable description.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+}
+
+/// Protagonist arc design at story level.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
+pub struct ProtagonistArc {
+    /// Macro arc trajectory (e.g. `"positive_change"`, `"disillusionment"`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub arc_direction: Option<String>,
+    /// Primary motivational system (`DriveModel` value).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub drive_model: Option<String>,
+    /// The false belief driving the protagonist's flaw.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub lie_believed: Option<String>,
+    /// The thematic truth the protagonist must accept to complete their arc.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub truth_needed: Option<String>,
+    /// Slug referencing the protagonist's wound entity in the registry.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub wound_slug: Option<String>,
+    /// Whether want and need are aligned or misaligned at story start.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub want_need_alignment: Option<String>,
+}
+
+/// Antagonist design at story level.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
+pub struct AntagonistDesign {
+    /// Entity slug for the antagonist (may be an abstract force slug or `"self"`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub entity_slug: Option<String>,
+    /// Antagonist typology (Truby taxonomy).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub antagonist_type: Option<String>,
+    /// Does the antagonist undergo a change arc?
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub arc_type: Option<String>,
+    /// Structural depth of the antagonist's challenge (Truby opposition levels).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub opposition_level: Option<String>,
+    /// Whether the antagonist mirrors the protagonist's want through opposite means.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub thematic_mirror: Option<bool>,
+}
+
+/// A story-level thematic claim (McKee / Egri controlling idea).
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
+pub struct ThemeClaim {
+    /// Theme label (e.g. `"grief"`, `"identity"`).
+    pub theme: String,
+    /// The controlling idea expressed by this theme.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub controlling_idea: Option<String>,
+}
+
+/// A macro-arc beat positioned in the narrative sequence.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
+pub struct BeatSequenceEntry {
+    /// Beat label (e.g. `"status_quo"`, `"inciting_incident"`, `"climax"`).
+    pub beat: String,
+    /// Chapter number (1-based).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub chapter: Option<u32>,
+    /// Scene number within the chapter (1-based).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub scene: Option<u32>,
+    /// Brief description of what happens at this beat.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+}
+
+/// A recurring motif tracked across the whole story.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
+pub struct MotifEntry {
+    /// Motif slug (e.g. `"the_key"`, `"silence"`).
+    pub motif: String,
+    /// Description of what the motif represents and where it appears.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+}
+
+// ── Story architecture ─────────────────────────────────────────────────────────
+
+/// Full typed narrative architecture for the whole story.
 ///
-/// This is the corpus-level equivalent of unit-level structure metadata.
+/// Maps from `story_architecture.json` — the GBR corpus-level document that
+/// encodes genre contract, collision, protagonist/antagonist design, actantial
+/// map, beat sequence, and motif vocabulary.
+///
+/// Per the GBR architecture doc, there is exactly one StoryArchitecture per corpus.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
 pub struct StoryArchitecture {
     /// Story title.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
+
     /// Primary genre (`horror`, `literary_fiction`, etc.).
     #[serde(skip_serializing_if = "Option::is_none")]
     pub genre: Option<String>,
+
+    /// Secondary genre (genre hybridization).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub genre_secondary: Option<String>,
+
+    /// Macro-level story structure type (e.g. `"three_act"`, `"two_act"`, `"kishotenketsu"`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub structure_type: Option<String>,
+
+    /// Number of acts.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub act_count: Option<u32>,
+
+    /// Number of chapters.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub chapter_count: Option<u32>,
+
+    /// The structural collision type (e.g. `"person_vs_self"`, `"person_vs_society"`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub collision_type: Option<String>,
+
+    /// The inciting incident.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub inciting_incident: Option<IncitingIncident>,
+
+    /// Protagonist arc design.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub protagonist_arc: Option<ProtagonistArc>,
+
+    /// Antagonist design.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub antagonist: Option<AntagonistDesign>,
+
     /// The controlling idea (Egri / McKee).
     #[serde(skip_serializing_if = "Option::is_none")]
     pub controlling_idea: Option<String>,
+
     /// The promise to the reader (genre contract).
     #[serde(skip_serializing_if = "Option::is_none")]
     pub genre_promise: Option<String>,
-    /// Macro-level story structure type (e.g., `"three_act"`, `"five_act"`, `"kishotenketsu"`).
+
+    /// Which social world has structural advantage.
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub structure_type: Option<String>,
-    /// Additional profile-defined properties.
+    pub power_asymmetry: Option<String>,
+
+    /// Story-level thematic claims.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub themes: Vec<ThemeClaim>,
+
+    /// The macro-arc beat sequence — maps beat labels to scene positions.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub beat_sequence: Vec<BeatSequenceEntry>,
+
+    /// Recurring motifs tracked across the whole story.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub motifs: Vec<MotifEntry>,
+
+    /// Greimas actantial map (free-form; profile-defined structure).
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub extra: Option<Value>,
+    pub actantial_map: Option<Value>,
 }
 
 // ── NarrativeCorpus ───────────────────────────────────────────────────────────
@@ -249,7 +397,7 @@ mod tests {
             controlling_idea: None,
             genre_promise: None,
             structure_type: None,
-            extra: None,
+            ..Default::default()
         });
         let serialized = serde_json::to_string(&corpus).unwrap();
         let corpus2: NarrativeCorpus = serde_json::from_str(&serialized).unwrap();

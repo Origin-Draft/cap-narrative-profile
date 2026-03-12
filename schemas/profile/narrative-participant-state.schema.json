@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "narrative-participant-state.schema.json",
+  "title": "Narrative Profile — Participant State",
+  "description": "Profile overlay schema constraining participant_state entries for the narrative profile.",
+  "type": "object",
+  "properties": {
+    "observables": {
+      "type": "object",
+      "description": "Observable tactic or action taken by this participant.",
+      "properties": {
+        "tactic": {
+          "type": "string",
+          "description": "Observable action or strategy used to pursue the objective."
+        }
+      },
+      "additionalProperties": false
+    },
+    "pre_state": {
+      "type": "object",
+      "description": "State entering this unit. state_type 'emotional' requires a non-empty string value.",
+      "properties": {
+        "state_type": { "type": "string", "minLength": 1 },
+        "value": {}
+      },
+      "required": ["state_type", "value"],
+      "additionalProperties": true
+    },
+    "post_state": {
+      "type": "object",
+      "description": "State exiting this unit.",
+      "properties": {
+        "state_type": { "type": "string", "minLength": 1 },
+        "value": {}
+      },
+      "required": ["state_type", "value"],
+      "additionalProperties": true
+    },
+    "objective": {
+      "type": "object",
+      "description": "What the participant is trying to achieve in this unit.",
+      "properties": {
+        "action": { "type": "string", "minLength": 1 },
+        "target": { "type": "string" }
+      },
+      "required": ["action"],
+      "additionalProperties": false
+    },
+    "obstacle": {
+      "type": "string",
+      "description": "What opposes the objective."
+    },
+    "information_state": {
+      "type": "object",
+      "description": "What the participant knows and does not know.",
+      "properties": {
+        "knows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "subject":   { "type": "string" },
+              "predicate": { "type": "string" },
+              "about":     { "type": "string" },
+              "certainty": { "type": ["string", "null"] }
+            },
+            "required": ["subject", "predicate", "about"]
+          }
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "subject":   { "type": "string" },
+              "predicate": { "type": "string" },
+              "about":     { "type": "string" },
+              "certainty": { "type": ["string", "null"] }
+            },
+            "required": ["subject", "predicate", "about"]
+          }
+        },
+        "gained": {
+          "type": "array",
+          "items": { "type": "object" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "interpretations": {
+      "type": "object",
+      "description": "Profile-defined interpretive data for this participant state.",
+      "properties": {
+        "emotion": {
+          "type": "string",
+          "description": "Dominant emotion at scene entry."
+        },
+        "arc_beat": {
+          "type": "string",
+          "description": "Character-arc beat active in this scene."
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
