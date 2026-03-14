@@ -514,11 +514,10 @@
       "description": "Character's physical posture"
     },
     "psychic_distance": {
-      "type": "string",
-      "enum": [
-        "distant_narrator", "close_narrator", "neutral_filter", "deep_filter", "stream_of_consciousness"
-      ],
-      "description": "Gardner psychic distance: distant_narrator (1=most distant), close_narrator (2), neutral_filter (3), deep_filter (4=character's voice), stream_of_consciousness (5=direct thought)"
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Gardner psychic distance level: 1=distant narrator, 2=close narrator, 3=neutral filter, 4=deep filter (character's voice), 5=stream of consciousness"
     },
     "psychic_distance_trigger": {
       "type": "string",

@@ -151,15 +151,3 @@
   },
   "additionalProperties": false
 }
-        },
-        "required": ["motif"],
-        "additionalProperties": false
-      }
-    },
-    "actantial_map": {
-      "description": "Greimas actantial map (free-form).",
-      "additionalProperties": true
-    }
-  },
-  "additionalProperties": false
-}

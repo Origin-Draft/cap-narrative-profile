@@ -15,7 +15,7 @@
   "notes": [
     "All schemas use draft-07.",
     "narrative-context.schema.json and narrative-craft-targets.schema.json were defined in the initial profile release.",
-    "narrative-entity-character.schema.json constrains entity.interpretations when entity_type='character'.",
+    "narrative-entity-character.schema.json constrains entity.structural_properties.role when entity_type='character'.",
     "narrative-story-architecture.schema.json constrains NarrativeCorpus.story_architecture.",
     "narrative-relationship.schema.json constrains SipRelationship.interpretations when profile='narrative'."
   ]
