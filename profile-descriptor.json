@@ -58,7 +58,9 @@
     ],
     "event_types": [
       { "value": "action", "description": "Physical action", "source_enum": "scene_structure.json → event_type" },
+      { "value": "decision", "description": "Character makes a choice", "source_enum": "scene_structure.json → event_type" },
       { "value": "dialogue", "description": "Speech between characters", "source_enum": "scene_structure.json → event_type" },
+      { "value": "discovery", "description": "Character uncovers information", "source_enum": "scene_structure.json → event_type" },
       { "value": "internal_shift", "description": "Internal thought or realization", "source_enum": "scene_structure.json → event_type" },
       { "value": "revelation", "description": "Information disclosed to reader/character", "source_enum": "scene_structure.json → event_type" },
       { "value": "description", "description": "Setting or character description", "source_enum": "scene_structure.json → event_type" },
@@ -73,11 +75,18 @@
       { "value": "physical", "description": "Physical condition" }
     ],
     "causal_role_extensions": [
+      { "value": "setup", "description": "Establishes information/context", "source_enum": "scene_structure.json → causal_role" },
+      { "value": "trigger", "description": "Initiates the causal chain", "source_enum": "scene_structure.json → causal_role" },
+      { "value": "complication", "description": "Adds obstacle or complexity", "source_enum": "scene_structure.json → causal_role" },
+      { "value": "resolution", "description": "Resolves or closes a thread", "source_enum": "scene_structure.json → causal_role" },
+      { "value": "payoff", "description": "Fulfills a prior setup", "source_enum": "scene_structure.json → causal_role" },
+      { "value": "pivot", "description": "Redirects the causal direction", "source_enum": "scene_structure.json → causal_role" },
+      { "value": "bridge", "description": "Connects two causal segments", "source_enum": "scene_structure.json → causal_role" },
       { "value": "catalyst", "description": "Inciting force", "source_enum": "scene_structure.json → causal_role" },
       { "value": "escalation", "description": "Raising stakes", "source_enum": "scene_structure.json → causal_role" },
       { "value": "crisis", "description": "Moment of greatest tension", "source_enum": "scene_structure.json → causal_role" },
-      { "value": "climax", "description": "Peak of dramatic action" },
-      { "value": "denouement", "description": "Unwinding after resolution" }
+      { "value": "climax", "description": "Peak of dramatic action", "source_enum": "scene_structure.json → causal_role" },
+      { "value": "denouement", "description": "Unwinding after resolution", "source_enum": "scene_structure.json → causal_role" }
     ]
   },
 
@@ -124,7 +133,9 @@
     "unit.interpretations": "schemas/profile/narrative-unit-interpretations.schema.json",
     "unit.craft_targets": "schemas/profile/narrative-craft-targets.schema.json",
     "participant_state": "schemas/profile/narrative-participant-state.schema.json",
-    "entity.interpretations": "schemas/profile/narrative-entity-character.schema.json",
-    "relationship.interpretations": "schemas/profile/narrative-relationship.schema.json"
+    "entity[entity_type=character]": "schemas/profile/narrative-entity-character.schema.json",
+    "entity[entity_type=location]": "schemas/profile/narrative-entity-location.schema.json",
+    "relationship.interpretations": "schemas/profile/narrative-relationship.schema.json",
+    "artifact.interpretations.story_architecture": "schemas/profile/narrative-story-architecture.schema.json"
   }
 }

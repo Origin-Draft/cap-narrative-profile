@@ -22,15 +22,16 @@
       "description": "Who holds structural power in the relationship."
     },
     "trust": {
-      "type": "string",
-      "description": "Trust level between the two parties."
+      "$ref": "../enums.schema.json#/$defs/relationship_distance",
+      "description": "Trust level between the two parties (maps to relationship_distance vocabulary)."
     },
     "intimacy": {
-      "type": "string",
+      "$ref": "../enums.schema.json#/$defs/relationship_distance",
       "description": "Intimacy / closeness level."
     },
     "stability": {
       "type": "string",
+      "enum": ["stable", "volatile", "deteriorating", "improving", "oscillating"],
       "description": "How stable or volatile the relationship is."
     }
   },

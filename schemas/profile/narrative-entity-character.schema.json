@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "narrative-entity-character.schema.json",
   "title": "Narrative Profile — Character Entity Constraints",
-  "description": "Profile overlay schema constraining entity.structural_properties when entity_type is 'character'. Per PROFILE.md §3.1, structural_properties.role is REQUIRED for characters.",
+  "description": "Profile overlay schema constraining entity when entity_type is 'character'. Covers structural_properties, interpretations, and voice_signature.",
   "type": "object",
   "properties": {
     "structural_properties": {
@@ -11,9 +11,97 @@
         "role": {
           "$ref": "../enums.schema.json#/$defs/role",
           "description": "Narrative role. REQUIRED for character entities."
+        },
+        "arc_type": {
+          "$ref": "../enums.schema.json#/$defs/arc_type",
+          "description": "Character arc trajectory."
+        },
+        "actant": {
+          "$ref": "../enums.schema.json#/$defs/actant",
+          "description": "Greimas actantial role."
         }
       },
-      "required": ["role"]
+      "required": ["role"],
+      "additionalProperties": true
+    },
+    "interpretations": {
+      "type": "object",
+      "properties": {
+        "archetype": {
+          "$ref": "../enums.schema.json#/$defs/archetype",
+          "description": "Character archetype."
+        },
+        "wound": {
+          "$ref": "../enums.schema.json#/$defs/wound",
+          "description": "Character's core wound."
+        },
+        "alignment": {
+          "$ref": "../enums.schema.json#/$defs/alignment",
+          "description": "Moral alignment."
+        },
+        "drive_model": {
+          "$ref": "../enums.schema.json#/$defs/drive_model",
+          "description": "Motivation model."
+        },
+        "want_need_alignment": {
+          "$ref": "../enums.schema.json#/$defs/want_need_alignment",
+          "description": "Truby want vs. need relationship."
+        },
+        "want": {
+          "type": "string",
+          "description": "What the character consciously pursues."
+        },
+        "need": {
+          "type": "string",
+          "description": "What the character actually needs (may differ from want)."
+        },
+        "ghost": {
+          "type": "string",
+          "description": "Backstory wound event — the past that haunts."
+        },
+        "flaw": {
+          "type": "string",
+          "description": "Character's primary flaw (often created by the wound)."
+        }
+      },
+      "additionalProperties": true
+    },
+    "voice_signature": {
+      "type": "object",
+      "description": "Voice contract: how this character sounds in prose.",
+      "properties": {
+        "sentence_length_tendency": {
+          "type": "string",
+          "enum": ["short", "varied", "long"],
+          "description": "Dominant sentence length pattern."
+        },
+        "vocabulary_register": {
+          "type": "string",
+          "enum": ["elevated", "standard", "colloquial", "dialect"],
+          "description": "Default vocabulary register."
+        },
+        "syntax_complexity": {
+          "type": "string",
+          "enum": ["simple", "moderate", "complex"],
+          "description": "Default syntactic complexity."
+        },
+        "fid_markers": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Free indirect discourse markers associated with this character."
+        },
+        "signature_phrases": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Recurring phrases or verbal tics."
+        },
+        "forbidden_words": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Words this character would never use."
+        }
+      },
+      "additionalProperties": false
     }
   }
 }

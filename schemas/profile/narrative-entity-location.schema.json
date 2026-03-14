@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "narrative-entity-location.schema.json",
+  "title": "Narrative Profile — Location Entity Constraints",
+  "description": "Profile overlay schema constraining entity when entity_type is 'location'. Covers observable_descriptors and interpretations for settings.",
+  "type": "object",
+  "properties": {
+    "observable_descriptors": {
+      "type": "object",
+      "properties": {
+        "setting_type": {
+          "$ref": "../enums.schema.json#/$defs/setting_type",
+          "description": "Setting type classification."
+        },
+        "spatial_structure": {
+          "$ref": "../enums.schema.json#/$defs/spatial_structure",
+          "description": "Spatial geometry of the setting."
+        },
+        "territory_type": {
+          "$ref": "../enums.schema.json#/$defs/territory_type",
+          "description": "Whose territory this setting represents."
+        }
+      },
+      "additionalProperties": true
+    },
+    "interpretations": {
+      "type": "object",
+      "properties": {
+        "symbolic_valence": {
+          "type": "string",
+          "description": "Primary symbolic meaning of this location."
+        },
+        "sensory_signature": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Defining sensory details of this location."
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

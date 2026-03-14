@@ -483,7 +483,7 @@
       "enum": [
         "establish", "complicate", "reveal", "confront",
         "decide", "transform", "resolve", "transition",
-        "world_building", "revelation", "decision"
+        "world_building"
       ],
       "description": "Structural work this scene does"
     },
@@ -1200,13 +1200,34 @@
       ],
       "description": "Truby want vs. need: aligned (want=need), opposed (want blocks need), unknown_need (character unaware), false_want (pursuing wrong goal), evolving (relationship shifting)"
     },
-
-    "actantial_role": {
+    "burke_form": {
       "type": "string",
       "enum": [
-        "subject", "object", "sender", "receiver", "helper", "opponent"
+        "progressive", "repetitive", "conventional", "minor"
       ],
-      "description": "Greimas actantial model: subject (desires), object (desired), sender (initiates), receiver (benefits), helper (aids), opponent (impedes)"
+      "description": "Burke form taxonomy: progressive (builds stepwise), repetitive (recurring pattern), conventional (genre expectation), minor (local flourish)"
+    },
+    "anti_mimetic_technique": {
+      "type": "string",
+      "enum": [
+        "impossible_narrator", "denarration", "contradictory_storyworld",
+        "anti_temporal", "permutation_narrative", "none"
+      ],
+      "description": "Richardson unnatural narratology: anti-mimetic narrative techniques"
+    },
+    "structure_type": {
+      "type": "string",
+      "enum": [
+        "three_act", "two_act", "four_act", "five_act",
+        "kishotenketsu", "episodic", "frame", "circular",
+        "linear", "braided", "reverse_chronological"
+      ],
+      "description": "Macro narrative structure type"
+    },
+
+    "actantial_role": {
+      "$comment": "DEPRECATED: use actant instead. Kept for backwards compatibility.",
+      "$ref": "#/$defs/actant"
     },
     "irony_type": {
       "type": "string",
@@ -1383,10 +1404,10 @@
     "event_type": {
       "type": "string",
       "enum": [
-        "action", "decision", "dialogue_exchange",
-        "discovery", "revelation", "internal_shift"
+        "action", "decision", "dialogue", "discovery", "revelation",
+        "internal_shift", "description", "flashback", "flash_forward"
       ],
-      "description": "Category of scene turn event"
+      "description": "Category of scene turn event. 'dialogue_exchange' is DEPRECATED — use 'dialogue'. Temporal modes (flashback/flash_forward) and descriptive passages included."
     },
     "outcome_type": {
       "type": "string",
@@ -1395,8 +1416,12 @@
     },
     "causal_role_type": {
       "type": "string",
-      "enum": ["setup", "payoff", "pivot", "bridge"],
-      "description": "How this scene functions causally in the plot"
+      "enum": [
+        "setup", "trigger", "complication", "resolution",
+        "payoff", "pivot", "bridge",
+        "catalyst", "escalation", "crisis", "climax", "denouement"
+      ],
+      "description": "How this unit functions causally in the plot. Includes SIP core roles (setup/trigger/complication/resolution), structural connectors (payoff/pivot/bridge), and dramatic beats (catalyst/escalation/crisis/climax/denouement)."
     },
     "role_in_scene": {
       "type": "string",

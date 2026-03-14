@@ -62,7 +62,12 @@
               "subject":   { "type": "string" },
               "predicate": { "type": "string" },
               "about":     { "type": "string" },
-              "certainty": { "type": ["string", "null"] }
+              "certainty": {
+                "oneOf": [
+                  { "$ref": "../enums.schema.json#/$defs/knowledge_certainty" },
+                  { "type": "null" }
+                ]
+              }
             },
             "required": ["subject", "predicate", "about"]
           }
@@ -75,7 +80,12 @@
               "subject":   { "type": "string" },
               "predicate": { "type": "string" },
               "about":     { "type": "string" },
-              "certainty": { "type": ["string", "null"] }
+              "certainty": {
+                "oneOf": [
+                  { "$ref": "../enums.schema.json#/$defs/knowledge_certainty" },
+                  { "type": "null" }
+                ]
+              }
             },
             "required": ["subject", "predicate", "about"]
           }
@@ -98,9 +108,73 @@
         "arc_beat": {
           "$ref": "../enums.schema.json#/$defs/personal_arc_beat",
           "description": "Character-arc beat active in this scene."
+        },
+        "emotional_arc": {
+          "$ref": "../enums.schema.json#/$defs/emotional_arc",
+          "description": "Direction of emotional change through this unit."
+        },
+        "pov_role": {
+          "$ref": "../enums.schema.json#/$defs/pov_role",
+          "description": "This participant's relationship to the focalization."
+        },
+        "social_mask": {
+          "$ref": "../enums.schema.json#/$defs/social_mask",
+          "description": "Public face presented vs. interior state."
+        },
+        "wound_triggered": {
+          "type": "boolean",
+          "description": "Whether the character's core wound is activated in this scene."
+        },
+        "wound_category": {
+          "$ref": "../enums.schema.json#/$defs/wound_category",
+          "description": "Which wound category is active, if wound_triggered is true."
+        },
+        "stakes_personal": {
+          "$ref": "../enums.schema.json#/$defs/personal_stakes",
+          "description": "What this character personally stands to lose."
+        },
+        "stakes_relational": {
+          "type": "string",
+          "description": "What the relationship stands to lose."
+        },
+        "want_need_alignment": {
+          "$ref": "../enums.schema.json#/$defs/want_need_alignment",
+          "description": "Truby want vs. need alignment in this scene."
+        },
+        "drive_model": {
+          "$ref": "../enums.schema.json#/$defs/drive_model",
+          "description": "Active motivation model in this scene."
         }
       },
       "additionalProperties": true
+    },
+    "emotional_state": {
+      "type": "object",
+      "description": "Compound emotional state shape (for pre_state/post_state values).",
+      "properties": {
+        "emotion": {
+          "$ref": "../enums.schema.json#/$defs/emotion",
+          "description": "Primary emotion."
+        },
+        "intensity": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5,
+          "description": "Emotional intensity (1=subtle, 5=overwhelming)."
+        },
+        "secondary_emotion": {
+          "$ref": "../enums.schema.json#/$defs/emotion",
+          "description": "Secondary emotion, if present."
+        },
+        "masked_emotion": {
+          "oneOf": [
+            { "$ref": "../enums.schema.json#/$defs/emotion" },
+            { "type": "null" }
+          ],
+          "description": "Hidden emotion being concealed, if any."
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": true

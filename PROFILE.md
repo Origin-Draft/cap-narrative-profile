@@ -199,6 +199,8 @@ The narrative profile defines a top-level `story_architecture` key on the Artifa
 | `structure` | How the narrative is organized at book level | `genre`, `collision_type`, `inciting_incident`, `beat_sequence`, `motifs` |
 | `interpretations` | Inferred meaning and analytical claims | `protagonist_arc`, `antagonist`, `controlling_idea`, `themes` |
 
+**Normative attachment path:** When `profile = "narrative"`, `artifact.interpretations` MUST be an object. The field `artifact.interpretations.story_architecture` SHOULD be present and MUST conform to `narrative-story-architecture.schema.json` when present. Consumers MUST look for story architecture data at this path.
+
 Schema: `schemas/profile/narrative-story-architecture.schema.json`
 
 ---

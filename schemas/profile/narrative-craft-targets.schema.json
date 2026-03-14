@@ -18,7 +18,20 @@
     "tone": {
       "$ref": "../enums.schema.json#/$defs/tone",
       "description": "Authorial/narrator attitude."
+    },
+    "scene_goal": {
+      "type": "string",
+      "description": "What this scene should accomplish dramatically (authorial intent, not character goal)."
+    },
+    "emotional_target": {
+      "$ref": "../enums.schema.json#/$defs/emotion",
+      "description": "The emotion the author intends the reader to feel."
+    },
+    "chapter_position": {
+      "type": "string",
+      "enum": ["opening", "midpoint", "closing"],
+      "description": "This unit's structural role within its chapter."
     }
   },
-  "additionalProperties": false
+  "additionalProperties": true
 }

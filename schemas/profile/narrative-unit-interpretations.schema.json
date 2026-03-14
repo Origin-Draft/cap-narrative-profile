@@ -58,8 +58,80 @@
       "items": { "type": "string" },
       "description": "Motif slugs active in this unit."
     },
+    "event_significance": {
+      "type": "string",
+      "enum": ["kernel", "satellite"],
+      "description": "Chatman: kernel (hinge-point opening alternatives) or satellite (elaboration)."
+    },
+    "pentad_focus": {
+      "$ref": "../enums.schema.json#/$defs/pentad_focus",
+      "description": "Burke Pentad: which element carries the scene's primary dramatic weight."
+    },
+    "burke_form": {
+      "$ref": "../enums.schema.json#/$defs/burke_form",
+      "description": "Burke form taxonomy for this unit."
+    },
+    "narratee_type": {
+      "$ref": "../enums.schema.json#/$defs/narratee_type",
+      "description": "Prince narratee theory: explicit, implicit, dramatized, zero_degree."
+    },
+    "irony_type": {
+      "$ref": "../enums.schema.json#/$defs/irony_type",
+      "description": "Booth/Hutcheon irony type active in this unit."
+    },
+    "anti_mimetic_technique": {
+      "$ref": "../enums.schema.json#/$defs/anti_mimetic_technique",
+      "description": "Richardson: unnatural narratology technique, if any."
+    },
+    "metafictional_technique": {
+      "$ref": "../enums.schema.json#/$defs/metafictional_technique",
+      "description": "Waugh/McHale metafictional technique, if any."
+    },
+    "subtext": {
+      "type": "object",
+      "description": "Subtext analysis (Hemingway/Grice/Pinter).",
+      "properties": {
+        "technique": {
+          "$ref": "../enums.schema.json#/$defs/subtext_technique",
+          "description": "Primary subtext technique."
+        },
+        "iceberg_category": {
+          "$ref": "../enums.schema.json#/$defs/iceberg_category",
+          "description": "What is submerged (when technique=iceberg)."
+        },
+        "maxim_violated": {
+          "type": "string",
+          "enum": ["quantity", "quality", "relation", "manner"],
+          "description": "Grice maxim violated (when technique=gricean_violation)."
+        },
+        "violation_type": {
+          "type": "string",
+          "description": "How the maxim is violated."
+        }
+      },
+      "additionalProperties": false
+    },
+    "psychoanalytic": {
+      "type": "object",
+      "description": "Psychoanalytic layer (Freud/Lacan/Kristeva).",
+      "properties": {
+        "freudian_mechanism": {
+          "$ref": "../enums.schema.json#/$defs/freudian_mechanism",
+          "description": "Dominant Freudian defense or dream mechanism."
+        },
+        "lacan_register": {
+          "$ref": "../enums.schema.json#/$defs/lacan_register",
+          "description": "Lacan: real, symbolic, or imaginary register."
+        },
+        "abject_category": {
+          "$ref": "../enums.schema.json#/$defs/abject_category",
+          "description": "Kristeva abjection category, if applicable."
+        }
+      },
+      "additionalProperties": false
+    },
     "theory_notes": {
-      "description": "Free-form or structured literary-theory annotations.",
+      "description": "Free-form or structured literary-theory annotations not covered by formal fields above.",
       "additionalProperties": true
     }
   },
