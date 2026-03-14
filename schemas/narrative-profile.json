@@ -1,8 +1,8 @@
 {
   "$schema": "../../../sip-protocol/schemas/profile-descriptor.schema.json",
   "profile_id": "narrative",
-  "profile_version": "0.1.0",
-  "sip_version_range": ">=0.1.0 <1.0.0",
+  "profile_version": "1.0.0",
+  "sip_version_range": ">=1.0.0 <2.0.0",
   "description": "Narrative fiction profile for the Semantic Interaction Protocol. Registers types, enums, required fields, and validation rules necessary to annotate prose fiction.",
   "type_registries": {
     "entity_types": [

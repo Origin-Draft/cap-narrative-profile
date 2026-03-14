@@ -164,16 +164,12 @@
     "setting_type": {
       "type": "string",
       "enum": [
-        "estate_interior", "estate_exterior", "manor_house", "cottage",
-        "public_building", "religious_building", "government_building",
-        "commercial", "inn_tavern", "market",
-        "domestic_modest", "domestic_grand", "domestic_poor",
-        "transport", "carriage", "ship", "on_foot",
-        "natural_landscape", "garden", "forest", "field", "water_body",
-        "urban_street", "urban_square", "urban_alley",
-        "military", "prison", "hospital", "school"
+        "interior_domestic", "interior_institutional", "interior_commercial",
+        "interior_liminal", "exterior_urban", "exterior_rural",
+        "exterior_wilderness", "exterior_liminal", "vehicle",
+        "virtual_or_imagined", "no_fixed_location"
       ],
-      "description": "Category of setting location"
+      "description": "Category of setting location (synced with enums/setting.json)"
     },
     "location_qualifier": {
       "type": "string",
@@ -1446,6 +1442,77 @@
         }
       },
       "additionalProperties": false
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "protagonist", "deuteragonist", "antagonist", "love_interest",
+        "mentor", "confidant", "ally", "foil", "catalyst",
+        "bridge_character", "ghost_character", "trickster", "guardian",
+        "herald", "shapeshifter", "contagonist", "walk_on"
+      ],
+      "description": "Narrative role a character plays in the story (from enums/character.json)"
+    },
+    "archetype": {
+      "type": "string",
+      "enum": [
+        "hero", "mentor", "threshold_guardian", "herald", "shapeshifter",
+        "shadow", "ally", "trickster", "everyman", "lover", "caregiver",
+        "sage", "innocent", "rebel", "ruler", "outcast", "creator",
+        "explorer", "magician", "jester", "outlaw"
+      ],
+      "description": "Jungian/Campbell archetype (from enums/character.json)"
+    },
+    "wound": {
+      "type": "string",
+      "enum": [
+        "abandonment", "betrayal", "guilt_and_failure", "trauma_and_abuse",
+        "shame", "grief", "trust_violation", "powerlessness",
+        "identity_rejection", "injustice", "neglect", "survivor_guilt",
+        "displacement",
+        "parental_abandonment", "romantic_abandonment", "social_exile",
+        "institutional_betrayal", "public_humiliation", "identity_shame",
+        "loss_of_purpose", "catastrophic_failure", "moral_compromise",
+        "smothering"
+      ],
+      "description": "Core wound category — umbrella + fine-grained (from enums/character.json)"
+    },
+    "alignment": {
+      "type": "string",
+      "enum": [
+        "lawful_good", "neutral_good", "chaotic_good",
+        "lawful_neutral", "true_neutral", "chaotic_neutral",
+        "lawful_evil", "neutral_evil", "chaotic_evil"
+      ],
+      "description": "Moral alignment grid (from enums/character.json)"
+    },
+    "actant": {
+      "type": "string",
+      "enum": [
+        "subject", "object", "sender", "receiver", "helper", "opponent"
+      ],
+      "description": "Greimas actantial role (from enums/character.json)"
+    },
+    "relationship_type": {
+      "type": "string",
+      "enum": [
+        "family_parent_child", "family_sibling", "family_extended",
+        "family_chosen", "romantic_partner", "romantic_former",
+        "romantic_unrequited", "friendship", "professional_peer",
+        "professional_hierarchical", "rival", "antagonist_protagonist",
+        "enemy", "alliance", "acquaintance", "stranger",
+        "institutional", "ambiguous"
+      ],
+      "description": "Typed relationship between two entities (from enums/relationship.json)"
+    },
+    "relationship_dynamic": {
+      "type": "string",
+      "enum": [
+        "supportive", "adversarial", "dependent", "manipulative",
+        "protective", "competitive", "ambivalent", "distant",
+        "intimate", "transactional", "hierarchical", "shifting"
+      ],
+      "description": "Qualitative dynamic within a relationship (from enums/relationship.json)"
     }
   }
 }
