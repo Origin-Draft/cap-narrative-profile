@@ -205,6 +205,26 @@ Schema: `schemas/profile/narrative-story-architecture.schema.json`
 
 ---
 
+### 4.3 `prose_analysis`
+
+The narrative profile defines a fifth epistemic section for prose-level stylistic analysis. Unlike `craft_targets` (prescriptive intent), `prose_analysis` is descriptive — it captures how the prose IS, not how the author intended it.
+
+| Sub-section | Contents | Example fields |
+|-------------|----------|---------------|
+| `voice_contract` | Stable voice parameters across the unit | `narrative_register`, `default_psychic_distance`, `diction_level`, `vocabulary_source` |
+| `paragraph_features` | Per-paragraph analysis | `function`, `dominant_discourse_mode`, `rhythm_pattern`, `sentence_analysis[]` |
+| `dialogue_features` | Per-dialogue-beat analysis | `speaker`, `speech_register`, `attribution_style`, `speech_act_category` |
+| `passage_statistics` | Aggregate metrics | `avg_sentence_length`, `dialogue_percentage`, `dominant_rhythm` |
+| `style_markers` | Distinctive signatures | `signature_constructions`, `semantic_fields`, `avoided_constructions` |
+
+**Confidence model:** `interpreted_value`. All fields MAY use the interpreted_value wrapper because prose analysis is inherently interpretive (analyst-dependent).
+
+**Normative placement:** When present, `unit.prose_analysis` MUST conform to `narrative-prose-analysis.schema.json`.
+
+Schema: `schemas/profile/narrative-prose-analysis.schema.json`
+
+---
+
 ## 5. Narrative Voice Observables
 
 The narrative profile adds these fields to `unit.observables.context`:

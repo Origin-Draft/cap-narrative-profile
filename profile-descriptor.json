@@ -95,6 +95,11 @@
       "name": "craft_targets",
       "purpose": "Prescriptive authorial intent — what the author is aiming for in this unit",
       "confidence_model": "always_certain"
+    },
+    {
+      "name": "prose_analysis",
+      "purpose": "Prose-level stylistic analysis — voice contract, paragraph/sentence linguistics, dialogue features, passage statistics. Analysis mode: describes how the prose IS, not authorial intent.",
+      "confidence_model": "interpreted_value"
     }
   ],
 
@@ -136,6 +141,7 @@
     "entity[entity_type=character]": "schemas/profile/narrative-entity-character.schema.json",
     "entity[entity_type=location]": "schemas/profile/narrative-entity-location.schema.json",
     "relationship.interpretations": "schemas/profile/narrative-relationship.schema.json",
-    "artifact.interpretations.story_architecture": "schemas/profile/narrative-story-architecture.schema.json"
+    "artifact.interpretations.story_architecture": "schemas/profile/narrative-story-architecture.schema.json",
+    "unit.prose_analysis": "schemas/profile/narrative-prose-analysis.schema.json"
   }
 }

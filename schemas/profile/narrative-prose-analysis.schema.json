@@ -1,0 +1,223 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "narrative-prose-analysis.schema.json",
+  "title": "Narrative Profile — Prose Analysis",
+  "description": "Fifth epistemic section: prose-level stylistic analysis. Analysis mode only — these fields describe how the prose IS, not how the author intended it. All fields are interpretive and MAY use the interpreted_value wrapper.",
+  "type": "object",
+  "properties": {
+    "voice_contract": {
+      "type": "object",
+      "description": "Stable voice parameters across the unit.",
+      "properties": {
+        "narrative_register": {
+          "$ref": "../enums.schema.json#/$defs/narrative_voice_register",
+          "description": "Stylistic register of narrative voice."
+        },
+        "default_psychic_distance": {
+          "$ref": "../enums.schema.json#/$defs/psychic_distance",
+          "description": "Default Gardner psychic distance level (1=closest, 5=most distant)."
+        },
+        "diction_level": {
+          "$ref": "../enums.schema.json#/$defs/diction_level",
+          "description": "Vocabulary complexity and register."
+        },
+        "vocabulary_source": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Semantic fields the vocabulary draws from (e.g. 'maritime', 'domestic', 'clinical')."
+        },
+        "period_markers": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Period-specific vocabulary or constructions (e.g. 'thee/thou', 'whilst')."
+        }
+      },
+      "additionalProperties": false
+    },
+    "paragraph_features": {
+      "type": "array",
+      "description": "Per-paragraph stylistic analysis.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "paragraph_index": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Zero-based paragraph index."
+          },
+          "function": {
+            "$ref": "../enums.schema.json#/$defs/paragraph_function",
+            "description": "Structural function of this paragraph."
+          },
+          "dominant_discourse_mode": {
+            "$ref": "../enums.schema.json#/$defs/discourse_mode",
+            "description": "Primary discourse mode (narration, description, dialogue, etc.)."
+          },
+          "rhythm_pattern": {
+            "$ref": "../enums.schema.json#/$defs/prose_rhythm",
+            "description": "Dominant rhythm pattern."
+          },
+          "pacing": {
+            "$ref": "../enums.schema.json#/$defs/duration_mode",
+            "description": "Pacing of this paragraph relative to story time."
+          },
+          "jakobson_function": {
+            "$ref": "../enums.schema.json#/$defs/jakobson_function",
+            "description": "Dominant Jakobson poetic function."
+          },
+          "sentence_analysis": {
+            "type": "array",
+            "description": "Per-sentence linguistic analysis.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "sentence_index": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "structure": {
+                  "$ref": "../enums.schema.json#/$defs/sentence_structure"
+                },
+                "length_category": {
+                  "$ref": "../enums.schema.json#/$defs/sentence_length_category"
+                },
+                "word_count": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "process_type": {
+                  "$ref": "../enums.schema.json#/$defs/process_type",
+                  "description": "Halliday transitivity: material, mental, relational, verbal, behavioral, existential."
+                },
+                "figures": {
+                  "type": "array",
+                  "items": { "$ref": "../enums.schema.json#/$defs/figure_type" },
+                  "description": "Figures of speech present."
+                },
+                "metaphor_quality": {
+                  "$ref": "../enums.schema.json#/$defs/metaphor_quality",
+                  "description": "Max Black: dead, conventional, active, resonant."
+                },
+                "sound_devices": {
+                  "type": "array",
+                  "items": { "$ref": "../enums.schema.json#/$defs/sound_device" }
+                },
+                "foregrounding": {
+                  "type": "array",
+                  "items": { "$ref": "../enums.schema.json#/$defs/foregrounding_type" }
+                },
+                "concreteness": {
+                  "$ref": "../enums.schema.json#/$defs/concreteness"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "dialogue_features": {
+      "type": "array",
+      "description": "Per-dialogue-beat stylistic analysis.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "speaker": {
+            "$ref": "../enums.schema.json#/$defs/slug",
+            "description": "Entity ref for the speaker."
+          },
+          "speech_register": {
+            "$ref": "../enums.schema.json#/$defs/speech_register"
+          },
+          "attribution_style": {
+            "$ref": "../enums.schema.json#/$defs/attribution_style"
+          },
+          "discourse_mode": {
+            "$ref": "../enums.schema.json#/$defs/discourse_mode"
+          },
+          "speech_act_category": {
+            "$ref": "../enums.schema.json#/$defs/speech_act_category",
+            "description": "Searle/Austin classification."
+          },
+          "subtext_technique": {
+            "$ref": "../enums.schema.json#/$defs/subtext_technique"
+          },
+          "figures": {
+            "type": "array",
+            "items": { "$ref": "../enums.schema.json#/$defs/figure_type" }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "passage_statistics": {
+      "type": "object",
+      "description": "Aggregate passage-level statistics.",
+      "properties": {
+        "sentence_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "paragraph_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "avg_sentence_length": {
+          "type": "number",
+          "minimum": 0
+        },
+        "sentence_length_variance": {
+          "type": "number",
+          "minimum": 0
+        },
+        "dialogue_percentage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "interiority_percentage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "description_percentage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "dominant_rhythm": {
+          "$ref": "../enums.schema.json#/$defs/prose_rhythm"
+        },
+        "dominant_figures": {
+          "type": "array",
+          "items": { "$ref": "../enums.schema.json#/$defs/figure_type" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "style_markers": {
+      "type": "object",
+      "description": "Distinctive stylistic signatures.",
+      "properties": {
+        "signature_constructions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Recurring syntactic patterns (e.g. 'sentence-initial conjunction', 'em-dash interruption')."
+        },
+        "semantic_fields": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Dominant semantic domains (e.g. 'maritime', 'domestic', 'clinical')."
+        },
+        "avoided_constructions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Constructions conspicuously absent."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
