@@ -41,21 +41,19 @@
     "canonical_metrics": {
       "type": "object",
       "description": "Structured quality metrics for this unit.",
-      "additionalProperties": true
-    },
-    "canonical_summary": {
-      "type": "object",
-      "description": "Structured scene goal/obstacle/outcome triplet.",
       "properties": {
-        "want":     { "type": "string" },
-        "obstacle": { "type": "string" },
-        "outcome":  { "type": "string" }
+        "iceberg_proportion": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "subtext_load": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
       },
       "additionalProperties": false
     },
+    "canonical_summary": {
+      "$ref": "narrative-canonical-summary.schema.json",
+      "description": "Deterministic, enum-constrained, registry-bound fabula summary. All entity references are registry slugs; all categorical fields are enum-constrained. The rendered string form goes in unit.structure.semantic_fingerprint."
+    },
     "motif_tags": {
       "type": "array",
-      "items": { "type": "string" },
+      "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
       "description": "Motif slugs active in this unit."
     },
     "event_significance": {
@@ -105,7 +103,7 @@
           "description": "Grice maxim violated (when technique=gricean_violation)."
         },
         "violation_type": {
-          "type": "string",
+          "$ref": "../enums.schema.json#/$defs/violation_type",
           "description": "How the maxim is violated."
         },
         "violation_signature": {
@@ -186,7 +184,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "motif": { "type": "string", "minLength": 1 },
+          "motif": { "type": "string", "minLength": 1, "pattern": "^[a-z][a-z0-9_]*$" },
           "category": {
             "$ref": "../enums.schema.json#/$defs/motif_category",
             "description": "Type of recurring element."
@@ -213,7 +211,7 @@
           "items": {
             "type": "object",
             "properties": {
-              "thread": { "type": "string", "minLength": 1 },
+              "thread": { "type": "string", "minLength": 1, "pattern": "^[a-z][a-z0-9_]*$" },
               "type": { "$ref": "../enums.schema.json#/$defs/thread_type" },
               "status": { "$ref": "../enums.schema.json#/$defs/thread_status" }
             },
@@ -227,7 +225,7 @@
           "items": {
             "type": "object",
             "properties": {
-              "thread": { "type": "string", "minLength": 1 },
+              "thread": { "type": "string", "minLength": 1, "pattern": "^[a-z][a-z0-9_]*$" },
               "type": { "$ref": "../enums.schema.json#/$defs/callback_thread_type" },
               "effect": { "$ref": "../enums.schema.json#/$defs/callback_effect" }
             },
@@ -252,9 +250,10 @@
       "description": "Eliot: type of objective correlative present."
     },
     "theory_notes": {
-      "description": "Free-form or structured literary-theory annotations not covered by formal fields above.",
-      "additionalProperties": true
+      "type": "object",
+      "description": "Literary-theory annotations not covered by formal fields above. All values MUST be enum slugs or structured objects, not free prose.",
+      "additionalProperties": false
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

@@ -217,7 +217,7 @@
           "description": "Whether economic/class structures are visible in the narrative."
         },
         "structures_of_feeling": {
-          "type": "string",
+          "$ref": "../enums.schema.json#/$defs/structures_of_feeling",
           "description": "Williams: dominant/residual/emergent structure of feeling."
         },
         "notes": {
@@ -246,8 +246,8 @@
     },
     "overall_flags": {
       "type": "array",
-      "items": { "type": "string" },
-      "description": "Summary flags from any audit dimension (e.g. 'male_gaze', 'single_axis', 'narrative_prosthesis')."
+      "items": { "$ref": "../enums.schema.json#/$defs/audit_flag" },
+      "description": "Named representation audit flags from any dimension."
     },
     "overall_notes": {
       "type": "string",

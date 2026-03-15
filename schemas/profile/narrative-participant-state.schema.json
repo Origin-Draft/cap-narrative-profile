@@ -29,27 +29,26 @@
       "type": "object",
       "description": "State entering this unit. state_type 'emotional' requires a non-empty string value.",
       "properties": {
-        "state_type": { "type": "string", "minLength": 1 },
-        "value": {}
+        "state_type": { "$ref": "../enums.schema.json#/$defs/state_type" },
+        "value": { "$ref": "../enums.schema.json#/$defs/emotion" }
       },
       "required": ["state_type", "value"],
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "post_state": {
       "type": "object",
       "description": "State exiting this unit.",
       "properties": {
-        "state_type": { "type": "string", "minLength": 1 },
-        "value": {}
+        "state_type": { "$ref": "../enums.schema.json#/$defs/state_type" },
+        "value": { "$ref": "../enums.schema.json#/$defs/emotion" }
       },
       "required": ["state_type", "value"],
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "objective": {
       "type": "object",
       "description": "What the participant is trying to achieve in this unit.",
       "properties": {
-        "action": { "type": "string", "minLength": 1 },
         "verb": {
           "$ref": "../enums.schema.json#/$defs/objective_verb",
           "description": "Canonical action verb for the objective."
@@ -58,7 +57,7 @@
           "$ref": "../enums.schema.json#/$defs/objective_object",
           "description": "What type of thing is being acted upon."
         },
-        "target": { "type": "string" },
+        "target": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
         "constraint": {
           "$ref": "../enums.schema.json#/$defs/objective_constraint",
           "description": "What limits how the objective can be pursued."
@@ -68,28 +67,22 @@
           "description": "Role of the person the objective is directed at."
         }
       },
-      "required": ["action"],
+      "required": ["verb"],
       "additionalProperties": false
     },
     "obstacle": {
-      "oneOf": [
-        { "type": "string" },
-        {
-          "type": "object",
-          "properties": {
-            "type": { "$ref": "../enums.schema.json#/$defs/obstacle_type" },
-            "source": { "type": "string", "description": "Entity ref or description of obstacle source." },
-            "description": { "type": "string" }
-          },
-          "required": ["description"],
-          "additionalProperties": false
-        }
-      ],
-      "description": "What opposes the objective. May be a string or structured object."
+      "type": "object",
+      "properties": {
+        "type": { "$ref": "../enums.schema.json#/$defs/obstacle_type" },
+        "source": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" }
+      },
+      "required": ["type"],
+      "additionalProperties": false,
+      "description": "What opposes the objective."
     },
     "tactic_shift": {
-      "type": "string",
-      "description": "How the participant changes tactic during the unit."
+      "$ref": "../enums.schema.json#/$defs/tactic_shift_pattern",
+      "description": "Pattern of tactic change through the scene."
     },
     "information_state": {
       "type": "object",
@@ -100,14 +93,11 @@
           "items": {
             "type": "object",
             "properties": {
-              "subject":   { "type": "string" },
+              "subject":   { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
               "predicate": {
-                "oneOf": [
-                  { "$ref": "../enums.schema.json#/$defs/knowledge_predicate" },
-                  { "type": "string" }
-                ]
+                "$ref": "../enums.schema.json#/$defs/knowledge_predicate"
               },
-              "about":     { "type": "string" },
+              "about":     { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
               "domain": {
                 "$ref": "../enums.schema.json#/$defs/knowledge_domain",
                 "description": "What category of knowledge this is."
@@ -127,14 +117,11 @@
           "items": {
             "type": "object",
             "properties": {
-              "subject":   { "type": "string" },
+              "subject":   { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
               "predicate": {
-                "oneOf": [
-                  { "$ref": "../enums.schema.json#/$defs/knowledge_predicate" },
-                  { "type": "string" }
-                ]
+                "$ref": "../enums.schema.json#/$defs/knowledge_predicate"
               },
-              "about":     { "type": "string" },
+              "about":     { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
               "certainty": {
                 "oneOf": [
                   { "$ref": "../enums.schema.json#/$defs/knowledge_certainty" },
@@ -147,7 +134,17 @@
         },
         "gained": {
           "type": "array",
-          "items": { "type": "object" }
+          "items": {
+            "type": "object",
+            "properties": {
+              "subject": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+              "predicate": { "$ref": "../enums.schema.json#/$defs/knowledge_predicate" },
+              "about": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+              "domain": { "$ref": "../enums.schema.json#/$defs/knowledge_domain" },
+              "certainty": { "oneOf": [{ "$ref": "../enums.schema.json#/$defs/knowledge_certainty" }, { "type": "null" }] }
+            },
+            "required": ["subject", "predicate", "about"]
+          }
         }
       },
       "additionalProperties": false
@@ -266,7 +263,7 @@
           }
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "emotional_state": {
       "type": "object",
@@ -298,5 +295,5 @@
       "additionalProperties": false
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

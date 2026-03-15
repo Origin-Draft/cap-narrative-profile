@@ -60,7 +60,7 @@
           }
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "spatial_semantics": {
       "type": "object",
@@ -87,7 +87,11 @@
           "description": "Whether a boundary crossing occurs at this location.",
           "properties": {
             "occurs": { "type": "boolean" },
-            "description": { "type": "string" }
+            "boundary_types_crossed": {
+              "type": "array",
+              "items": { "$ref": "../enums.schema.json#/$defs/boundary_type" },
+              "description": "Types of boundaries crossed (physical, social, psychological, etc.)."
+            }
           },
           "additionalProperties": false
         }
@@ -103,7 +107,7 @@
           "items": {
             "type": "object",
             "properties": {
-              "entity": { "type": "string", "description": "Entity ref." },
+              "entity": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$", "description": "Registry entity slug." },
               "position": { "$ref": "../enums.schema.json#/$defs/position_type" },
               "posture": { "$ref": "../enums.schema.json#/$defs/posture" }
             },
@@ -116,9 +120,8 @@
           "items": {
             "type": "object",
             "properties": {
-              "entity": { "type": "string", "description": "Entity ref." },
-              "type": { "$ref": "../enums.schema.json#/$defs/movement_type" },
-              "description": { "type": "string" }
+              "entity": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$", "description": "Registry entity slug." },
+              "type": { "$ref": "../enums.schema.json#/$defs/movement_type" }
             },
             "required": ["entity"],
             "additionalProperties": false
@@ -133,7 +136,8 @@
       "properties": {
         "dominant_entity": {
           "type": "string",
-          "description": "Entity ref of the spatially dominant character."
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "description": "Registry slug of the spatially dominant character."
         },
         "power_source": {
           "$ref": "../enums.schema.json#/$defs/power_source",
@@ -141,7 +145,8 @@
         },
         "territory_owner": {
           "type": "string",
-          "description": "Entity ref of the territory holder."
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "description": "Registry slug of the territory holder."
         }
       },
       "additionalProperties": false
@@ -163,9 +168,6 @@
           "introduced_this_scene": {
             "type": "boolean",
             "description": "Whether the prop is first introduced in this unit."
-          },
-          "description": {
-            "type": "string"
           }
         },
         "required": ["category"],
@@ -176,16 +178,11 @@
       "type": "object",
       "properties": {
         "symbolic_valence": {
-          "type": "string",
-          "description": "Primary symbolic meaning of this location."
-        },
-        "sensory_signature": {
-          "type": "array",
-          "items": { "type": "string" },
-          "description": "Defining sensory details of this location."
+          "$ref": "../enums.schema.json#/$defs/semantic_zone",
+          "description": "Primary symbolic meaning of this location (maps to Lotman semantic zone)."
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     }
   }
 }

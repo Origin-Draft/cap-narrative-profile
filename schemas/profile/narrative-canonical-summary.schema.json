@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "narrative-canonical-summary.schema.json",
+  "title": "Narrative Profile — Canonical Summary",
+  "description": "Profile overlay schema for the canonical summary: a deterministic, enum-constrained, registry-bound representation of the fabula layer. All entity references are registry slugs. The render/parse round-trip contract guarantees: parse(render(summary, registry), registry) == summary. This is the CAP equivalent of the fabula/syuzhet separation — what happens (canonical summary) vs. how it's told (prose + craft layer).",
+  "type": "object",
+  "required": [
+    "pov_character",
+    "event_type",
+    "participants",
+    "location",
+    "want",
+    "want_outcome",
+    "stakes_domain",
+    "atmosphere",
+    "causal_role"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "pov_character": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Registry character slug for the POV/focalizer character."
+    },
+    "event_type": {
+      "$ref": "../enums.schema.json#/$defs/event_type",
+      "description": "Scene-level event category. Maps to a deterministic verb phrase in the rendered summary."
+    },
+    "participants": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[a-z][a-z0-9_]*$"
+      },
+      "description": "Registry character slugs for other participants (excluding POV character). Empty array if POV character acts alone."
+    },
+    "location": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Registry setting slug for the scene location."
+    },
+    "want": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Registry want_vocabulary slug for the POV character's scene-want."
+    },
+    "want_outcome": {
+      "$ref": "../enums.schema.json#/$defs/want_outcome",
+      "description": "Whether the POV character's want was satisfied."
+    },
+    "stakes_domain": {
+      "$ref": "../enums.schema.json#/$defs/scene_stakes_domain",
+      "description": "Domain of stakes at risk in this scene."
+    },
+    "atmosphere": {
+      "$ref": "../enums.schema.json#/$defs/tone",
+      "description": "Scene atmosphere/emotional register. Uses the tone enum."
+    },
+    "causal_role": {
+      "$ref": "../enums.schema.json#/$defs/causal_role_type",
+      "description": "How this scene functions causally in the plot."
+    }
+  },
+  "$comment": "Render template: '{pov_label} {event_verb} {participants} at {location_label}; wants {want_label} [{WANT_OUTCOME}]; stakes={stakes_domain}, atmosphere={atmosphere}, role={causal_role}.' — See scripts/summary_template.py for the render/parse contract."
+}

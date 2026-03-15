@@ -5,10 +5,6 @@
   "description": "Profile overlay schema constraining relationship.interpretations for the narrative profile.",
   "type": "object",
   "properties": {
-    "description": {
-      "type": "string",
-      "description": "Human-readable description of the relationship."
-    },
     "dynamic_at_start": {
       "$ref": "../enums.schema.json#/$defs/relationship_dynamic",
       "description": "Relational dynamic when the story begins."
@@ -47,5 +43,5 @@
       "description": "Deeper issue beneath surface disagreement."
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

@@ -22,7 +22,7 @@
         }
       },
       "required": ["role"],
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "interpretations": {
       "type": "object",
@@ -46,25 +46,9 @@
         "want_need_alignment": {
           "$ref": "../enums.schema.json#/$defs/want_need_alignment",
           "description": "Truby want vs. need relationship."
-        },
-        "want": {
-          "type": "string",
-          "description": "What the character consciously pursues."
-        },
-        "need": {
-          "type": "string",
-          "description": "What the character actually needs (may differ from want)."
-        },
-        "ghost": {
-          "type": "string",
-          "description": "Backstory wound event — the past that haunts."
-        },
-        "flaw": {
-          "type": "string",
-          "description": "Character's primary flaw (often created by the wound)."
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "voice_signature": {
       "type": "object",
@@ -88,10 +72,7 @@
         "fid_markers": {
           "type": "array",
           "items": {
-            "oneOf": [
-              { "$ref": "../enums.schema.json#/$defs/fid_marker" },
-              { "type": "string" }
-            ]
+            "$ref": "../enums.schema.json#/$defs/fid_marker"
           },
           "description": "Free indirect discourse markers associated with this character."
         },

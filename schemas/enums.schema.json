@@ -1404,15 +1404,31 @@
     "event_type": {
       "type": "string",
       "enum": [
-        "action", "decision", "dialogue", "discovery", "revelation",
-        "internal_shift", "description", "flashback", "flash_forward"
+        "action", "arrival", "ceremony", "concealment", "confrontation",
+        "decision", "departure", "description", "dialogue", "discovery",
+        "flashback", "flash_forward", "internal_shift", "intimacy",
+        "introspection", "loss", "negotiation", "observation",
+        "refusal", "revelation", "transaction", "travel", "violence"
       ],
-      "description": "Category of scene turn event. 'dialogue_exchange' is DEPRECATED — use 'dialogue'. Temporal modes (flashback/flash_forward) and descriptive passages included."
+      "description": "Category of scene turn event. Each value maps to a deterministic verb phrase in the canonical summary template (see summary_template.py). 'dialogue_exchange' is DEPRECATED — use 'dialogue'."
     },
     "outcome_type": {
       "type": "string",
       "enum": ["achieved", "failed", "redirected", "partially_achieved"],
       "description": "Whether the character achieved their scene want"
+    },
+    "want_outcome": {
+      "type": "string",
+      "enum": ["granted", "denied", "deferred", "pyrrhic"],
+      "description": "Canonical summary: whether the POV character's scene-want was satisfied. Used in the deterministic canonical summary template."
+    },
+    "scene_stakes_domain": {
+      "type": "string",
+      "enum": [
+        "social", "romantic", "physical", "psychological",
+        "moral", "material", "existential", "political"
+      ],
+      "description": "Canonical summary: domain of stakes at risk in this scene. Distinct from personal_stakes (character-level) — this is the scene-level domain category."
     },
     "causal_role_type": {
       "type": "string",
@@ -1538,6 +1554,119 @@
         "intimate", "transactional", "hierarchical", "shifting"
       ],
       "description": "Qualitative dynamic within a relationship (from enums/relationship.json)"
+    },
+
+    "structures_of_feeling": {
+      "type": "string",
+      "enum": ["dominant", "residual", "emergent"],
+      "description": "Williams: dominant, residual, or emergent structure of feeling."
+    },
+    "violation_type": {
+      "type": "string",
+      "enum": [
+        "understatement", "overstatement", "evasion", "deflection",
+        "subject_change", "false_agreement", "excessive_precision",
+        "vagueness", "literal_answer_to_metaphorical_question",
+        "metaphorical_answer_to_literal_question", "silence_as_answer",
+        "answering_unasked_question", "repetition_as_refusal",
+        "formality_shift", "register_mismatch", "performative_ignorance",
+        "none"
+      ],
+      "description": "How a Gricean maxim violation manifests in dialogue. Paired with gricean_maxim to fully specify the violation."
+    },
+    "state_type": {
+      "type": "string",
+      "enum": ["emotional", "relational", "physical", "cognitive", "social"],
+      "description": "Category of participant state measured in pre/post transition."
+    },
+    "audit_flag": {
+      "type": "string",
+      "enum": [
+        "male_gaze", "female_gaze", "white_gaze", "colonial_gaze",
+        "single_axis", "checklist_cast", "narrative_prosthesis",
+        "supercrip", "decline_narrative", "marriage_plot_dependency",
+        "othering", "appropriation_risk", "empathy_risk",
+        "slow_violence", "agetonormativity", "heteronormative_assumption",
+        "none"
+      ],
+      "description": "Named representation audit flags. Replaces free-text overall_flags."
+    },
+    "subgenre": {
+      "type": "string",
+      "enum": [
+        "cozy_mystery", "hardboiled", "noir", "police_procedural", "locked_room",
+        "space_opera", "cyberpunk", "hard_sf", "first_contact", "dystopia", "utopia", "post_apocalyptic",
+        "epic_fantasy", "urban_fantasy", "dark_fantasy", "sword_and_sorcery", "portal_fantasy", "low_fantasy",
+        "gothic_horror", "cosmic_horror", "body_horror", "psychological_horror", "slasher", "folk_horror",
+        "regency", "medieval", "ancient_world", "wwi", "wwii", "cold_war", "civil_rights",
+        "rom_com", "slow_burn", "second_chance", "enemies_to_lovers", "forbidden_love",
+        "bildungsroman", "autofiction", "family_saga", "campus_novel", "picaresque",
+        "literary_fiction", "metafiction", "epistolary", "verse_novel", "hybrid_form",
+        "thriller_spy", "thriller_legal", "thriller_medical", "thriller_domestic",
+        "western_classic", "western_revisionist", "western_contemporary",
+        "ya_contemporary", "ya_fantasy", "ya_dystopia", "mg_adventure", "mg_fantasy",
+        "memoir", "creative_nonfiction", "personal_essay",
+        "other"
+      ],
+      "description": "Specific subgenre classification. Complements genre_type (the coarse category)."
+    },
+    "tactic_shift_pattern": {
+      "type": "string",
+      "enum": [
+        "escalation", "de_escalation", "reversal", "capitulation",
+        "pivot_to_honesty", "pivot_to_deception", "withdrawal",
+        "switch_target", "double_down", "none"
+      ],
+      "description": "Pattern of tactic change through a scene. Replaces free-text tactic_shift."
+    },
+    "continuity_time_elapsed": {
+      "type": "string",
+      "enum": [
+        "immediate", "moments_later", "minutes_later", "hours_later",
+        "next_day", "days_later", "weeks_later", "months_later",
+        "years_later", "unspecified"
+      ],
+      "description": "Time elapsed since the previous unit. Discretized from free-text descriptions."
+    },
+    "scene_function": {
+      "type": "string",
+      "enum": [
+        "establish", "complicate", "reveal", "confront",
+        "decide", "transform", "resolve", "transition"
+      ],
+      "description": "Structural work this scene does (what it accomplishes dramatically)."
+    },
+    "syntactic_pattern": {
+      "type": "string",
+      "enum": [
+        "sentence_initial_conjunction", "em_dash_interruption", "fragment_sentence",
+        "periodic_sentence", "cumulative_sentence", "parallel_construction",
+        "anaphoric_repetition", "epistrophe", "polysyndeton", "asyndeton",
+        "parenthetical_insertion", "free_indirect_discourse", "stream_of_consciousness",
+        "list_structure", "inverted_syntax", "passive_voice", "nominal_style",
+        "verbal_style", "compound_complex", "rhetorical_question",
+        "elliptical_construction", "suspended_syntax", "fronted_adverbial",
+        "right_branching", "left_branching", "mid_branching",
+        "appositive", "absolute_phrase", "colon_elaboration",
+        "semicolon_balance", "repetition_with_variation", "chiasmus",
+        "anadiplosis", "tricolon"
+      ],
+      "description": "Named syntactic pattern for signature/avoided constructions in prose analysis."
+    },
+    "semantic_field": {
+      "type": "string",
+      "enum": [
+        "maritime", "domestic", "religious", "clinical", "military", "legal",
+        "musical", "agricultural", "industrial", "commercial", "academic",
+        "natural", "architectural", "textile", "culinary", "mechanical",
+        "botanical", "zoological", "astronomical", "geological",
+        "meteorological", "corporeal", "sensory", "emotional", "cognitive",
+        "social", "political", "economic", "technological", "mythological",
+        "literary", "theatrical", "visual_arts", "epistolary", "spiritual",
+        "alchemical", "maritime_trade", "courtly", "pastoral", "urban",
+        "bureaucratic", "forensic", "photographic", "cinematic"
+      ],
+      "description": "Semantic domain of vocabulary and imagery."
     }
   }
 }

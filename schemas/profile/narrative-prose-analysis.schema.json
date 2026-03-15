@@ -22,14 +22,8 @@
           "description": "Vocabulary complexity and register."
         },
         "vocabulary_source": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": { "type": "string" }
-            },
-            { "$ref": "../enums.schema.json#/$defs/vocabulary_source" }
-          ],
-          "description": "Vocabulary source: governed enum (character_owned, narrator_owned, period_appropriate, mixed) or free-form array of semantic fields."
+          "$ref": "../enums.schema.json#/$defs/vocabulary_source",
+          "description": "Vocabulary source classification."
         },
         "period_markers": {
           "type": "array",
@@ -151,7 +145,8 @@
           "speaker": {
             "type": "string",
             "minLength": 1,
-            "description": "Entity ref for the speaker."
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "description": "Registry character slug for the speaker."
           },
           "speech_register": {
             "$ref": "../enums.schema.json#/$defs/speech_register"
@@ -182,7 +177,7 @@
             "description": "Grice: maxim violation in dialogue.",
             "properties": {
               "maxim": { "$ref": "../enums.schema.json#/$defs/gricean_maxim" },
-              "violation": { "type": "string" }
+              "violation": { "$ref": "../enums.schema.json#/$defs/violation_type" }
             },
             "additionalProperties": false
           }
@@ -244,7 +239,7 @@
           "description": "Proportion of material processes with animate agents (0.0–1.0)."
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "style_markers": {
       "type": "object",
@@ -252,17 +247,17 @@
       "properties": {
         "signature_constructions": {
           "type": "array",
-          "items": { "type": "string" },
-          "description": "Recurring syntactic patterns (e.g. 'sentence-initial conjunction', 'em-dash interruption')."
+          "items": { "$ref": "../enums.schema.json#/$defs/syntactic_pattern" },
+          "description": "Recurring syntactic patterns."
         },
         "semantic_fields": {
           "type": "array",
-          "items": { "type": "string" },
-          "description": "Dominant semantic domains (e.g. 'maritime', 'domestic', 'clinical')."
+          "items": { "$ref": "../enums.schema.json#/$defs/semantic_field" },
+          "description": "Dominant semantic domains."
         },
         "avoided_constructions": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": { "$ref": "../enums.schema.json#/$defs/syntactic_pattern" },
           "description": "Constructions conspicuously absent."
         },
         "period_vocabulary": {

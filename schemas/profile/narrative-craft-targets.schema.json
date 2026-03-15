@@ -19,9 +19,9 @@
       "$ref": "../enums.schema.json#/$defs/tone",
       "description": "Authorial/narrator attitude."
     },
-    "scene_goal": {
-      "type": "string",
-      "description": "What this scene should accomplish dramatically (authorial intent, not character goal)."
+    "scene_function": {
+      "$ref": "../enums.schema.json#/$defs/scene_function",
+      "description": "Structural work this scene should accomplish (authorial intent)."
     },
     "emotional_target": {
       "$ref": "../enums.schema.json#/$defs/emotion",
@@ -36,5 +36,5 @@
       "description": "Scene vs. summary ratio at prose level."
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

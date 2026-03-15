@@ -8,7 +8,8 @@
     "focalizer": {
       "type": "string",
       "minLength": 1,
-      "description": "Entity ref of the perceiving character. REQUIRED for unit_type 'scene'."
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Registry character slug for the perceiving character. REQUIRED for unit_type 'scene'."
     },
     "pov": {
       "$ref": "../enums.schema.json#/$defs/pov_type",
@@ -17,7 +18,8 @@
     "setting": {
       "type": "string",
       "minLength": 1,
-      "description": "Entity ref of the location. SHOULD resolve to entity_type 'location'."
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Registry setting slug. SHOULD resolve to entity_type 'location'."
     },
     "diegetic_level": {
       "$ref": "../enums.schema.json#/$defs/diegetic_level",
@@ -64,12 +66,22 @@
           "description": "Type of prolepsis (flash-forward), if order involves prolepsis."
         },
         "analepsis_reach": {
-          "type": "string",
-          "description": "How far back the analepsis reaches (e.g. '10 years', 'childhood')."
+          "type": "object",
+          "description": "How far back the analepsis reaches.",
+          "properties": {
+            "value": { "type": "number", "minimum": 0 },
+            "unit": { "$ref": "../enums.schema.json#/$defs/time_unit" }
+          },
+          "additionalProperties": false
         },
         "analepsis_extent": {
-          "type": "string",
-          "description": "Duration the analepsis covers in story time."
+          "type": "object",
+          "description": "Duration the analepsis covers in story time.",
+          "properties": {
+            "value": { "type": "number", "minimum": 0 },
+            "unit": { "$ref": "../enums.schema.json#/$defs/time_unit" }
+          },
+          "additionalProperties": false
         },
         "iterative_pattern": {
           "$ref": "../enums.schema.json#/$defs/iterative_pattern",
@@ -92,8 +104,8 @@
       "description": "Inter-unit continuity: how this unit connects to the previous one.",
       "properties": {
         "time_elapsed": {
-          "type": "string",
-          "description": "Time elapsed since the previous unit (e.g. 'moments later', '3 days')."
+          "$ref": "../enums.schema.json#/$defs/continuity_time_elapsed",
+          "description": "Time elapsed since the previous unit."
         },
         "location_change": {
           "$ref": "../enums.schema.json#/$defs/location_change_type",
@@ -112,15 +124,15 @@
       "properties": {
         "present": {
           "type": "array",
-          "items": { "type": "string" },
-          "description": "Entity refs of characters present throughout the unit."
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+          "description": "Registry character slugs of characters present throughout the unit."
         },
         "arrives": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "entity": { "type": "string" },
+              "entity": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
               "arrival_type": { "$ref": "../enums.schema.json#/$defs/character_arrival" }
             },
             "required": ["entity"],
@@ -133,7 +145,7 @@
           "items": {
             "type": "object",
             "properties": {
-              "entity": { "type": "string" },
+              "entity": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
               "departure_type": { "$ref": "../enums.schema.json#/$defs/character_departure" }
             },
             "required": ["entity"],
@@ -164,5 +176,5 @@
       "additionalProperties": false
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }
