@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/01-concept/collision/collision-pattern-selection.schema.json",
+  "title": "Grimoire · Collision Pattern Selection",
+  "description": "Extraction schema for collision-pattern-selection.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "what_other_collision_patterns_did_you_consider": {
+      "type": "string",
+      "description": "What other collision patterns did you consider?",
+      "x-source-required": false
+    },
+    "slot_rows": {
+      "type": "array",
+      "description": "Table with columns: Slot, Role, Circle, Notes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slot": {
+            "type": "string",
+            "description": "Slot",
+            "x-source-required": false
+          },
+          "role": {
+            "$ref": "grimoire:base#/$defs/roleEnum"
+          },
+          "circle": {
+            "type": "string",
+            "description": "Circle",
+            "x-source-required": false
+          },
+          "notes": {
+            "type": "string",
+            "description": "Notes",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "01-concept/collision/collision-pattern-selection.md"
+}

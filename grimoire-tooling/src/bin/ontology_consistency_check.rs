@@ -23,25 +23,25 @@ fn main() {
 
     has_drift |= check_pair::<Archetype, ArchetypeCatalogEntry>(
         "archetype",
-        &workspace.join("03-characters/references/character-archetypes.yaml"),
+        &workspace.join("02-characters/references/character-archetypes.yaml"),
         |e| e.slug.clone(),
     );
 
     has_drift |= check_pair::<Wound, WoundCatalogEntry>(
         "wound",
-        &workspace.join("03-characters/references/character-wounds.yaml"),
+        &workspace.join("02-characters/references/character-wounds.yaml"),
         |e| e.slug.clone(),
     );
 
     has_drift |= check_pair::<Role, RoleCatalogEntry>(
         "role",
-        &workspace.join("03-characters/references/character-roles.yaml"),
+        &workspace.join("02-characters/references/character-roles.yaml"),
         |e| e.slug.clone(),
     );
 
     has_drift |= check_pair::<DriveModel, DriveCatalogEntry>(
         "drive_model",
-        &workspace.join("03-characters/references/character-drives.yaml"),
+        &workspace.join("02-characters/references/character-drives.yaml"),
         |e| e.slug.clone(),
     );
 

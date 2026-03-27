@@ -1,0 +1,246 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/04-plot-and-structure/architecture/frame-narrative.schema.json",
+  "title": "Grimoire · Frame Narrative",
+  "description": "Extraction schema for frame-narrative.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "frame_narrative_title": {
+      "type": "string",
+      "description": "Frame Narrative Title:",
+      "x-source-required": false
+    },
+    "number_of_diegetic_levels": {
+      "type": "string",
+      "description": "Number of Diegetic Levels:",
+      "x-source-required": false
+    },
+    "thematic_mirror_pattern": {
+      "type": "string",
+      "description": "Thematic Mirror Pattern:",
+      "x-source-required": false
+    },
+    "frame_function": {
+      "type": "string",
+      "description": "Frame Function:",
+      "x-source-required": false
+    },
+    "name_identity": {
+      "type": "string",
+      "description": "Name / Identity:",
+      "x-source-required": false
+    },
+    "position": {
+      "type": "string",
+      "description": "Position:",
+      "x-source-required": false
+    },
+    "temporal_gap": {
+      "type": "string",
+      "description": "Temporal Gap:",
+      "x-source-required": false
+    },
+    "motivation_for_telling": {
+      "type": "string",
+      "description": "Motivation for Telling:",
+      "x-source-required": false
+    },
+    "what_the_frame_narrator_doesnt_know": {
+      "type": "string",
+      "description": "What the Frame Narrator Doesn't Know:",
+      "x-source-required": false
+    },
+    "embedded_story_title_name": {
+      "type": "string",
+      "description": "Embedded Story Title / Name:",
+      "x-source-required": false
+    },
+    "embedded_narrator": {
+      "type": "string",
+      "description": "Embedded Narrator:",
+      "x-source-required": false
+    },
+    "narratee_of_embedded_story": {
+      "type": "string",
+      "description": "Narratee of Embedded Story:",
+      "x-source-required": false
+    },
+    "embedded_story_duration": {
+      "type": "string",
+      "description": "Embedded Story Duration:",
+      "x-source-required": false
+    },
+    "point_of_entry": {
+      "type": "string",
+      "description": "Point of Entry:",
+      "x-source-required": false
+    },
+    "point_of_exit": {
+      "type": "string",
+      "description": "Point of Exit:",
+      "x-source-required": false
+    },
+    "frame_opening": {
+      "type": "string",
+      "description": "Frame Opening:",
+      "x-source-required": false
+    },
+    "frame_midpoint_if_applicable": {
+      "type": "string",
+      "description": "Frame Midpoint (if applicable):",
+      "x-source-required": false
+    },
+    "frame_close": {
+      "type": "string",
+      "description": "Frame Close:",
+      "x-source-required": false
+    },
+    "metalepsis_moments_location_in_manuscript": {
+      "type": "string",
+      "description": "Metalepsis Moment(s) — location in manuscript:",
+      "x-source-required": false
+    },
+    "intended_effect": {
+      "type": "string",
+      "description": "Intended effect:",
+      "x-source-required": false
+    },
+    "level_rows": {
+      "type": "array",
+      "description": "Table with columns: Level, Term, Narrator Name, Narratee, Time of Narration, Thread Slug, Annotation",
+      "items": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "string",
+            "description": "Level",
+            "x-source-required": false
+          },
+          "term": {
+            "type": "string",
+            "description": "Term",
+            "x-source-required": false
+          },
+          "narrator_name": {
+            "type": "string",
+            "description": "Narrator Name",
+            "x-source-required": false
+          },
+          "narratee": {
+            "type": "string",
+            "description": "Narratee",
+            "x-source-required": false
+          },
+          "time_of_narration": {
+            "type": "string",
+            "description": "Time of Narration",
+            "x-source-required": false
+          },
+          "thread_slug": {
+            "type": "string",
+            "description": "Thread Slug",
+            "x-source-required": false
+          },
+          "annotation": {
+            "type": "string",
+            "description": "Annotation",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "thread_slug_rows": {
+      "type": "array",
+      "description": "Table with columns: Thread Slug, Diegetic Level, Description, Key Characters",
+      "items": {
+        "type": "object",
+        "properties": {
+          "thread_slug": {
+            "type": "string",
+            "description": "Thread Slug",
+            "x-source-required": false
+          },
+          "diegetic_level": {
+            "type": "string",
+            "description": "Diegetic Level",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          },
+          "key_characters": {
+            "type": "string",
+            "description": "Key Characters",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "A character within the story tells a story to another character",
+          "The act of narrating is itself a plot event",
+          "An embedded story affects the meaning or outcome of the outer story"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Reliable narrator (no evidence of distortion)",
+          "Partially unreliable (limited knowledge, but honest)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "No — diegetic levels remain strictly separate throughout"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_4": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Every diegetic level has a named or clearly defined narrator",
+          "If metalepsis occurs, the moment is planned and its effect is defined"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "04-plot-and-structure/architecture/frame-narrative.md"
+}

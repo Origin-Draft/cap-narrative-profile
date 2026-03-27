@@ -714,11 +714,11 @@ fn render_markdown(recipe: &StoryRecipe<'_>) -> String {
     w("## Next Steps".into());
     w(String::new());
     w("1. **Name your characters** — Replace the `[Slot Name]` placeholders".into());
-    w("2. **Choose your circles** — Pick specific circle types from `02-collision/references/social-circle-types.yaml`".into());
-    w("3. **Fill in `02-collision/social-circles.md`** — Instantiate your collision".into());
-    w("4. **Fill in `03-characters/character-profile.md`** — One per character, using the archetype/wound/alignment above".into());
-    w("5. **Fill in `03-characters/cast-overview.md`** — Paste the cast table above".into());
-    w("6. **Draft your beat sheet** — Use `05-plot-and-structure/beat-sheet.md`".into());
+    w("2. **Choose your circles** — Pick specific circle types from `01-concept/collision/references/social-circle-types.yaml`".into());
+    w("3. **Fill in `01-concept/collision/social-circles.md`** — Instantiate your collision".into());
+    w("4. **Fill in `02-characters/character-profile.md`** — One per character, using the archetype/wound/alignment above".into());
+    w("5. **Fill in `02-characters/cast-overview.md`** — Paste the cast table above".into());
+    w("6. **Draft your beat sheet** — Use `04-plot-and-structure/beat-sheet.md`".into());
     w("7. **Run gate checks** — `grimoire-gate-check`".into());
     w(String::new());
     w(format!("<!-- plot_type:{} -->", pt.slug));
@@ -794,28 +794,28 @@ fn main() {
             .unwrap_or_else(|e| { eprintln!("WARNING: {e}"); vec![] });
 
     let collisions: Vec<CollisionPatternCatalogEntry> =
-        load_list(&catalog_path!("02-collision/references/circle-collision-patterns.yaml"))
+        load_list(&catalog_path!("01-concept/collision/references/circle-collision-patterns.yaml"))
             .unwrap_or_else(|e| { eprintln!("ERROR: {e}"); std::process::exit(1); });
 
     let incidents_catalog: IncidentsCatalogFull =
-        load_doc(&catalog_path!("02-collision/references/inciting-incidents.yaml"))
+        load_doc(&catalog_path!("01-concept/collision/references/inciting-incidents.yaml"))
             .unwrap_or_else(|e| { eprintln!("WARNING: {e}"); IncidentsCatalogFull { categories: HashMap::new() } });
 
     let archetypes: Vec<ArchetypeCatalogEntry> =
-        load_list(&catalog_path!("03-characters/references/character-archetypes.yaml"))
+        load_list(&catalog_path!("02-characters/references/character-archetypes.yaml"))
             .unwrap_or_else(|e| { eprintln!("ERROR: {e}"); std::process::exit(1); });
 
     let wounds: Vec<WoundCatalogEntry> =
-        load_list(&catalog_path!("03-characters/references/character-wounds.yaml"))
+        load_list(&catalog_path!("02-characters/references/character-wounds.yaml"))
             .unwrap_or_else(|e| { eprintln!("ERROR: {e}"); std::process::exit(1); });
 
     let alignment_catalog: AlignmentSystemCatalog =
-        load_doc(&catalog_path!("03-characters/references/alignment-system.yaml"))
+        load_doc(&catalog_path!("02-characters/references/alignment-system.yaml"))
             .unwrap_or_else(|e| { eprintln!("ERROR: {e}"); std::process::exit(1); });
     let alignment_cells = &alignment_catalog.cells;
 
     let beats_catalog: Option<RomanceBeatsCatalog> = if genre == "romance" {
-        load_doc(&catalog_path!("05-plot-and-structure/references/romance-beats.yaml")).ok()
+        load_doc(&catalog_path!("04-plot-and-structure/references/romance-beats.yaml")).ok()
     } else {
         None
     };

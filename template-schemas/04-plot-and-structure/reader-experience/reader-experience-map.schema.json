@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/04-plot-and-structure/reader-experience/reader-experience-map.schema.json",
+  "title": "Grimoire · Reader Experience Map",
+  "description": "Extraction schema for reader-experience-map.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "effect_rows": {
+      "type": "array",
+      "description": "Table with columns: Effect, Source of effect, What it requires, What destroys it",
+      "items": {
+        "type": "object",
+        "properties": {
+          "effect": {
+            "type": "string",
+            "description": "Effect",
+            "x-source-required": false
+          },
+          "source_of_effect": {
+            "type": "string",
+            "description": "Source of effect",
+            "x-source-required": false
+          },
+          "what_it_requires": {
+            "type": "string",
+            "description": "What it requires",
+            "x-source-required": false
+          },
+          "what_destroys_it": {
+            "type": "string",
+            "description": "What destroys it",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "04-plot-and-structure/reader-experience/reader-experience-map.md"
+}

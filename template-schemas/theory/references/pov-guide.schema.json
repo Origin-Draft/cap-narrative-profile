@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "grimoire:schemas/07-drafting/references/pov-guide.schema.json",
+  "$id": "grimoire:schemas/05-drafting/references/pov-guide.schema.json",
   "title": "Grimoire · Pov Guide",
   "description": "Extraction schema for pov-guide.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
   "type": "object",

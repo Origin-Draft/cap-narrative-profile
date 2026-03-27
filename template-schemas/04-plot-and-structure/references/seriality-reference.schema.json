@@ -1,0 +1,224 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/04-plot-and-structure/references/seriality-reference.schema.json",
+  "title": "Grimoire · Seriality Reference",
+  "description": "Extraction schema for seriality-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "type_rows": {
+      "type": "array",
+      "description": "Table with columns: Type, Closure Model, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "closure_model": {
+            "type": "string",
+            "description": "Closure Model",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "arc_rows": {
+      "type": "array",
+      "description": "Table with columns: Arc, Scope, Reader Need",
+      "items": {
+        "type": "object",
+        "properties": {
+          "arc": {
+            "type": "string",
+            "description": "Arc",
+            "x-source-required": false
+          },
+          "scope": {
+            "type": "string",
+            "description": "Scope",
+            "x-source-required": false
+          },
+          "reader_need": {
+            "type": "string",
+            "description": "Reader Need",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "position_rows": {
+      "type": "array",
+      "description": "Table with columns: Position, Book Arc, Series Arc",
+      "items": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "string",
+            "description": "Position",
+            "x-source-required": false
+          },
+          "book_arc": {
+            "type": "string",
+            "description": "Book Arc",
+            "x-source-required": false
+          },
+          "series_arc": {
+            "type": "string",
+            "description": "Series Arc",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "strategy_rows": {
+      "type": "array",
+      "description": "Table with columns: Strategy, Principle",
+      "items": {
+        "type": "object",
+        "properties": {
+          "strategy": {
+            "type": "string",
+            "description": "Strategy",
+            "x-source-required": false
+          },
+          "principle": {
+            "type": "string",
+            "description": "Principle",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "technique_rows": {
+      "type": "array",
+      "description": "Table with columns: Technique, Purpose",
+      "items": {
+        "type": "object",
+        "properties": {
+          "technique": {
+            "type": "string",
+            "description": "Technique",
+            "x-source-required": false
+          },
+          "purpose": {
+            "type": "string",
+            "description": "Purpose",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "category_rows": {
+      "type": "array",
+      "description": "Table with columns: Category, Promise Type",
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Category",
+            "x-source-required": false
+          },
+          "promise_type": {
+            "type": "string",
+            "description": "Promise Type",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_7_rows": {
+      "type": "array",
+      "description": "Table with columns: Type, Effect, Risk",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "effect": {
+            "type": "string",
+            "description": "Effect",
+            "x-source-required": false
+          },
+          "risk": {
+            "type": "string",
+            "description": "Risk",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Check, Pass?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "check": {
+            "type": "string",
+            "description": "Check",
+            "x-source-required": false
+          },
+          "pass": {
+            "type": "string",
+            "description": "Pass?",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "author_rows": {
+      "type": "array",
+      "description": "Table with columns: Author, Work, Core Idea",
+      "items": {
+        "type": "object",
+        "properties": {
+          "author": {
+            "type": "string",
+            "description": "Author",
+            "x-source-required": false
+          },
+          "work": {
+            "type": "string",
+            "description": "Work",
+            "x-source-required": false
+          },
+          "core_idea": {
+            "type": "string",
+            "description": "Core Idea",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "04-plot-and-structure/references/seriality-reference.md"
+}

@@ -1,0 +1,365 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/01-concept/collision/social-circles.schema.json",
+  "title": "Grimoire · Social Circles",
+  "description": "Extraction schema for social-circles.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "field_rows": {
+      "type": "array",
+      "description": "Table with columns: Field, Value",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "Field",
+            "x-source-required": false
+          },
+          "value": {
+            "type": "string",
+            "description": "Value",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "capital_type_rows": {
+      "type": "array",
+      "description": "Table with columns: Capital Type, Level (1–5), Notes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "capital_type": {
+            "type": "string",
+            "description": "Capital Type",
+            "x-source-required": false
+          },
+          "level_15": {
+            "type": "string",
+            "description": "Level (1–5)",
+            "x-source-required": false
+          },
+          "notes": {
+            "type": "string",
+            "description": "Notes",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_3_rows": {
+      "type": "array",
+      "description": "Table with columns: Field, Value",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "Field",
+            "x-source-required": false
+          },
+          "value": {
+            "type": "string",
+            "description": "Value",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_4_rows": {
+      "type": "array",
+      "description": "Table with columns: Field, Value",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "Field",
+            "x-source-required": false
+          },
+          "value": {
+            "type": "string",
+            "description": "Value",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "character_rows": {
+      "type": "array",
+      "description": "Table with columns: Character, Membership Type, Role in Circle, Notes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character": {
+            "type": "string",
+            "description": "Character",
+            "x-source-required": false
+          },
+          "membership_type": {
+            "type": "string",
+            "description": "Membership Type",
+            "x-source-required": false
+          },
+          "role_in_circle": {
+            "type": "string",
+            "description": "Role in Circle",
+            "x-source-required": false
+          },
+          "notes": {
+            "type": "string",
+            "description": "Notes",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_6_rows": {
+      "type": "array",
+      "description": "Table with columns: Field, Value",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "Field",
+            "x-source-required": false
+          },
+          "value": {
+            "type": "string",
+            "description": "Value",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_7_rows": {
+      "type": "array",
+      "description": "Table with columns: Capital Type, Level (1–5), Notes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "capital_type": {
+            "type": "string",
+            "description": "Capital Type",
+            "x-source-required": false
+          },
+          "level_15": {
+            "type": "string",
+            "description": "Level (1–5)",
+            "x-source-required": false
+          },
+          "notes": {
+            "type": "string",
+            "description": "Notes",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_8_rows": {
+      "type": "array",
+      "description": "Table with columns: Field, Value",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "Field",
+            "x-source-required": false
+          },
+          "value": {
+            "type": "string",
+            "description": "Value",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_9_rows": {
+      "type": "array",
+      "description": "Table with columns: Field, Value",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "Field",
+            "x-source-required": false
+          },
+          "value": {
+            "type": "string",
+            "description": "Value",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_10_rows": {
+      "type": "array",
+      "description": "Table with columns: Character, Membership Type, Role in Circle, Notes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character": {
+            "type": "string",
+            "description": "Character",
+            "x-source-required": false
+          },
+          "membership_type": {
+            "type": "string",
+            "description": "Membership Type",
+            "x-source-required": false
+          },
+          "role_in_circle": {
+            "type": "string",
+            "description": "Role in Circle",
+            "x-source-required": false
+          },
+          "notes": {
+            "type": "string",
+            "description": "Notes",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_11_rows": {
+      "type": "array",
+      "description": "Table with columns: Field, Value",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "Field",
+            "x-source-required": false
+          },
+          "value": {
+            "type": "string",
+            "description": "Value",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "slot_rows": {
+      "type": "array",
+      "description": "Table with columns: Slot, Character Name, Circle, Membership, Archetype, Role",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slot": {
+            "type": "string",
+            "description": "Slot",
+            "x-source-required": false
+          },
+          "character_name": {
+            "type": "string",
+            "description": "Character Name",
+            "x-source-required": false
+          },
+          "circle": {
+            "type": "string",
+            "description": "Circle",
+            "x-source-required": false
+          },
+          "membership": {
+            "type": "string",
+            "description": "Membership",
+            "x-source-required": false
+          },
+          "archetype": {
+            "$ref": "grimoire:base#/$defs/archetypeEnum"
+          },
+          "role": {
+            "$ref": "grimoire:base#/$defs/roleEnum"
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_13_rows": {
+      "type": "array",
+      "description": "Table with columns: Character, Circle A Role, Circle B Role, Why They Bridge, Cost of Bridging",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character": {
+            "type": "string",
+            "description": "Character",
+            "x-source-required": false
+          },
+          "circle_a_role": {
+            "type": "string",
+            "description": "Circle A Role",
+            "x-source-required": false
+          },
+          "circle_b_role": {
+            "type": "string",
+            "description": "Circle B Role",
+            "x-source-required": false
+          },
+          "why_they_bridge": {
+            "type": "string",
+            "description": "Why They Bridge",
+            "x-source-required": false
+          },
+          "cost_of_bridging": {
+            "type": "string",
+            "description": "Cost of Bridging",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "story_phase_rows": {
+      "type": "array",
+      "description": "Table with columns: Story Phase, Collision State, What Happens",
+      "items": {
+        "type": "object",
+        "properties": {
+          "story_phase": {
+            "type": "string",
+            "description": "Story Phase",
+            "x-source-required": false
+          },
+          "collision_state": {
+            "type": "string",
+            "description": "Collision State",
+            "x-source-required": false
+          },
+          "what_happens": {
+            "type": "string",
+            "description": "What Happens",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "01-concept/collision/social-circles.md"
+}

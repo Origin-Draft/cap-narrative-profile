@@ -20,7 +20,7 @@ schemas/
     premise-and-logline.schema.json
     theme-exploration.schema.json
     ...
-  03-characters/
+  02-characters/
     core-identity/
       cast-overview.schema.json
       character-profile.schema.json
@@ -158,7 +158,7 @@ grimoire-validate --all
 grimoire-validate --require-sources --all
 
 # Verbose output (show info for passing templates too)
-grimoire-validate --verbose 03-characters/core-identity/cast-overview.md
+grimoire-validate --verbose 02-characters/core-identity/cast-overview.md
 ```
 
 ---

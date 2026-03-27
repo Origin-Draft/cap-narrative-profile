@@ -1,0 +1,246 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/02-characters/antagonist/antagonist-design.schema.json",
+  "title": "Grimoire · Antagonist Design",
+  "description": "Extraction schema for antagonist-design.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "name": {
+      "type": "string",
+      "description": "Name:",
+      "x-source-required": false
+    },
+    "the_protagonists_core_thematic_question": {
+      "type": "string",
+      "description": "The protagonist's core thematic question:",
+      "x-source-required": false
+    },
+    "the_antagonists_answer_to_the_same_question": {
+      "type": "string",
+      "description": "The antagonist's answer to the same question:",
+      "x-source-required": false
+    },
+    "where_the_antagonist_is_right": {
+      "type": "string",
+      "description": "Where the antagonist is right:",
+      "x-source-required": false
+    },
+    "where_they_are_wrong": {
+      "type": "string",
+      "description": "Where they are wrong:",
+      "x-source-required": false
+    },
+    "trubys_negativeimage_test": {
+      "type": "string",
+      "description": "Truby's negative-image test:",
+      "x-source-required": false
+    },
+    "in_their_own_words_why_are_they_right": {
+      "type": "string",
+      "description": "In their own words, why are they right?",
+      "x-source-required": false
+    },
+    "what_event_or_experience_made_this_justification_feel_true_t": {
+      "type": "string",
+      "description": "What event or experience made this justification feel true to them?",
+      "x-source-required": false
+    },
+    "how_would_they_describe_the_protagonist": {
+      "type": "string",
+      "description": "How would they describe the protagonist?",
+      "x-source-required": false
+    },
+    "origin_background": {
+      "type": "string",
+      "description": "Origin / Background:",
+      "x-source-required": false
+    },
+    "the_turning_point": {
+      "type": "string",
+      "description": "The Turning Point:",
+      "x-source-required": false
+    },
+    "what_they_lost": {
+      "type": "string",
+      "description": "What they lost:",
+      "x-source-required": false
+    },
+    "relationship_to_the_protagonist_before_the_story_begins": {
+      "type": "string",
+      "description": "Relationship to the protagonist before the story begins:",
+      "x-source-required": false
+    },
+    "primary_opposition_level": {
+      "type": "string",
+      "description": "Primary opposition level:",
+      "x-source-required": false
+    },
+    "what_makes_them_dangerous": {
+      "type": "string",
+      "description": "What makes them dangerous:",
+      "x-source-required": false
+    },
+    "their_specific_vulnerability": {
+      "type": "string",
+      "description": "Their specific vulnerability:",
+      "x-source-required": false
+    },
+    "what_the_protagonist_must_become_to_overcome_them": {
+      "type": "string",
+      "description": "What the protagonist must become to overcome them:",
+      "x-source-required": false
+    },
+    "how_they_speak": {
+      "type": "string",
+      "description": "How they speak:",
+      "x-source-required": false
+    },
+    "what_they_never_say": {
+      "type": "string",
+      "description": "What they never say:",
+      "x-source-required": false
+    },
+    "their_characteristic_metaphor_domain": {
+      "type": "string",
+      "description": "Their characteristic metaphor domain:",
+      "x-source-required": false
+    },
+    "a_line_only_they_would_say": {
+      "type": "string",
+      "description": "A line only they would say:",
+      "x-source-required": false
+    },
+    "dimension_rows": {
+      "type": "array",
+      "description": "Table with columns: Dimension, Content",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dimension": {
+            "type": "string",
+            "description": "Dimension",
+            "x-source-required": false
+          },
+          "content": {
+            "type": "string",
+            "description": "Content",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "scene_beat_rows": {
+      "type": "array",
+      "description": "Table with columns: Scene / Beat, Protagonist enters with, Antagonist enters with, Who \"wins\", What shifts",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scene_beat": {
+            "type": "string",
+            "description": "Scene / Beat",
+            "x-source-required": false
+          },
+          "protagonist_enters_with": {
+            "type": "string",
+            "description": "Protagonist enters with",
+            "x-source-required": false
+          },
+          "antagonist_enters_with": {
+            "type": "string",
+            "description": "Antagonist enters with",
+            "x-source-required": false
+          },
+          "who_wins": {
+            "type": "string",
+            "description": "Who \"wins\"",
+            "x-source-required": false
+          },
+          "what_shifts": {
+            "type": "string",
+            "description": "What shifts",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Character antagonist (a specific person)",
+          "Institutional antagonist (a system/organization)",
+          "Natural / environmental antagonist",
+          "Internal antagonist (protagonist's own psychology)",
+          "Societal antagonist (cultural norms, prejudice, class)",
+          "Cosmic / abstract antagonist (fate, death, entropy)",
+          "Multiple / layered (specify below)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Flat-evil (unchanging; a test for the hero)",
+          "Tragic descent (was once good; falls)",
+          "Revelation (true nature revealed gradually)",
+          "Redemption (begins as antagonist; crosses to ally)",
+          "Parallel (shadow arc mirrors protagonist)",
+          "Escalation (grows in power/commitment as the story progresses)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "**Physical** — direct confrontation, violence, pursuit",
+          "**Intellectual** — strategy, deception, outwitting",
+          "**Emotional** — manipulation, betrayal, intimacy weaponized",
+          "**Moral** — forcing impossible choices; making the protagonist complicit",
+          "**Thematic** — embodying the counter-argument to the protagonist's worldview"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_4": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "**Not Incompetent** — they win intermediate victories",
+          "**Not Late** — their presence is felt by end of Act One (even offscreen)",
+          "**Not Unmotivated** — wound + worldview + justification are clear",
+          "**Not Overpowered** — they have a specific, character-derived vulnerability",
+          "**Not Disconnected** — they mirror the protagonist thematically"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "02-characters/antagonist/antagonist-design.md"
+}

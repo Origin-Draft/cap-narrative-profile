@@ -1,0 +1,284 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/03-world-building/spatial-semantics.schema.json",
+  "title": "Grimoire · Spatial Semantics",
+  "description": "Extraction schema for spatial-semantics.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "primary_boundary_in_this_story": {
+      "type": "string",
+      "description": "Primary boundary in this story:",
+      "x-source-required": false
+    },
+    "primary_chronotope": {
+      "type": "string",
+      "description": "Primary chronotope:",
+      "x-source-required": false
+    },
+    "how_does_this_chronotope_shape_what_events_are_possible": {
+      "type": "string",
+      "description": "How does this chronotope shape what events are possible?",
+      "x-source-required": false
+    },
+    "what_does_this_chronotope_promise_the_reader": {
+      "type": "string",
+      "description": "What does this chronotope promise the reader?",
+      "x-source-required": false
+    },
+    "is_your_story_working_with_or_against_its_chronotope": {
+      "type": "string",
+      "description": "Is your story working with or against its chronotope?",
+      "x-source-required": false
+    },
+    "what_type_of_heterotopia_is_this": {
+      "type": "string",
+      "description": "What type of heterotopia is this?",
+      "x-source-required": false
+    },
+    "what_does_this_site_reflectinvert_about_the_surrounding_worl": {
+      "type": "string",
+      "description": "What does this site reflect/invert about the surrounding world?",
+      "x-source-required": false
+    },
+    "who_enters_this_space_and_what_happens_to_them_there": {
+      "type": "string",
+      "description": "Who enters this space, and what happens to them there?",
+      "x-source-required": false
+    },
+    "plot_function": {
+      "type": "string",
+      "description": "Plot function:",
+      "x-source-required": false
+    },
+    "the_storys_dominant_spatial_movement": {
+      "type": "string",
+      "description": "The story's dominant spatial movement:",
+      "x-source-required": false
+    },
+    "what_does_this_spatial_pattern_reveal_about_the_storys_logic": {
+      "type": "string",
+      "description": "What does this spatial pattern reveal about the story's logic?",
+      "x-source-required": false
+    },
+    "the_most_narratively_significant_journey_in_the_story": {
+      "type": "string",
+      "description": "The most narratively significant journey in the story:",
+      "x-source-required": false
+    },
+    "character_rows": {
+      "type": "array",
+      "description": "Table with columns: Character, Crosses From, Crosses To, Chapter, What the Crossing Means",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character": {
+            "type": "string",
+            "description": "Character",
+            "x-source-required": false
+          },
+          "crosses_from": {
+            "type": "string",
+            "description": "Crosses From",
+            "x-source-required": false
+          },
+          "crosses_to": {
+            "type": "string",
+            "description": "Crosses To",
+            "x-source-required": false
+          },
+          "chapter": {
+            "type": "string",
+            "description": "Chapter",
+            "x-source-required": false
+          },
+          "what_the_crossing_means": {
+            "type": "string",
+            "description": "What the Crossing Means",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_2_rows": {
+      "type": "array",
+      "description": "Table with columns: [Character], Zone [A/B], Zone [B/A], [Ch.], [Symbolic/thematic meaning of this crossing]",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character": {
+            "type": "string",
+            "description": "[Character]",
+            "x-source-required": false
+          },
+          "zone_ab": {
+            "type": "string",
+            "description": "Zone [A/B]",
+            "x-source-required": false
+          },
+          "zone_ba": {
+            "type": "string",
+            "description": "Zone [B/A]",
+            "x-source-required": false
+          },
+          "ch": {
+            "type": "string",
+            "description": "[Ch.]",
+            "x-source-required": false
+          },
+          "symbolicthematic_meaning_of_this_crossing": {
+            "type": "string",
+            "description": "[Symbolic/thematic meaning of this crossing]",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "boundary_rows": {
+      "type": "array",
+      "description": "Table with columns: Boundary, Zone A Values, Zone B Values, Who Crosses, Key Crossing Chapter",
+      "items": {
+        "type": "object",
+        "properties": {
+          "boundary": {
+            "type": "string",
+            "description": "Boundary",
+            "x-source-required": false
+          },
+          "zone_a_values": {
+            "type": "string",
+            "description": "Zone A Values",
+            "x-source-required": false
+          },
+          "zone_b_values": {
+            "type": "string",
+            "description": "Zone B Values",
+            "x-source-required": false
+          },
+          "who_crosses": {
+            "type": "string",
+            "description": "Who Crosses",
+            "x-source-required": false
+          },
+          "key_crossing_chapter": {
+            "type": "string",
+            "description": "Key Crossing Chapter",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "boundary_name_rows": {
+      "type": "array",
+      "description": "Table with columns: [Boundary name], [Values], [Values], [Character(s)], [Ch.]",
+      "items": {
+        "type": "object",
+        "properties": {
+          "boundary_name": {
+            "type": "string",
+            "description": "[Boundary name]",
+            "x-source-required": false
+          },
+          "values": {
+            "type": "string",
+            "description": "[Values]",
+            "x-source-required": false
+          },
+          "characters": {
+            "type": "string",
+            "description": "[Character(s)]",
+            "x-source-required": false
+          },
+          "ch": {
+            "type": "string",
+            "description": "[Ch.]",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "location_rows": {
+      "type": "array",
+      "description": "Table with columns: Location, Encoded values, Primary theme it embodies, Thematic alignment, Tension with other settings",
+      "items": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string",
+            "description": "Location",
+            "x-source-required": false
+          },
+          "encoded_values": {
+            "type": "string",
+            "description": "Encoded values",
+            "x-source-required": false
+          },
+          "primary_theme_it_embodies": {
+            "type": "string",
+            "description": "Primary theme it embodies",
+            "x-source-required": false
+          },
+          "thematic_alignment": {
+            "type": "string",
+            "description": "Thematic alignment",
+            "x-source-required": false
+          },
+          "tension_with_other_settings": {
+            "type": "string",
+            "description": "Tension with other settings",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_6_rows": {
+      "type": "array",
+      "description": "Table with columns: [Location], [Values], [Theme], [Strong/Weak/None — adjust?], [Does this setting's values conflict productively with any other location?]",
+      "items": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string",
+            "description": "[Location]",
+            "x-source-required": false
+          },
+          "values": {
+            "type": "string",
+            "description": "[Values]",
+            "x-source-required": false
+          },
+          "theme": {
+            "type": "string",
+            "description": "[Theme]",
+            "x-source-required": false
+          },
+          "strongweaknone_adjust": {
+            "type": "string",
+            "description": "[Strong/Weak/None — adjust?]",
+            "x-source-required": false
+          },
+          "does_this_settings_values_conflict_productively_with_any_oth": {
+            "type": "string",
+            "description": "[Does this setting's values conflict productively with any other location?]",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "03-world-building/spatial-semantics.md"
+}

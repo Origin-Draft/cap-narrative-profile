@@ -249,9 +249,9 @@ mod tests {
     fn linear_chain_unlocks_in_order() {
         let mut phases = HashMap::new();
         phases.insert(
-            "03-characters".to_owned(),
+            "02-characters".to_owned(),
             make_phase(
-                "03-characters",
+                "02-characters",
                 vec![
                     ("core-identity", 0, vec![]),
                     ("relationships", 1, vec!["core-identity"]),
@@ -262,7 +262,7 @@ mod tests {
         let dag = SubPhaseDAG::build(&phases).unwrap();
         let completed = HashSet::new();
         let next = dag.next_actionable(&completed);
-        assert_eq!(next, vec!["03-characters/core-identity"]);
+        assert_eq!(next, vec!["02-characters/core-identity"]);
     }
 
     #[test]

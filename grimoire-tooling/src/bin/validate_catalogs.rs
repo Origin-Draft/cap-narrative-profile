@@ -83,31 +83,31 @@ fn validate_all_catalogs(root: &Path) -> Vec<String> {
     println!("Validating catalogs in: {}", root.display());
 
     // Simple list catalogs
-    validate_list!("03-characters/references/character-archetypes.yaml", ArchetypeCatalogEntry);
-    validate_list!("03-characters/references/character-wounds.yaml", WoundCatalogEntry);
-    validate_list!("03-characters/references/character-roles.yaml", RoleCatalogEntry);
-    validate_list!("03-characters/references/character-drives.yaml", DriveCatalogEntry);
+    validate_list!("02-characters/references/character-archetypes.yaml", ArchetypeCatalogEntry);
+    validate_list!("02-characters/references/character-wounds.yaml", WoundCatalogEntry);
+    validate_list!("02-characters/references/character-roles.yaml", RoleCatalogEntry);
+    validate_list!("02-characters/references/character-drives.yaml", DriveCatalogEntry);
     validate_list!("01-concept/references/plot-types.yaml", PlotTypeCatalogEntry);
-    validate_list!("02-collision/references/circle-collision-patterns.yaml", CollisionPatternCatalogEntry);
-    validate_list!("02-collision/references/social-circle-types.yaml", SocialCircleCatalogEntry);
+    validate_list!("01-concept/collision/references/circle-collision-patterns.yaml", CollisionPatternCatalogEntry);
+    validate_list!("01-concept/collision/references/social-circle-types.yaml", SocialCircleCatalogEntry);
     validate_list!("01-concept/references/romance-tropes.yaml", TropeCatalogEntry);
 
     // Theory catalogs — Genette, Burke, Booth/Hutcheon, Lakoff/Johnson, Trauma theorists, Murray/Lamott
-    validate_list!("05-plot-and-structure/references/narrative-time-modes.yaml", NarrativeTimeModeEntry);
+    validate_list!("04-plot-and-structure/references/narrative-time-modes.yaml", NarrativeTimeModeEntry);
     validate_list!("theory/references/irony-types.yaml", IronyTypeCatalogEntry);
     validate_list!("theory/references/comic-modes.yaml", ComicModeCatalogEntry);
     validate_list!("theory/references/metaphor-types.yaml", MetaphorTypeCatalogEntry);
     validate_list!("theory/references/trauma-modes.yaml", TraumaModeEntry);
     validate_list!("theory/references/pentad-elements.yaml", PentadElementEntry);
-    validate_list!("07-revision/references/revision-passes.yaml", RevisionPassEntry);
+    validate_list!("06-revision/references/revision-passes.yaml", RevisionPassEntry);
 
     // Theory catalogs — Austin/Searle, Genette/Bal/Gardner/Cohn, Bloom, Freud/Lacan/Kristeva, Said/Spivak/Bhabha, White/Frye
     validate_list!("theory/references/speech-act-types.yaml", SpeechActEntry);
     validate_list!("theory/references/focalization-modes.yaml", FocalizationModeEntry);
     validate_list!("01-concept/references/intertextual-relations.yaml", IntertextualRelationEntry);
     validate_list!("theory/references/psychoanalytic-mechanisms.yaml", PsychoanalyticMechanismEntry);
-    validate_list!("07-revision/references/postcolonial-modes.yaml", PostcolonialModeEntry);
-    validate_list!("05-plot-and-structure/references/emplotment-types.yaml", EmplotmentTypeEntry);
+    validate_list!("06-revision/references/postcolonial-modes.yaml", PostcolonialModeEntry);
+    validate_list!("04-plot-and-structure/references/emplotment-types.yaml", EmplotmentTypeEntry);
 
     // Theory catalogs — Phase V gap-fill (21 new catalogs)
     validate_list!("theory/references/image-schemas.yaml", ImageSchemaEntry);
@@ -117,26 +117,26 @@ fn validate_all_catalogs(root: &Path) -> Vec<String> {
     validate_list!("theory/references/experimental-narration-modes.yaml", ExperimentalNarrationEntry);
     validate_list!("theory/references/philosophy-fiction-modes.yaml", PhilosophyFictionEntry);
     validate_list!("theory/references/verse-prosody.yaml", VerseProsodyEntry);
-    validate_list!("07-revision/references/ecocriticism-modes.yaml", EcocriticalModeEntry);
-    validate_list!("07-revision/references/feminist-narrative-types.yaml", FeministNarrativeEntry);
-    validate_list!("07-revision/references/posthuman-modes.yaml", PosthumanModeEntry);
-    validate_list!("07-revision/references/queer-narrative-modes.yaml", QueerNarrativeModeEntry);
-    validate_list!("07-revision/references/disability-rep-modes.yaml", DisabilityRepModeEntry);
-    validate_list!("07-revision/references/marxist-narrative-modes.yaml", MarxistNarrativeModeEntry);
-    validate_list!("07-revision/references/indigenous-narrative-modes.yaml", IndigenousNarrativeModeEntry);
-    validate_list!("07-revision/references/affect-modes.yaml", AffectModeEntry);
-    validate_list!("07-revision/references/narrative-ethics-modes.yaml", NarrativeEthicsModeEntry);
+    validate_list!("06-revision/references/ecocriticism-modes.yaml", EcocriticalModeEntry);
+    validate_list!("06-revision/references/feminist-narrative-types.yaml", FeministNarrativeEntry);
+    validate_list!("06-revision/references/posthuman-modes.yaml", PosthumanModeEntry);
+    validate_list!("06-revision/references/queer-narrative-modes.yaml", QueerNarrativeModeEntry);
+    validate_list!("06-revision/references/disability-rep-modes.yaml", DisabilityRepModeEntry);
+    validate_list!("06-revision/references/marxist-narrative-modes.yaml", MarxistNarrativeModeEntry);
+    validate_list!("06-revision/references/indigenous-narrative-modes.yaml", IndigenousNarrativeModeEntry);
+    validate_list!("06-revision/references/affect-modes.yaml", AffectModeEntry);
+    validate_list!("06-revision/references/narrative-ethics-modes.yaml", NarrativeEthicsModeEntry);
     validate_list!("references/cognitive-narrative-modes.yaml", CognitiveNarrativeModeEntry);
     validate_list!("references/signifying-modes.yaml", SignifyingModeEntry);
-    validate_list!("04-world-building/references/spatial-modes.yaml", SpatialModeEntry);
-    validate_list!("05-plot-and-structure/references/propp-functions.yaml", ProppFunctionEntry);
-    validate_list!("05-plot-and-structure/references/seriality-types.yaml", SerialityTypeEntry);
+    validate_list!("03-world-building/references/spatial-modes.yaml", SpatialModeEntry);
+    validate_list!("04-plot-and-structure/references/propp-functions.yaml", ProppFunctionEntry);
+    validate_list!("04-plot-and-structure/references/seriality-types.yaml", SerialityTypeEntry);
 
     // Theory catalogs — Phase V round-2 (6 new catalogs)
     validate_list!("theory/references/translation-modes.yaml", TranslationModeEntry);
     validate_list!("theory/references/graphic-narrative-modes.yaml", GraphicNarrativeModeEntry);
     validate_list!("theory/references/ya-narrative-modes.yaml", YaNarrativeModeEntry);
-    validate_list!("08-polish-and-publish/references/paratext-zones.yaml", ParatextZoneEntry);
+    validate_list!("07-polish-and-publish/references/paratext-zones.yaml", ParatextZoneEntry);
     validate_list!("references/semio-linguistic-functions.yaml", SemioLinguisticFunctionEntry);
     validate_list!("01-concept/references/genre-reading-modes.yaml", GenreReadingModeEntry);
 
@@ -151,7 +151,7 @@ fn validate_all_catalogs(root: &Path) -> Vec<String> {
 
     // inciting-incidents.yaml has a top-level `categories:` mapping (not a bare list)
     {
-        let path = "02-collision/references/inciting-incidents.yaml";
+        let path = "01-concept/collision/references/inciting-incidents.yaml";
         let full = root.join(path);
         if full.exists() {
             match load_yaml_value::<IncitingIncidentsCatalog>(&full) {
@@ -167,7 +167,7 @@ fn validate_all_catalogs(root: &Path) -> Vec<String> {
     // relationship-roles.yaml: supports canonical mapping and legacy mixed
     // shape via typed adapter (canonicalized to RelationshipRolesCatalogDocument).
     {
-        let path = "03-characters/references/relationship-roles.yaml";
+        let path = "02-characters/references/relationship-roles.yaml";
         let full = root.join(path);
         if full.exists() {
             match fs::read_to_string(&full) {
@@ -198,7 +198,7 @@ fn validate_all_catalogs(root: &Path) -> Vec<String> {
 
     // alignment-system.yaml has axes + cells + arc_patterns (not a bare list)
     {
-        let path = "03-characters/references/alignment-system.yaml";
+        let path = "02-characters/references/alignment-system.yaml";
         let full = root.join(path);
         if full.exists() {
             match load_yaml_value::<AlignmentSystemCatalog>(&full) {
@@ -215,7 +215,7 @@ fn validate_all_catalogs(root: &Path) -> Vec<String> {
 
     // romance-beats.yaml has core_romance_arc + supplementary_beats (not a bare list)
     {
-        let path = "05-plot-and-structure/references/romance-beats.yaml";
+        let path = "04-plot-and-structure/references/romance-beats.yaml";
         let full = root.join(path);
         if full.exists() {
             match load_yaml_value::<RomanceBeatsCatalog>(&full) {

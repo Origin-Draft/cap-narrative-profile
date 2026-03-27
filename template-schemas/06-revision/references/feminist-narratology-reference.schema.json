@@ -1,0 +1,209 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/06-revision/references/feminist-narratology-reference.schema.json",
+  "title": "Grimoire · Feminist Narratology Reference",
+  "description": "Extraction schema for feminist-narratology-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "mode_rows": {
+      "type": "array",
+      "description": "Table with columns: Mode, Definition, Gendered Pattern, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "description": "Mode",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "gendered_pattern": {
+            "type": "string",
+            "description": "Gendered Pattern",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "plot_rows": {
+      "type": "array",
+      "description": "Table with columns: Plot, Resolution, Effect",
+      "items": {
+        "type": "object",
+        "properties": {
+          "plot": {
+            "type": "string",
+            "description": "Plot",
+            "x-source-required": false
+          },
+          "resolution": {
+            "type": "string",
+            "description": "Resolution",
+            "x-source-required": false
+          },
+          "effect": {
+            "type": "string",
+            "description": "Effect",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "strategy_rows": {
+      "type": "array",
+      "description": "Table with columns: Strategy, Description",
+      "items": {
+        "type": "object",
+        "properties": {
+          "strategy": {
+            "type": "string",
+            "description": "Strategy",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_4_rows": {
+      "type": "array",
+      "description": "Table with columns: Mode, Characteristics, Gendered Association, Valued As",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "description": "Mode",
+            "x-source-required": false
+          },
+          "characteristics": {
+            "type": "string",
+            "description": "Characteristics",
+            "x-source-required": false
+          },
+          "gendered_association": {
+            "type": "string",
+            "description": "Gendered Association",
+            "x-source-required": false
+          },
+          "valued_as": {
+            "type": "string",
+            "description": "Valued As",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "if_your_narrative_rows": {
+      "type": "array",
+      "description": "Table with columns: If your narrative..., Ask...",
+      "items": {
+        "type": "object",
+        "properties": {
+          "if_your_narrative": {
+            "type": "string",
+            "description": "If your narrative...",
+            "x-source-required": false
+          },
+          "ask": {
+            "type": "string",
+            "description": "Ask...",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "implausible_for_women_rows": {
+      "type": "array",
+      "description": "Table with columns: \"Implausible\" for women, Normal for men",
+      "items": {
+        "type": "object",
+        "properties": {
+          "implausible_for_women": {
+            "type": "string",
+            "description": "\"Implausible\" for women",
+            "x-source-required": false
+          },
+          "normal_for_men": {
+            "type": "string",
+            "description": "Normal for men",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Check, Pass?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "check": {
+            "type": "string",
+            "description": "Check",
+            "x-source-required": false
+          },
+          "pass": {
+            "type": "string",
+            "description": "Pass?",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "author_rows": {
+      "type": "array",
+      "description": "Table with columns: Author, Work, Core Idea",
+      "items": {
+        "type": "object",
+        "properties": {
+          "author": {
+            "type": "string",
+            "description": "Author",
+            "x-source-required": false
+          },
+          "work": {
+            "type": "string",
+            "description": "Work",
+            "x-source-required": false
+          },
+          "core_idea": {
+            "type": "string",
+            "description": "Core Idea",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "06-revision/references/feminist-narratology-reference.md"
+}

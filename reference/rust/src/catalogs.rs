@@ -22,7 +22,7 @@ use crate::enums::{Alignment, Archetype, DriveModel, Genre, Role, Wound};
 
 // ── Archetype catalog (character-archetypes.yaml) ─────────────────────────────
 
-/// Matches the structure of `03-characters/references/character-archetypes.yaml`.
+/// Matches the structure of `02-characters/references/character-archetypes.yaml`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct ArchetypeCatalogEntry {
     pub slug: String,
@@ -49,7 +49,7 @@ impl ArchetypeCatalogEntry {
 
 // ── Wound catalog (character-wounds.yaml) ─────────────────────────────────────
 
-/// Matches the structure of `03-characters/references/character-wounds.yaml`.
+/// Matches the structure of `02-characters/references/character-wounds.yaml`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct WoundCatalogEntry {
     pub slug: String,
@@ -93,7 +93,7 @@ pub struct AlignmentCatalogEntry {
 
 // ── Character role catalog (character-roles.yaml) ─────────────────────────────
 
-/// Matches the structure of `03-characters/references/character-roles.yaml`.
+/// Matches the structure of `02-characters/references/character-roles.yaml`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct RoleCatalogEntry {
     pub slug: String,
@@ -116,7 +116,7 @@ impl RoleCatalogEntry {
 
 // ── Drive model catalog (character-drives.yaml) ───────────────────────────────
 
-/// Matches the structure of `03-characters/references/character-drives.yaml`.
+/// Matches the structure of `02-characters/references/character-drives.yaml`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct DriveCatalogEntry {
     pub slug: String,
@@ -171,7 +171,7 @@ pub struct CastSlot {
     #[serde(default)] pub max: Option<u32>,
 }
 
-/// Matches the structure of `02-collision/references/circle-collision-patterns.yaml`.
+/// Matches the structure of `01-concept/collision/references/circle-collision-patterns.yaml`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct CollisionPatternCatalogEntry {
     pub slug: String,
@@ -208,7 +208,7 @@ pub struct IncitingIncidentCategory {
     #[serde(default)] pub incidents: Vec<IncitingIncidentEntry>,
 }
 
-/// Top-level wrapper for `02-collision/references/inciting-incidents.yaml`.
+/// Top-level wrapper for `01-concept/collision/references/inciting-incidents.yaml`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct IncitingIncidentsCatalog {
     #[serde(default)]
@@ -224,7 +224,7 @@ impl IncitingIncidentsCatalog {
 
 // ── Social circle type catalog (social-circle-types.yaml) ─────────────────────
 
-/// Matches the structure of `02-collision/references/social-circle-types.yaml`.
+/// Matches the structure of `01-concept/collision/references/social-circle-types.yaml`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct SocialCircleCatalogEntry {
     pub slug: String,
@@ -349,7 +349,7 @@ pub struct CatalogExample {
 
 // ── Narrative-time modes catalog (narrative-time-modes.yaml) ─────────────────
 
-/// Matches `05-plot-and-structure/references/narrative-time-modes.yaml`.
+/// Matches `04-plot-and-structure/references/narrative-time-modes.yaml`.
 /// Covers Genette's three temporal axes: order, duration, frequency.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct NarrativeTimeModeEntry {
@@ -459,7 +459,7 @@ pub struct CanonicalSource {
     #[serde(default)] pub note: Option<String>,
 }
 
-/// Matches `07-revision/references/revision-passes.yaml`.
+/// Matches `06-revision/references/revision-passes.yaml`.
 /// Murray, Elbow, Lamott six-pass system.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct RevisionPassEntry {
@@ -601,7 +601,7 @@ pub struct PsychoanalyticMechanismEntry {
     #[serde(default)] pub scene_audit_question: Option<String>,
 }
 
-/// Entry in `07-revision/references/postcolonial-modes.yaml`
+/// Entry in `06-revision/references/postcolonial-modes.yaml`
 /// Said *Orientalism* (1978); Bhabha *Location of Culture* (1994);
 /// Spivak "Can the Subaltern Speak?" (1988); Fanon; Achebe; Ngũgĩ
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
@@ -619,7 +619,7 @@ pub struct PostcolonialModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `05-plot-and-structure/references/emplotment-types.yaml`
+/// Entry in `04-plot-and-structure/references/emplotment-types.yaml`
 /// Hayden White *Metahistory* (1973); Northrop Frye *Anatomy of Criticism* (1957)
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct EmplotmentTypeEntry {
@@ -810,7 +810,7 @@ pub struct VerseProsodyEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-revision/references/ecocriticism-modes.yaml`
+/// Entry in `06-revision/references/ecocriticism-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct EcocriticalModeEntry {
     pub slug: String,
@@ -827,7 +827,7 @@ pub struct EcocriticalModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-revision/references/feminist-narrative-types.yaml`
+/// Entry in `06-revision/references/feminist-narrative-types.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct FeministNarrativeEntry {
     pub slug: String,
@@ -847,7 +847,7 @@ pub struct FeministNarrativeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-revision/references/posthuman-modes.yaml`
+/// Entry in `06-revision/references/posthuman-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct PosthumanModeEntry {
     pub slug: String,
@@ -865,7 +865,7 @@ pub struct PosthumanModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-revision/references/queer-narrative-modes.yaml`
+/// Entry in `06-revision/references/queer-narrative-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct QueerNarrativeModeEntry {
     pub slug: String,
@@ -886,7 +886,7 @@ pub struct QueerNarrativeModeEntry {
     #[serde(default)] pub intersectional_instances: Vec<String>,
 }
 
-/// Entry in `07-revision/references/disability-rep-modes.yaml`
+/// Entry in `06-revision/references/disability-rep-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct DisabilityRepModeEntry {
     pub slug: String,
@@ -905,7 +905,7 @@ pub struct DisabilityRepModeEntry {
     #[serde(default)] pub connection_to_reproductive_futurism: Option<String>,
 }
 
-/// Entry in `07-revision/references/marxist-narrative-modes.yaml`
+/// Entry in `06-revision/references/marxist-narrative-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct MarxistNarrativeModeEntry {
     pub slug: String,
@@ -925,7 +925,7 @@ pub struct MarxistNarrativeModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-revision/references/indigenous-narrative-modes.yaml`
+/// Entry in `06-revision/references/indigenous-narrative-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct IndigenousNarrativeModeEntry {
     pub slug: String,
@@ -945,7 +945,7 @@ pub struct IndigenousNarrativeModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-revision/references/affect-modes.yaml`
+/// Entry in `06-revision/references/affect-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct AffectModeEntry {
     pub slug: String,
@@ -962,7 +962,7 @@ pub struct AffectModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-revision/references/narrative-ethics-modes.yaml`
+/// Entry in `06-revision/references/narrative-ethics-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct NarrativeEthicsModeEntry {
     pub slug: String,
@@ -1019,7 +1019,7 @@ pub struct SignifyingModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `04-world-building/references/spatial-modes.yaml`
+/// Entry in `03-world-building/references/spatial-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct SpatialModeEntry {
     pub slug: String,
@@ -1036,7 +1036,7 @@ pub struct SpatialModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `05-plot-and-structure/references/propp-functions.yaml`
+/// Entry in `04-plot-and-structure/references/propp-functions.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct ProppFunctionEntry {
     pub slug: String,
@@ -1049,7 +1049,7 @@ pub struct ProppFunctionEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `05-plot-and-structure/references/seriality-types.yaml`
+/// Entry in `04-plot-and-structure/references/seriality-types.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct SerialityTypeEntry {
     pub slug: String,
@@ -1111,7 +1111,7 @@ pub struct YaNarrativeModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `08-polish-and-publish/references/paratext-zones.yaml`
+/// Entry in `07-polish-and-publish/references/paratext-zones.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct ParatextZoneEntry {
     pub slug: String,
@@ -1161,7 +1161,7 @@ pub struct GenreReadingModeEntry {
 
 // ── Alignment system catalog structs ─────────────────────────────────────────
 
-/// A cell in the 9-cell alignment grid (`03-characters/references/alignment-system.yaml`).
+/// A cell in the 9-cell alignment grid (`02-characters/references/alignment-system.yaml`).
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct AlignmentCellEntry {
     pub slug: String,
@@ -1188,7 +1188,7 @@ pub struct AlignmentArcPatternEntry {
     #[serde(default)] pub genre_affinity: Vec<String>,
 }
 
-/// Top-level catalog for `03-characters/references/alignment-system.yaml`.
+/// Top-level catalog for `02-characters/references/alignment-system.yaml`.
 /// Contains `cells:` (the 9-cell grid) and `arc_patterns:`; the `axes:` section is skipped.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct AlignmentSystemCatalog {
@@ -1198,7 +1198,7 @@ pub struct AlignmentSystemCatalog {
 
 // ── Romance beats catalog structs ────────────────────────────────────────────
 
-/// A single beat entry in `05-plot-and-structure/references/romance-beats.yaml`.
+/// A single beat entry in `04-plot-and-structure/references/romance-beats.yaml`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct RomanceBeatEntry {
     pub slug: String,
@@ -1220,7 +1220,7 @@ pub struct RomanceBeatArcSection {
     #[serde(default)] pub beats: Vec<RomanceBeatEntry>,
 }
 
-/// Top-level catalog for `05-plot-and-structure/references/romance-beats.yaml`.
+/// Top-level catalog for `04-plot-and-structure/references/romance-beats.yaml`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct RomanceBeatsCatalog {
     pub core_romance_arc: RomanceBeatArcSection,
@@ -1296,7 +1296,7 @@ pub struct NonfictionNarrativeModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-revision/references/intersectional-modes.yaml`
+/// Entry in `06-revision/references/intersectional-modes.yaml`
 /// Kimberlé Crenshaw (1989, 1991); Patricia Hill Collins *Black Feminist Thought* (2000);
 /// bell hooks *Feminist Theory: From Margin to Center* (1984); Chimamanda Ngozi Adichie
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]

@@ -4,7 +4,7 @@
 ///   grimoire-export-training [--workspace-path <path>] [--output <file>]
 ///                            [--dry-run] [--min-words <n>] [--tier minimal|default|all]
 ///
-/// Walks `06-drafting/active-drafting/` for chapter draft files, parses
+/// Walks `05-drafting/active-drafting/` for chapter draft files, parses
 /// annotation comments (`<!-- key:value -->`), pairs each prose paragraph
 /// with its resolved annotation state, and emits a JSONL file of
 /// `TrainingExample` records.
@@ -49,7 +49,7 @@ fn main() {
         println!("[dry-run] No file will be written.");
     }
 
-    let drafts_dir = root.join("06-drafting/active-drafting");
+    let drafts_dir = root.join("05-drafting/active-drafting");
     let examples = collect_examples(&drafts_dir, &root, min_words, tier_config);
 
     println!("Found {} training examples.", examples.len());

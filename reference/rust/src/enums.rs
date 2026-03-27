@@ -2144,7 +2144,7 @@ pub enum SurvivranceMode {
 }
 
 /// Vizenor *Manifest Manners* (1994): extended survivance vocabulary.
-/// Reference: `07-revision/critical-theory/indigenous-narratology.md`
+/// Reference: `theory/indigenous-narratology.md`
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, JsonSchema, Display, EnumString)]
 #[serde(rename_all = "snake_case")]
 #[strum(serialize_all = "snake_case")]
@@ -2269,7 +2269,7 @@ pub enum SerialArcType {
 // ── Narrative ethics audit ─────────────────────────────────────────────────────
 
 /// Ethical audit categories for the revision phase.
-/// Grounds to Booth, Keen, Nussbaum, Spivak in `07-revision/critical-theory/`.
+/// Grounds to Booth, Keen, Nussbaum, Spivak in `06-revision/critical-theory/`.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, JsonSchema, Display, EnumString)]
 #[serde(rename_all = "snake_case")]
 #[strum(serialize_all = "snake_case")]
@@ -2379,7 +2379,7 @@ pub enum QueerTimeMode {
 }
 
 /// Sedgwick/Rich/Butler/Edelman/Halberstam: combined queer narrative modes for audit.
-/// Reference: `07-revision/critical-theory/queer-narratology.md`
+/// Reference: `theory/queer-narratology.md`
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, JsonSchema, Display, EnumString)]
 #[serde(rename_all = "snake_case")]
 #[strum(serialize_all = "snake_case")]
@@ -2497,7 +2497,7 @@ pub enum AbjectCategory {
 /// Postcolonial narrative modes and critical categories.
 /// Sources: Said *Orientalism* (1978), Spivak *Can the Subaltern Speak?* (1988),
 /// Bhabha *The Location of Culture* (1994), Fanon *Black Skin, White Masks* (1952).
-/// Reference: `07-revision/critical-theory/postcolonial-narratology.md`
+/// Reference: `theory/postcolonial-narratology.md`
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, JsonSchema, Display, EnumString)]
 #[serde(rename_all = "snake_case")]
 #[strum(serialize_all = "snake_case")]
@@ -2529,7 +2529,7 @@ pub enum PostcolonialMode {
 /// Ecocritical modes for representing environment and ecological crisis.
 /// Sources: Buell *The Environmental Imagination* (1995), Morton *Ecology Without Nature* (2007),
 /// Nixon *Slow Violence* (2011), Haraway *Staying with the Trouble* (2016).
-/// Reference: `07-revision/critical-theory/ecocriticism.md`
+/// Reference: `theory/ecocriticism.md`
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, JsonSchema, Display, EnumString)]
 #[serde(rename_all = "snake_case")]
 #[strum(serialize_all = "snake_case")]
@@ -2664,7 +2664,7 @@ pub enum ExperimentalNarrationMode {
 /// Posthumanist narrative modes — how narrative frames nonhuman, animal, machine subjects.
 /// Sources: Wolfe *Animal Rites* (2003), Braidotti *The Posthuman* (2013),
 /// Hayles *How We Became Posthuman* (1999).
-/// Reference: `07-revision/critical-theory/posthumanism-and-nonhuman.md`
+/// Reference: `theory/posthumanism-and-nonhuman.md`
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, JsonSchema, Display, EnumString)]
 #[serde(rename_all = "snake_case")]
 #[strum(serialize_all = "snake_case")]
@@ -2690,7 +2690,7 @@ pub enum PosthumanMode {
 /// Marxist and class-based narrative analysis modes.
 /// Sources: Jameson *The Political Unconscious* (1981), Williams *Marxism and Literature* (1977),
 /// Lukács *Studies in European Realism* (1950), Eagleton *Criticism and Ideology* (1976).
-/// Reference: `07-revision/critical-theory/class-and-marxist-narratology.md`
+/// Reference: `theory/class-and-marxist-narratology.md`
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, JsonSchema, Display, EnumString)]
 #[serde(rename_all = "snake_case")]
 #[strum(serialize_all = "snake_case")]
@@ -2748,7 +2748,7 @@ impl From<CulturalStructure> for MarxistNarrativeMode {
 /// Feminist narrative categories.
 /// Sources: Lanser *Fictions of Authority* (1992), DuPlessis *Writing Beyond the Ending* (1985),
 /// Warhol *Gendered Interventions* (1989), Fetterley *The Resisting Reader* (1978).
-/// Reference: `07-revision/critical-theory/feminist-narratology.md`
+/// Reference: `theory/feminist-narratology.md`
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, JsonSchema, Display, EnumString)]
 #[serde(rename_all = "snake_case")]
 #[strum(serialize_all = "snake_case")]

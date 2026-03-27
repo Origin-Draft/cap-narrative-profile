@@ -1,0 +1,154 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/02-characters/references/relationship-patterns.schema.json",
+  "title": "Grimoire · Relationship Patterns",
+  "description": "Extraction schema for relationship-patterns.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Stage, Definition, External Marker",
+      "items": {
+        "type": "object",
+        "properties": {
+          "stage": {
+            "type": "string",
+            "description": "Stage",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "external_marker": {
+            "type": "string",
+            "description": "External Marker",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "romance_beat_rows": {
+      "type": "array",
+      "description": "Table with columns: Romance Beat, Stage, Timing, Emotional Marker, Physical Marker",
+      "items": {
+        "type": "object",
+        "properties": {
+          "romance_beat": {
+            "type": "string",
+            "description": "Romance Beat",
+            "x-source-required": false
+          },
+          "stage": {
+            "type": "string",
+            "description": "Stage",
+            "x-source-required": false
+          },
+          "timing": {
+            "type": "string",
+            "description": "Timing",
+            "x-source-required": false
+          },
+          "emotional_marker": {
+            "type": "string",
+            "description": "Emotional Marker",
+            "x-source-required": false
+          },
+          "physical_marker": {
+            "type": "string",
+            "description": "Physical Marker",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "thriller_beat_rows": {
+      "type": "array",
+      "description": "Table with columns: Thriller Beat, Stage, Function",
+      "items": {
+        "type": "object",
+        "properties": {
+          "thriller_beat": {
+            "type": "string",
+            "description": "Thriller Beat",
+            "x-source-required": false
+          },
+          "stage": {
+            "type": "string",
+            "description": "Stage",
+            "x-source-required": false
+          },
+          "function": {
+            "type": "string",
+            "description": "Function",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "fantasy_beat_rows": {
+      "type": "array",
+      "description": "Table with columns: Fantasy Beat, Stage, Function",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fantasy_beat": {
+            "type": "string",
+            "description": "Fantasy Beat",
+            "x-source-required": false
+          },
+          "stage": {
+            "type": "string",
+            "description": "Stage",
+            "x-source-required": false
+          },
+          "function": {
+            "type": "string",
+            "description": "Function",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "mystery_beat_rows": {
+      "type": "array",
+      "description": "Table with columns: Mystery Beat, Stage, Function",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mystery_beat": {
+            "type": "string",
+            "description": "Mystery Beat",
+            "x-source-required": false
+          },
+          "stage": {
+            "type": "string",
+            "description": "Stage",
+            "x-source-required": false
+          },
+          "function": {
+            "type": "string",
+            "description": "Function",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "02-characters/references/relationship-patterns.md"
+}

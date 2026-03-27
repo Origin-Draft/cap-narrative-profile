@@ -23,7 +23,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/adaptation-modes.yaml`",
+      "description": "Entry in `05-drafting/references/adaptation-modes.yaml`",
       "properties": {
         "adaptation_notes": {
           "default": [],
@@ -132,7 +132,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `08-revision/references/affect-modes.yaml`",
+      "description": "Entry in `06-revision/references/affect-modes.yaml`",
       "properties": {
         "ahmed_definition": {
           "default": null,
@@ -260,7 +260,7 @@
           "type": "object"
         },
         "AlignmentCellEntry": {
-          "description": "A cell in the 9-cell alignment grid (`03-characters/references/alignment-system.yaml`).",
+          "description": "A cell in the 9-cell alignment grid (`02-characters/references/alignment-system.yaml`).",
           "properties": {
             "arc_pressure": {
               "default": null,
@@ -332,7 +332,7 @@
           "type": "object"
         }
       },
-      "description": "Top-level catalog for `03-characters/references/alignment-system.yaml`. Contains `cells:` (the 9-cell grid) and `arc_patterns:`; the `axes:` section is skipped.",
+      "description": "Top-level catalog for `02-characters/references/alignment-system.yaml`. Contains `cells:` (the 9-cell grid) and `arc_patterns:`; the `axes:` section is skipped.",
       "properties": {
         "arc_patterns": {
           "default": [],
@@ -354,7 +354,7 @@
     },
     "ArchetypeCatalogEntry": {
       "$schema": "http://json-schema.org/draft-07/schema#",
-      "description": "Matches the structure of `03-characters/references/character-archetypes.yaml`.",
+      "description": "Matches the structure of `02-characters/references/character-archetypes.yaml`.",
       "properties": {
         "common_surface_expressions": {
           "default": [],
@@ -470,7 +470,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/autofiction-modes.yaml`",
+      "description": "Entry in `05-drafting/references/autofiction-modes.yaml`",
       "properties": {
         "barthes_definition": {
           "default": null,
@@ -741,7 +741,7 @@
           "type": "object"
         }
       },
-      "description": "Matches the structure of `02-collision/references/circle-collision-patterns.yaml`.",
+      "description": "Matches the structure of `01-concept/collision/references/circle-collision-patterns.yaml`.",
       "properties": {
         "arc_polarity": {
           "default": null
@@ -825,7 +825,7 @@
           "type": "object"
         }
       },
-      "description": "Matches `07-drafting/references/comic-modes.yaml`. Bergson, Morreall, Frye; covers both modes and comedy theories.",
+      "description": "Matches `05-drafting/references/comic-modes.yaml`. Bergson, Morreall, Frye; covers both modes and comedy theories.",
       "properties": {
         "bergson_addition": {
           "default": null,
@@ -959,7 +959,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `08-revision/references/disability-rep-modes.yaml`",
+      "description": "Entry in `06-revision/references/disability-rep-modes.yaml`",
       "properties": {
         "audit_patterns": {
           "default": [],
@@ -1082,7 +1082,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/dramatic-theory-modes.yaml` Aristotle *Poetics* (c. 335 BCE); Stanislavski *An Actor Prepares* (1936); Brecht *Brecht on Theatre* (ed. Willett, 1964); Artaud *The Theatre and Its Double* (1938); Syd Field *Screenplay* (1979)",
+      "description": "Entry in `05-drafting/references/dramatic-theory-modes.yaml` Aristotle *Poetics* (c. 335 BCE); Stanislavski *An Actor Prepares* (1936); Brecht *Brecht on Theatre* (ed. Willett, 1964); Artaud *The Theatre and Its Double* (1938); Syd Field *Screenplay* (1979)",
       "properties": {
         "audit_questions": {
           "default": [],
@@ -1161,7 +1161,7 @@
     },
     "DriveCatalogEntry": {
       "$schema": "http://json-schema.org/draft-07/schema#",
-      "description": "Matches the structure of `03-characters/references/character-drives.yaml`.",
+      "description": "Matches the structure of `02-characters/references/character-drives.yaml`.",
       "properties": {
         "arc_template": {
           "default": null,
@@ -1249,7 +1249,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `08-revision/references/ecocriticism-modes.yaml`",
+      "description": "Entry in `06-revision/references/ecocriticism-modes.yaml`",
       "properties": {
         "audit_questions": {
           "default": [],
@@ -1358,7 +1358,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `05-plot-and-structure/references/emplotment-types.yaml` Hayden White *Metahistory* (1973); Northrop Frye *Anatomy of Criticism* (1957)",
+      "description": "Entry in `04-plot-and-structure/references/emplotment-types.yaml` Hayden White *Metahistory* (1973); Northrop Frye *Anatomy of Criticism* (1957)",
       "properties": {
         "canonical_examples": {
           "default": [],
@@ -1507,7 +1507,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/experimental-narration-modes.yaml`",
+      "description": "Entry in `05-drafting/references/experimental-narration-modes.yaml`",
       "properties": {
         "booth_definition": {
           "default": null,
@@ -1630,7 +1630,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `08-revision/references/feminist-narrative-types.yaml`",
+      "description": "Entry in `06-revision/references/feminist-narrative-types.yaml`",
       "properties": {
         "audit_questions": {
           "default": [],
@@ -1760,7 +1760,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/focalization-modes.yaml` Genette *Narrative Discourse* (1972); Bal *Narratology* (1985); Gardner *The Art of Fiction* (1983); Cohn *Transparent Minds* (1978)",
+      "description": "Entry in `05-drafting/references/focalization-modes.yaml` Genette *Narrative Discourse* (1972); Bal *Narratology* (1985); Gardner *The Art of Fiction* (1983); Cohn *Transparent Minds* (1978)",
       "properties": {
         "canonical_examples": {
           "default": [],
@@ -2176,7 +2176,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/graphic-narrative-modes.yaml`",
+      "description": "Entry in `05-drafting/references/graphic-narrative-modes.yaml`",
       "properties": {
         "canonical_examples": {
           "default": [],
@@ -2271,7 +2271,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/image-schemas.yaml`",
+      "description": "Entry in `05-drafting/references/image-schemas.yaml`",
       "properties": {
         "canonical_examples": {
           "default": [],
@@ -2405,7 +2405,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `08-revision/references/indigenous-narrative-modes.yaml`",
+      "description": "Entry in `06-revision/references/indigenous-narrative-modes.yaml`",
       "properties": {
         "archibald_definition": {
           "default": null,
@@ -2535,7 +2535,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `08-revision/references/intersectional-modes.yaml` Kimberlé Crenshaw (1989, 1991); Patricia Hill Collins *Black Feminist Thought* (2000); bell hooks *Feminist Theory: From Margin to Center* (1984); Chimamanda Ngozi Adichie",
+      "description": "Entry in `06-revision/references/intersectional-modes.yaml` Kimberlé Crenshaw (1989, 1991); Patricia Hill Collins *Black Feminist Thought* (2000); bell hooks *Feminist Theory: From Margin to Center* (1984); Chimamanda Ngozi Adichie",
       "properties": {
         "audit_questions": {
           "default": [],
@@ -2737,7 +2737,7 @@
           "type": "object"
         }
       },
-      "description": "Matches `07-drafting/references/irony-types.yaml`. Booth *A Rhetoric of Irony* / Hutcheon *A Theory of Parody*.",
+      "description": "Matches `05-drafting/references/irony-types.yaml`. Booth *A Rhetoric of Irony* / Hutcheon *A Theory of Parody*.",
       "properties": {
         "canonical_examples": {
           "default": [],
@@ -2829,7 +2829,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `08-revision/references/marxist-narrative-modes.yaml`",
+      "description": "Entry in `06-revision/references/marxist-narrative-modes.yaml`",
       "properties": {
         "audit_questions": {
           "default": [],
@@ -2959,7 +2959,7 @@
           "type": "object"
         }
       },
-      "description": "Matches `07-drafting/references/metaphor-types.yaml`. Lakoff/Johnson, Richards, Black, Jakobson.",
+      "description": "Matches `05-drafting/references/metaphor-types.yaml`. Lakoff/Johnson, Richards, Black, Jakobson.",
       "properties": {
         "canonical_examples": {
           "default": [],
@@ -3079,7 +3079,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `08-revision/references/narrative-ethics-modes.yaml`",
+      "description": "Entry in `06-revision/references/narrative-ethics-modes.yaml`",
       "properties": {
         "audit_checklist": {
           "default": [],
@@ -3202,7 +3202,7 @@
           "type": "object"
         }
       },
-      "description": "Matches `05-plot-and-structure/references/narrative-time-modes.yaml`. Covers Genette's three temporal axes: order, duration, frequency.",
+      "description": "Matches `04-plot-and-structure/references/narrative-time-modes.yaml`. Covers Genette's three temporal axes: order, duration, frequency.",
       "properties": {
         "axis": {
           "type": "string"
@@ -3280,7 +3280,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/nonfiction-narrative-modes.yaml` Vivian Gornick *The Situation and the Story* (2001); John McPhee *Draft No. 4* (2017); Mary Karr *The Art of Memoir* (2015); Joan Didion (essays/memoir); Phillip Lopate *To Show and to Tell* (2013)",
+      "description": "Entry in `05-drafting/references/nonfiction-narrative-modes.yaml` Vivian Gornick *The Situation and the Story* (2001); John McPhee *Draft No. 4* (2017); Mary Karr *The Art of Memoir* (2015); Joan Didion (essays/memoir); Phillip Lopate *To Show and to Tell* (2013)",
       "properties": {
         "audit_questions": {
           "default": [],
@@ -3376,7 +3376,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `09-polish-and-publish/references/paratext-zones.yaml`",
+      "description": "Entry in `07-polish-and-publish/references/paratext-zones.yaml`",
       "properties": {
         "audit_questions": {
           "default": [],
@@ -3450,7 +3450,7 @@
     },
     "PentadElementEntry": {
       "$schema": "http://json-schema.org/draft-07/schema#",
-      "description": "Matches `07-drafting/references/pentad-elements.yaml`. Burke *A Grammar of Motives* (1945). Both `type: element` and `type: ratio` entries share this struct.",
+      "description": "Matches `05-drafting/references/pentad-elements.yaml`. Burke *A Grammar of Motives* (1945). Both `type: element` and `type: ratio` entries share this struct.",
       "properties": {
         "burke_definition": {
           "default": null,
@@ -3571,7 +3571,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/philosophy-fiction-modes.yaml`",
+      "description": "Entry in `05-drafting/references/philosophy-fiction-modes.yaml`",
       "properties": {
         "canonical_examples": {
           "default": [],
@@ -3820,7 +3820,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `08-revision/references/postcolonial-modes.yaml` Said *Orientalism* (1978); Bhabha *Location of Culture* (1994); Spivak \"Can the Subaltern Speak?\" (1988); Fanon; Achebe; Ngũgĩ",
+      "description": "Entry in `06-revision/references/postcolonial-modes.yaml` Said *Orientalism* (1978); Bhabha *Location of Culture* (1994); Spivak \"Can the Subaltern Speak?\" (1988); Fanon; Achebe; Ngũgĩ",
       "properties": {
         "canonical_examples": {
           "default": [],
@@ -3922,7 +3922,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `08-revision/references/posthuman-modes.yaml`",
+      "description": "Entry in `06-revision/references/posthuman-modes.yaml`",
       "properties": {
         "audit_questions": {
           "default": [],
@@ -4038,7 +4038,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `05-plot-and-structure/references/propp-functions.yaml`",
+      "description": "Entry in `04-plot-and-structure/references/propp-functions.yaml`",
       "properties": {
         "canonical_examples": {
           "default": [],
@@ -4108,7 +4108,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/psychoanalytic-mechanisms.yaml` Freud; Lacan *Écrits* (1966); Kristeva *Powers of Horror* (1980); Mulvey \"Visual Pleasure\" (1975)",
+      "description": "Entry in `05-drafting/references/psychoanalytic-mechanisms.yaml` Freud; Lacan *Écrits* (1966); Kristeva *Powers of Horror* (1980); Mulvey \"Visual Pleasure\" (1975)",
       "properties": {
         "canonical_examples": {
           "default": [],
@@ -4229,7 +4229,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `08-revision/references/queer-narrative-modes.yaml`",
+      "description": "Entry in `06-revision/references/queer-narrative-modes.yaml`",
       "properties": {
         "audit_question": {
           "default": null,
@@ -4422,7 +4422,7 @@
           "type": "object"
         }
       },
-      "description": "Matches `08-revision/references/revision-passes.yaml`. Murray, Elbow, Lamott six-pass system.",
+      "description": "Matches `06-revision/references/revision-passes.yaml`. Murray, Elbow, Lamott six-pass system.",
       "properties": {
         "canonical_sources": {
           "default": [],
@@ -4489,7 +4489,7 @@
     },
     "RoleCatalogEntry": {
       "$schema": "http://json-schema.org/draft-07/schema#",
-      "description": "Matches the structure of `03-characters/references/character-roles.yaml`.",
+      "description": "Matches the structure of `02-characters/references/character-roles.yaml`.",
       "properties": {
         "max_per_story": {
           "default": null,
@@ -4582,7 +4582,7 @@
           "type": "object"
         },
         "RomanceBeatEntry": {
-          "description": "A single beat entry in `05-plot-and-structure/references/romance-beats.yaml`.",
+          "description": "A single beat entry in `04-plot-and-structure/references/romance-beats.yaml`.",
           "properties": {
             "act": {
               "default": "",
@@ -4651,7 +4651,7 @@
           "type": "object"
         }
       },
-      "description": "Top-level catalog for `05-plot-and-structure/references/romance-beats.yaml`.",
+      "description": "Top-level catalog for `04-plot-and-structure/references/romance-beats.yaml`.",
       "properties": {
         "core_romance_arc": {
           "$ref": "#/definitions/RomanceBeatArcSection"
@@ -4697,7 +4697,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/screenwriting-modes.yaml` Syd Field *Screenplay* (1979); Michael Hauge *Writing Screenplays That Sell* (1988/2011); David Bordwell *Narration in the Fiction Film* (1985); Robert McKee *Story* (1997); Paul Joseph Gulino *Screenwriting: The Sequence Approach* (2004); Linda Seger *Making a Good Script Great* (3rd ed. 2010)",
+      "description": "Entry in `05-drafting/references/screenwriting-modes.yaml` Syd Field *Screenplay* (1979); Michael Hauge *Writing Screenplays That Sell* (1988/2011); David Bordwell *Narration in the Fiction Film* (1985); Robert McKee *Story* (1997); Paul Joseph Gulino *Screenwriting: The Sequence Approach* (2004); Linda Seger *Making a Good Script Great* (3rd ed. 2010)",
       "properties": {
         "antiplot_markers": {
           "default": [],
@@ -5033,7 +5033,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `05-plot-and-structure/references/seriality-types.yaml`",
+      "description": "Entry in `04-plot-and-structure/references/seriality-types.yaml`",
       "properties": {
         "canonical_examples": {
           "default": [],
@@ -5104,7 +5104,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/short-fiction-modes.yaml` Poe \"The Philosophy of Composition\" (1846); Charles E. May *The Short Story* (1995); Julio Cortázar \"Some Aspects of the Short Story\" (1963); Shapard & Thomas *Sudden Fiction* (1986)",
+      "description": "Entry in `05-drafting/references/short-fiction-modes.yaml` Poe \"The Philosophy of Composition\" (1846); Charles E. May *The Short Story* (1995); Julio Cortázar \"Some Aspects of the Short Story\" (1963); Shapard & Thomas *Sudden Fiction* (1986)",
       "properties": {
         "audit_questions": {
           "default": [],
@@ -5290,7 +5290,7 @@
     },
     "SocialCircleCatalogEntry": {
       "$schema": "http://json-schema.org/draft-07/schema#",
-      "description": "Matches the structure of `02-collision/references/social-circle-types.yaml`.",
+      "description": "Matches the structure of `01-concept/collision/references/social-circle-types.yaml`.",
       "properties": {
         "capital_profile": {
           "default": null
@@ -5381,7 +5381,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `04-world-building/references/spatial-modes.yaml`",
+      "description": "Entry in `03-world-building/references/spatial-modes.yaml`",
       "properties": {
         "bachelard_definition": {
           "default": null,
@@ -5490,7 +5490,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/speech-act-types.yaml` Austin *How to Do Things with Words* (1962); Searle *Speech Acts* (1969)",
+      "description": "Entry in `05-drafting/references/speech-act-types.yaml` Austin *How to Do Things with Words* (1962); Searle *Speech Acts* (1969)",
       "properties": {
         "act_type": {
           "default": null,
@@ -5632,7 +5632,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/subtext-modes.yaml`",
+      "description": "Entry in `05-drafting/references/subtext-modes.yaml`",
       "properties": {
         "canonical_examples": {
           "default": [],
@@ -5734,7 +5734,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/translation-modes.yaml`",
+      "description": "Entry in `05-drafting/references/translation-modes.yaml`",
       "properties": {
         "audit_questions": {
           "default": [],
@@ -5822,7 +5822,7 @@
           "type": "object"
         }
       },
-      "description": "Matches `07-drafting/references/trauma-modes.yaml`. Caruth, LaCapra, Herman, van der Kolk, Felman/Laub.",
+      "description": "Matches `05-drafting/references/trauma-modes.yaml`. Caruth, LaCapra, Herman, van der Kolk, Felman/Laub.",
       "properties": {
         "canonical_examples": {
           "default": [],
@@ -6048,7 +6048,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/verse-prosody.yaml`",
+      "description": "Entry in `05-drafting/references/verse-prosody.yaml`",
       "properties": {
         "affective_function": {
           "default": null,
@@ -6150,7 +6150,7 @@
     },
     "WoundCatalogEntry": {
       "$schema": "http://json-schema.org/draft-07/schema#",
-      "description": "Matches the structure of `03-characters/references/character-wounds.yaml`.",
+      "description": "Matches the structure of `02-characters/references/character-wounds.yaml`.",
       "properties": {
         "alignment_tendency": {
           "default": [],
@@ -6266,7 +6266,7 @@
           "type": "object"
         }
       },
-      "description": "Entry in `07-drafting/references/ya-narrative-modes.yaml`",
+      "description": "Entry in `05-drafting/references/ya-narrative-modes.yaml`",
       "properties": {
         "aetonormativity_note": {
           "default": null,
@@ -7724,7 +7724,7 @@
           "type": "object"
         }
       },
-      "description": "An individual scene card (Phase 06 scene template).\n\nPreviously untyped — only existed as Markdown.  Now every field from `06-scenes/scene-template.md` has an explicit typed slot.",
+      "description": "An individual scene card (Phase 06 scene template).\n\nPreviously untyped — only existed as Markdown.  Now every field from `04-plot-and-structure/scene-design/scene-template.md` has an explicit typed slot.",
       "properties": {
         "action_strategy": {
           "type": [
@@ -8614,7 +8614,7 @@
   "gates": {
     "DependencyEdge": {
       "$schema": "http://json-schema.org/draft-07/schema#",
-      "description": "A directed dependency edge between two sub-phase FQIDs.\n\ne.g. `\"03-characters/core-identity\" → \"03-characters/relationships\"`",
+      "description": "A directed dependency edge between two sub-phase FQIDs.\n\ne.g. `\"02-characters/core-identity\" → \"02-characters/relationships\"`",
       "properties": {
         "source": {
           "type": "string"
@@ -12068,7 +12068,7 @@
           "type": "object"
         },
         {
-          "description": "Figurative language type; anchors to Lakoff/Johnson, Richards, and Black frameworks in `07-drafting/theory-reference/metaphor-and-figurative-language.md`.",
+          "description": "Figurative language type; anchors to Lakoff/Johnson, Richards, and Black frameworks in `05-drafting/theory-reference/metaphor-and-figurative-language.md`.",
           "oneOf": [
             {
               "description": "Lakoff/Johnson: one conceptual domain understood through another (ARGUMENT IS WAR).",
@@ -12663,7 +12663,7 @@
           "type": "object"
         },
         {
-          "description": "Ethical audit categories for the revision phase. Grounds to Booth, Keen, Nussbaum, Spivak in `08-revision/critical-theory/`.",
+          "description": "Ethical audit categories for the revision phase. Grounds to Booth, Keen, Nussbaum, Spivak in `06-revision/critical-theory/`.",
           "oneOf": [
             {
               "description": "Who is represented, how, and whether their humanity is fully rendered.",
@@ -13238,7 +13238,7 @@
           "type": "object"
         },
         {
-          "description": "Freudian mechanisms as applied to narrative production and character psychology. Source: Freud *The Interpretation of Dreams* (1900), *Beyond the Pleasure Principle* (1920). Reference: `07-drafting/theory-reference/psychoanalytic-narratology.md`",
+          "description": "Freudian mechanisms as applied to narrative production and character psychology. Source: Freud *The Interpretation of Dreams* (1900), *Beyond the Pleasure Principle* (1920). Reference: `05-drafting/theory-reference/psychoanalytic-narratology.md`",
           "oneOf": [
             {
               "description": "Merging of two (or more) ideas into a single composite image; dream-work logic.",
@@ -13401,7 +13401,7 @@
           "type": "object"
         },
         {
-          "description": "Postcolonial narrative modes and critical categories. Sources: Said *Orientalism* (1978), Spivak *Can the Subaltern Speak?* (1988), Bhabha *The Location of Culture* (1994), Fanon *Black Skin, White Masks* (1952). Reference: `08-revision/critical-theory/postcolonial-narratology.md`",
+          "description": "Postcolonial narrative modes and critical categories. Sources: Said *Orientalism* (1978), Spivak *Can the Subaltern Speak?* (1988), Bhabha *The Location of Culture* (1994), Fanon *Black Skin, White Masks* (1952). Reference: `06-revision/critical-theory/postcolonial-narratology.md`",
           "oneOf": [
             {
               "description": "Said: the West's systematic representation of the East as exotic, static, inferior.",
@@ -13488,7 +13488,7 @@
           "type": "object"
         },
         {
-          "description": "Ecocritical modes for representing environment and ecological crisis. Sources: Buell *The Environmental Imagination* (1995), Morton *Ecology Without Nature* (2007), Nixon *Slow Violence* (2011), Haraway *Staying with the Trouble* (2016). Reference: `08-revision/critical-theory/ecocriticism.md`",
+          "description": "Ecocritical modes for representing environment and ecological crisis. Sources: Buell *The Environmental Imagination* (1995), Morton *Ecology Without Nature* (2007), Nixon *Slow Violence* (2011), Haraway *Staying with the Trouble* (2016). Reference: `06-revision/critical-theory/ecocriticism.md`",
           "oneOf": [
             {
               "description": "Traditional nature as innocent refuge from civilization; idealized wilderness.",
@@ -13568,7 +13568,7 @@
           "type": "object"
         },
         {
-          "description": "Image schemas — recurrent kinesthetic-sensory gestalts that structure abstract thought. Source: Johnson *The Body in the Mind* (1987); Lakoff & Johnson *Philosophy in the Flesh* (1999). Reference: `07-drafting/theory-reference/embodied-narration.md`",
+          "description": "Image schemas — recurrent kinesthetic-sensory gestalts that structure abstract thought. Source: Johnson *The Body in the Mind* (1987); Lakoff & Johnson *Philosophy in the Flesh* (1999). Reference: `05-drafting/theory-reference/embodied-narration.md`",
           "oneOf": [
             {
               "description": "In–out; bounded region with interior, exterior, and boundary.",
@@ -13655,7 +13655,7 @@
           "type": "object"
         },
         {
-          "description": "Defamiliarization and foregrounding modes. Sources: Shklovsky *Art as Technique* (1917); Leech & Short *Style in Fiction* (2007). Reference: `07-drafting/theory-reference/prose-linguistics.md`",
+          "description": "Defamiliarization and foregrounding modes. Sources: Shklovsky *Art as Technique* (1917); Leech & Short *Style in Fiction* (2007). Reference: `05-drafting/theory-reference/prose-linguistics.md`",
           "oneOf": [
             {
               "description": "Shklovsky: perception dulled by habit — what was once strange is now invisible.",
@@ -13773,7 +13773,7 @@
           "type": "object"
         },
         {
-          "description": "Experimental narration modes — deviations from conventionally transparent narration. Sources: Booth *The Rhetoric of Fiction* (1961), Waugh *Metafiction* (1984), McHale *Postmodernist Fiction* (1987). Reference: `07-drafting/theory-reference/experimental-narration.md`",
+          "description": "Experimental narration modes — deviations from conventionally transparent narration. Sources: Booth *The Rhetoric of Fiction* (1961), Waugh *Metafiction* (1984), McHale *Postmodernist Fiction* (1987). Reference: `05-drafting/theory-reference/experimental-narration.md`",
           "oneOf": [
             {
               "description": "Booth: narrator whose testimony is systematically undermined by the implied author.",
@@ -13846,7 +13846,7 @@
           "type": "object"
         },
         {
-          "description": "Posthumanist narrative modes — how narrative frames nonhuman, animal, machine subjects. Sources: Wolfe *Animal Rites* (2003), Braidotti *The Posthuman* (2013), Hayles *How We Became Posthuman* (1999). Reference: `08-revision/critical-theory/posthumanism-and-nonhuman.md`",
+          "description": "Posthumanist narrative modes — how narrative frames nonhuman, animal, machine subjects. Sources: Wolfe *Animal Rites* (2003), Braidotti *The Posthuman* (2013), Hayles *How We Became Posthuman* (1999). Reference: `06-revision/critical-theory/posthumanism-and-nonhuman.md`",
           "oneOf": [
             {
               "description": "Wolfe: approaching animal experience through its own Umwelt — non-humanizing.",
@@ -13912,7 +13912,7 @@
           "type": "object"
         },
         {
-          "description": "Marxist and class-based narrative analysis modes. Sources: Jameson *The Political Unconscious* (1981), Williams *Marxism and Literature* (1977), Lukács *Studies in European Realism* (1950), Eagleton *Criticism and Ideology* (1976). Reference: `08-revision/critical-theory/class-and-marxist-narratology.md`",
+          "description": "Marxist and class-based narrative analysis modes. Sources: Jameson *The Political Unconscious* (1981), Williams *Marxism and Literature* (1977), Lukács *Studies in European Realism* (1950), Eagleton *Criticism and Ideology* (1976). Reference: `06-revision/critical-theory/class-and-marxist-narratology.md`",
           "oneOf": [
             {
               "description": "Jameson: the ideological horizon that cannot be thought directly — only symptomatically.",
@@ -13985,7 +13985,7 @@
           "type": "object"
         },
         {
-          "description": "Feminist narrative categories. Sources: Lanser *Fictions of Authority* (1992), DuPlessis *Writing Beyond the Ending* (1985), Warhol *Gendered Interventions* (1989), Fetterley *The Resisting Reader* (1978). Reference: `08-revision/critical-theory/feminist-narratology.md`",
+          "description": "Feminist narrative categories. Sources: Lanser *Fictions of Authority* (1992), DuPlessis *Writing Beyond the Ending* (1985), Warhol *Gendered Interventions* (1989), Fetterley *The Resisting Reader* (1978). Reference: `06-revision/critical-theory/feminist-narratology.md`",
           "oneOf": [
             {
               "description": "Warhol: narrator who directly addresses the narratee to encourage emotional identification.",
@@ -14190,7 +14190,7 @@
           "type": "object"
         },
         {
-          "description": "Prosodic and verse form elements — for verse novel and prose-poetry work. Sources: Fussell *Poetic Meter and Poetic Form* (1965), Hartman *Free Verse* (1980), Attridge *The Rhythms of English Poetry* (1982). Reference: `07-drafting/theory-reference/verse-novel-and-prose-poetry.md`",
+          "description": "Prosodic and verse form elements — for verse novel and prose-poetry work. Sources: Fussell *Poetic Meter and Poetic Form* (1965), Hartman *Free Verse* (1980), Attridge *The Rhythms of English Poetry* (1982). Reference: `05-drafting/theory-reference/verse-novel-and-prose-poetry.md`",
           "oneOf": [
             {
               "description": "Recurring pattern of stressed and unstressed syllables.",
@@ -17337,7 +17337,7 @@
               "type": "object"
             },
             {
-              "description": "Figurative language type; anchors to Lakoff/Johnson, Richards, and Black frameworks in `07-drafting/theory-reference/metaphor-and-figurative-language.md`.",
+              "description": "Figurative language type; anchors to Lakoff/Johnson, Richards, and Black frameworks in `05-drafting/theory-reference/metaphor-and-figurative-language.md`.",
               "oneOf": [
                 {
                   "description": "Lakoff/Johnson: one conceptual domain understood through another (ARGUMENT IS WAR).",
@@ -17932,7 +17932,7 @@
               "type": "object"
             },
             {
-              "description": "Ethical audit categories for the revision phase. Grounds to Booth, Keen, Nussbaum, Spivak in `08-revision/critical-theory/`.",
+              "description": "Ethical audit categories for the revision phase. Grounds to Booth, Keen, Nussbaum, Spivak in `06-revision/critical-theory/`.",
               "oneOf": [
                 {
                   "description": "Who is represented, how, and whether their humanity is fully rendered.",
@@ -18507,7 +18507,7 @@
               "type": "object"
             },
             {
-              "description": "Freudian mechanisms as applied to narrative production and character psychology. Source: Freud *The Interpretation of Dreams* (1900), *Beyond the Pleasure Principle* (1920). Reference: `07-drafting/theory-reference/psychoanalytic-narratology.md`",
+              "description": "Freudian mechanisms as applied to narrative production and character psychology. Source: Freud *The Interpretation of Dreams* (1900), *Beyond the Pleasure Principle* (1920). Reference: `05-drafting/theory-reference/psychoanalytic-narratology.md`",
               "oneOf": [
                 {
                   "description": "Merging of two (or more) ideas into a single composite image; dream-work logic.",
@@ -18670,7 +18670,7 @@
               "type": "object"
             },
             {
-              "description": "Postcolonial narrative modes and critical categories. Sources: Said *Orientalism* (1978), Spivak *Can the Subaltern Speak?* (1988), Bhabha *The Location of Culture* (1994), Fanon *Black Skin, White Masks* (1952). Reference: `08-revision/critical-theory/postcolonial-narratology.md`",
+              "description": "Postcolonial narrative modes and critical categories. Sources: Said *Orientalism* (1978), Spivak *Can the Subaltern Speak?* (1988), Bhabha *The Location of Culture* (1994), Fanon *Black Skin, White Masks* (1952). Reference: `06-revision/critical-theory/postcolonial-narratology.md`",
               "oneOf": [
                 {
                   "description": "Said: the West's systematic representation of the East as exotic, static, inferior.",
@@ -18757,7 +18757,7 @@
               "type": "object"
             },
             {
-              "description": "Ecocritical modes for representing environment and ecological crisis. Sources: Buell *The Environmental Imagination* (1995), Morton *Ecology Without Nature* (2007), Nixon *Slow Violence* (2011), Haraway *Staying with the Trouble* (2016). Reference: `08-revision/critical-theory/ecocriticism.md`",
+              "description": "Ecocritical modes for representing environment and ecological crisis. Sources: Buell *The Environmental Imagination* (1995), Morton *Ecology Without Nature* (2007), Nixon *Slow Violence* (2011), Haraway *Staying with the Trouble* (2016). Reference: `06-revision/critical-theory/ecocriticism.md`",
               "oneOf": [
                 {
                   "description": "Traditional nature as innocent refuge from civilization; idealized wilderness.",
@@ -18837,7 +18837,7 @@
               "type": "object"
             },
             {
-              "description": "Image schemas — recurrent kinesthetic-sensory gestalts that structure abstract thought. Source: Johnson *The Body in the Mind* (1987); Lakoff & Johnson *Philosophy in the Flesh* (1999). Reference: `07-drafting/theory-reference/embodied-narration.md`",
+              "description": "Image schemas — recurrent kinesthetic-sensory gestalts that structure abstract thought. Source: Johnson *The Body in the Mind* (1987); Lakoff & Johnson *Philosophy in the Flesh* (1999). Reference: `05-drafting/theory-reference/embodied-narration.md`",
               "oneOf": [
                 {
                   "description": "In–out; bounded region with interior, exterior, and boundary.",
@@ -18924,7 +18924,7 @@
               "type": "object"
             },
             {
-              "description": "Defamiliarization and foregrounding modes. Sources: Shklovsky *Art as Technique* (1917); Leech & Short *Style in Fiction* (2007). Reference: `07-drafting/theory-reference/prose-linguistics.md`",
+              "description": "Defamiliarization and foregrounding modes. Sources: Shklovsky *Art as Technique* (1917); Leech & Short *Style in Fiction* (2007). Reference: `05-drafting/theory-reference/prose-linguistics.md`",
               "oneOf": [
                 {
                   "description": "Shklovsky: perception dulled by habit — what was once strange is now invisible.",
@@ -19042,7 +19042,7 @@
               "type": "object"
             },
             {
-              "description": "Experimental narration modes — deviations from conventionally transparent narration. Sources: Booth *The Rhetoric of Fiction* (1961), Waugh *Metafiction* (1984), McHale *Postmodernist Fiction* (1987). Reference: `07-drafting/theory-reference/experimental-narration.md`",
+              "description": "Experimental narration modes — deviations from conventionally transparent narration. Sources: Booth *The Rhetoric of Fiction* (1961), Waugh *Metafiction* (1984), McHale *Postmodernist Fiction* (1987). Reference: `05-drafting/theory-reference/experimental-narration.md`",
               "oneOf": [
                 {
                   "description": "Booth: narrator whose testimony is systematically undermined by the implied author.",
@@ -19115,7 +19115,7 @@
               "type": "object"
             },
             {
-              "description": "Posthumanist narrative modes — how narrative frames nonhuman, animal, machine subjects. Sources: Wolfe *Animal Rites* (2003), Braidotti *The Posthuman* (2013), Hayles *How We Became Posthuman* (1999). Reference: `08-revision/critical-theory/posthumanism-and-nonhuman.md`",
+              "description": "Posthumanist narrative modes — how narrative frames nonhuman, animal, machine subjects. Sources: Wolfe *Animal Rites* (2003), Braidotti *The Posthuman* (2013), Hayles *How We Became Posthuman* (1999). Reference: `06-revision/critical-theory/posthumanism-and-nonhuman.md`",
               "oneOf": [
                 {
                   "description": "Wolfe: approaching animal experience through its own Umwelt — non-humanizing.",
@@ -19181,7 +19181,7 @@
               "type": "object"
             },
             {
-              "description": "Marxist and class-based narrative analysis modes. Sources: Jameson *The Political Unconscious* (1981), Williams *Marxism and Literature* (1977), Lukács *Studies in European Realism* (1950), Eagleton *Criticism and Ideology* (1976). Reference: `08-revision/critical-theory/class-and-marxist-narratology.md`",
+              "description": "Marxist and class-based narrative analysis modes. Sources: Jameson *The Political Unconscious* (1981), Williams *Marxism and Literature* (1977), Lukács *Studies in European Realism* (1950), Eagleton *Criticism and Ideology* (1976). Reference: `06-revision/critical-theory/class-and-marxist-narratology.md`",
               "oneOf": [
                 {
                   "description": "Jameson: the ideological horizon that cannot be thought directly — only symptomatically.",
@@ -19254,7 +19254,7 @@
               "type": "object"
             },
             {
-              "description": "Feminist narrative categories. Sources: Lanser *Fictions of Authority* (1992), DuPlessis *Writing Beyond the Ending* (1985), Warhol *Gendered Interventions* (1989), Fetterley *The Resisting Reader* (1978). Reference: `08-revision/critical-theory/feminist-narratology.md`",
+              "description": "Feminist narrative categories. Sources: Lanser *Fictions of Authority* (1992), DuPlessis *Writing Beyond the Ending* (1985), Warhol *Gendered Interventions* (1989), Fetterley *The Resisting Reader* (1978). Reference: `06-revision/critical-theory/feminist-narratology.md`",
               "oneOf": [
                 {
                   "description": "Warhol: narrator who directly addresses the narratee to encourage emotional identification.",
@@ -19459,7 +19459,7 @@
               "type": "object"
             },
             {
-              "description": "Prosodic and verse form elements — for verse novel and prose-poetry work. Sources: Fussell *Poetic Meter and Poetic Form* (1965), Hartman *Free Verse* (1980), Attridge *The Rhythms of English Poetry* (1982). Reference: `07-drafting/theory-reference/verse-novel-and-prose-poetry.md`",
+              "description": "Prosodic and verse form elements — for verse novel and prose-poetry work. Sources: Fussell *Poetic Meter and Poetic Form* (1965), Hartman *Free Verse* (1980), Attridge *The Rhythms of English Poetry* (1982). Reference: `05-drafting/theory-reference/verse-novel-and-prose-poetry.md`",
               "oneOf": [
                 {
                   "description": "Recurring pattern of stressed and unstressed syllables.",
@@ -22879,7 +22879,7 @@
               "type": "object"
             },
             {
-              "description": "Figurative language type; anchors to Lakoff/Johnson, Richards, and Black frameworks in `07-drafting/theory-reference/metaphor-and-figurative-language.md`.",
+              "description": "Figurative language type; anchors to Lakoff/Johnson, Richards, and Black frameworks in `05-drafting/theory-reference/metaphor-and-figurative-language.md`.",
               "oneOf": [
                 {
                   "description": "Lakoff/Johnson: one conceptual domain understood through another (ARGUMENT IS WAR).",
@@ -23474,7 +23474,7 @@
               "type": "object"
             },
             {
-              "description": "Ethical audit categories for the revision phase. Grounds to Booth, Keen, Nussbaum, Spivak in `08-revision/critical-theory/`.",
+              "description": "Ethical audit categories for the revision phase. Grounds to Booth, Keen, Nussbaum, Spivak in `06-revision/critical-theory/`.",
               "oneOf": [
                 {
                   "description": "Who is represented, how, and whether their humanity is fully rendered.",
@@ -24049,7 +24049,7 @@
               "type": "object"
             },
             {
-              "description": "Freudian mechanisms as applied to narrative production and character psychology. Source: Freud *The Interpretation of Dreams* (1900), *Beyond the Pleasure Principle* (1920). Reference: `07-drafting/theory-reference/psychoanalytic-narratology.md`",
+              "description": "Freudian mechanisms as applied to narrative production and character psychology. Source: Freud *The Interpretation of Dreams* (1900), *Beyond the Pleasure Principle* (1920). Reference: `05-drafting/theory-reference/psychoanalytic-narratology.md`",
               "oneOf": [
                 {
                   "description": "Merging of two (or more) ideas into a single composite image; dream-work logic.",
@@ -24212,7 +24212,7 @@
               "type": "object"
             },
             {
-              "description": "Postcolonial narrative modes and critical categories. Sources: Said *Orientalism* (1978), Spivak *Can the Subaltern Speak?* (1988), Bhabha *The Location of Culture* (1994), Fanon *Black Skin, White Masks* (1952). Reference: `08-revision/critical-theory/postcolonial-narratology.md`",
+              "description": "Postcolonial narrative modes and critical categories. Sources: Said *Orientalism* (1978), Spivak *Can the Subaltern Speak?* (1988), Bhabha *The Location of Culture* (1994), Fanon *Black Skin, White Masks* (1952). Reference: `06-revision/critical-theory/postcolonial-narratology.md`",
               "oneOf": [
                 {
                   "description": "Said: the West's systematic representation of the East as exotic, static, inferior.",
@@ -24299,7 +24299,7 @@
               "type": "object"
             },
             {
-              "description": "Ecocritical modes for representing environment and ecological crisis. Sources: Buell *The Environmental Imagination* (1995), Morton *Ecology Without Nature* (2007), Nixon *Slow Violence* (2011), Haraway *Staying with the Trouble* (2016). Reference: `08-revision/critical-theory/ecocriticism.md`",
+              "description": "Ecocritical modes for representing environment and ecological crisis. Sources: Buell *The Environmental Imagination* (1995), Morton *Ecology Without Nature* (2007), Nixon *Slow Violence* (2011), Haraway *Staying with the Trouble* (2016). Reference: `06-revision/critical-theory/ecocriticism.md`",
               "oneOf": [
                 {
                   "description": "Traditional nature as innocent refuge from civilization; idealized wilderness.",
@@ -24379,7 +24379,7 @@
               "type": "object"
             },
             {
-              "description": "Image schemas — recurrent kinesthetic-sensory gestalts that structure abstract thought. Source: Johnson *The Body in the Mind* (1987); Lakoff & Johnson *Philosophy in the Flesh* (1999). Reference: `07-drafting/theory-reference/embodied-narration.md`",
+              "description": "Image schemas — recurrent kinesthetic-sensory gestalts that structure abstract thought. Source: Johnson *The Body in the Mind* (1987); Lakoff & Johnson *Philosophy in the Flesh* (1999). Reference: `05-drafting/theory-reference/embodied-narration.md`",
               "oneOf": [
                 {
                   "description": "In–out; bounded region with interior, exterior, and boundary.",
@@ -24466,7 +24466,7 @@
               "type": "object"
             },
             {
-              "description": "Defamiliarization and foregrounding modes. Sources: Shklovsky *Art as Technique* (1917); Leech & Short *Style in Fiction* (2007). Reference: `07-drafting/theory-reference/prose-linguistics.md`",
+              "description": "Defamiliarization and foregrounding modes. Sources: Shklovsky *Art as Technique* (1917); Leech & Short *Style in Fiction* (2007). Reference: `05-drafting/theory-reference/prose-linguistics.md`",
               "oneOf": [
                 {
                   "description": "Shklovsky: perception dulled by habit — what was once strange is now invisible.",
@@ -24584,7 +24584,7 @@
               "type": "object"
             },
             {
-              "description": "Experimental narration modes — deviations from conventionally transparent narration. Sources: Booth *The Rhetoric of Fiction* (1961), Waugh *Metafiction* (1984), McHale *Postmodernist Fiction* (1987). Reference: `07-drafting/theory-reference/experimental-narration.md`",
+              "description": "Experimental narration modes — deviations from conventionally transparent narration. Sources: Booth *The Rhetoric of Fiction* (1961), Waugh *Metafiction* (1984), McHale *Postmodernist Fiction* (1987). Reference: `05-drafting/theory-reference/experimental-narration.md`",
               "oneOf": [
                 {
                   "description": "Booth: narrator whose testimony is systematically undermined by the implied author.",
@@ -24657,7 +24657,7 @@
               "type": "object"
             },
             {
-              "description": "Posthumanist narrative modes — how narrative frames nonhuman, animal, machine subjects. Sources: Wolfe *Animal Rites* (2003), Braidotti *The Posthuman* (2013), Hayles *How We Became Posthuman* (1999). Reference: `08-revision/critical-theory/posthumanism-and-nonhuman.md`",
+              "description": "Posthumanist narrative modes — how narrative frames nonhuman, animal, machine subjects. Sources: Wolfe *Animal Rites* (2003), Braidotti *The Posthuman* (2013), Hayles *How We Became Posthuman* (1999). Reference: `06-revision/critical-theory/posthumanism-and-nonhuman.md`",
               "oneOf": [
                 {
                   "description": "Wolfe: approaching animal experience through its own Umwelt — non-humanizing.",
@@ -24723,7 +24723,7 @@
               "type": "object"
             },
             {
-              "description": "Marxist and class-based narrative analysis modes. Sources: Jameson *The Political Unconscious* (1981), Williams *Marxism and Literature* (1977), Lukács *Studies in European Realism* (1950), Eagleton *Criticism and Ideology* (1976). Reference: `08-revision/critical-theory/class-and-marxist-narratology.md`",
+              "description": "Marxist and class-based narrative analysis modes. Sources: Jameson *The Political Unconscious* (1981), Williams *Marxism and Literature* (1977), Lukács *Studies in European Realism* (1950), Eagleton *Criticism and Ideology* (1976). Reference: `06-revision/critical-theory/class-and-marxist-narratology.md`",
               "oneOf": [
                 {
                   "description": "Jameson: the ideological horizon that cannot be thought directly — only symptomatically.",
@@ -24796,7 +24796,7 @@
               "type": "object"
             },
             {
-              "description": "Feminist narrative categories. Sources: Lanser *Fictions of Authority* (1992), DuPlessis *Writing Beyond the Ending* (1985), Warhol *Gendered Interventions* (1989), Fetterley *The Resisting Reader* (1978). Reference: `08-revision/critical-theory/feminist-narratology.md`",
+              "description": "Feminist narrative categories. Sources: Lanser *Fictions of Authority* (1992), DuPlessis *Writing Beyond the Ending* (1985), Warhol *Gendered Interventions* (1989), Fetterley *The Resisting Reader* (1978). Reference: `06-revision/critical-theory/feminist-narratology.md`",
               "oneOf": [
                 {
                   "description": "Warhol: narrator who directly addresses the narratee to encourage emotional identification.",
@@ -25001,7 +25001,7 @@
               "type": "object"
             },
             {
-              "description": "Prosodic and verse form elements — for verse novel and prose-poetry work. Sources: Fussell *Poetic Meter and Poetic Form* (1965), Hartman *Free Verse* (1980), Attridge *The Rhythms of English Poetry* (1982). Reference: `07-drafting/theory-reference/verse-novel-and-prose-poetry.md`",
+              "description": "Prosodic and verse form elements — for verse novel and prose-poetry work. Sources: Fussell *Poetic Meter and Poetic Form* (1965), Hartman *Free Verse* (1980), Attridge *The Rhythms of English Poetry* (1982). Reference: `05-drafting/theory-reference/verse-novel-and-prose-poetry.md`",
               "oneOf": [
                 {
                   "description": "Recurring pattern of stressed and unstressed syllables.",
@@ -28679,7 +28679,7 @@
               "type": "object"
             },
             {
-              "description": "Figurative language type; anchors to Lakoff/Johnson, Richards, and Black frameworks in `07-drafting/theory-reference/metaphor-and-figurative-language.md`.",
+              "description": "Figurative language type; anchors to Lakoff/Johnson, Richards, and Black frameworks in `05-drafting/theory-reference/metaphor-and-figurative-language.md`.",
               "oneOf": [
                 {
                   "description": "Lakoff/Johnson: one conceptual domain understood through another (ARGUMENT IS WAR).",
@@ -29274,7 +29274,7 @@
               "type": "object"
             },
             {
-              "description": "Ethical audit categories for the revision phase. Grounds to Booth, Keen, Nussbaum, Spivak in `08-revision/critical-theory/`.",
+              "description": "Ethical audit categories for the revision phase. Grounds to Booth, Keen, Nussbaum, Spivak in `06-revision/critical-theory/`.",
               "oneOf": [
                 {
                   "description": "Who is represented, how, and whether their humanity is fully rendered.",
@@ -29849,7 +29849,7 @@
               "type": "object"
             },
             {
-              "description": "Freudian mechanisms as applied to narrative production and character psychology. Source: Freud *The Interpretation of Dreams* (1900), *Beyond the Pleasure Principle* (1920). Reference: `07-drafting/theory-reference/psychoanalytic-narratology.md`",
+              "description": "Freudian mechanisms as applied to narrative production and character psychology. Source: Freud *The Interpretation of Dreams* (1900), *Beyond the Pleasure Principle* (1920). Reference: `05-drafting/theory-reference/psychoanalytic-narratology.md`",
               "oneOf": [
                 {
                   "description": "Merging of two (or more) ideas into a single composite image; dream-work logic.",
@@ -30012,7 +30012,7 @@
               "type": "object"
             },
             {
-              "description": "Postcolonial narrative modes and critical categories. Sources: Said *Orientalism* (1978), Spivak *Can the Subaltern Speak?* (1988), Bhabha *The Location of Culture* (1994), Fanon *Black Skin, White Masks* (1952). Reference: `08-revision/critical-theory/postcolonial-narratology.md`",
+              "description": "Postcolonial narrative modes and critical categories. Sources: Said *Orientalism* (1978), Spivak *Can the Subaltern Speak?* (1988), Bhabha *The Location of Culture* (1994), Fanon *Black Skin, White Masks* (1952). Reference: `06-revision/critical-theory/postcolonial-narratology.md`",
               "oneOf": [
                 {
                   "description": "Said: the West's systematic representation of the East as exotic, static, inferior.",
@@ -30099,7 +30099,7 @@
               "type": "object"
             },
             {
-              "description": "Ecocritical modes for representing environment and ecological crisis. Sources: Buell *The Environmental Imagination* (1995), Morton *Ecology Without Nature* (2007), Nixon *Slow Violence* (2011), Haraway *Staying with the Trouble* (2016). Reference: `08-revision/critical-theory/ecocriticism.md`",
+              "description": "Ecocritical modes for representing environment and ecological crisis. Sources: Buell *The Environmental Imagination* (1995), Morton *Ecology Without Nature* (2007), Nixon *Slow Violence* (2011), Haraway *Staying with the Trouble* (2016). Reference: `06-revision/critical-theory/ecocriticism.md`",
               "oneOf": [
                 {
                   "description": "Traditional nature as innocent refuge from civilization; idealized wilderness.",
@@ -30179,7 +30179,7 @@
               "type": "object"
             },
             {
-              "description": "Image schemas — recurrent kinesthetic-sensory gestalts that structure abstract thought. Source: Johnson *The Body in the Mind* (1987); Lakoff & Johnson *Philosophy in the Flesh* (1999). Reference: `07-drafting/theory-reference/embodied-narration.md`",
+              "description": "Image schemas — recurrent kinesthetic-sensory gestalts that structure abstract thought. Source: Johnson *The Body in the Mind* (1987); Lakoff & Johnson *Philosophy in the Flesh* (1999). Reference: `05-drafting/theory-reference/embodied-narration.md`",
               "oneOf": [
                 {
                   "description": "In–out; bounded region with interior, exterior, and boundary.",
@@ -30266,7 +30266,7 @@
               "type": "object"
             },
             {
-              "description": "Defamiliarization and foregrounding modes. Sources: Shklovsky *Art as Technique* (1917); Leech & Short *Style in Fiction* (2007). Reference: `07-drafting/theory-reference/prose-linguistics.md`",
+              "description": "Defamiliarization and foregrounding modes. Sources: Shklovsky *Art as Technique* (1917); Leech & Short *Style in Fiction* (2007). Reference: `05-drafting/theory-reference/prose-linguistics.md`",
               "oneOf": [
                 {
                   "description": "Shklovsky: perception dulled by habit — what was once strange is now invisible.",
@@ -30384,7 +30384,7 @@
               "type": "object"
             },
             {
-              "description": "Experimental narration modes — deviations from conventionally transparent narration. Sources: Booth *The Rhetoric of Fiction* (1961), Waugh *Metafiction* (1984), McHale *Postmodernist Fiction* (1987). Reference: `07-drafting/theory-reference/experimental-narration.md`",
+              "description": "Experimental narration modes — deviations from conventionally transparent narration. Sources: Booth *The Rhetoric of Fiction* (1961), Waugh *Metafiction* (1984), McHale *Postmodernist Fiction* (1987). Reference: `05-drafting/theory-reference/experimental-narration.md`",
               "oneOf": [
                 {
                   "description": "Booth: narrator whose testimony is systematically undermined by the implied author.",
@@ -30457,7 +30457,7 @@
               "type": "object"
             },
             {
-              "description": "Posthumanist narrative modes — how narrative frames nonhuman, animal, machine subjects. Sources: Wolfe *Animal Rites* (2003), Braidotti *The Posthuman* (2013), Hayles *How We Became Posthuman* (1999). Reference: `08-revision/critical-theory/posthumanism-and-nonhuman.md`",
+              "description": "Posthumanist narrative modes — how narrative frames nonhuman, animal, machine subjects. Sources: Wolfe *Animal Rites* (2003), Braidotti *The Posthuman* (2013), Hayles *How We Became Posthuman* (1999). Reference: `06-revision/critical-theory/posthumanism-and-nonhuman.md`",
               "oneOf": [
                 {
                   "description": "Wolfe: approaching animal experience through its own Umwelt — non-humanizing.",
@@ -30523,7 +30523,7 @@
               "type": "object"
             },
             {
-              "description": "Marxist and class-based narrative analysis modes. Sources: Jameson *The Political Unconscious* (1981), Williams *Marxism and Literature* (1977), Lukács *Studies in European Realism* (1950), Eagleton *Criticism and Ideology* (1976). Reference: `08-revision/critical-theory/class-and-marxist-narratology.md`",
+              "description": "Marxist and class-based narrative analysis modes. Sources: Jameson *The Political Unconscious* (1981), Williams *Marxism and Literature* (1977), Lukács *Studies in European Realism* (1950), Eagleton *Criticism and Ideology* (1976). Reference: `06-revision/critical-theory/class-and-marxist-narratology.md`",
               "oneOf": [
                 {
                   "description": "Jameson: the ideological horizon that cannot be thought directly — only symptomatically.",
@@ -30596,7 +30596,7 @@
               "type": "object"
             },
             {
-              "description": "Feminist narrative categories. Sources: Lanser *Fictions of Authority* (1992), DuPlessis *Writing Beyond the Ending* (1985), Warhol *Gendered Interventions* (1989), Fetterley *The Resisting Reader* (1978). Reference: `08-revision/critical-theory/feminist-narratology.md`",
+              "description": "Feminist narrative categories. Sources: Lanser *Fictions of Authority* (1992), DuPlessis *Writing Beyond the Ending* (1985), Warhol *Gendered Interventions* (1989), Fetterley *The Resisting Reader* (1978). Reference: `06-revision/critical-theory/feminist-narratology.md`",
               "oneOf": [
                 {
                   "description": "Warhol: narrator who directly addresses the narratee to encourage emotional identification.",
@@ -30801,7 +30801,7 @@
               "type": "object"
             },
             {
-              "description": "Prosodic and verse form elements — for verse novel and prose-poetry work. Sources: Fussell *Poetic Meter and Poetic Form* (1965), Hartman *Free Verse* (1980), Attridge *The Rhythms of English Poetry* (1982). Reference: `07-drafting/theory-reference/verse-novel-and-prose-poetry.md`",
+              "description": "Prosodic and verse form elements — for verse novel and prose-poetry work. Sources: Fussell *Poetic Meter and Poetic Form* (1965), Hartman *Free Verse* (1980), Attridge *The Rhythms of English Poetry* (1982). Reference: `05-drafting/theory-reference/verse-novel-and-prose-poetry.md`",
               "oneOf": [
                 {
                   "description": "Recurring pattern of stressed and unstressed syllables.",
@@ -32960,7 +32960,7 @@
           "type": "object"
         },
         "FocalizationConfig": {
-          "description": "Active focalization settings at document or scene level. Drawn from `07-drafting/voice-contract/focalization-guide.md`.",
+          "description": "Active focalization settings at document or scene level. Drawn from `05-drafting/voice-contract/focalization-guide.md`.",
           "properties": {
             "consciousness_mode": {
               "anyOf": [
@@ -33210,7 +33210,7 @@
           "type": "string"
         },
         "NarrativeVoice": {
-          "description": "Narrator-level configuration from `07-drafting/voice-contract/narrative-voice.md`.",
+          "description": "Narrator-level configuration from `05-drafting/voice-contract/prose-style-guide.md`.",
           "properties": {
             "addresses_reader_directly": {
               "type": [
@@ -33580,7 +33580,7 @@
           "type": "string"
         },
         "ProseStyleGuide": {
-          "description": "Sentence-level and paragraph-level craft specifications from `07-drafting/voice-contract/prose-style-guide.md`.",
+          "description": "Sentence-level and paragraph-level craft specifications from `05-drafting/voice-contract/prose-style-guide.md`.",
           "properties": {
             "affect_palette": {
               "items": {
@@ -33815,7 +33815,7 @@
           "type": "string"
         },
         "Scene": {
-          "description": "An individual scene card (Phase 06 scene template).\n\nPreviously untyped — only existed as Markdown.  Now every field from `06-scenes/scene-template.md` has an explicit typed slot.",
+          "description": "An individual scene card (Phase 06 scene template).\n\nPreviously untyped — only existed as Markdown.  Now every field from `04-plot-and-structure/scene-design/scene-template.md` has an explicit typed slot.",
           "properties": {
             "action_strategy": {
               "type": [
@@ -36488,7 +36488,7 @@
               "type": "object"
             },
             {
-              "description": "Figurative language type; anchors to Lakoff/Johnson, Richards, and Black frameworks in `07-drafting/theory-reference/metaphor-and-figurative-language.md`.",
+              "description": "Figurative language type; anchors to Lakoff/Johnson, Richards, and Black frameworks in `05-drafting/theory-reference/metaphor-and-figurative-language.md`.",
               "oneOf": [
                 {
                   "description": "Lakoff/Johnson: one conceptual domain understood through another (ARGUMENT IS WAR).",
@@ -37083,7 +37083,7 @@
               "type": "object"
             },
             {
-              "description": "Ethical audit categories for the revision phase. Grounds to Booth, Keen, Nussbaum, Spivak in `08-revision/critical-theory/`.",
+              "description": "Ethical audit categories for the revision phase. Grounds to Booth, Keen, Nussbaum, Spivak in `06-revision/critical-theory/`.",
               "oneOf": [
                 {
                   "description": "Who is represented, how, and whether their humanity is fully rendered.",
@@ -37658,7 +37658,7 @@
               "type": "object"
             },
             {
-              "description": "Freudian mechanisms as applied to narrative production and character psychology. Source: Freud *The Interpretation of Dreams* (1900), *Beyond the Pleasure Principle* (1920). Reference: `07-drafting/theory-reference/psychoanalytic-narratology.md`",
+              "description": "Freudian mechanisms as applied to narrative production and character psychology. Source: Freud *The Interpretation of Dreams* (1900), *Beyond the Pleasure Principle* (1920). Reference: `05-drafting/theory-reference/psychoanalytic-narratology.md`",
               "oneOf": [
                 {
                   "description": "Merging of two (or more) ideas into a single composite image; dream-work logic.",
@@ -37821,7 +37821,7 @@
               "type": "object"
             },
             {
-              "description": "Postcolonial narrative modes and critical categories. Sources: Said *Orientalism* (1978), Spivak *Can the Subaltern Speak?* (1988), Bhabha *The Location of Culture* (1994), Fanon *Black Skin, White Masks* (1952). Reference: `08-revision/critical-theory/postcolonial-narratology.md`",
+              "description": "Postcolonial narrative modes and critical categories. Sources: Said *Orientalism* (1978), Spivak *Can the Subaltern Speak?* (1988), Bhabha *The Location of Culture* (1994), Fanon *Black Skin, White Masks* (1952). Reference: `06-revision/critical-theory/postcolonial-narratology.md`",
               "oneOf": [
                 {
                   "description": "Said: the West's systematic representation of the East as exotic, static, inferior.",
@@ -37908,7 +37908,7 @@
               "type": "object"
             },
             {
-              "description": "Ecocritical modes for representing environment and ecological crisis. Sources: Buell *The Environmental Imagination* (1995), Morton *Ecology Without Nature* (2007), Nixon *Slow Violence* (2011), Haraway *Staying with the Trouble* (2016). Reference: `08-revision/critical-theory/ecocriticism.md`",
+              "description": "Ecocritical modes for representing environment and ecological crisis. Sources: Buell *The Environmental Imagination* (1995), Morton *Ecology Without Nature* (2007), Nixon *Slow Violence* (2011), Haraway *Staying with the Trouble* (2016). Reference: `06-revision/critical-theory/ecocriticism.md`",
               "oneOf": [
                 {
                   "description": "Traditional nature as innocent refuge from civilization; idealized wilderness.",
@@ -37988,7 +37988,7 @@
               "type": "object"
             },
             {
-              "description": "Image schemas — recurrent kinesthetic-sensory gestalts that structure abstract thought. Source: Johnson *The Body in the Mind* (1987); Lakoff & Johnson *Philosophy in the Flesh* (1999). Reference: `07-drafting/theory-reference/embodied-narration.md`",
+              "description": "Image schemas — recurrent kinesthetic-sensory gestalts that structure abstract thought. Source: Johnson *The Body in the Mind* (1987); Lakoff & Johnson *Philosophy in the Flesh* (1999). Reference: `05-drafting/theory-reference/embodied-narration.md`",
               "oneOf": [
                 {
                   "description": "In–out; bounded region with interior, exterior, and boundary.",
@@ -38075,7 +38075,7 @@
               "type": "object"
             },
             {
-              "description": "Defamiliarization and foregrounding modes. Sources: Shklovsky *Art as Technique* (1917); Leech & Short *Style in Fiction* (2007). Reference: `07-drafting/theory-reference/prose-linguistics.md`",
+              "description": "Defamiliarization and foregrounding modes. Sources: Shklovsky *Art as Technique* (1917); Leech & Short *Style in Fiction* (2007). Reference: `05-drafting/theory-reference/prose-linguistics.md`",
               "oneOf": [
                 {
                   "description": "Shklovsky: perception dulled by habit — what was once strange is now invisible.",
@@ -38193,7 +38193,7 @@
               "type": "object"
             },
             {
-              "description": "Experimental narration modes — deviations from conventionally transparent narration. Sources: Booth *The Rhetoric of Fiction* (1961), Waugh *Metafiction* (1984), McHale *Postmodernist Fiction* (1987). Reference: `07-drafting/theory-reference/experimental-narration.md`",
+              "description": "Experimental narration modes — deviations from conventionally transparent narration. Sources: Booth *The Rhetoric of Fiction* (1961), Waugh *Metafiction* (1984), McHale *Postmodernist Fiction* (1987). Reference: `05-drafting/theory-reference/experimental-narration.md`",
               "oneOf": [
                 {
                   "description": "Booth: narrator whose testimony is systematically undermined by the implied author.",
@@ -38266,7 +38266,7 @@
               "type": "object"
             },
             {
-              "description": "Posthumanist narrative modes — how narrative frames nonhuman, animal, machine subjects. Sources: Wolfe *Animal Rites* (2003), Braidotti *The Posthuman* (2013), Hayles *How We Became Posthuman* (1999). Reference: `08-revision/critical-theory/posthumanism-and-nonhuman.md`",
+              "description": "Posthumanist narrative modes — how narrative frames nonhuman, animal, machine subjects. Sources: Wolfe *Animal Rites* (2003), Braidotti *The Posthuman* (2013), Hayles *How We Became Posthuman* (1999). Reference: `06-revision/critical-theory/posthumanism-and-nonhuman.md`",
               "oneOf": [
                 {
                   "description": "Wolfe: approaching animal experience through its own Umwelt — non-humanizing.",
@@ -38332,7 +38332,7 @@
               "type": "object"
             },
             {
-              "description": "Marxist and class-based narrative analysis modes. Sources: Jameson *The Political Unconscious* (1981), Williams *Marxism and Literature* (1977), Lukács *Studies in European Realism* (1950), Eagleton *Criticism and Ideology* (1976). Reference: `08-revision/critical-theory/class-and-marxist-narratology.md`",
+              "description": "Marxist and class-based narrative analysis modes. Sources: Jameson *The Political Unconscious* (1981), Williams *Marxism and Literature* (1977), Lukács *Studies in European Realism* (1950), Eagleton *Criticism and Ideology* (1976). Reference: `06-revision/critical-theory/class-and-marxist-narratology.md`",
               "oneOf": [
                 {
                   "description": "Jameson: the ideological horizon that cannot be thought directly — only symptomatically.",
@@ -38405,7 +38405,7 @@
               "type": "object"
             },
             {
-              "description": "Feminist narrative categories. Sources: Lanser *Fictions of Authority* (1992), DuPlessis *Writing Beyond the Ending* (1985), Warhol *Gendered Interventions* (1989), Fetterley *The Resisting Reader* (1978). Reference: `08-revision/critical-theory/feminist-narratology.md`",
+              "description": "Feminist narrative categories. Sources: Lanser *Fictions of Authority* (1992), DuPlessis *Writing Beyond the Ending* (1985), Warhol *Gendered Interventions* (1989), Fetterley *The Resisting Reader* (1978). Reference: `06-revision/critical-theory/feminist-narratology.md`",
               "oneOf": [
                 {
                   "description": "Warhol: narrator who directly addresses the narratee to encourage emotional identification.",
@@ -38610,7 +38610,7 @@
               "type": "object"
             },
             {
-              "description": "Prosodic and verse form elements — for verse novel and prose-poetry work. Sources: Fussell *Poetic Meter and Poetic Form* (1965), Hartman *Free Verse* (1980), Attridge *The Rhythms of English Poetry* (1982). Reference: `07-drafting/theory-reference/verse-novel-and-prose-poetry.md`",
+              "description": "Prosodic and verse form elements — for verse novel and prose-poetry work. Sources: Fussell *Poetic Meter and Poetic Form* (1965), Hartman *Free Verse* (1980), Attridge *The Rhythms of English Poetry* (1982). Reference: `05-drafting/theory-reference/verse-novel-and-prose-poetry.md`",
               "oneOf": [
                 {
                   "description": "Recurring pattern of stressed and unstressed syllables.",
@@ -40858,7 +40858,7 @@
           "type": "object"
         },
         "FocalizationConfig": {
-          "description": "Active focalization settings at document or scene level. Drawn from `07-drafting/voice-contract/focalization-guide.md`.",
+          "description": "Active focalization settings at document or scene level. Drawn from `05-drafting/voice-contract/focalization-guide.md`.",
           "properties": {
             "consciousness_mode": {
               "anyOf": [
@@ -41108,7 +41108,7 @@
           "type": "string"
         },
         "NarrativeVoice": {
-          "description": "Narrator-level configuration from `07-drafting/voice-contract/narrative-voice.md`.",
+          "description": "Narrator-level configuration from `05-drafting/voice-contract/prose-style-guide.md`.",
           "properties": {
             "addresses_reader_directly": {
               "type": [
@@ -41555,7 +41555,7 @@
           "type": "object"
         },
         "ProseStyleGuide": {
-          "description": "Sentence-level and paragraph-level craft specifications from `07-drafting/voice-contract/prose-style-guide.md`.",
+          "description": "Sentence-level and paragraph-level craft specifications from `05-drafting/voice-contract/prose-style-guide.md`.",
           "properties": {
             "affect_palette": {
               "items": {
@@ -41790,7 +41790,7 @@
           "type": "string"
         },
         "Scene": {
-          "description": "An individual scene card (Phase 06 scene template).\n\nPreviously untyped — only existed as Markdown.  Now every field from `06-scenes/scene-template.md` has an explicit typed slot.",
+          "description": "An individual scene card (Phase 06 scene template).\n\nPreviously untyped — only existed as Markdown.  Now every field from `04-plot-and-structure/scene-design/scene-template.md` has an explicit typed slot.",
           "properties": {
             "action_strategy": {
               "type": [
@@ -44624,7 +44624,7 @@
               "type": "object"
             },
             {
-              "description": "Figurative language type; anchors to Lakoff/Johnson, Richards, and Black frameworks in `07-drafting/theory-reference/metaphor-and-figurative-language.md`.",
+              "description": "Figurative language type; anchors to Lakoff/Johnson, Richards, and Black frameworks in `05-drafting/theory-reference/metaphor-and-figurative-language.md`.",
               "oneOf": [
                 {
                   "description": "Lakoff/Johnson: one conceptual domain understood through another (ARGUMENT IS WAR).",
@@ -45219,7 +45219,7 @@
               "type": "object"
             },
             {
-              "description": "Ethical audit categories for the revision phase. Grounds to Booth, Keen, Nussbaum, Spivak in `08-revision/critical-theory/`.",
+              "description": "Ethical audit categories for the revision phase. Grounds to Booth, Keen, Nussbaum, Spivak in `06-revision/critical-theory/`.",
               "oneOf": [
                 {
                   "description": "Who is represented, how, and whether their humanity is fully rendered.",
@@ -45794,7 +45794,7 @@
               "type": "object"
             },
             {
-              "description": "Freudian mechanisms as applied to narrative production and character psychology. Source: Freud *The Interpretation of Dreams* (1900), *Beyond the Pleasure Principle* (1920). Reference: `07-drafting/theory-reference/psychoanalytic-narratology.md`",
+              "description": "Freudian mechanisms as applied to narrative production and character psychology. Source: Freud *The Interpretation of Dreams* (1900), *Beyond the Pleasure Principle* (1920). Reference: `05-drafting/theory-reference/psychoanalytic-narratology.md`",
               "oneOf": [
                 {
                   "description": "Merging of two (or more) ideas into a single composite image; dream-work logic.",
@@ -45957,7 +45957,7 @@
               "type": "object"
             },
             {
-              "description": "Postcolonial narrative modes and critical categories. Sources: Said *Orientalism* (1978), Spivak *Can the Subaltern Speak?* (1988), Bhabha *The Location of Culture* (1994), Fanon *Black Skin, White Masks* (1952). Reference: `08-revision/critical-theory/postcolonial-narratology.md`",
+              "description": "Postcolonial narrative modes and critical categories. Sources: Said *Orientalism* (1978), Spivak *Can the Subaltern Speak?* (1988), Bhabha *The Location of Culture* (1994), Fanon *Black Skin, White Masks* (1952). Reference: `06-revision/critical-theory/postcolonial-narratology.md`",
               "oneOf": [
                 {
                   "description": "Said: the West's systematic representation of the East as exotic, static, inferior.",
@@ -46044,7 +46044,7 @@
               "type": "object"
             },
             {
-              "description": "Ecocritical modes for representing environment and ecological crisis. Sources: Buell *The Environmental Imagination* (1995), Morton *Ecology Without Nature* (2007), Nixon *Slow Violence* (2011), Haraway *Staying with the Trouble* (2016). Reference: `08-revision/critical-theory/ecocriticism.md`",
+              "description": "Ecocritical modes for representing environment and ecological crisis. Sources: Buell *The Environmental Imagination* (1995), Morton *Ecology Without Nature* (2007), Nixon *Slow Violence* (2011), Haraway *Staying with the Trouble* (2016). Reference: `06-revision/critical-theory/ecocriticism.md`",
               "oneOf": [
                 {
                   "description": "Traditional nature as innocent refuge from civilization; idealized wilderness.",
@@ -46124,7 +46124,7 @@
               "type": "object"
             },
             {
-              "description": "Image schemas — recurrent kinesthetic-sensory gestalts that structure abstract thought. Source: Johnson *The Body in the Mind* (1987); Lakoff & Johnson *Philosophy in the Flesh* (1999). Reference: `07-drafting/theory-reference/embodied-narration.md`",
+              "description": "Image schemas — recurrent kinesthetic-sensory gestalts that structure abstract thought. Source: Johnson *The Body in the Mind* (1987); Lakoff & Johnson *Philosophy in the Flesh* (1999). Reference: `05-drafting/theory-reference/embodied-narration.md`",
               "oneOf": [
                 {
                   "description": "In–out; bounded region with interior, exterior, and boundary.",
@@ -46211,7 +46211,7 @@
               "type": "object"
             },
             {
-              "description": "Defamiliarization and foregrounding modes. Sources: Shklovsky *Art as Technique* (1917); Leech & Short *Style in Fiction* (2007). Reference: `07-drafting/theory-reference/prose-linguistics.md`",
+              "description": "Defamiliarization and foregrounding modes. Sources: Shklovsky *Art as Technique* (1917); Leech & Short *Style in Fiction* (2007). Reference: `05-drafting/theory-reference/prose-linguistics.md`",
               "oneOf": [
                 {
                   "description": "Shklovsky: perception dulled by habit — what was once strange is now invisible.",
@@ -46329,7 +46329,7 @@
               "type": "object"
             },
             {
-              "description": "Experimental narration modes — deviations from conventionally transparent narration. Sources: Booth *The Rhetoric of Fiction* (1961), Waugh *Metafiction* (1984), McHale *Postmodernist Fiction* (1987). Reference: `07-drafting/theory-reference/experimental-narration.md`",
+              "description": "Experimental narration modes — deviations from conventionally transparent narration. Sources: Booth *The Rhetoric of Fiction* (1961), Waugh *Metafiction* (1984), McHale *Postmodernist Fiction* (1987). Reference: `05-drafting/theory-reference/experimental-narration.md`",
               "oneOf": [
                 {
                   "description": "Booth: narrator whose testimony is systematically undermined by the implied author.",
@@ -46402,7 +46402,7 @@
               "type": "object"
             },
             {
-              "description": "Posthumanist narrative modes — how narrative frames nonhuman, animal, machine subjects. Sources: Wolfe *Animal Rites* (2003), Braidotti *The Posthuman* (2013), Hayles *How We Became Posthuman* (1999). Reference: `08-revision/critical-theory/posthumanism-and-nonhuman.md`",
+              "description": "Posthumanist narrative modes — how narrative frames nonhuman, animal, machine subjects. Sources: Wolfe *Animal Rites* (2003), Braidotti *The Posthuman* (2013), Hayles *How We Became Posthuman* (1999). Reference: `06-revision/critical-theory/posthumanism-and-nonhuman.md`",
               "oneOf": [
                 {
                   "description": "Wolfe: approaching animal experience through its own Umwelt — non-humanizing.",
@@ -46468,7 +46468,7 @@
               "type": "object"
             },
             {
-              "description": "Marxist and class-based narrative analysis modes. Sources: Jameson *The Political Unconscious* (1981), Williams *Marxism and Literature* (1977), Lukács *Studies in European Realism* (1950), Eagleton *Criticism and Ideology* (1976). Reference: `08-revision/critical-theory/class-and-marxist-narratology.md`",
+              "description": "Marxist and class-based narrative analysis modes. Sources: Jameson *The Political Unconscious* (1981), Williams *Marxism and Literature* (1977), Lukács *Studies in European Realism* (1950), Eagleton *Criticism and Ideology* (1976). Reference: `06-revision/critical-theory/class-and-marxist-narratology.md`",
               "oneOf": [
                 {
                   "description": "Jameson: the ideological horizon that cannot be thought directly — only symptomatically.",
@@ -46541,7 +46541,7 @@
               "type": "object"
             },
             {
-              "description": "Feminist narrative categories. Sources: Lanser *Fictions of Authority* (1992), DuPlessis *Writing Beyond the Ending* (1985), Warhol *Gendered Interventions* (1989), Fetterley *The Resisting Reader* (1978). Reference: `08-revision/critical-theory/feminist-narratology.md`",
+              "description": "Feminist narrative categories. Sources: Lanser *Fictions of Authority* (1992), DuPlessis *Writing Beyond the Ending* (1985), Warhol *Gendered Interventions* (1989), Fetterley *The Resisting Reader* (1978). Reference: `06-revision/critical-theory/feminist-narratology.md`",
               "oneOf": [
                 {
                   "description": "Warhol: narrator who directly addresses the narratee to encourage emotional identification.",
@@ -46746,7 +46746,7 @@
               "type": "object"
             },
             {
-              "description": "Prosodic and verse form elements — for verse novel and prose-poetry work. Sources: Fussell *Poetic Meter and Poetic Form* (1965), Hartman *Free Verse* (1980), Attridge *The Rhythms of English Poetry* (1982). Reference: `07-drafting/theory-reference/verse-novel-and-prose-poetry.md`",
+              "description": "Prosodic and verse form elements — for verse novel and prose-poetry work. Sources: Fussell *Poetic Meter and Poetic Form* (1965), Hartman *Free Verse* (1980), Attridge *The Rhythms of English Poetry* (1982). Reference: `05-drafting/theory-reference/verse-novel-and-prose-poetry.md`",
               "oneOf": [
                 {
                   "description": "Recurring pattern of stressed and unstressed syllables.",
@@ -48994,7 +48994,7 @@
           "type": "object"
         },
         "FocalizationConfig": {
-          "description": "Active focalization settings at document or scene level. Drawn from `07-drafting/voice-contract/focalization-guide.md`.",
+          "description": "Active focalization settings at document or scene level. Drawn from `05-drafting/voice-contract/focalization-guide.md`.",
           "properties": {
             "consciousness_mode": {
               "anyOf": [
@@ -49244,7 +49244,7 @@
           "type": "string"
         },
         "NarrativeVoice": {
-          "description": "Narrator-level configuration from `07-drafting/voice-contract/narrative-voice.md`.",
+          "description": "Narrator-level configuration from `05-drafting/voice-contract/prose-style-guide.md`.",
           "properties": {
             "addresses_reader_directly": {
               "type": [
@@ -49691,7 +49691,7 @@
           "type": "object"
         },
         "ProseStyleGuide": {
-          "description": "Sentence-level and paragraph-level craft specifications from `07-drafting/voice-contract/prose-style-guide.md`.",
+          "description": "Sentence-level and paragraph-level craft specifications from `05-drafting/voice-contract/prose-style-guide.md`.",
           "properties": {
             "affect_palette": {
               "items": {
@@ -49926,7 +49926,7 @@
           "type": "string"
         },
         "Scene": {
-          "description": "An individual scene card (Phase 06 scene template).\n\nPreviously untyped — only existed as Markdown.  Now every field from `06-scenes/scene-template.md` has an explicit typed slot.",
+          "description": "An individual scene card (Phase 06 scene template).\n\nPreviously untyped — only existed as Markdown.  Now every field from `04-plot-and-structure/scene-design/scene-template.md` has an explicit typed slot.",
           "properties": {
             "action_strategy": {
               "type": [
@@ -51375,7 +51375,7 @@
           "type": "string"
         }
       },
-      "description": "Active focalization settings at document or scene level. Drawn from `07-drafting/voice-contract/focalization-guide.md`.",
+      "description": "Active focalization settings at document or scene level. Drawn from `05-drafting/voice-contract/focalization-guide.md`.",
       "properties": {
         "consciousness_mode": {
           "anyOf": [
@@ -51541,7 +51541,7 @@
           "type": "object"
         }
       },
-      "description": "Narrator-level configuration from `07-drafting/voice-contract/narrative-voice.md`.",
+      "description": "Narrator-level configuration from `05-drafting/voice-contract/prose-style-guide.md`.",
       "properties": {
         "addresses_reader_directly": {
           "type": [
@@ -51828,7 +51828,7 @@
           "type": "string"
         }
       },
-      "description": "Sentence-level and paragraph-level craft specifications from `07-drafting/voice-contract/prose-style-guide.md`.",
+      "description": "Sentence-level and paragraph-level craft specifications from `05-drafting/voice-contract/prose-style-guide.md`.",
       "properties": {
         "affect_palette": {
           "items": {
@@ -52200,7 +52200,7 @@
           "type": "object"
         },
         "FocalizationConfig": {
-          "description": "Active focalization settings at document or scene level. Drawn from `07-drafting/voice-contract/focalization-guide.md`.",
+          "description": "Active focalization settings at document or scene level. Drawn from `05-drafting/voice-contract/focalization-guide.md`.",
           "properties": {
             "consciousness_mode": {
               "anyOf": [
@@ -52345,7 +52345,7 @@
           "type": "string"
         },
         "NarrativeVoice": {
-          "description": "Narrator-level configuration from `07-drafting/voice-contract/narrative-voice.md`.",
+          "description": "Narrator-level configuration from `05-drafting/voice-contract/prose-style-guide.md`.",
           "properties": {
             "addresses_reader_directly": {
               "type": [
@@ -52551,7 +52551,7 @@
           "type": "string"
         },
         "ProseStyleGuide": {
-          "description": "Sentence-level and paragraph-level craft specifications from `07-drafting/voice-contract/prose-style-guide.md`.",
+          "description": "Sentence-level and paragraph-level craft specifications from `05-drafting/voice-contract/prose-style-guide.md`.",
           "properties": {
             "affect_palette": {
               "items": {

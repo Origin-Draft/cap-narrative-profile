@@ -1,0 +1,277 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/06-revision/structural-revision/consistency-bible.schema.json",
+  "title": "Grimoire · Consistency Bible",
+  "description": "Extraction schema for consistency-bible.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "full_legal_name": {
+      "type": "string",
+      "description": "Full Legal Name:",
+      "x-source-required": false
+    },
+    "age": {
+      "type": "string",
+      "description": "Age:",
+      "x-source-required": false
+    },
+    "birthday": {
+      "type": "string",
+      "description": "Birthday:",
+      "x-source-required": false
+    },
+    "page_references": {
+      "type": "string",
+      "description": "Page References:",
+      "x-source-required": false
+    },
+    "story_duration": {
+      "type": "string",
+      "description": "Story Duration:",
+      "x-source-required": false
+    },
+    "time_period": {
+      "type": "string",
+      "description": "Time Period:",
+      "x-source-required": false
+    },
+    "seasons": {
+      "type": "string",
+      "description": "Season(s):",
+      "x-source-required": false
+    },
+    "description": {
+      "type": "string",
+      "description": "Description:",
+      "x-source-required": false
+    },
+    "first_appearance": {
+      "type": "string",
+      "description": "First Appearance:",
+      "x-source-required": false
+    },
+    "map_notes": {
+      "type": "string",
+      "description": "Map Notes:",
+      "x-source-required": false
+    },
+    "point_of_divergence": {
+      "type": "string",
+      "description": "Point of Divergence:",
+      "x-source-required": false
+    },
+    "significance": {
+      "type": "string",
+      "description": "Significance:",
+      "x-source-required": false
+    },
+    "first_mention": {
+      "type": "string",
+      "description": "First Mention:",
+      "x-source-required": false
+    },
+    "source": {
+      "type": "string",
+      "description": "Source:",
+      "x-source-required": false
+    },
+    "date_of_information": {
+      "type": "string",
+      "description": "Date of Information:",
+      "x-source-required": false
+    },
+    "how_used_in_manuscript": {
+      "type": "string",
+      "description": "How Used in Manuscript:",
+      "x-source-required": false
+    },
+    "resolution_notes": {
+      "type": "string",
+      "description": "Resolution Notes:",
+      "x-source-required": false
+    },
+    "datetimeframe_rows": {
+      "type": "array",
+      "description": "Table with columns: Date/Timeframe, Event, Chapter/Page, Notes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "datetimeframe": {
+            "type": "string",
+            "description": "Date/Timeframe",
+            "x-source-required": false
+          },
+          "event": {
+            "type": "string",
+            "description": "Event",
+            "x-source-required": false
+          },
+          "chapterpage": {
+            "type": "string",
+            "description": "Chapter/Page",
+            "x-source-required": false
+          },
+          "notes": {
+            "type": "string",
+            "description": "Notes",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "june_7_rows": {
+      "type": "array",
+      "description": "Table with columns: [June 7], Discovery of the letter, Ch. 4, p.56, Friday — office closed for weekend",
+      "items": {
+        "type": "object",
+        "properties": {
+          "june_7": {
+            "type": "string",
+            "description": "[June 7]",
+            "x-source-required": false
+          },
+          "discovery_of_the_letter": {
+            "type": "string",
+            "description": "Discovery of the letter",
+            "x-source-required": false
+          },
+          "ch_4_p56": {
+            "type": "string",
+            "description": "Ch. 4, p.56",
+            "x-source-required": false
+          },
+          "friday_office_closed_for_weekend": {
+            "type": "string",
+            "description": "Friday — office closed for weekend",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "from_chapter_rows": {
+      "type": "array",
+      "description": "Table with columns: From Chapter, End time/day, End location, End state (physical + emotional), Carry-forward hook/question, To Chapter, Start time/day, Start location, Start state (physical + emotional), Continuity verified",
+      "items": {
+        "type": "object",
+        "properties": {
+          "from_chapter": {
+            "type": "string",
+            "description": "From Chapter",
+            "x-source-required": false
+          },
+          "end_timeday": {
+            "type": "string",
+            "description": "End time/day",
+            "x-source-required": false
+          },
+          "end_location": {
+            "type": "string",
+            "description": "End location",
+            "x-source-required": false
+          },
+          "end_state_physical_emotional": {
+            "type": "string",
+            "description": "End state (physical + emotional)",
+            "x-source-required": false
+          },
+          "carryforward_hookquestion": {
+            "type": "string",
+            "description": "Carry-forward hook/question",
+            "x-source-required": false
+          },
+          "to_chapter": {
+            "type": "string",
+            "description": "To Chapter",
+            "x-source-required": false
+          },
+          "start_timeday": {
+            "type": "string",
+            "description": "Start time/day",
+            "x-source-required": false
+          },
+          "start_location": {
+            "type": "string",
+            "description": "Start location",
+            "x-source-required": false
+          },
+          "start_state_physical_emotional": {
+            "type": "string",
+            "description": "Start state (physical + emotional)",
+            "x-source-required": false
+          },
+          "continuity_verified": {
+            "type": "string",
+            "description": "Continuity verified",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "actual_date_rows": {
+      "type": "array",
+      "description": "Table with columns: Actual Date, Event, When Revealed in Manuscript",
+      "items": {
+        "type": "object",
+        "properties": {
+          "actual_date": {
+            "type": "string",
+            "description": "Actual Date",
+            "x-source-required": false
+          },
+          "event": {
+            "type": "string",
+            "description": "Event",
+            "x-source-required": false
+          },
+          "when_revealed_in_manuscript": {
+            "type": "string",
+            "description": "When Revealed in Manuscript",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "error_description_rows": {
+      "type": "array",
+      "description": "Table with columns: Error Description, Locations, Priority, Fixed?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "error_description": {
+            "type": "string",
+            "description": "Error Description",
+            "x-source-required": false
+          },
+          "locations": {
+            "type": "string",
+            "description": "Locations",
+            "x-source-required": false
+          },
+          "priority": {
+            "$ref": "grimoire:base#/$defs/priorityEnum"
+          },
+          "fixed": {
+            "type": "string",
+            "description": "Fixed?",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "06-revision/structural-revision/consistency-bible.md"
+}

@@ -1,0 +1,295 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/04-plot-and-structure/blueprint/subplot-tracker.schema.json",
+  "title": "Grimoire · Subplot Tracker",
+  "description": "Extraction schema for subplot-tracker.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "primary_plot_astory": {
+      "type": "string",
+      "description": "Primary Plot (A-Story):",
+      "x-source-required": false
+    },
+    "total_number_of_subplots": {
+      "type": "string",
+      "description": "Total Number of Subplots:",
+      "x-source-required": false
+    },
+    "subplot_integration_strategy": {
+      "type": "string",
+      "description": "Subplot Integration Strategy:",
+      "x-source-required": false
+    },
+    "subplot_type": {
+      "type": "string",
+      "description": "Subplot Type:",
+      "x-source-required": false
+    },
+    "central_question": {
+      "type": "string",
+      "description": "Central Question:",
+      "x-source-required": false
+    },
+    "primary_characters": {
+      "type": "string",
+      "description": "Primary Characters:",
+      "x-source-required": false
+    },
+    "thematic_connection": {
+      "type": "string",
+      "description": "Thematic Connection:",
+      "x-source-required": false
+    },
+    "relationship_to_aplot": {
+      "type": "string",
+      "description": "Relationship to A-Plot:",
+      "x-source-required": false
+    },
+    "where_does_this_subplot_begin": {
+      "type": "string",
+      "description": "Where does this subplot begin?",
+      "x-source-required": false
+    },
+    "initial_state": {
+      "type": "string",
+      "description": "Initial state:",
+      "x-source-required": false
+    },
+    "inciting_incident_for_subplot": {
+      "type": "string",
+      "description": "Inciting incident (for subplot):",
+      "x-source-required": false
+    },
+    "midpoint_shift": {
+      "type": "string",
+      "description": "Midpoint shift:",
+      "x-source-required": false
+    },
+    "complicationcrisis": {
+      "type": "string",
+      "description": "Complication/crisis:",
+      "x-source-required": false
+    },
+    "climactic_moment": {
+      "type": "string",
+      "description": "Climactic moment:",
+      "x-source-required": false
+    },
+    "how_it_resolves": {
+      "type": "string",
+      "description": "How it resolves:",
+      "x-source-required": false
+    },
+    "impact_on_main_plot": {
+      "type": "string",
+      "description": "Impact on main plot:",
+      "x-source-required": false
+    },
+    "thematic_payoff": {
+      "type": "string",
+      "description": "Thematic payoff:",
+      "x-source-required": false
+    },
+    "first_appearance": {
+      "type": "string",
+      "description": "First Appearance:",
+      "x-source-required": false
+    },
+    "frequency": {
+      "type": "string",
+      "description": "Frequency:",
+      "x-source-required": false
+    },
+    "pagetime_weight": {
+      "type": "string",
+      "description": "Page-Time Weight:",
+      "x-source-required": false
+    },
+    "distribution_check": {
+      "type": "string",
+      "description": "Distribution Check:",
+      "x-source-required": false
+    },
+    "gaps": {
+      "type": "string",
+      "description": "Gaps:",
+      "x-source-required": false
+    },
+    "critical_intersections": {
+      "type": "string",
+      "description": "Critical Intersections:",
+      "x-source-required": false
+    },
+    "potential_problems": {
+      "type": "string",
+      "description": "Potential Problems:",
+      "x-source-required": false
+    },
+    "revision_priorities": {
+      "type": "string",
+      "description": "Revision Priorities:",
+      "x-source-required": false
+    },
+    "notes": {
+      "type": "string",
+      "description": "Notes:",
+      "x-source-required": false
+    },
+    "chapter_rows": {
+      "type": "array",
+      "description": "Table with columns: Chapter, A-Plot, B-Plot, C-Plot, D-Plot, Notes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "chapter": {
+            "type": "string",
+            "description": "Chapter",
+            "x-source-required": false
+          },
+          "aplot": {
+            "type": "string",
+            "description": "A-Plot",
+            "x-source-required": false
+          },
+          "bplot": {
+            "type": "string",
+            "description": "B-Plot",
+            "x-source-required": false
+          },
+          "cplot": {
+            "type": "string",
+            "description": "C-Plot",
+            "x-source-required": false
+          },
+          "dplot": {
+            "type": "string",
+            "description": "D-Plot",
+            "x-source-required": false
+          },
+          "notes": {
+            "type": "string",
+            "description": "Notes",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Subplots complicate main plot (create obstacles or difficult choices)",
+          "Subplots provide resources for main plot (allies, skills, information)",
+          "Subplots thematically mirror main plot (explore theme from different angle)",
+          "Subplots create emotional stakes for main plot (relationships at risk)",
+          "Subplots are parallel stories that intersect at key moments",
+          "Other: [describe]"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Romantic relationship",
+          "Friendship/ally bond",
+          "Family relationship",
+          "Mentor/mentee dynamic",
+          "Professional rivalry or ambition",
+          "Internal psychological journey",
+          "Mystery or investigation (secondary to main)",
+          "Moral dilemma or ethical question",
+          "Secondary character's personal arc",
+          "Worldbuilding revelation (history, culture, magic system)",
+          "Comic relief thread",
+          "Thematic exploration",
+          "Other: [describe]"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Resolved happily/positively",
+          "Resolved sadly/negatively (but with closure)",
+          "Unresolved (intentional—life continues beyond story)",
+          "Unresolved (setup for sequel)",
+          "Bittersweet resolution",
+          "Transformed into something unexpected"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_4": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Every chapter/beat sequence",
+          "Every 2-3 chapters",
+          "Every 4-5 chapters (slower burn)",
+          "Clusters (appears intensively in certain sections, absent in others)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_5": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Major subplot (20-30% of story)",
+          "Moderate subplot (10-20% of story)",
+          "Minor subplot (5-10% of story)",
+          "Thread/motif (under 5%)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_6": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Not sure it's necessary—might cut",
+          "Disappears for too long mid-story",
+          "Resolution feels rushed",
+          "Doesn't intersect enough with main plot",
+          "Too much page time for payoff delivered",
+          "Thematic connection unclear",
+          "Other: [describe]"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "04-plot-and-structure/blueprint/subplot-tracker.md"
+}

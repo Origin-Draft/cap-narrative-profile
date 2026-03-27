@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/04-plot-and-structure/references/narrative-desire-reference.schema.json",
+  "title": "Grimoire · Narrative Desire Reference",
+  "description": "Extraction schema for narrative-desire-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "code_rows": {
+      "type": "array",
+      "description": "Table with columns: Code, Symbol, Function, Page-turning power",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Code",
+            "x-source-required": false
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Symbol",
+            "x-source-required": false
+          },
+          "function": {
+            "type": "string",
+            "description": "Function",
+            "x-source-required": false
+          },
+          "pageturning_power": {
+            "type": "string",
+            "description": "Page-turning power",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "phase_rows": {
+      "type": "array",
+      "description": "Table with columns: Phase, Description, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "phase": {
+            "type": "string",
+            "description": "Phase",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "model_rows": {
+      "type": "array",
+      "description": "Table with columns: Model, What it measures, Visual metaphor, Template",
+      "items": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "Model",
+            "x-source-required": false
+          },
+          "what_it_measures": {
+            "type": "string",
+            "description": "What it measures",
+            "x-source-required": false
+          },
+          "visual_metaphor": {
+            "type": "string",
+            "description": "Visual metaphor",
+            "x-source-required": false
+          },
+          "template": {
+            "type": "string",
+            "description": "Template",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "technique_rows": {
+      "type": "array",
+      "description": "Table with columns: Technique, How it retards, What it must add, Risk",
+      "items": {
+        "type": "object",
+        "properties": {
+          "technique": {
+            "type": "string",
+            "description": "Technique",
+            "x-source-required": false
+          },
+          "how_it_retards": {
+            "type": "string",
+            "description": "How it retards",
+            "x-source-required": false
+          },
+          "what_it_must_add": {
+            "type": "string",
+            "description": "What it must add",
+            "x-source-required": false
+          },
+          "risk": {
+            "type": "string",
+            "description": "Risk",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "promise_type_rows": {
+      "type": "array",
+      "description": "Table with columns: Promise Type, Definition, Examples",
+      "items": {
+        "type": "object",
+        "properties": {
+          "promise_type": {
+            "type": "string",
+            "description": "Promise Type",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "examples": {
+            "type": "string",
+            "description": "Examples",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "work_rows": {
+      "type": "array",
+      "description": "Table with columns: Work, Key Concept",
+      "items": {
+        "type": "object",
+        "properties": {
+          "work": {
+            "type": "string",
+            "description": "Work",
+            "x-source-required": false
+          },
+          "key_concept": {
+            "type": "string",
+            "description": "Key Concept",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "04-plot-and-structure/references/narrative-desire-reference.md"
+}

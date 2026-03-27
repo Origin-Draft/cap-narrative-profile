@@ -24,7 +24,7 @@ pub struct SubPhaseSpec {
 }
 
 impl SubPhaseSpec {
-    /// Fully-qualified ID, e.g. `"03-characters/core-identity"`.
+    /// Fully-qualified ID, e.g. `"02-characters/core-identity"`.
     pub fn fqid(&self, phase_id: &str) -> String {
         format!("{}/{}", phase_id, self.id)
     }
@@ -119,7 +119,7 @@ pub struct PhaseResult {
 
 /// A directed dependency edge between two sub-phase FQIDs.
 ///
-/// e.g. `"03-characters/core-identity" → "03-characters/relationships"`
+/// e.g. `"02-characters/core-identity" → "02-characters/relationships"`
 #[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize, JsonSchema)]
 pub struct DependencyEdge {
     pub source: String,

@@ -2,7 +2,7 @@
 //!
 //! The `VoiceContract` encodes the author's stylistic choices from three
 //! Phase 07 documents:
-//! - `narrative-voice.md` — narrator identity, authority, reliability
+//! - `prose-style-guide.md` — narrator identity, authority, reliability
 //! - `prose-style-guide.md` — sentence craft, vocabulary, affect
 //! - `focalization-guide.md` — Genette/Bal/Gardner/Cohn frameworks
 //!
@@ -97,7 +97,7 @@ pub struct AffectPaletteEntry {
 // ── Prose style guide ─────────────────────────────────────────────────────────
 
 /// Sentence-level and paragraph-level craft specifications from
-/// `06-drafting/voice-contract/prose-style-guide.md`.
+/// `05-drafting/voice-contract/prose-style-guide.md`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
 pub struct ProseStyleGuide {
     pub overall_voice_character: Option<String>,
@@ -137,7 +137,7 @@ pub struct ProseStyleGuide {
 // ── Narrative voice ────────────────────────────────────────────────────────────
 
 /// Narrator-level configuration from
-/// `06-drafting/voice-contract/narrative-voice.md`.
+/// `05-drafting/voice-contract/prose-style-guide.md`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
 pub struct NarrativeVoice {
     // Part 1 — narrator identity
@@ -183,7 +183,7 @@ pub struct NarrativeVoice {
 // ── Focalization config ────────────────────────────────────────────────────────
 
 /// Active focalization settings at document or scene level.
-/// Drawn from `06-drafting/voice-contract/focalization-guide.md`.
+/// Drawn from `05-drafting/voice-contract/focalization-guide.md`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
 pub struct FocalizationConfig {
     pub focalization_type: Option<FocalizationType>,

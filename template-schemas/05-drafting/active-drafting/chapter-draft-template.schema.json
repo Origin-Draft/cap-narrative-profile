@@ -1,0 +1,245 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/05-drafting/active-drafting/chapter-draft-template.schema.json",
+  "title": "Grimoire · Chapter Draft Template",
+  "description": "Extraction schema for chapter-draft-template.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "chapter_numbertitle": {
+      "type": "string",
+      "description": "Chapter Number/Title:",
+      "x-source-required": false
+    },
+    "word_count_target": {
+      "type": "string",
+      "description": "Word Count Target:",
+      "x-source-required": false
+    },
+    "pov_characters": {
+      "type": "string",
+      "description": "POV Character(s):",
+      "x-source-required": false
+    },
+    "time_setting": {
+      "type": "string",
+      "description": "Time & Setting:",
+      "x-source-required": false
+    },
+    "story_percentage": {
+      "type": "string",
+      "description": "Story Percentage:",
+      "x-source-required": false
+    },
+    "actsection": {
+      "type": "string",
+      "description": "Act/Section:",
+      "x-source-required": false
+    },
+    "beats_covered": {
+      "type": "string",
+      "description": "Beat(s) Covered:",
+      "x-source-required": false
+    },
+    "entry_state_continuity_check": {
+      "type": "string",
+      "description": "Entry State & Continuity Check:",
+      "x-source-required": false
+    },
+    "exit_state": {
+      "type": "string",
+      "description": "Exit State:",
+      "x-source-required": false
+    },
+    "plot_goals": {
+      "type": "string",
+      "description": "Plot Goals:",
+      "x-source-required": false
+    },
+    "character_goals": {
+      "type": "string",
+      "description": "Character Goals:",
+      "x-source-required": false
+    },
+    "informationworldbuilding_goals": {
+      "type": "string",
+      "description": "Information/Worldbuilding Goals:",
+      "x-source-required": false
+    },
+    "thematic_goals": {
+      "type": "string",
+      "description": "Thematic Goals:",
+      "x-source-required": false
+    },
+    "chapter_arcstructure": {
+      "type": "string",
+      "description": "Chapter Arc/Structure:",
+      "x-source-required": false
+    },
+    "tone_for_this_chapter": {
+      "type": "string",
+      "description": "Tone for This Chapter:",
+      "x-source-required": false
+    },
+    "pacing": {
+      "type": "string",
+      "description": "Pacing:",
+      "x-source-required": false
+    },
+    "special_style_considerations": {
+      "type": "string",
+      "description": "Special Style Considerations:",
+      "x-source-required": false
+    },
+    "reference_style_guide_sections": {
+      "type": "string",
+      "description": "Reference Style Guide Sections:",
+      "x-source-required": false
+    },
+    "continuity_notes": {
+      "type": "string",
+      "description": "Continuity Notes:",
+      "x-source-required": false
+    },
+    "word_count_achieved": {
+      "type": "string",
+      "description": "Word Count Achieved:",
+      "x-source-required": false
+    },
+    "entry_vs_exit_state": {
+      "type": "string",
+      "description": "Entry vs. Exit state:",
+      "x-source-required": false
+    },
+    "opening_hook": {
+      "type": "string",
+      "description": "Opening Hook:",
+      "x-source-required": false
+    },
+    "ending": {
+      "type": "string",
+      "description": "Ending:",
+      "x-source-required": false
+    },
+    "tensionconflict": {
+      "type": "string",
+      "description": "Tension/Conflict:",
+      "x-source-required": false
+    },
+    "dialogue_quality": {
+      "type": "string",
+      "description": "Dialogue Quality:",
+      "x-source-required": false
+    },
+    "description_balance": {
+      "type": "string",
+      "description": "Description Balance:",
+      "x-source-required": false
+    },
+    "pov_consistency": {
+      "type": "string",
+      "description": "POV Consistency:",
+      "x-source-required": false
+    },
+    "style_guide_compliance": {
+      "type": "string",
+      "description": "Style Guide Compliance:",
+      "x-source-required": false
+    },
+    "did_anything_surprise_you_while_drafting": {
+      "type": "string",
+      "description": "Did anything surprise you while drafting?",
+      "x-source-required": false
+    },
+    "new_ideas_generated": {
+      "type": "string",
+      "description": "New ideas generated:",
+      "x-source-required": false
+    },
+    "estimated_revision_time_needed": {
+      "type": "string",
+      "description": "Estimated revision time needed:",
+      "x-source-required": false
+    },
+    "what_does_the_next_chapter_need_to_address": {
+      "type": "string",
+      "description": "What does the next chapter need to address?",
+      "x-source-required": false
+    },
+    "continuity_to_track_forward": {
+      "type": "string",
+      "description": "Continuity to track forward:",
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Yes, fully",
+          "Mostly (what's missing?)",
+          "No (why not?)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Yes, fully",
+          "Mostly (what's missing?)",
+          "No (why not?)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Yes, fully",
+          "Mostly (what's missing?)",
+          "No (why not?)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_4": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Structure (scenes out of order, missing beats)",
+          "Opening/ending (weak hooks)",
+          "Dialogue (tags, subtext, voice)",
+          "Description (too much/little, not grounded)",
+          "Pacing (too slow/fast)",
+          "Character voice/POV consistency",
+          "Info dumps or exposition problems",
+          "Continuity errors"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "05-drafting/active-drafting/chapter-draft-template.md"
+}

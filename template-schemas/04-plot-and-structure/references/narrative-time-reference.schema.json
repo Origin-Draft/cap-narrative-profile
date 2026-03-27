@@ -1,0 +1,234 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/04-plot-and-structure/references/narrative-time-reference.schema.json",
+  "title": "Grimoire · Narrative Time Reference",
+  "description": "Extraction schema for narrative-time-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "axis_rows": {
+      "type": "array",
+      "description": "Table with columns: Axis, Question Asked, Key Terms",
+      "items": {
+        "type": "object",
+        "properties": {
+          "axis": {
+            "type": "string",
+            "description": "Axis",
+            "x-source-required": false
+          },
+          "question_asked": {
+            "type": "string",
+            "description": "Question Asked",
+            "x-source-required": false
+          },
+          "key_terms": {
+            "type": "string",
+            "description": "Key Terms",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "subtype_rows": {
+      "type": "array",
+      "description": "Table with columns: Subtype, Definition, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "subtype": {
+            "type": "string",
+            "description": "Subtype",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_3_rows": {
+      "type": "array",
+      "description": "Table with columns: Subtype, Definition, Effect",
+      "items": {
+        "type": "object",
+        "properties": {
+          "subtype": {
+            "type": "string",
+            "description": "Subtype",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "effect": {
+            "type": "string",
+            "description": "Effect",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "term_rows": {
+      "type": "array",
+      "description": "Table with columns: Term, Definition, Classic Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "Term",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "classic_example": {
+            "type": "string",
+            "description": "Classic Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "mode_rows": {
+      "type": "array",
+      "description": "Table with columns: Mode, Ratio (Story : Discourse), Description, Typical Use",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "description": "Mode",
+            "x-source-required": false
+          },
+          "ratio_story_discourse": {
+            "type": "string",
+            "description": "Ratio (Story : Discourse)",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          },
+          "typical_use": {
+            "type": "string",
+            "description": "Typical Use",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_6_rows": {
+      "type": "array",
+      "description": "Table with columns: Mode, Definition, Effect, Key Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "description": "Mode",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "effect": {
+            "type": "string",
+            "description": "Effect",
+            "x-source-required": false
+          },
+          "key_example": {
+            "type": "string",
+            "description": "Key Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "genre_rows": {
+      "type": "array",
+      "description": "Table with columns: Genre, Typical Order, Typical Duration, Typical Frequency",
+      "items": {
+        "type": "object",
+        "properties": {
+          "genre": {
+            "type": "string",
+            "description": "Genre",
+            "x-source-required": false
+          },
+          "typical_order": {
+            "type": "string",
+            "description": "Typical Order",
+            "x-source-required": false
+          },
+          "typical_duration": {
+            "type": "string",
+            "description": "Typical Duration",
+            "x-source-required": false
+          },
+          "typical_frequency": {
+            "type": "string",
+            "description": "Typical Frequency",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "theorist_rows": {
+      "type": "array",
+      "description": "Table with columns: Theorist, Work, Contribution",
+      "items": {
+        "type": "object",
+        "properties": {
+          "theorist": {
+            "type": "string",
+            "description": "Theorist",
+            "x-source-required": false
+          },
+          "work": {
+            "type": "string",
+            "description": "Work",
+            "x-source-required": false
+          },
+          "contribution": {
+            "type": "string",
+            "description": "Contribution",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "04-plot-and-structure/references/narrative-time-reference.md"
+}

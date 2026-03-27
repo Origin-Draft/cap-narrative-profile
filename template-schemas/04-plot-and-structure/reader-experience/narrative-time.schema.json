@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/04-plot-and-structure/reader-experience/narrative-time.schema.json",
+  "title": "Grimoire · Narrative Time",
+  "description": "Extraction schema for narrative-time.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "mode_rows": {
+      "type": "array",
+      "description": "Table with columns: Mode, Story Time : Discourse, When to use",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "description": "Mode",
+            "x-source-required": false
+          },
+          "story_time_discourse": {
+            "type": "string",
+            "description": "Story Time : Discourse",
+            "x-source-required": false
+          },
+          "when_to_use": {
+            "type": "string",
+            "description": "When to use",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "04-plot-and-structure/reader-experience/narrative-time.md"
+}

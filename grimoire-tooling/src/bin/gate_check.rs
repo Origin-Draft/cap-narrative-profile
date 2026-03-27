@@ -23,13 +23,12 @@ use serde::Deserialize;
 const PHASE_DIRS: &[&str] = &[
     "00-start-here",
     "01-concept",
-    "02-collision",
-    "03-characters",
-    "04-world-building",
-    "05-plot-and-structure",
-    "06-drafting",
-    "07-revision",
-    "08-polish-and-publish",
+    "02-characters",
+    "03-world-building",
+    "04-plot-and-structure",
+    "05-drafting",
+    "06-revision",
+    "07-polish-and-publish",
 ];
 
 // ── CLI args ──────────────────────────────────────────────────────────────────
