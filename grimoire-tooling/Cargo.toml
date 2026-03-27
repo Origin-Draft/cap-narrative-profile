@@ -73,12 +73,13 @@ chrono = { version = "0.4", default-features = false, features = ["clock", "std"
 rand = "0.8"
 
 # PyO3 — optional, enabled via feature flag
-pyo3 = { version = "0.21", features = ["extension-module", "abi3-py310"], optional = true }
+pyo3 = { version = "0.21", features = ["extension-module", "abi3-py310", "multiple-pymethods"], optional = true }
 pythonize = { version = "0.21", optional = true }
+inventory = { version = "0.3", optional = true }
 
 [features]
 default = []
-python = ["pyo3", "pythonize"]
+python = ["pyo3", "pythonize", "inventory"]
 
 [dev-dependencies]
 pretty_assertions = "1"
