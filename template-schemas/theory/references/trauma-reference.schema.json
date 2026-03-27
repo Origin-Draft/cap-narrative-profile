@@ -1,0 +1,229 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/references/trauma-reference.schema.json",
+  "title": "Grimoire · Trauma Reference",
+  "description": "Extraction schema for trauma-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "trauma_feature_rows": {
+      "type": "array",
+      "description": "Table with columns: Trauma Feature, Narrative Consequence, Technique",
+      "items": {
+        "type": "object",
+        "properties": {
+          "trauma_feature": {
+            "type": "string",
+            "description": "Trauma Feature",
+            "x-source-required": false
+          },
+          "narrative_consequence": {
+            "type": "string",
+            "description": "Narrative Consequence",
+            "x-source-required": false
+          },
+          "technique": {
+            "type": "string",
+            "description": "Technique",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "stage_rows": {
+      "type": "array",
+      "description": "Table with columns: Stage, Clinical, Narrative Equivalent, Typical Position",
+      "items": {
+        "type": "object",
+        "properties": {
+          "stage": {
+            "type": "string",
+            "description": "Stage",
+            "x-source-required": false
+          },
+          "clinical": {
+            "type": "string",
+            "description": "Clinical",
+            "x-source-required": false
+          },
+          "narrative_equivalent": {
+            "type": "string",
+            "description": "Narrative Equivalent",
+            "x-source-required": false
+          },
+          "typical_position": {
+            "type": "string",
+            "description": "Typical Position",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "instead_of_cognitive_rows": {
+      "type": "array",
+      "description": "Table with columns: Instead of (cognitive), Write (somatic)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "instead_of_cognitive": {
+            "type": "string",
+            "description": "Instead of (cognitive)",
+            "x-source-required": false
+          },
+          "write_somatic": {
+            "type": "string",
+            "description": "Write (somatic)",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "mode_rows": {
+      "type": "array",
+      "description": "Table with columns: Mode, Definition, Narrative Sign",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "description": "Mode",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "narrative_sign": {
+            "type": "string",
+            "description": "Narrative Sign",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "spectating_avoid_rows": {
+      "type": "array",
+      "description": "Table with columns: Spectating (avoid), Witnessing (aim for)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "spectating_avoid": {
+            "type": "string",
+            "description": "Spectating (avoid)",
+            "x-source-required": false
+          },
+          "witnessing_aim_for": {
+            "type": "string",
+            "description": "Witnessing (aim for)",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "disruption_rows": {
+      "type": "array",
+      "description": "Table with columns: Disruption, What It Looks Like, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "disruption": {
+            "type": "string",
+            "description": "Disruption",
+            "x-source-required": false
+          },
+          "what_it_looks_like": {
+            "type": "string",
+            "description": "What It Looks Like",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "feature_rows": {
+      "type": "array",
+      "description": "Table with columns: Feature, Manifestation",
+      "items": {
+        "type": "object",
+        "properties": {
+          "feature": {
+            "type": "string",
+            "description": "Feature",
+            "x-source-required": false
+          },
+          "manifestation": {
+            "type": "string",
+            "description": "Manifestation",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_rows": {
+      "type": "array",
+      "description": "Table with columns: #, Check, Pass?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "check": {
+            "type": "string",
+            "description": "Check",
+            "x-source-required": false
+          },
+          "pass": {
+            "type": "string",
+            "description": "Pass?",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "author_rows": {
+      "type": "array",
+      "description": "Table with columns: Author, Work, Core Idea",
+      "items": {
+        "type": "object",
+        "properties": {
+          "author": {
+            "type": "string",
+            "description": "Author",
+            "x-source-required": false
+          },
+          "work": {
+            "type": "string",
+            "description": "Work",
+            "x-source-required": false
+          },
+          "core_idea": {
+            "type": "string",
+            "description": "Core Idea",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "theory/references/trauma-reference.md"
+}

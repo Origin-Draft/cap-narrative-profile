@@ -1,0 +1,385 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/06-scenes/endings-and-denouement.schema.json",
+  "title": "Grimoire · Endings And Denouement",
+  "description": "Extraction schema for endings-and-denouement.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "your_ending_type": {
+      "type": "string",
+      "description": "Your ending type:",
+      "x-source-required": false
+    },
+    "genre_expectation_check": {
+      "type": "string",
+      "description": "Genre expectation check:",
+      "x-source-required": false
+    },
+    "central_dramatic_question": {
+      "type": "string",
+      "description": "Central dramatic question:",
+      "x-source-required": false
+    },
+    "how_the_ending_answers_it": {
+      "type": "string",
+      "description": "How the ending answers it:",
+      "x-source-required": false
+    },
+    "what_emotion_should_the_reader_feel_as_they_close_the_book": {
+      "type": "string",
+      "description": "What emotion should the reader feel as they close the book?",
+      "x-source-required": false
+    },
+    "what_is_the_literal_final_scene": {
+      "type": "string",
+      "description": "What is the literal final scene?",
+      "x-source-required": false
+    },
+    "what_does_it_symbolize": {
+      "type": "string",
+      "description": "What does it symbolize?",
+      "x-source-required": false
+    },
+    "how_does_it_mirror_or_invert_the_opening": {
+      "type": "string",
+      "description": "How does it mirror or invert the opening?",
+      "x-source-required": false
+    },
+    "the_final_sentence": {
+      "type": "string",
+      "description": "The final sentence:",
+      "x-source-required": false
+    },
+    "your_thematic_question": {
+      "type": "string",
+      "description": "Your thematic question:",
+      "x-source-required": false
+    },
+    "your_endings_answer": {
+      "type": "string",
+      "description": "Your ending's answer:",
+      "x-source-required": false
+    },
+    "how_the_answer_is_dramatized_not_stated": {
+      "type": "string",
+      "description": "How the answer is dramatized (not stated):",
+      "x-source-required": false
+    },
+    "alternative_readings": {
+      "type": "string",
+      "description": "Alternative readings:",
+      "x-source-required": false
+    },
+    "issues_found": {
+      "type": "string",
+      "description": "Issues found:",
+      "x-source-required": false
+    },
+    "what_thematic_proposition_does_this_ending_retroactively_est": {
+      "type": "string",
+      "description": "What thematic proposition does this ending retroactively establish?",
+      "x-source-required": false
+    },
+    "what_would_a_different_ending_retroactively_declare": {
+      "type": "string",
+      "description": "What would a different ending retroactively declare?",
+      "x-source-required": false
+    },
+    "is_this_placement_intentional": {
+      "type": "string",
+      "description": "Is this placement intentional?",
+      "x-source-required": false
+    },
+    "signal_youre_not_using_that_you_should_be": {
+      "type": "string",
+      "description": "Signal you're NOT using that you should be:",
+      "x-source-required": false
+    },
+    "whose_interests_does_your_resolution_serve": {
+      "type": "string",
+      "description": "Whose interests does your resolution serve?",
+      "x-source-required": false
+    },
+    "what_does_your_ending_make_invisible": {
+      "type": "string",
+      "description": "What does your ending make invisible?",
+      "x-source-required": false
+    },
+    "what_does_your_ending_normalize": {
+      "type": "string",
+      "description": "What does your ending normalize?",
+      "x-source-required": false
+    },
+    "anticlosure_option": {
+      "type": "string",
+      "description": "Anti-closure option:",
+      "x-source-required": false
+    },
+    "what_do_you_notice_in_the_opening_that_you_couldnt_see_befor": {
+      "type": "string",
+      "description": "What do you notice in the opening that you couldn't see before the ending?",
+      "x-source-required": false
+    },
+    "what_a_rereader_will_understand_that_a_firsttime_reader_wont": {
+      "type": "string",
+      "description": "What a re-reader will understand that a first-time reader won't:",
+      "x-source-required": false
+    },
+    "thread_rows": {
+      "type": "array",
+      "description": "Table with columns: Thread, Status at Ending, How Resolved, Reader Satisfaction",
+      "items": {
+        "type": "object",
+        "properties": {
+          "thread": {
+            "type": "string",
+            "description": "Thread",
+            "x-source-required": false
+          },
+          "status_at_ending": {
+            "type": "string",
+            "description": "Status at Ending",
+            "x-source-required": false
+          },
+          "how_resolved": {
+            "type": "string",
+            "description": "How Resolved",
+            "x-source-required": false
+          },
+          "reader_satisfaction": {
+            "type": "string",
+            "description": "Reader Satisfaction",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "section_rows": {
+      "type": "array",
+      "description": "Table with columns: Section, Emotion, How Evoked",
+      "items": {
+        "type": "object",
+        "properties": {
+          "section": {
+            "type": "string",
+            "description": "Section",
+            "x-source-required": false
+          },
+          "emotion": {
+            "type": "string",
+            "description": "Emotion",
+            "x-source-required": false
+          },
+          "how_evoked": {
+            "type": "string",
+            "description": "How Evoked",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "opening_image_rows": {
+      "type": "array",
+      "description": "Table with columns: Opening Image, Closing Image, What Changed",
+      "items": {
+        "type": "object",
+        "properties": {
+          "opening_image": {
+            "type": "string",
+            "description": "Opening Image",
+            "x-source-required": false
+          },
+          "closing_image": {
+            "type": "string",
+            "description": "Closing Image",
+            "x-source-required": false
+          },
+          "what_changed": {
+            "type": "string",
+            "description": "What Changed",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "element_rows": {
+      "type": "array",
+      "description": "Table with columns: Element, Start of Story, End of Story, Verification",
+      "items": {
+        "type": "object",
+        "properties": {
+          "element": {
+            "type": "string",
+            "description": "Element",
+            "x-source-required": false
+          },
+          "start_of_story": {
+            "type": "string",
+            "description": "Start of Story",
+            "x-source-required": false
+          },
+          "end_of_story": {
+            "type": "string",
+            "description": "End of Story",
+            "x-source-required": false
+          },
+          "verification": {
+            "type": "string",
+            "description": "Verification",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_5_rows": {
+      "type": "array",
+      "description": "Table with columns: Element, Start, End, Verification",
+      "items": {
+        "type": "object",
+        "properties": {
+          "element": {
+            "type": "string",
+            "description": "Element",
+            "x-source-required": false
+          },
+          "start": {
+            "type": "string",
+            "description": "Start",
+            "x-source-required": false
+          },
+          "end": {
+            "type": "string",
+            "description": "End",
+            "x-source-required": false
+          },
+          "verification": {
+            "type": "string",
+            "description": "Verification",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_6_rows": {
+      "type": "array",
+      "description": "Table with columns: Element, Status",
+      "items": {
+        "type": "object",
+        "properties": {
+          "element": {
+            "type": "string",
+            "description": "Element",
+            "x-source-required": false
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "resolved_questions_answered_rows": {
+      "type": "array",
+      "description": "Table with columns: **Resolved** (questions answered), **Unresolved** (questions open)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "resolved_questions_answered": {
+            "type": "string",
+            "description": "**Resolved** (questions answered)",
+            "x-source-required": false
+          },
+          "unresolved_questions_open": {
+            "type": "string",
+            "description": "**Unresolved** (questions open)",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "ending_element_rows": {
+      "type": "array",
+      "description": "Table with columns: Ending element, Where to plant foreshadowing, How (image, detail, line of dialogue)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ending_element": {
+            "type": "string",
+            "description": "Ending element",
+            "x-source-required": false
+          },
+          "where_to_plant_foreshadowing": {
+            "type": "string",
+            "description": "Where to plant foreshadowing",
+            "x-source-required": false
+          },
+          "how_image_detail_line_of_dialogue": {
+            "type": "string",
+            "description": "How (image, detail, line of dialogue)",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "string",
+      "enum": [],
+      "description": "Single-select from options: ",
+      "x-todo": "verify enum is single-select"
+    },
+    "checkboxes_2": {
+      "type": "string",
+      "enum": [],
+      "description": "Single-select from options: ",
+      "x-todo": "verify enum is single-select"
+    },
+    "checkboxes_3": {
+      "type": "string",
+      "enum": [],
+      "description": "Single-select from options: ",
+      "x-todo": "verify enum is single-select"
+    },
+    "checkboxes_4": {
+      "type": "string",
+      "enum": [],
+      "description": "Single-select from options: ",
+      "x-todo": "verify enum is single-select"
+    },
+    "checkboxes_5": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Return to opening image or location",
+          "Final image that is strongly symbolic (completed rather than in-motion)",
+          "A shift to a lower register or slower pace in the final pages",
+          "A single resonant final sentence that feels conclusive in rhythm or image",
+          "White space or structural marker before the final scene",
+          "A character reflecting on what has happened (retrospective framing)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "05-plot-and-structure/structural-milestones/endings-and-denouement.md"
+}

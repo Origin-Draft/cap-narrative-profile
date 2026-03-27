@@ -27,10 +27,9 @@ const PHASE_DIRS: &[&str] = &[
     "03-characters",
     "04-world-building",
     "05-plot-and-structure",
-    "06-scenes",
-    "07-drafting",
-    "08-revision",
-    "09-polish-and-publish",
+    "06-drafting",
+    "07-revision",
+    "08-polish-and-publish",
 ];
 
 // ── CLI args ──────────────────────────────────────────────────────────────────

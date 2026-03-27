@@ -1,0 +1,373 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/09-polish-and-publish/paratext-design.schema.json",
+  "title": "Grimoire · Paratext Design",
+  "description": "Extraction schema for paratext-design.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "current_working_title": {
+      "type": "string",
+      "description": "Current working title:",
+      "x-source-required": false
+    },
+    "why_this_title_what_does_it_name_claim_or_promise": {
+      "type": "string",
+      "description": "Why this title? What does it name, claim, or promise?",
+      "x-source-required": false
+    },
+    "subtitle_if_applicable": {
+      "type": "string",
+      "description": "Subtitle (if applicable):",
+      "x-source-required": false
+    },
+    "your_dedication": {
+      "type": "string",
+      "description": "Your dedication:",
+      "x-source-required": false
+    },
+    "authors_note_draft": {
+      "type": "string",
+      "description": "Author's note draft:",
+      "x-source-required": false
+    },
+    "type_rows": {
+      "type": "array",
+      "description": "Table with columns: Type, Where It Appears, Examples",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "where_it_appears": {
+            "type": "string",
+            "description": "Where It Appears",
+            "x-source-required": false
+          },
+          "examples": {
+            "type": "string",
+            "description": "Examples",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "title_function_rows": {
+      "type": "array",
+      "description": "Table with columns: Title function, Definition, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title_function": {
+            "type": "string",
+            "description": "Title function",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "function_rows": {
+      "type": "array",
+      "description": "Table with columns: Function, Description",
+      "items": {
+        "type": "object",
+        "properties": {
+          "function": {
+            "type": "string",
+            "description": "Function",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "epigraph_1_rows": {
+      "type": "array",
+      "description": "Table with columns: Epigraph 1, Epigraph 2 (if multiple)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "epigraph_1": {
+            "type": "string",
+            "description": "Epigraph 1",
+            "x-source-required": false
+          },
+          "epigraph_2_if_multiple": {
+            "type": "string",
+            "description": "Epigraph 2 (if multiple)",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "mode_rows": {
+      "type": "array",
+      "description": "Table with columns: Mode, Example, Effect",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "description": "Mode",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          },
+          "effect": {
+            "type": "string",
+            "description": "Effect",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "chapter_title_approach_rows": {
+      "type": "array",
+      "description": "Table with columns: Chapter title approach, Effect, Examples",
+      "items": {
+        "type": "object",
+        "properties": {
+          "chapter_title_approach": {
+            "type": "string",
+            "description": "Chapter title approach",
+            "x-source-required": false
+          },
+          "effect": {
+            "type": "string",
+            "description": "Effect",
+            "x-source-required": false
+          },
+          "examples": {
+            "type": "string",
+            "description": "Examples",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "chapter_rows": {
+      "type": "array",
+      "description": "Table with columns: Chapter, Title, What it does",
+      "items": {
+        "type": "object",
+        "properties": {
+          "chapter": {
+            "type": "string",
+            "description": "Chapter",
+            "x-source-required": false
+          },
+          "title": {
+            "type": "string",
+            "description": "Title",
+            "x-source-required": false
+          },
+          "what_it_does": {
+            "type": "string",
+            "description": "What it does",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "situation_rows": {
+      "type": "array",
+      "description": "Table with columns: Situation, Note needed?, What it should address",
+      "items": {
+        "type": "object",
+        "properties": {
+          "situation": {
+            "type": "string",
+            "description": "Situation",
+            "x-source-required": false
+          },
+          "note_needed": {
+            "type": "string",
+            "description": "Note needed?",
+            "x-source-required": false
+          },
+          "what_it_should_address": {
+            "type": "string",
+            "description": "What it should address",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "element_rows": {
+      "type": "array",
+      "description": "Table with columns: Element, Purpose, When to include",
+      "items": {
+        "type": "object",
+        "properties": {
+          "element": {
+            "type": "string",
+            "description": "Element",
+            "x-source-required": false
+          },
+          "purpose": {
+            "type": "string",
+            "description": "Purpose",
+            "x-source-required": false
+          },
+          "when_to_include": {
+            "type": "string",
+            "description": "When to include",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_10_rows": {
+      "type": "array",
+      "description": "Table with columns: Element, Include?, What it would contain",
+      "items": {
+        "type": "object",
+        "properties": {
+          "element": {
+            "type": "string",
+            "description": "Element",
+            "x-source-required": false
+          },
+          "include": {
+            "type": "string",
+            "description": "Include?",
+            "x-source-required": false
+          },
+          "what_it_would_contain": {
+            "type": "string",
+            "description": "What it would contain",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "No subtitle — genre is clear from context; title stands alone",
+          "Other subtitle: _______________"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Is this title searchable? (Not so generic it produces thousands of results)",
+          "Is this title memorable? (Does it stick?)",
+          "Does this title signal the right genre and tonal register to its target reader?",
+          "Does this title give away too much, or not enough?",
+          "Has this title been used recently by another book in your genre? (Check)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Single epigraph before narrative opens",
+          "Section epigraphs (one per part)",
+          "Chapter epigraphs",
+          "Multiple frontal epigraphs"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_4": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Numbers only",
+          "Numbers + titles",
+          "Titles only",
+          "Other: _______________"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_5": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "None — standard literary fiction",
+          "Narrative footnotes as second-voice device",
+          "Research/sourcing endnotes (for nonfiction-adjacent work)",
+          "World-building / encyclopedic appendix footnotes",
+          "Other: _______________"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_6": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Do my title, subtitle (if any), and epigraph(s) form a coherent opening frame?",
+          "Is my chapter-title strategy (if using titles) consistent throughout?",
+          "Have I checked copyright status of any quoted epigraph material?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "08-polish-and-publish/paratext-design.md"
+}

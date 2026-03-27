@@ -1,0 +1,223 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/references/speech-act-reference.schema.json",
+  "title": "Grimoire · Speech Act Reference",
+  "description": "Extraction schema for speech-act-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "act_level_rows": {
+      "type": "array",
+      "description": "Table with columns: Act Level, Question, Example: \"I'll be there at eight.\"",
+      "items": {
+        "type": "object",
+        "properties": {
+          "act_level": {
+            "type": "string",
+            "description": "Act Level",
+            "x-source-required": false
+          },
+          "question": {
+            "type": "string",
+            "description": "Question",
+            "x-source-required": false
+          },
+          "example_ill_be_there_at_eight": {
+            "type": "string",
+            "description": "Example: \"I'll be there at eight.\"",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "category_rows": {
+      "type": "array",
+      "description": "Table with columns: Category, Direction of Fit, Speaker State, Core Function, Common Dialogue Types",
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Category",
+            "x-source-required": false
+          },
+          "direction_of_fit": {
+            "type": "string",
+            "description": "Direction of Fit",
+            "x-source-required": false
+          },
+          "speaker_state": {
+            "type": "string",
+            "description": "Speaker State",
+            "x-source-required": false
+          },
+          "core_function": {
+            "type": "string",
+            "description": "Core Function",
+            "x-source-required": false
+          },
+          "common_dialogue_types": {
+            "type": "string",
+            "description": "Common Dialogue Types",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "condition_rows": {
+      "type": "array",
+      "description": "Table with columns: Condition, What It Requires, Violation Produces",
+      "items": {
+        "type": "object",
+        "properties": {
+          "condition": {
+            "type": "string",
+            "description": "Condition",
+            "x-source-required": false
+          },
+          "what_it_requires": {
+            "type": "string",
+            "description": "What It Requires",
+            "x-source-required": false
+          },
+          "violation_produces": {
+            "type": "string",
+            "description": "Violation Produces",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "type_rows": {
+      "type": "array",
+      "description": "Table with columns: Type, Description, Drama",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          },
+          "drama": {
+            "type": "string",
+            "description": "Drama",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "story_function_rows": {
+      "type": "array",
+      "description": "Table with columns: Story Function, Typical Speech Act, Notes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "story_function": {
+            "type": "string",
+            "description": "Story Function",
+            "x-source-required": false
+          },
+          "typical_speech_act": {
+            "type": "string",
+            "description": "Typical Speech Act",
+            "x-source-required": false
+          },
+          "notes": {
+            "type": "string",
+            "description": "Notes",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "framework_rows": {
+      "type": "array",
+      "description": "Table with columns: Framework, Analyses, Question, Tool",
+      "items": {
+        "type": "object",
+        "properties": {
+          "framework": {
+            "type": "string",
+            "description": "Framework",
+            "x-source-required": false
+          },
+          "analyses": {
+            "type": "string",
+            "description": "Analyses",
+            "x-source-required": false
+          },
+          "question": {
+            "type": "string",
+            "description": "Question",
+            "x-source-required": false
+          },
+          "tool": {
+            "type": "string",
+            "description": "Tool",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "surface_act_rows": {
+      "type": "array",
+      "description": "Table with columns: Surface Act, Performed Act, Social Function",
+      "items": {
+        "type": "object",
+        "properties": {
+          "surface_act": {
+            "type": "string",
+            "description": "Surface Act",
+            "x-source-required": false
+          },
+          "performed_act": {
+            "type": "string",
+            "description": "Performed Act",
+            "x-source-required": false
+          },
+          "social_function": {
+            "type": "string",
+            "description": "Social Function",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Who is performing the active acts (directives, commissives, declarations)?",
+          "Who is primarily responding (assertives, expressives)?",
+          "Does this illocutionary power map match the intended dramatic power dynamic?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "theory/references/speech-act-reference.md"
+}

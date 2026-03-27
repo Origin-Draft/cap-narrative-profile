@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/08-revision/critical-theory/class-and-marxist-narratology.schema.json",
+  "title": "Grimoire · Class And Marxist Narratology",
+  "description": "Extraction schema for class-and-marxist-narratology.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "horizon_rows": {
+      "type": "array",
+      "description": "Table with columns: Horizon, Object of Analysis, Question",
+      "items": {
+        "type": "object",
+        "properties": {
+          "horizon": {
+            "type": "string",
+            "description": "Horizon",
+            "x-source-required": false
+          },
+          "object_of_analysis": {
+            "type": "string",
+            "description": "Object of Analysis",
+            "x-source-required": false
+          },
+          "question": {
+            "type": "string",
+            "description": "Question",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "concept_rows": {
+      "type": "array",
+      "description": "Table with columns: Concept, Definition, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concept": {
+            "type": "string",
+            "description": "Concept",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "category_rows": {
+      "type": "array",
+      "description": "Table with columns: Category, Definition, Narrative Relevance",
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Category",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "narrative_relevance": {
+            "type": "string",
+            "description": "Narrative Relevance",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "table_4_rows": {
+      "type": "array",
+      "description": "Table with columns: Concept, Meaning",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concept": {
+            "type": "string",
+            "description": "Concept",
+            "x-source-required": false
+          },
+          "meaning": {
+            "type": "string",
+            "description": "Meaning",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "formal_element_rows": {
+      "type": "array",
+      "description": "Table with columns: Formal Element, Class Analysis",
+      "items": {
+        "type": "object",
+        "properties": {
+          "formal_element": {
+            "type": "string",
+            "description": "Formal Element",
+            "x-source-required": false
+          },
+          "class_analysis": {
+            "type": "string",
+            "description": "Class Analysis",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Whose labour is rendered visible and fully narrated? Whose is background?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "string",
+      "enum": [],
+      "description": "Single-select from options: ",
+      "x-todo": "verify enum is single-select"
+    },
+    "checkboxes_3": {
+      "type": "string",
+      "enum": [],
+      "description": "Single-select from options: ",
+      "x-todo": "verify enum is single-select"
+    },
+    "checkboxes_4": {
+      "type": "string",
+      "enum": [],
+      "description": "Single-select from options: ",
+      "x-todo": "verify enum is single-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-revision/critical-theory/class-and-marxist-narratology.md"
+}

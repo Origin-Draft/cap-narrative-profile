@@ -360,7 +360,7 @@ impl Promise {
 /// An individual scene card (Phase 06 scene template).
 ///
 /// Previously untyped — only existed as Markdown.  Now every field from
-/// `06-scenes/scene-template.md` has an explicit typed slot.
+/// `05-plot-and-structure/scene-design/scene-template.md` has an explicit typed slot.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct Scene {
     pub id: String,

@@ -97,7 +97,7 @@ pub struct AffectPaletteEntry {
 // ── Prose style guide ─────────────────────────────────────────────────────────
 
 /// Sentence-level and paragraph-level craft specifications from
-/// `07-drafting/voice-contract/prose-style-guide.md`.
+/// `06-drafting/voice-contract/prose-style-guide.md`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
 pub struct ProseStyleGuide {
     pub overall_voice_character: Option<String>,
@@ -137,7 +137,7 @@ pub struct ProseStyleGuide {
 // ── Narrative voice ────────────────────────────────────────────────────────────
 
 /// Narrator-level configuration from
-/// `07-drafting/voice-contract/narrative-voice.md`.
+/// `06-drafting/voice-contract/narrative-voice.md`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
 pub struct NarrativeVoice {
     // Part 1 — narrator identity
@@ -183,7 +183,7 @@ pub struct NarrativeVoice {
 // ── Focalization config ────────────────────────────────────────────────────────
 
 /// Active focalization settings at document or scene level.
-/// Drawn from `07-drafting/voice-contract/focalization-guide.md`.
+/// Drawn from `06-drafting/voice-contract/focalization-guide.md`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema, Default)]
 pub struct FocalizationConfig {
     pub focalization_type: Option<FocalizationType>,

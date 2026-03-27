@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/08-revision/polish/beta-reader-guide.schema.json",
+  "title": "Grimoire · Beta Reader Guide",
+  "description": "Extraction schema for beta-reader-guide.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "what_youll_get": {
+      "type": "string",
+      "description": "What You'll Get:",
+      "x-source-required": false
+    },
+    "3_in_one_sentence_what_is_this_book_about": {
+      "type": "string",
+      "description": "3. In one sentence, what is this book about?",
+      "x-source-required": false
+    },
+    "issue_raised_rows": {
+      "type": "array",
+      "description": "Table with columns: Issue Raised, Beta 1, Beta 2, Beta 3, Beta 4, Beta 5, Pattern?, Action?",
+      "items": {
+        "type": "object",
+        "properties": {
+          "issue_raised": {
+            "type": "string",
+            "description": "Issue Raised",
+            "x-source-required": false
+          },
+          "beta_1": {
+            "type": "string",
+            "description": "Beta 1",
+            "x-source-required": false
+          },
+          "beta_2": {
+            "type": "string",
+            "description": "Beta 2",
+            "x-source-required": false
+          },
+          "beta_3": {
+            "type": "string",
+            "description": "Beta 3",
+            "x-source-required": false
+          },
+          "beta_4": {
+            "type": "string",
+            "description": "Beta 4",
+            "x-source-required": false
+          },
+          "beta_5": {
+            "type": "string",
+            "description": "Beta 5",
+            "x-source-required": false
+          },
+          "pattern": {
+            "type": "string",
+            "description": "Pattern?",
+            "x-source-required": false
+          },
+          "action": {
+            "type": "string",
+            "description": "Action?",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Yes",
+          "No — I stopped at: [chapter/page] because: _______________"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-revision/polish/beta-reader-guide.md"
+}

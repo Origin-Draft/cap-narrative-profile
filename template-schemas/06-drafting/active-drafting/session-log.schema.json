@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/active-drafting/session-log.schema.json",
+  "title": "Grimoire · Session Log",
+  "description": "Extraction schema for session-log.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "moodenergy_level": {
+      "type": "string",
+      "description": "Mood/Energy Level:",
+      "x-source-required": false
+    },
+    "why": {
+      "type": "string",
+      "description": "Why?",
+      "x-source-required": false
+    },
+    "what_i_accomplished": {
+      "type": "string",
+      "description": "What I Accomplished:",
+      "x-source-required": false
+    },
+    "breakthroughinsights": {
+      "type": "string",
+      "description": "Breakthrough/Insights:",
+      "x-source-required": false
+    },
+    "problems_encountered": {
+      "type": "string",
+      "description": "Problems Encountered:",
+      "x-source-required": false
+    },
+    "for_next_session": {
+      "type": "string",
+      "description": "For Next Session:",
+      "x-source-required": false
+    },
+    "story_state": {
+      "type": "string",
+      "description": "Story State:",
+      "x-source-required": false
+    },
+    "open_questionsdecisions": {
+      "type": "string",
+      "description": "Open Questions/Decisions:",
+      "x-source-required": false
+    },
+    "overall_progress": {
+      "type": "string",
+      "description": "Overall Progress:",
+      "x-source-required": false
+    },
+    "wins": {
+      "type": "string",
+      "description": "Wins:",
+      "x-source-required": false
+    },
+    "challenges": {
+      "type": "string",
+      "description": "Challenges:",
+      "x-source-required": false
+    },
+    "adjustments_for_next_week": {
+      "type": "string",
+      "description": "Adjustments for Next Week:",
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Easy (words flowed)",
+          "Moderate (steady work)",
+          "Hard (every word was a fight)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "06-drafting/active-drafting/session-log.md"
+}

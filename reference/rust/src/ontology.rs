@@ -692,7 +692,7 @@ pub fn core_primitives() -> Vec<OntologyPrimitive> {
             },
             PrimitiveProjection {
                 projection_type: ProjectionType::MarkdownTag,
-                target: "07-drafting/voice-contract/".to_owned(),
+                target: "06-drafting/voice-contract/".to_owned(),
                 aliases: vec![],
             },
         ],

@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/08-revision/critical-theory/indigenous-narratology.schema.json",
+  "title": "Grimoire · Indigenous Narratology",
+  "description": "Extraction schema for indigenous-narratology.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "principle_rows": {
+      "type": "array",
+      "description": "Table with columns: Principle, Definition",
+      "items": {
+        "type": "object",
+        "properties": {
+          "principle": {
+            "type": "string",
+            "description": "Principle",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "tradition_rows": {
+      "type": "array",
+      "description": "Table with columns: Tradition, Key features (brief), Select theorists / practioners",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tradition": {
+            "type": "string",
+            "description": "Tradition",
+            "x-source-required": false
+          },
+          "key_features_brief": {
+            "type": "string",
+            "description": "Key features (brief)",
+            "x-source-required": false
+          },
+          "select_theorists_practioners": {
+            "type": "string",
+            "description": "Select theorists / practioners",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "string",
+      "enum": [],
+      "description": "Single-select from options: ",
+      "x-todo": "verify enum is single-select"
+    },
+    "checkboxes_2": {
+      "type": "string",
+      "enum": [],
+      "description": "Single-select from options: ",
+      "x-todo": "verify enum is single-select"
+    },
+    "checkboxes_3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Am I respecting which stories are not meant to be shared widely?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_4": {
+      "type": "string",
+      "enum": [],
+      "description": "Single-select from options: ",
+      "x-todo": "verify enum is single-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-revision/critical-theory/indigenous-narratology.md"
+}

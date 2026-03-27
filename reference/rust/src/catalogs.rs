@@ -365,7 +365,7 @@ pub struct NarrativeTimeModeEntry {
 
 // ── Irony types catalog (irony-types.yaml) ───────────────────────────────────
 
-/// Matches `07-drafting/references/irony-types.yaml`.
+/// Matches `theory/references/irony-types.yaml`.
 /// Booth *A Rhetoric of Irony* / Hutcheon *A Theory of Parody*.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct IronyTypeCatalogEntry {
@@ -383,7 +383,7 @@ pub struct IronyTypeCatalogEntry {
 
 // ── Comic modes catalog (comic-modes.yaml) ───────────────────────────────────
 
-/// Matches `07-drafting/references/comic-modes.yaml`.
+/// Matches `theory/references/comic-modes.yaml`.
 /// Bergson, Morreall, Frye; covers both modes and comedy theories.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct ComicModeCatalogEntry {
@@ -408,7 +408,7 @@ pub struct ComicModeCatalogEntry {
 
 // ── Metaphor types catalog (metaphor-types.yaml) ─────────────────────────────
 
-/// Matches `07-drafting/references/metaphor-types.yaml`.
+/// Matches `theory/references/metaphor-types.yaml`.
 /// Lakoff/Johnson, Richards, Black, Jakobson.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct MetaphorTypeCatalogEntry {
@@ -430,7 +430,7 @@ pub struct MetaphorTypeCatalogEntry {
 
 // ── Trauma modes catalog (trauma-modes.yaml) ─────────────────────────────────
 
-/// Matches `07-drafting/references/trauma-modes.yaml`.
+/// Matches `theory/references/trauma-modes.yaml`.
 /// Caruth, LaCapra, Herman, van der Kolk, Felman/Laub.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct TraumaModeEntry {
@@ -459,7 +459,7 @@ pub struct CanonicalSource {
     #[serde(default)] pub note: Option<String>,
 }
 
-/// Matches `08-revision/references/revision-passes.yaml`.
+/// Matches `07-revision/references/revision-passes.yaml`.
 /// Murray, Elbow, Lamott six-pass system.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct RevisionPassEntry {
@@ -477,7 +477,7 @@ pub struct RevisionPassEntry {
 
 // ── Pentad elements catalog (pentad-elements.yaml) ────────────────────────────
 
-/// Matches `07-drafting/references/pentad-elements.yaml`.
+/// Matches `theory/references/pentad-elements.yaml`.
 /// Burke *A Grammar of Motives* (1945).
 /// Both `type: element` and `type: ratio` entries share this struct.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
@@ -503,7 +503,7 @@ pub struct PentadElementEntry {
 
 // ─── Theory catalogs (Phase II–V additions) ───────────────────────────────────
 
-/// Entry in `07-drafting/references/speech-act-types.yaml`
+/// Entry in `theory/references/speech-act-types.yaml`
 /// Austin *How to Do Things with Words* (1962); Searle *Speech Acts* (1969)
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct SpeechActEntry {
@@ -529,7 +529,7 @@ pub struct SpeechActEntry {
     #[serde(default)] pub force_markers: Vec<String>,
 }
 
-/// Entry in `07-drafting/references/focalization-modes.yaml`
+/// Entry in `theory/references/focalization-modes.yaml`
 /// Genette *Narrative Discourse* (1972); Bal *Narratology* (1985);
 /// Gardner *The Art of Fiction* (1983); Cohn *Transparent Minds* (1978)
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
@@ -577,7 +577,7 @@ pub struct IntertextualRelationEntry {
     #[serde(default)] pub narrative_manifestation: Option<String>,
 }
 
-/// Entry in `07-drafting/references/psychoanalytic-mechanisms.yaml`
+/// Entry in `theory/references/psychoanalytic-mechanisms.yaml`
 /// Freud; Lacan *Écrits* (1966); Kristeva *Powers of Horror* (1980);
 /// Mulvey "Visual Pleasure" (1975)
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
@@ -601,7 +601,7 @@ pub struct PsychoanalyticMechanismEntry {
     #[serde(default)] pub scene_audit_question: Option<String>,
 }
 
-/// Entry in `08-revision/references/postcolonial-modes.yaml`
+/// Entry in `07-revision/references/postcolonial-modes.yaml`
 /// Said *Orientalism* (1978); Bhabha *Location of Culture* (1994);
 /// Spivak "Can the Subaltern Speak?" (1988); Fanon; Achebe; Ngũgĩ
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
@@ -688,7 +688,7 @@ pub struct GenreTropeCatalogEntry {
 
 // ── Phase V gap-fill theory catalog structs ──────────────────────────────────
 
-/// Entry in `07-drafting/references/image-schemas.yaml`
+/// Entry in `theory/references/image-schemas.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct ImageSchemaEntry {
     pub slug: String,
@@ -702,7 +702,7 @@ pub struct ImageSchemaEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-drafting/references/subtext-modes.yaml`
+/// Entry in `theory/references/subtext-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct SubtextModeEntry {
     pub slug: String,
@@ -718,7 +718,7 @@ pub struct SubtextModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-drafting/references/adaptation-modes.yaml`
+/// Entry in `theory/references/adaptation-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct AdaptationModeEntry {
     pub slug: String,
@@ -735,7 +735,7 @@ pub struct AdaptationModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-drafting/references/autofiction-modes.yaml`
+/// Entry in `theory/references/autofiction-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct AutofictionModeEntry {
     pub slug: String,
@@ -752,7 +752,7 @@ pub struct AutofictionModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-drafting/references/experimental-narration-modes.yaml`
+/// Entry in `theory/references/experimental-narration-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct ExperimentalNarrationEntry {
     pub slug: String,
@@ -771,7 +771,7 @@ pub struct ExperimentalNarrationEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-drafting/references/philosophy-fiction-modes.yaml`
+/// Entry in `theory/references/philosophy-fiction-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct PhilosophyFictionEntry {
     pub slug: String,
@@ -791,7 +791,7 @@ pub struct PhilosophyFictionEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-drafting/references/verse-prosody.yaml`
+/// Entry in `theory/references/verse-prosody.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct VerseProsodyEntry {
     pub slug: String,
@@ -810,7 +810,7 @@ pub struct VerseProsodyEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `08-revision/references/ecocriticism-modes.yaml`
+/// Entry in `07-revision/references/ecocriticism-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct EcocriticalModeEntry {
     pub slug: String,
@@ -827,7 +827,7 @@ pub struct EcocriticalModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `08-revision/references/feminist-narrative-types.yaml`
+/// Entry in `07-revision/references/feminist-narrative-types.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct FeministNarrativeEntry {
     pub slug: String,
@@ -847,7 +847,7 @@ pub struct FeministNarrativeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `08-revision/references/posthuman-modes.yaml`
+/// Entry in `07-revision/references/posthuman-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct PosthumanModeEntry {
     pub slug: String,
@@ -865,7 +865,7 @@ pub struct PosthumanModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `08-revision/references/queer-narrative-modes.yaml`
+/// Entry in `07-revision/references/queer-narrative-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct QueerNarrativeModeEntry {
     pub slug: String,
@@ -886,7 +886,7 @@ pub struct QueerNarrativeModeEntry {
     #[serde(default)] pub intersectional_instances: Vec<String>,
 }
 
-/// Entry in `08-revision/references/disability-rep-modes.yaml`
+/// Entry in `07-revision/references/disability-rep-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct DisabilityRepModeEntry {
     pub slug: String,
@@ -905,7 +905,7 @@ pub struct DisabilityRepModeEntry {
     #[serde(default)] pub connection_to_reproductive_futurism: Option<String>,
 }
 
-/// Entry in `08-revision/references/marxist-narrative-modes.yaml`
+/// Entry in `07-revision/references/marxist-narrative-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct MarxistNarrativeModeEntry {
     pub slug: String,
@@ -925,7 +925,7 @@ pub struct MarxistNarrativeModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `08-revision/references/indigenous-narrative-modes.yaml`
+/// Entry in `07-revision/references/indigenous-narrative-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct IndigenousNarrativeModeEntry {
     pub slug: String,
@@ -945,7 +945,7 @@ pub struct IndigenousNarrativeModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `08-revision/references/affect-modes.yaml`
+/// Entry in `07-revision/references/affect-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct AffectModeEntry {
     pub slug: String,
@@ -962,7 +962,7 @@ pub struct AffectModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `08-revision/references/narrative-ethics-modes.yaml`
+/// Entry in `07-revision/references/narrative-ethics-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct NarrativeEthicsModeEntry {
     pub slug: String,
@@ -1063,7 +1063,7 @@ pub struct SerialityTypeEntry {
 
 // ── Phase V round-2 theory catalog structs ─────────────────────────────────
 
-/// Entry in `07-drafting/references/translation-modes.yaml`
+/// Entry in `theory/references/translation-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct TranslationModeEntry {
     pub slug: String,
@@ -1077,7 +1077,7 @@ pub struct TranslationModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-drafting/references/graphic-narrative-modes.yaml`
+/// Entry in `theory/references/graphic-narrative-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct GraphicNarrativeModeEntry {
     pub slug: String,
@@ -1092,7 +1092,7 @@ pub struct GraphicNarrativeModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-drafting/references/ya-narrative-modes.yaml`
+/// Entry in `theory/references/ya-narrative-modes.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct YaNarrativeModeEntry {
     pub slug: String,
@@ -1111,7 +1111,7 @@ pub struct YaNarrativeModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `09-polish-and-publish/references/paratext-zones.yaml`
+/// Entry in `08-polish-and-publish/references/paratext-zones.yaml`
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct ParatextZoneEntry {
     pub slug: String,
@@ -1229,7 +1229,7 @@ pub struct RomanceBeatsCatalog {
 
 // ── Phase VI–VII theory catalog structs ──────────────────────────────────────
 
-/// Entry in `07-drafting/references/dramatic-theory-modes.yaml`
+/// Entry in `theory/references/dramatic-theory-modes.yaml`
 /// Aristotle *Poetics* (c. 335 BCE); Stanislavski *An Actor Prepares* (1936);
 /// Brecht *Brecht on Theatre* (ed. Willett, 1964); Artaud *The Theatre and Its Double* (1938);
 /// Syd Field *Screenplay* (1979)
@@ -1254,7 +1254,7 @@ pub struct DramaticTheoryModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-drafting/references/short-fiction-modes.yaml`
+/// Entry in `theory/references/short-fiction-modes.yaml`
 /// Poe "The Philosophy of Composition" (1846); Charles E. May *The Short Story* (1995);
 /// Julio Cortázar "Some Aspects of the Short Story" (1963);
 /// Shapard & Thomas *Sudden Fiction* (1986)
@@ -1274,7 +1274,7 @@ pub struct ShortFictionModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-drafting/references/nonfiction-narrative-modes.yaml`
+/// Entry in `theory/references/nonfiction-narrative-modes.yaml`
 /// Vivian Gornick *The Situation and the Story* (2001); John McPhee *Draft No. 4* (2017);
 /// Mary Karr *The Art of Memoir* (2015); Joan Didion (essays/memoir);
 /// Phillip Lopate *To Show and to Tell* (2013)
@@ -1296,7 +1296,7 @@ pub struct NonfictionNarrativeModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `08-revision/references/intersectional-modes.yaml`
+/// Entry in `07-revision/references/intersectional-modes.yaml`
 /// Kimberlé Crenshaw (1989, 1991); Patricia Hill Collins *Black Feminist Thought* (2000);
 /// bell hooks *Feminist Theory: From Margin to Center* (1984); Chimamanda Ngozi Adichie
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
@@ -1318,7 +1318,7 @@ pub struct IntersectionalModeEntry {
     #[serde(default)] pub canonical_examples: Vec<CatalogExample>,
 }
 
-/// Entry in `07-drafting/references/screenwriting-modes.yaml`
+/// Entry in `theory/references/screenwriting-modes.yaml`
 /// Syd Field *Screenplay* (1979); Michael Hauge *Writing Screenplays That Sell* (1988/2011);
 /// David Bordwell *Narration in the Fiction Film* (1985); Robert McKee *Story* (1997);
 /// Paul Joseph Gulino *Screenwriting: The Sequence Approach* (2004);

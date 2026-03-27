@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/references/pov-guide.schema.json",
+  "title": "Grimoire · Pov Guide",
+  "description": "Extraction schema for pov-guide.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "pov_type_rows": {
+      "type": "array",
+      "description": "Table with columns: POV Type, Pronouns, Distance, Knowledge, Common Usage",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pov_type": {
+            "type": "string",
+            "description": "POV Type",
+            "x-source-required": false
+          },
+          "pronouns": {
+            "type": "string",
+            "description": "Pronouns",
+            "x-source-required": false
+          },
+          "distance": {
+            "type": "string",
+            "description": "Distance",
+            "x-source-required": false
+          },
+          "knowledge": {
+            "type": "string",
+            "description": "Knowledge",
+            "x-source-required": false
+          },
+          "common_usage": {
+            "type": "string",
+            "description": "Common Usage",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "theory/references/pov-guide.md"
+}

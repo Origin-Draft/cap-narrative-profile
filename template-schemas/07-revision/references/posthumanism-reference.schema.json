@@ -1,0 +1,219 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/08-revision/references/posthumanism-reference.schema.json",
+  "title": "Grimoire · Posthumanism Reference",
+  "description": "Extraction schema for posthumanism-reference.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "theorist_rows": {
+      "type": "array",
+      "description": "Table with columns: Theorist, Core concept, Craft application",
+      "items": {
+        "type": "object",
+        "properties": {
+          "theorist": {
+            "type": "string",
+            "description": "Theorist",
+            "x-source-required": false
+          },
+          "core_concept": {
+            "type": "string",
+            "description": "Core concept",
+            "x-source-required": false
+          },
+          "craft_application": {
+            "type": "string",
+            "description": "Craft application",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "mode_rows": {
+      "type": "array",
+      "description": "Table with columns: Mode, Orientation, Narrative tendency",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "description": "Mode",
+            "x-source-required": false
+          },
+          "orientation": {
+            "type": "string",
+            "description": "Orientation",
+            "x-source-required": false
+          },
+          "narrative_tendency": {
+            "type": "string",
+            "description": "Narrative tendency",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "concept_rows": {
+      "type": "array",
+      "description": "Table with columns: Concept, Definition, Narrative use",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concept": {
+            "type": "string",
+            "description": "Concept",
+            "x-source-required": false
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition",
+            "x-source-required": false
+          },
+          "narrative_use": {
+            "type": "string",
+            "description": "Narrative use",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "assumption_of_lhs_rows": {
+      "type": "array",
+      "description": "Table with columns: Assumption of LHS, Posthumanist challenge",
+      "items": {
+        "type": "object",
+        "properties": {
+          "assumption_of_lhs": {
+            "type": "string",
+            "description": "Assumption of LHS",
+            "x-source-required": false
+          },
+          "posthumanist_challenge": {
+            "type": "string",
+            "description": "Posthumanist challenge",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "what_embodiment_provides_rows": {
+      "type": "array",
+      "description": "Table with columns: What embodiment provides, What information-without-body loses",
+      "items": {
+        "type": "object",
+        "properties": {
+          "what_embodiment_provides": {
+            "type": "string",
+            "description": "What embodiment provides",
+            "x-source-required": false
+          },
+          "what_informationwithoutbody_loses": {
+            "type": "string",
+            "description": "What information-without-body loses",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "species_variable_rows": {
+      "type": "array",
+      "description": "Table with columns: Species variable, Design questions",
+      "items": {
+        "type": "object",
+        "properties": {
+          "species_variable": {
+            "type": "string",
+            "description": "Species variable",
+            "x-source-required": false
+          },
+          "design_questions": {
+            "type": "string",
+            "description": "Design questions",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "actor_type_rows": {
+      "type": "array",
+      "description": "Table with columns: Actor type, How agency manifests, Narrative technique",
+      "items": {
+        "type": "object",
+        "properties": {
+          "actor_type": {
+            "type": "string",
+            "description": "Actor type",
+            "x-source-required": false
+          },
+          "how_agency_manifests": {
+            "type": "string",
+            "description": "How agency manifests",
+            "x-source-required": false
+          },
+          "narrative_technique": {
+            "type": "string",
+            "description": "Narrative technique",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkpoint_rows": {
+      "type": "array",
+      "description": "Table with columns: Checkpoint, Status",
+      "items": {
+        "type": "object",
+        "properties": {
+          "checkpoint": {
+            "type": "string",
+            "description": "Checkpoint",
+            "x-source-required": false
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "topic_rows": {
+      "type": "array",
+      "description": "Table with columns: Topic, File",
+      "items": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "description": "Topic",
+            "x-source-required": false
+          },
+          "file": {
+            "type": "string",
+            "description": "File",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-revision/references/posthumanism-reference.md"
+}

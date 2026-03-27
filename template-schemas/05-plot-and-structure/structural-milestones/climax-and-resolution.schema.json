@@ -1,0 +1,406 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/06-scenes/climax-and-resolution.schema.json",
+  "title": "Grimoire · Climax And Resolution",
+  "description": "Extraction schema for climax-and-resolution.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "story_title": {
+      "type": "string",
+      "description": "Story Title:",
+      "x-source-required": false
+    },
+    "genre_mode": {
+      "type": "string",
+      "description": "Genre & Mode:",
+      "x-source-required": false
+    },
+    "central_conflict": {
+      "type": "string",
+      "description": "Central Conflict:",
+      "x-source-required": false
+    },
+    "thematic_question": {
+      "type": "string",
+      "description": "Thematic Question:",
+      "x-source-required": false
+    },
+    "protagonists_arc": {
+      "type": "string",
+      "description": "Protagonist's Arc:",
+      "x-source-required": false
+    },
+    "story_position": {
+      "type": "string",
+      "description": "Story Position:",
+      "x-source-required": false
+    },
+    "preceding_events": {
+      "type": "string",
+      "description": "Preceding Events:",
+      "x-source-required": false
+    },
+    "stakes_at_maximum": {
+      "type": "string",
+      "description": "Stakes at Maximum:",
+      "x-source-required": false
+    },
+    "time_pressure": {
+      "type": "string",
+      "description": "Time Pressure:",
+      "x-source-required": false
+    },
+    "whowhat_is_the_protagonist_confronting": {
+      "type": "string",
+      "description": "Who/What is the protagonist confronting?",
+      "x-source-required": false
+    },
+    "where_does_this_happen": {
+      "type": "string",
+      "description": "Where does this happen?",
+      "x-source-required": false
+    },
+    "how_does_protagonist_enter_this_confrontation": {
+      "type": "string",
+      "description": "How does protagonist enter this confrontation?",
+      "x-source-required": false
+    },
+    "protagonists_goal_in_climax": {
+      "type": "string",
+      "description": "Protagonist's goal in climax:",
+      "x-source-required": false
+    },
+    "opponents_goal": {
+      "type": "string",
+      "description": "Opponent's goal:",
+      "x-source-required": false
+    },
+    "what_growthchange_does_the_climax_test": {
+      "type": "string",
+      "description": "What growth/change does the climax test?",
+      "x-source-required": false
+    },
+    "the_defining_choice": {
+      "type": "string",
+      "description": "The Defining Choice:",
+      "x-source-required": false
+    },
+    "what_makes_the_choice_hard": {
+      "type": "string",
+      "description": "What makes the choice hard?",
+      "x-source-required": false
+    },
+    "what_does_the_choice_cost": {
+      "type": "string",
+      "description": "What does the choice cost?",
+      "x-source-required": false
+    },
+    "action_sequence": {
+      "type": "string",
+      "description": "Action sequence:",
+      "x-source-required": false
+    },
+    "dialogue_strategy": {
+      "type": "string",
+      "description": "Dialogue Strategy:",
+      "x-source-required": false
+    },
+    "emotional_crescendo": {
+      "type": "string",
+      "description": "Emotional Crescendo:",
+      "x-source-required": false
+    },
+    "sensory_anchors": {
+      "type": "string",
+      "description": "Sensory Anchors:",
+      "x-source-required": false
+    },
+    "internal_monologue": {
+      "type": "string",
+      "description": "Internal Monologue:",
+      "x-source-required": false
+    },
+    "climax_resolution": {
+      "type": "string",
+      "description": "Climax resolution:",
+      "x-source-required": false
+    },
+    "external_resolution": {
+      "type": "string",
+      "description": "External resolution:",
+      "x-source-required": false
+    },
+    "internal_resolution": {
+      "type": "string",
+      "description": "Internal resolution:",
+      "x-source-required": false
+    },
+    "thematic_resolution": {
+      "type": "string",
+      "description": "Thematic resolution:",
+      "x-source-required": false
+    },
+    "how_much_story_after_climax": {
+      "type": "string",
+      "description": "How much story after climax?",
+      "x-source-required": false
+    },
+    "aplot_main_storyline": {
+      "type": "string",
+      "description": "A-Plot (main storyline):",
+      "x-source-required": false
+    },
+    "bplot_romantic_subplot_secondary_quest_etc": {
+      "type": "string",
+      "description": "B-Plot (romantic subplot, secondary quest, etc.):",
+      "x-source-required": false
+    },
+    "cplot_tertiary_thread": {
+      "type": "string",
+      "description": "C-Plot (tertiary thread):",
+      "x-source-required": false
+    },
+    "other_threads": {
+      "type": "string",
+      "description": "Other threads:",
+      "x-source-required": false
+    },
+    "protagonist": {
+      "type": "string",
+      "description": "Protagonist:",
+      "x-source-required": false
+    },
+    "antagonist": {
+      "type": "string",
+      "description": "Antagonist:",
+      "x-source-required": false
+    },
+    "key_supporting_characters": {
+      "type": "string",
+      "description": "Key Supporting Characters:",
+      "x-source-required": false
+    },
+    "primary_relationship_romance_friendship_family_etc": {
+      "type": "string",
+      "description": "Primary relationship (romance, friendship, family, etc.):",
+      "x-source-required": false
+    },
+    "secondary_relationships": {
+      "type": "string",
+      "description": "Secondary relationships:",
+      "x-source-required": false
+    },
+    "social_position": {
+      "type": "string",
+      "description": "Social position:",
+      "x-source-required": false
+    },
+    "opening_image_recap": {
+      "type": "string",
+      "description": "Opening image recap:",
+      "x-source-required": false
+    },
+    "final_image": {
+      "type": "string",
+      "description": "Final image:",
+      "x-source-required": false
+    },
+    "symbolic_weight": {
+      "type": "string",
+      "description": "Symbolic weight:",
+      "x-source-required": false
+    },
+    "emotional_tone": {
+      "type": "string",
+      "description": "Emotional tone:",
+      "x-source-required": false
+    },
+    "your_thematic_question_from_earlier": {
+      "type": "string",
+      "description": "Your thematic question (from earlier):",
+      "x-source-required": false
+    },
+    "your_storys_answer": {
+      "type": "string",
+      "description": "Your story's answer:",
+      "x-source-required": false
+    },
+    "how_does_the_ending_dramatize_this_answer": {
+      "type": "string",
+      "description": "How does the ending dramatize this answer?",
+      "x-source-required": false
+    },
+    "resonance": {
+      "type": "string",
+      "description": "Resonance:",
+      "x-source-required": false
+    },
+    "overall_story_tone": {
+      "type": "string",
+      "description": "Overall story tone:",
+      "x-source-required": false
+    },
+    "ending_tone": {
+      "type": "string",
+      "description": "Ending tone:",
+      "x-source-required": false
+    },
+    "genre_expectations": {
+      "type": "string",
+      "description": "Genre expectations:",
+      "x-source-required": false
+    },
+    "reader_satisfaction_vs_surprise_balance": {
+      "type": "string",
+      "description": "Reader satisfaction vs. surprise balance:",
+      "x-source-required": false
+    },
+    "how_many_pov_characters_need_resolution_scenes": {
+      "type": "string",
+      "description": "How many POV characters need resolution scenes?",
+      "x-source-required": false
+    },
+    "order_of_final_pov_scenes": {
+      "type": "string",
+      "description": "Order of final POV scenes:",
+      "x-source-required": false
+    },
+    "do_perspectives_converge_or_diverge_at_end": {
+      "type": "string",
+      "description": "Do perspectives converge or diverge at end?",
+      "x-source-required": false
+    },
+    "what_resolves_in_this_book": {
+      "type": "string",
+      "description": "What resolves in this book?",
+      "x-source-required": false
+    },
+    "whats_left_open_for_sequels": {
+      "type": "string",
+      "description": "What's left open for sequels?",
+      "x-source-required": false
+    },
+    "how_to_satisfy_readers_while_maintaining_series_tension": {
+      "type": "string",
+      "description": "How to satisfy readers while maintaining series tension?",
+      "x-source-required": false
+    },
+    "if_epilogue_how_much_time_passes": {
+      "type": "string",
+      "description": "If epilogue: how much time passes?",
+      "x-source-required": false
+    },
+    "reason_for_epilogue": {
+      "type": "string",
+      "description": "Reason for epilogue:",
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "**Victory** — Protagonist achieves external goal and internal growth",
+          "**Pyrrhic Victory** — Achieve goal but at devastating cost",
+          "**Bittersweet** — Mixed success/failure; some things gained, others lost",
+          "**Failure** — Protagonist loses (tragedy)",
+          "**Ambiguous** — Unclear if outcome is success or failure (literary)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Does the climax test the protagonist's specific arc transformation?",
+          "Is there a clear defining choice that requires growth?",
+          "Are stakes at their highest (most to lose)?",
+          "Does the outcome feel *earned* by preceding events?",
+          "Have you avoided deus ex machina (unearned savior/solution)?",
+          "Do antagonist/obstacles feel like worthy opposition in this moment?",
+          "Does the external outcome reflect internal transformation?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "**Single resolution scene** — Brief epilogue or final chapter",
+          "**Extended epilogue** — Time jump showing long-term effects (use sparingly)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_4": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "**Mirror** — Similar image but transformed in meaning",
+          "**Inversion** — Opposite image showing change",
+          "**Echo** — Subtle callback that shows growth",
+          "**Completion** — Image begun in opening now completed",
+          "**New horizon** — Different image showing new chapter beginning"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_5": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Yes — labeled separately, likely with time jump",
+          "No — resolution integrates into final chapter"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_6": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Does the climax directly test the protagonist's arc growth?",
+          "Does the outcome feel earned by everything that came before?",
+          "Are all major plot threads resolved (or deliberately left open)?",
+          "Do supporting character arcs have appropriate closure?",
+          "Does the final image echo/mirror the opening image?",
+          "Does the ending answer (or meaningfully complicate) the thematic question?",
+          "Is the emotional tone appropriate to genre and story?",
+          "Does the last line feel like an ending, not a trailing off?",
+          "Have you avoided over-explaining what everything \"means\"?",
+          "Would you feel satisfied if you were the reader?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "05-plot-and-structure/structural-milestones/climax-and-resolution.md"
+}

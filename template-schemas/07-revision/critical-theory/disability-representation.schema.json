@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/08-revision/critical-theory/disability-representation.schema.json",
+  "title": "Grimoire · Disability Representation",
+  "description": "Extraction schema for disability-representation.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "model_rows": {
+      "type": "array",
+      "description": "Table with columns: Model, View of Disability, Narrative Manifestation, Problem",
+      "items": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "Model",
+            "x-source-required": false
+          },
+          "view_of_disability": {
+            "type": "string",
+            "description": "View of Disability",
+            "x-source-required": false
+          },
+          "narrative_manifestation": {
+            "type": "string",
+            "description": "Narrative Manifestation",
+            "x-source-required": false
+          },
+          "problem": {
+            "type": "string",
+            "description": "Problem",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "narrative_prosthesis_avoid_rows": {
+      "type": "array",
+      "description": "Table with columns: Narrative Prosthesis (avoid), Disability as Lived Experience (aim for)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "narrative_prosthesis_avoid": {
+            "type": "string",
+            "description": "Narrative Prosthesis (avoid)",
+            "x-source-required": false
+          },
+          "disability_as_lived_experience_aim_for": {
+            "type": "string",
+            "description": "Disability as Lived Experience (aim for)",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "trope_rows": {
+      "type": "array",
+      "description": "Table with columns: Trope, Description, Why It's Harmful, Repair",
+      "items": {
+        "type": "object",
+        "properties": {
+          "trope": {
+            "type": "string",
+            "description": "Trope",
+            "x-source-required": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "x-source-required": false
+          },
+          "why_its_harmful": {
+            "type": "string",
+            "description": "Why It's Harmful",
+            "x-source-required": false
+          },
+          "repair": {
+            "type": "string",
+            "description": "Repair",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "string",
+      "enum": [],
+      "description": "Single-select from options: ",
+      "x-todo": "verify enum is single-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "07-revision/critical-theory/disability-representation.md"
+}

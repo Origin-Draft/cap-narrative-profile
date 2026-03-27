@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/07-drafting/voice-contract/narrative-voice.schema.json",
+  "title": "Grimoire · Narrative Voice",
+  "description": "Extraction schema for narrative-voice.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "narrator_type": {
+      "type": "string",
+      "description": "Narrator type:",
+      "x-source-required": false
+    },
+    "is_the_narrator_named_or_nameable": {
+      "type": "string",
+      "description": "Is the narrator named or nameable?",
+      "x-source-required": false
+    },
+    "where_is_the_narrator_in_time_relative_to_events": {
+      "type": "string",
+      "description": "Where is the narrator in time relative to events?",
+      "x-source-required": false
+    },
+    "what_does_the_existence_of_the_narration_imply": {
+      "type": "string",
+      "description": "What does the existence of the narration imply?",
+      "x-source-required": false
+    },
+    "how_much_does_the_narrator_know": {
+      "type": "string",
+      "description": "How much does the narrator know?",
+      "x-source-required": false
+    },
+    "where_is_the_narrators_knowledge_suspiciously_convenient": {
+      "type": "string",
+      "description": "Where is the narrator's knowledge suspiciously convenient?",
+      "x-source-required": false
+    },
+    "where_is_the_narrators_knowledge_suspiciously_absent": {
+      "type": "string",
+      "description": "Where is the narrator's knowledge suspiciously absent?",
+      "x-source-required": false
+    },
+    "where_does_your_narrator_fall": {
+      "type": "string",
+      "description": "Where does your narrator fall?",
+      "x-source-required": false
+    },
+    "evidence_the_reader_can_use_to_assess_reliability": {
+      "type": "string",
+      "description": "Evidence the reader can use to assess reliability:",
+      "x-source-required": false
+    },
+    "the_gap_between_narrators_claims_and_story_evidence": {
+      "type": "string",
+      "description": "The gap between narrator's claims and story evidence:",
+      "x-source-required": false
+    },
+    "is_the_unreliability_resolvable": {
+      "type": "string",
+      "description": "Is the unreliability resolvable?",
+      "x-source-required": false
+    },
+    "tonal_attitude_toward_the_reader": {
+      "type": "string",
+      "description": "Tonal attitude toward the reader:",
+      "x-source-required": false
+    },
+    "does_the_narrator_address_the_reader_directly": {
+      "type": "string",
+      "description": "Does the narrator address the reader directly?",
+      "x-source-required": false
+    },
+    "what_does_the_narrator_assume_the_reader_already_knows": {
+      "type": "string",
+      "description": "What does the narrator assume the reader already knows?",
+      "x-source-required": false
+    },
+    "default_tonal_register": {
+      "type": "string",
+      "description": "Default tonal register:",
+      "x-source-required": false
+    },
+    "upper_range_most_heightened_the_narrator_gets": {
+      "type": "string",
+      "description": "Upper range (most heightened the narrator gets):",
+      "x-source-required": false
+    },
+    "lower_range_most_reserved_the_narrator_gets": {
+      "type": "string",
+      "description": "Lower range (most reserved the narrator gets):",
+      "x-source-required": false
+    },
+    "tonal_violations_to_avoid": {
+      "type": "string",
+      "description": "Tonal violations to avoid:",
+      "x-source-required": false
+    },
+    "signals_that_indicate_narrator_is_speaking": {
+      "type": "string",
+      "description": "Signals that indicate NARRATOR is speaking:",
+      "x-source-required": false
+    },
+    "signals_that_indicate_character_thought_free_indirect_discou": {
+      "type": "string",
+      "description": "Signals that indicate CHARACTER THOUGHT (free indirect discourse) is active:",
+      "x-source-required": false
+    },
+    "implied_author_profile": {
+      "type": "string",
+      "description": "Implied author profile:",
+      "x-source-required": false
+    },
+    "does_this_match_your_intention": {
+      "type": "string",
+      "description": "Does this match your intention?",
+      "x-source-required": false
+    },
+    "narrative_moment_rows": {
+      "type": "array",
+      "description": "Table with columns: Narrative Moment, Tonal Shift, Example Marker",
+      "items": {
+        "type": "object",
+        "properties": {
+          "narrative_moment": {
+            "type": "string",
+            "description": "Narrative Moment",
+            "x-source-required": false
+          },
+          "tonal_shift": {
+            "type": "string",
+            "description": "Tonal Shift",
+            "x-source-required": false
+          },
+          "example_marker": {
+            "type": "string",
+            "description": "Example Marker",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "character_rows": {
+      "type": "array",
+      "description": "Table with columns: Character, Their FID markers, Example",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character": {
+            "type": "string",
+            "description": "Character",
+            "x-source-required": false
+          },
+          "their_fid_markers": {
+            "type": "string",
+            "description": "Their FID markers",
+            "x-source-required": false
+          },
+          "example": {
+            "type": "string",
+            "description": "Example",
+            "x-source-required": false
+          }
+        }
+      },
+      "x-source-required": false
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "06-drafting/voice-contract/narrative-voice.md"
+}

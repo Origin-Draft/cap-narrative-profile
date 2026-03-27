@@ -94,38 +94,38 @@ fn validate_all_catalogs(root: &Path) -> Vec<String> {
 
     // Theory catalogs — Genette, Burke, Booth/Hutcheon, Lakoff/Johnson, Trauma theorists, Murray/Lamott
     validate_list!("05-plot-and-structure/references/narrative-time-modes.yaml", NarrativeTimeModeEntry);
-    validate_list!("07-drafting/references/irony-types.yaml", IronyTypeCatalogEntry);
-    validate_list!("07-drafting/references/comic-modes.yaml", ComicModeCatalogEntry);
-    validate_list!("07-drafting/references/metaphor-types.yaml", MetaphorTypeCatalogEntry);
-    validate_list!("07-drafting/references/trauma-modes.yaml", TraumaModeEntry);
-    validate_list!("07-drafting/references/pentad-elements.yaml", PentadElementEntry);
-    validate_list!("08-revision/references/revision-passes.yaml", RevisionPassEntry);
+    validate_list!("theory/references/irony-types.yaml", IronyTypeCatalogEntry);
+    validate_list!("theory/references/comic-modes.yaml", ComicModeCatalogEntry);
+    validate_list!("theory/references/metaphor-types.yaml", MetaphorTypeCatalogEntry);
+    validate_list!("theory/references/trauma-modes.yaml", TraumaModeEntry);
+    validate_list!("theory/references/pentad-elements.yaml", PentadElementEntry);
+    validate_list!("07-revision/references/revision-passes.yaml", RevisionPassEntry);
 
     // Theory catalogs — Austin/Searle, Genette/Bal/Gardner/Cohn, Bloom, Freud/Lacan/Kristeva, Said/Spivak/Bhabha, White/Frye
-    validate_list!("07-drafting/references/speech-act-types.yaml", SpeechActEntry);
-    validate_list!("07-drafting/references/focalization-modes.yaml", FocalizationModeEntry);
+    validate_list!("theory/references/speech-act-types.yaml", SpeechActEntry);
+    validate_list!("theory/references/focalization-modes.yaml", FocalizationModeEntry);
     validate_list!("01-concept/references/intertextual-relations.yaml", IntertextualRelationEntry);
-    validate_list!("07-drafting/references/psychoanalytic-mechanisms.yaml", PsychoanalyticMechanismEntry);
-    validate_list!("08-revision/references/postcolonial-modes.yaml", PostcolonialModeEntry);
+    validate_list!("theory/references/psychoanalytic-mechanisms.yaml", PsychoanalyticMechanismEntry);
+    validate_list!("07-revision/references/postcolonial-modes.yaml", PostcolonialModeEntry);
     validate_list!("05-plot-and-structure/references/emplotment-types.yaml", EmplotmentTypeEntry);
 
     // Theory catalogs — Phase V gap-fill (21 new catalogs)
-    validate_list!("07-drafting/references/image-schemas.yaml", ImageSchemaEntry);
-    validate_list!("07-drafting/references/subtext-modes.yaml", SubtextModeEntry);
-    validate_list!("07-drafting/references/adaptation-modes.yaml", AdaptationModeEntry);
-    validate_list!("07-drafting/references/autofiction-modes.yaml", AutofictionModeEntry);
-    validate_list!("07-drafting/references/experimental-narration-modes.yaml", ExperimentalNarrationEntry);
-    validate_list!("07-drafting/references/philosophy-fiction-modes.yaml", PhilosophyFictionEntry);
-    validate_list!("07-drafting/references/verse-prosody.yaml", VerseProsodyEntry);
-    validate_list!("08-revision/references/ecocriticism-modes.yaml", EcocriticalModeEntry);
-    validate_list!("08-revision/references/feminist-narrative-types.yaml", FeministNarrativeEntry);
-    validate_list!("08-revision/references/posthuman-modes.yaml", PosthumanModeEntry);
-    validate_list!("08-revision/references/queer-narrative-modes.yaml", QueerNarrativeModeEntry);
-    validate_list!("08-revision/references/disability-rep-modes.yaml", DisabilityRepModeEntry);
-    validate_list!("08-revision/references/marxist-narrative-modes.yaml", MarxistNarrativeModeEntry);
-    validate_list!("08-revision/references/indigenous-narrative-modes.yaml", IndigenousNarrativeModeEntry);
-    validate_list!("08-revision/references/affect-modes.yaml", AffectModeEntry);
-    validate_list!("08-revision/references/narrative-ethics-modes.yaml", NarrativeEthicsModeEntry);
+    validate_list!("theory/references/image-schemas.yaml", ImageSchemaEntry);
+    validate_list!("theory/references/subtext-modes.yaml", SubtextModeEntry);
+    validate_list!("theory/references/adaptation-modes.yaml", AdaptationModeEntry);
+    validate_list!("theory/references/autofiction-modes.yaml", AutofictionModeEntry);
+    validate_list!("theory/references/experimental-narration-modes.yaml", ExperimentalNarrationEntry);
+    validate_list!("theory/references/philosophy-fiction-modes.yaml", PhilosophyFictionEntry);
+    validate_list!("theory/references/verse-prosody.yaml", VerseProsodyEntry);
+    validate_list!("07-revision/references/ecocriticism-modes.yaml", EcocriticalModeEntry);
+    validate_list!("07-revision/references/feminist-narrative-types.yaml", FeministNarrativeEntry);
+    validate_list!("07-revision/references/posthuman-modes.yaml", PosthumanModeEntry);
+    validate_list!("07-revision/references/queer-narrative-modes.yaml", QueerNarrativeModeEntry);
+    validate_list!("07-revision/references/disability-rep-modes.yaml", DisabilityRepModeEntry);
+    validate_list!("07-revision/references/marxist-narrative-modes.yaml", MarxistNarrativeModeEntry);
+    validate_list!("07-revision/references/indigenous-narrative-modes.yaml", IndigenousNarrativeModeEntry);
+    validate_list!("07-revision/references/affect-modes.yaml", AffectModeEntry);
+    validate_list!("07-revision/references/narrative-ethics-modes.yaml", NarrativeEthicsModeEntry);
     validate_list!("references/cognitive-narrative-modes.yaml", CognitiveNarrativeModeEntry);
     validate_list!("references/signifying-modes.yaml", SignifyingModeEntry);
     validate_list!("04-world-building/references/spatial-modes.yaml", SpatialModeEntry);
@@ -133,10 +133,10 @@ fn validate_all_catalogs(root: &Path) -> Vec<String> {
     validate_list!("05-plot-and-structure/references/seriality-types.yaml", SerialityTypeEntry);
 
     // Theory catalogs — Phase V round-2 (6 new catalogs)
-    validate_list!("07-drafting/references/translation-modes.yaml", TranslationModeEntry);
-    validate_list!("07-drafting/references/graphic-narrative-modes.yaml", GraphicNarrativeModeEntry);
-    validate_list!("07-drafting/references/ya-narrative-modes.yaml", YaNarrativeModeEntry);
-    validate_list!("09-polish-and-publish/references/paratext-zones.yaml", ParatextZoneEntry);
+    validate_list!("theory/references/translation-modes.yaml", TranslationModeEntry);
+    validate_list!("theory/references/graphic-narrative-modes.yaml", GraphicNarrativeModeEntry);
+    validate_list!("theory/references/ya-narrative-modes.yaml", YaNarrativeModeEntry);
+    validate_list!("08-polish-and-publish/references/paratext-zones.yaml", ParatextZoneEntry);
     validate_list!("references/semio-linguistic-functions.yaml", SemioLinguisticFunctionEntry);
     validate_list!("01-concept/references/genre-reading-modes.yaml", GenreReadingModeEntry);
 

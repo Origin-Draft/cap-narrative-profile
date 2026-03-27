@@ -1,0 +1,280 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grimoire:schemas/06-scenes/scene-sequence-planner.schema.json",
+  "title": "Grimoire · Scene Sequence Planner",
+  "description": "Extraction schema for scene-sequence-planner.md. Fields map to **Label:** fill-ins, tables, and checkbox groups in the template. Mark fields with x-source-required: true when the value should cite a source passage.",
+  "type": "object",
+  "properties": {
+    "_source_text": {
+      "$ref": "grimoire:base#/$defs/sourceTextMeta",
+      "description": "Metadata about the source text being analyzed (fill in when using this template for book analysis).",
+      "x-analysis-only": true
+    },
+    "sequence_numbername": {
+      "type": "string",
+      "description": "Sequence Number/Name:",
+      "x-source-required": false
+    },
+    "story_position": {
+      "type": "string",
+      "description": "Story Position:",
+      "x-source-required": false
+    },
+    "sequence_function": {
+      "type": "string",
+      "description": "Sequence Function:",
+      "x-source-required": false
+    },
+    "central_question": {
+      "type": "string",
+      "description": "Central Question:",
+      "x-source-required": false
+    },
+    "tension_level": {
+      "type": "string",
+      "description": "Tension Level:",
+      "x-source-required": false
+    },
+    "sequence_arc_pattern": {
+      "type": "string",
+      "description": "Sequence Arc Pattern:",
+      "x-source-required": false
+    },
+    "sequence_climax": {
+      "type": "string",
+      "description": "Sequence Climax:",
+      "x-source-required": false
+    },
+    "scene_idtitle": {
+      "type": "string",
+      "description": "Scene ID/Title:",
+      "x-source-required": false
+    },
+    "key_function_in_sequence": {
+      "type": "string",
+      "description": "Key Function in Sequence:",
+      "x-source-required": false
+    },
+    "tension_escalation_check": {
+      "type": "string",
+      "description": "Tension Escalation Check:",
+      "x-source-required": false
+    },
+    "causality_chain": {
+      "type": "string",
+      "description": "Causality Chain:",
+      "x-source-required": false
+    },
+    "subplot_integration": {
+      "type": "string",
+      "description": "Subplot Integration:",
+      "x-source-required": false
+    },
+    "momentum_assessment": {
+      "type": "string",
+      "description": "Momentum Assessment:",
+      "x-source-required": false
+    },
+    "sequence_climax_details": {
+      "type": "string",
+      "description": "Sequence Climax Details:",
+      "x-source-required": false
+    },
+    "what_gets_resolved": {
+      "type": "string",
+      "description": "What Gets Resolved:",
+      "x-source-required": false
+    },
+    "what_gets_opened": {
+      "type": "string",
+      "description": "What Gets Opened:",
+      "x-source-required": false
+    },
+    "emotional_arc": {
+      "type": "string",
+      "description": "Emotional Arc:",
+      "x-source-required": false
+    },
+    "reader_satisfaction": {
+      "type": "string",
+      "description": "Reader Satisfaction:",
+      "x-source-required": false
+    },
+    "transition_into_this_sequence": {
+      "type": "string",
+      "description": "Transition Into This Sequence:",
+      "x-source-required": false
+    },
+    "transition_out_of_this_sequence": {
+      "type": "string",
+      "description": "Transition Out of This Sequence:",
+      "x-source-required": false
+    },
+    "time_gaps": {
+      "type": "string",
+      "description": "Time Gaps:",
+      "x-source-required": false
+    },
+    "tonal_shifts": {
+      "type": "string",
+      "description": "Tonal Shifts:",
+      "x-source-required": false
+    },
+    "sketch_your_sequence": {
+      "type": "string",
+      "description": "Sketch Your Sequence:",
+      "x-source-required": false
+    },
+    "checkboxes_1": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Setup/establishment (introducing elements)",
+          "Complication (raising stakes, adding layers)",
+          "Escalation (intensifying conflict)",
+          "Revelation (major information revealed)",
+          "Climax (major turning point)",
+          "Resolution (wrapping threads)",
+          "Transition (bridging between major acts/movements)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_2": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Low (breather, setup, recovery)",
+          "Moderate (steady development)",
+          "High (crisis building)",
+          "Peak (major climax/revelation)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "**Steady Build** (gradual escalation to peak at end)",
+          "**Peaks and Valleys** (oscillating tension with overall upward trend)",
+          "**Plateau** (sustained tension throughout)",
+          "**Spike** (sudden peak mid-sequence then release)",
+          "**Descent** (starts high, gradually releases—rare, used post-climax)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_4": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "**Anchor** (establishes sequence's situation/problem)",
+          "**Escalation** (raises stakes from previous scene)",
+          "**Revelation** (new information complicates matters)",
+          "**Climax** (sequence's highest tension point)",
+          "**Resolution** (answers sequence question, transitions out)"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_5": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Anchor",
+          "Escalation",
+          "Revelation",
+          "Climax",
+          "Resolution"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_6": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Anchor",
+          "Escalation",
+          "Revelation",
+          "Climax",
+          "Resolution"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_7": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Anchor",
+          "Escalation",
+          "Revelation",
+          "Climax",
+          "Resolution"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_8": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Anchor",
+          "Escalation",
+          "Revelation",
+          "Climax",
+          "Resolution"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "checkboxes_9": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Does each scene clearly cause the next scene?",
+          "Does tension generally build toward a sequence climax?",
+          "Does the sequence answer its central question while creating new ones?",
+          "Is there variety in scene type, setting, and pace?",
+          "Does the sequence end on a hook that propels into the next sequence?",
+          "Does this sequence have its own mini-arc (beginning, middle, end)?"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Multi-select checkbox group",
+      "x-todo": "verify options and whether single/multi-select"
+    },
+    "_annotations": {
+      "$ref": "grimoire:base#/$defs/annotations",
+      "description": "Extracted <!-- key:value --> annotation tags."
+    }
+  },
+  "x-grimoire-template": "05-plot-and-structure/scene-design/scene-sequence-planner.md"
+}
